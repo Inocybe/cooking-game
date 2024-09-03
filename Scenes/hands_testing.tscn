@@ -1,0 +1,31 @@
+[gd_scene load_steps=7 format=3 uid="uid://bbyk23usm68c4"]
+
+[sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_mlyax"]
+
+[sub_resource type="Sky" id="Sky_2gfam"]
+sky_material = SubResource("ProceduralSkyMaterial_mlyax")
+
+[sub_resource type="Environment" id="Environment_24j70"]
+background_mode = 2
+sky = SubResource("Sky_2gfam")
+
+[sub_resource type="Compositor" id="Compositor_po1ta"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_bt04f"]
+
+[sub_resource type="PlaneMesh" id="PlaneMesh_hu3k0"]
+
+[node name="testing" type="Node3D"]
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = SubResource("Environment_24j70")
+compositor = SubResource("Compositor_po1ta")
+
+[node name="Area3D" type="Area3D" parent="."]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Area3D"]
+transform = Transform3D(1, 0, 0, 0, 0.01, 0, 0, 0, 1, 0, 0, 0)
+shape = SubResource("BoxShape3D_bt04f")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+mesh = SubResource("PlaneMesh_hu3k0")
