@@ -1,0 +1,15 @@
+[gd_scene load_steps=3 format=3 uid="uid://clglec4gcglfa"]
+
+[ext_resource type="PackedScene" uid="uid://bb7wcsehh6dhn" path="res://Assets/fryer.glb" id="1_tf6hu"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_5tby4"]
+
+[node name="Node3D" type="Node3D"]
+
+[node name="StaticBody3D" type="StaticBody3D" parent="."]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="StaticBody3D"]
+shape = SubResource("BoxShape3D_5tby4")
+
+[node name="fryer" parent="." instance=ExtResource("1_tf6hu")]
+transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, 0, 0, 0)
