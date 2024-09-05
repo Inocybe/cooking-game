@@ -1,0 +1,6 @@
+[gd_scene load_steps=2 format=3 uid="uid://bet1ywtqx12mm"]
+
+[ext_resource type="Script" path="res://Scenes/player/hands.gd" id="1_faxtk"]
+
+[node name="hands" type="Node3D"]
+script = ExtResource("1_faxtk")
