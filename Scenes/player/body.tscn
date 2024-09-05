@@ -1,0 +1,10 @@
+[gd_scene load_steps=3 format=3 uid="uid://cuo8485r4d6ys"]
+
+[ext_resource type="PackedScene" uid="uid://bet1ywtqx12mm" path="res://Scenes/player/hands.tscn" id="1_rwlw1"]
+[ext_resource type="PackedScene" uid="uid://s3683o2i6fcy" path="res://Scenes/player/head.tscn" id="2_rknji"]
+
+[node name="body" type="Node3D"]
+
+[node name="hands" parent="." instance=ExtResource("1_rwlw1")]
+
+[node name="head" parent="." instance=ExtResource("2_rknji")]
