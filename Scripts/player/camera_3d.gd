@@ -1,9 +1,9 @@
 extends Camera3D
 
-
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta: float) -> void:
-	pass
+	
+func _input(event: InputEvent) -> void:
+	if event.is_action_pressed("click"):
+		shoot_ray()
 	
 	
 func shoot_ray() -> void:
@@ -15,4 +15,6 @@ func shoot_ray() -> void:
 	var ray_query = PhysicsRayQueryParameters3D.new()
 	ray_query.from = from
 	ray_query.to = to
+	var raycast_result = space.intersect_ray(ray_query)
+	print(raycast_result)
 	
