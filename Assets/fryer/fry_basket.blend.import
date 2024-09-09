@@ -4,12 +4,12 @@ importer="scene"
 importer_version=1
 type="PackedScene"
 uid="uid://dqsajmjqbi2f3"
-path="res://.godot/imported/fry_basket.blend-06d67f716f7f72434b8fb8e62b4f7d66.scn"
+path="res://.godot/imported/fry_basket.blend-833e0cd697e39e85f4374279039fb358.scn"
 
 [deps]
 
-source_file="res://Assets/fry_basket.blend"
-dest_files=["res://.godot/imported/fry_basket.blend-06d67f716f7f72434b8fb8e62b4f7d66.scn"]
+source_file="res://Assets/fryer/fry_basket.blend"
+dest_files=["res://.godot/imported/fry_basket.blend-833e0cd697e39e85f4374279039fb358.scn"]
 
 [params]
 
