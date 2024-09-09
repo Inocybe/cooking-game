@@ -1,6 +1,4 @@
-[gd_scene load_steps=8 format=3 uid="uid://bbyk23usm68c4"]
-
-[ext_resource type="PackedScene" uid="uid://cuo8485r4d6ys" path="res://Scenes/player/body.tscn" id="1_gghpf"]
+[gd_scene load_steps=7 format=3 uid="uid://bbyk23usm68c4"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_mlyax"]
 
@@ -32,5 +30,3 @@ shape = SubResource("BoxShape3D_bt04f")
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="."]
 mesh = SubResource("PlaneMesh_hu3k0")
-
-[node name="body" parent="." instance=ExtResource("1_gghpf")]
