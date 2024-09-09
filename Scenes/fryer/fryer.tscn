@@ -1,29 +1,12 @@
-[gd_scene load_steps=5 format=3 uid="uid://bmfn7nnstf5ve"]
+[gd_scene load_steps=3 format=3 uid="uid://bmfn7nnstf5ve"]
 
-[ext_resource type="PackedScene" uid="uid://dqsajmjqbi2f3" path="res://Assets/fry_basket.blend" id="1_ocgje"]
-[ext_resource type="PackedScene" uid="uid://c8o0ronwu3cdr" path="res://Assets/fryer.blend" id="2_cxv5f"]
-
-[sub_resource type="BoxShape3D" id="BoxShape3D_qcl7k"]
-size = Vector3(1.47949, 1, 1.48291)
-
-[sub_resource type="BoxShape3D" id="BoxShape3D_5ta12"]
+[ext_resource type="PackedScene" uid="uid://cmpwdrrts4nhj" path="res://Assets/fryer/fryer.glb" id="1_gpfiy"]
+[ext_resource type="PackedScene" uid="uid://bk1kn3qmaqm72" path="res://Assets/fryer/fry_basket.glb" id="2_qai1e"]
 
 [node name="Fryer" type="Node3D"]
+transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, 0, 0.5, 0)
 
-[node name="fry_basket" parent="." instance=ExtResource("1_ocgje")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2, 0)
+[node name="fryer" parent="." instance=ExtResource("1_gpfiy")]
 
-[node name="StaticBody3D" type="StaticBody3D" parent="fry_basket"]
-
-[node name="CollisionShape3D" type="CollisionShape3D" parent="fry_basket/StaticBody3D"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.00439453, 0, -0.0065918)
-shape = SubResource("BoxShape3D_qcl7k")
-
-[node name="fryer" parent="." instance=ExtResource("2_cxv5f")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
-
-[node name="StaticBody3D" type="StaticBody3D" parent="fryer"]
-
-[node name="CollisionShape3D" type="CollisionShape3D" parent="fryer/StaticBody3D"]
-transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, 0, 0, 0)
-shape = SubResource("BoxShape3D_5ta12")
+[node name="fry_basket" parent="." instance=ExtResource("2_qai1e")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.32599, 0)
