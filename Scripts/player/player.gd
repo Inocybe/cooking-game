@@ -8,6 +8,8 @@ const SENSITIVITY = 0.005
 @onready var head: Node3D = $Head
 @onready var camera: Camera3D = $Head/Camera3D
 
+var game_manager = null
+
 var is_right_mouse_down := false
 var prev_mouse_position := Vector2(0, 0)
 
@@ -20,7 +22,7 @@ func _input(event: InputEvent) -> void:
 		
 	if event.is_action_released("click_right"):
 		is_right_mouse_down = false
-	
+
 
 
 func _unhandled_input(event: InputEvent) -> void:
@@ -35,6 +37,7 @@ func _unhandled_input(event: InputEvent) -> void:
 			camera.rotation.x = clamp(camera.rotation.x, deg_to_rad(-40), deg_to_rad(60))
 		
 		prev_mouse_position = mouse_position
+
 
 
 func _physics_process(delta: float) -> void:

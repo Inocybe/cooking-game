@@ -1,6 +1,7 @@
-[gd_scene load_steps=7 format=3 uid="uid://bbyk23usm68c4"]
+[gd_scene load_steps=8 format=3 uid="uid://bbyk23usm68c4"]
 
-[ext_resource type="PackedScene" uid="uid://5s3oxlpup0wy" path="res://Scenes/player/player.tscn" id="1_6ep18"]
+[ext_resource type="PackedScene" uid="uid://jj8yuf0syk57" path="res://Scenes/managers/game_manager.tscn" id="1_l574i"]
+[ext_resource type="PackedScene" uid="uid://bmfn7nnstf5ve" path="res://Scenes/fryer/fryer.tscn" id="2_ll0v7"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_mlyax"]
 
@@ -18,6 +19,8 @@ albedo_color = Color(0, 1, 0.262745, 1)
 
 [node name="testing" type="Node3D"]
 
+[node name="GameManager" parent="." instance=ExtResource("1_l574i")]
+
 [node name="WorldEnvironment" type="WorldEnvironment" parent="."]
 environment = SubResource("Environment_24j70")
 compositor = SubResource("Compositor_po1ta")
@@ -28,5 +31,5 @@ use_collision = true
 size = Vector3(11, 1, 11)
 material = SubResource("StandardMaterial3D_5nbhq")
 
-[node name="Player" parent="." instance=ExtResource("1_6ep18")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1, 1, 0)
+[node name="Fryer" parent="." instance=ExtResource("2_ll0v7")]
+transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, 4, 0.5, 0)

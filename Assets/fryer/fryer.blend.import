@@ -3,13 +3,8 @@
 importer="scene"
 importer_version=1
 type="PackedScene"
-<<<<<<< HEAD:Assets/fryer.blend.import
-uid="uid://bnidtnrl6nq6q"
-path="res://.godot/imported/fryer.blend-69672a1d2a88f5e5aeee6a8653c15566.scn"
-=======
-uid="uid://c8o0ronwu3cdr"
+uid="uid://hk4tw1ihmdyx"
 path="res://.godot/imported/fryer.blend-6aababa858f99d8bbae178cfde6176f7.scn"
->>>>>>> main:Assets/fryer/fryer.blend.import
 
 [deps]
 

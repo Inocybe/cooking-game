@@ -1,5 +1,6 @@
 extends Camera3D
 
+signal mouse_raycast(raycast_result)
 	
 func _input(event: InputEvent) -> void:
 	if event.is_action_pressed("click"):
@@ -16,5 +17,5 @@ func shoot_ray() -> void:
 	ray_query.from = from
 	ray_query.to = to
 	var raycast_result = space.intersect_ray(ray_query)
-	print(raycast_result)
+	emit_signal("mouse_raycast", raycast_result)
 	
