@@ -5,7 +5,6 @@
 [ext_resource type="PackedScene" uid="uid://bk1kn3qmaqm72" path="res://Assets/fryer/fry_basket.glb" id="2_qai1e"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_rwpte"]
-size = Vector3(1, 0.620605, 1)
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_rnehe"]
 size = Vector3(1.46765, 0.932495, 1.44812)

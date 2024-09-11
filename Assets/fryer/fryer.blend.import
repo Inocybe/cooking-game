@@ -4,12 +4,11 @@ importer="scene"
 importer_version=1
 type="PackedScene"
 uid="uid://hk4tw1ihmdyx"
-path="res://.godot/imported/fryer.blend-6aababa858f99d8bbae178cfde6176f7.scn"
+valid=false
 
 [deps]
 
 source_file="res://Assets/fryer/fryer.blend"
-dest_files=["res://.godot/imported/fryer.blend-6aababa858f99d8bbae178cfde6176f7.scn"]
 
 [params]
 

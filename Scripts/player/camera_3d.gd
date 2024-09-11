@@ -1,6 +1,6 @@
 extends Camera3D
 
-signal mouse_raycast(raycast_result)
+signal mouse_raycast(raycast_result : Array[Dictionary])
 	
 func _input(event: InputEvent) -> void:
 	if event.is_action_pressed("click"):
@@ -9,7 +9,7 @@ func _input(event: InputEvent) -> void:
 	
 func shoot_ray() -> void:
 	var mouse_position = get_viewport().get_mouse_position()
-	var ray_length = 1000
+	var ray_length = 2500
 	var from = project_ray_origin(mouse_position)
 	var to = from + project_local_ray_normal(mouse_position) * ray_length
 	var space = get_world_3d().direct_space_state
