@@ -20,6 +20,7 @@ func instantate_player() -> void:
 	player.camera.connect("mouse_raycast", handle_interaction)
 
 
+
 func handle_interaction(raycast_result) -> void:
 	if raycast_result and raycast_result.collider.is_in_group("interactable"):
 		selected_object = raycast_result.collider
@@ -29,4 +30,6 @@ func handle_interaction(raycast_result) -> void:
 			selected_object = null
 	else:
 		selected_object = null
+		
+	print(raycast_result)
 		
