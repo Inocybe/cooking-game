@@ -18,7 +18,7 @@ script = ExtResource("1_hoxw8")
 lerp_speed = 10.0
 max_height = 1.35
 min_height = 0.67
-sensitivity = 0.001
+sensitivity = 0.05
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Fry Basket"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.00384521, 0.00775146, 0.0136108)
