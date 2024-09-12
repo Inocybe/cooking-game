@@ -17,11 +17,11 @@ func instantate_player() -> void:
 	player = PLAYER_SCENE.instantiate()
 	add_child(player)
 	player.game_manager = self
-	player.camera.connect("mouse_raycast", handle_interaction)
+	player.camera.mouse_raycast.connect(handle_interaction)
 
 
 
-func handle_interaction(raycast_result) -> void:
+func handle_interaction(raycast_result: Dictionary) -> void:
 	if raycast_result and raycast_result.collider.is_in_group("interactable"):
 		selected_object = raycast_result.collider
 		if selected_object.has_method("on_interact"):

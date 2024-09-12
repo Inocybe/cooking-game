@@ -4,7 +4,7 @@ extends Camera3D
 var should_raycast: bool = false
 
 
-signal mouse_raycast(raycast_result : Array[Dictionary])
+signal mouse_raycast(raycast_result : Dictionary)
 
 
 func _input(event: InputEvent) -> void:
@@ -25,5 +25,5 @@ func shoot_ray() -> void:
 	var to: Vector3 = from + project_ray_normal(mouse_position) * ray_length
 	var space = get_world_3d().direct_space_state
 	var ray_query = PhysicsRayQueryParameters3D.create(from, to)
-	var raycast_result = space.intersect_ray(ray_query)
-	emit_signal("mouse_raycast", raycast_result)
+	var raycast_result: Dictionary = space.intersect_ray(ray_query)
+	mouse_raycast.emit(raycast_result)
