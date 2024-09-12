@@ -4,28 +4,28 @@
 [ext_resource type="Script" path="res://Scripts/Cookwear/fryer.gd" id="1_hoxw8"]
 [ext_resource type="PackedScene" uid="uid://bk1kn3qmaqm72" path="res://Assets/fryer/fry_basket.glb" id="2_qai1e"]
 
-[sub_resource type="BoxShape3D" id="BoxShape3D_rwpte"]
-
 [sub_resource type="BoxShape3D" id="BoxShape3D_rnehe"]
 size = Vector3(1.46765, 0.932495, 1.44812)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_rwpte"]
 
 [node name="Fryer" type="Node3D"]
 transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, 0, 0.5, 0)
 script = ExtResource("1_hoxw8")
 
-[node name="fryer" parent="." instance=ExtResource("1_gpfiy")]
+[node name="Fry Basket" type="RigidBody3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.32599, 0)
 
-[node name="StaticBody3D" type="StaticBody3D" parent="fryer"]
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Fry Basket"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.00384521, 0.00775146, 0.0136108)
+shape = SubResource("BoxShape3D_rnehe")
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="fryer/StaticBody3D"]
+[node name="Fry Basket Model" parent="Fry Basket" instance=ExtResource("2_qai1e")]
+
+[node name="Fryer" type="StaticBody3D" parent="."]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Fryer"]
 transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, 0, 0, 0)
 shape = SubResource("BoxShape3D_rwpte")
 
-[node name="fry_basket" parent="." instance=ExtResource("2_qai1e")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.32599, 0)
-
-[node name="StaticBody3D" type="RigidBody3D" parent="fry_basket"]
-
-[node name="CollisionShape3D" type="CollisionShape3D" parent="fry_basket/StaticBody3D"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.00384521, 0.00775146, 0.0136108)
-shape = SubResource("BoxShape3D_rnehe")
+[node name="Fyer Model" parent="Fryer" instance=ExtResource("1_gpfiy")]

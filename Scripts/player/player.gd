@@ -14,15 +14,12 @@ var is_right_mouse_down := false
 var prev_mouse_position := Vector2(0, 0)
 
 
-
-
 func _input(event: InputEvent) -> void:
 	if event.is_action_pressed("click_right"):
 		is_right_mouse_down = true
 		
 	if event.is_action_released("click_right"):
 		is_right_mouse_down = false
-
 
 
 func _unhandled_input(event: InputEvent) -> void:
@@ -32,12 +29,11 @@ func _unhandled_input(event: InputEvent) -> void:
 		var mouse_delta = mouse_position - prev_mouse_position
 		
 		if is_right_mouse_down:
-			head.rotate_y(-mouse_delta.x * SENSITIVITY)
-			camera.rotate_x(-mouse_delta.y * SENSITIVITY)
-			camera.rotation.x = clamp(camera.rotation.x, deg_to_rad(-40), deg_to_rad(60))
+			rotate_y(-mouse_delta.x * SENSITIVITY)
+			head.rotate_x(-mouse_delta.y * SENSITIVITY)
+			head.rotation.x = clamp(head.rotation.x, deg_to_rad(-40), deg_to_rad(60))
 		
 		prev_mouse_position = mouse_position
-
 
 
 func _physics_process(delta: float) -> void:
