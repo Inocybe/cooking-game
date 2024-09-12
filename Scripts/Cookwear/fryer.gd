@@ -12,6 +12,7 @@ var previous_mouse_position : Vector2
 func _ready() -> void:
 	add_to_group("interactable")
 
+
 func _process(delta: float) -> void:
 	if clicked:
 		handle_holding(delta)

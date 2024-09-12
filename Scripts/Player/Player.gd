@@ -1,8 +1,10 @@
 extends CharacterBody3D
 
 
-const SPEED = 5.0
-const JUMP_VELOCITY = 4.5
+const MAX_SPEED = 5.0
+const ACCELERATION = 20.0
+const AIR_CONTROL = 0.4
+const JUMP_VELOCITY = 3.5
 const SENSITIVITY = 0.005
 
 @onready var head: Node3D = $Head
@@ -24,9 +26,9 @@ func _input(event: InputEvent) -> void:
 
 func _unhandled_input(event: InputEvent) -> void:
 	if event is InputEventMouseMotion:
-		var mouse_position : Vector2 = get_viewport().get_mouse_position()
+		var mouse_position = get_viewport().get_mouse_position()
 		
-		var mouse_delta : Vector2 = mouse_position - prev_mouse_position
+		var mouse_delta = mouse_position - prev_mouse_position
 		
 		if is_right_mouse_down:
 			rotate_y(-mouse_delta.x * SENSITIVITY)
@@ -37,23 +39,29 @@ func _unhandled_input(event: InputEvent) -> void:
 
 
 func _physics_process(delta: float) -> void:
-	# Add the gravity.
-	if not is_on_floor():
-		velocity += get_gravity() * delta
+	velocity += get_gravity() * delta
 
-	# Handle jump.
 	if Input.is_action_just_pressed("jump") and is_on_floor():
 		velocity.y = JUMP_VELOCITY
 
-	# Get the input direction and handle the movement/deceleration.
-	# As good practice, you should replace UI actions with custom gameplay actions.
-	var input_dir := Input.get_vector("left", "right", "forward", "back")
-	var direction := (transform.basis * Vector3(input_dir.x, 0, input_dir.y)).normalized()
-	if direction:
-		velocity.x = direction.x * SPEED
-		velocity.z = direction.z * SPEED
+	var local_dir2d: Vector2 = Input.get_vector("left", "right", "forward", "back")
+	var dir3d: Vector3 = (transform.basis * Vector3(local_dir2d.x, 0, local_dir2d.y)).normalized()
+	
+	var target_vel2d: Vector2
+	if dir3d:
+		target_vel2d = Vector2(dir3d.x, dir3d.z) * MAX_SPEED
 	else:
-		velocity.x = move_toward(velocity.x, 0, SPEED)
-		velocity.z = move_toward(velocity.z, 0, SPEED)
+		target_vel2d = Vector2(0, 0)
+	
+	var traction: float = ACCELERATION
+	if not is_on_floor():
+		traction *= AIR_CONTROL
+	
+	var vel2d = Vector2(velocity.x, velocity.z)
+	
+	vel2d = vel2d.move_toward(target_vel2d, traction * delta)
+	
+	velocity.x = vel2d.x
+	velocity.z = vel2d.y
 
 	move_and_slide()
