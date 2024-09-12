@@ -16,7 +16,7 @@ func instantate_player() -> void:
 	player = PLAYER_SCENE.instantiate()
 	add_child(player)
 	player.game_manager = self
-	player.camera.connect("mouse_raycast", handle_interaction)
+	player.camera.mouse_raycast.connect(handle_interaction)
 
 
 # Kinda hard coded ngl, but basically when mouse up, calls the objects function of not interact
@@ -28,9 +28,8 @@ func _input(event: InputEvent) -> void:
 			selected_object.on_stop_interact()
 		selected_object = null
 
-
-func handle_interaction(raycast_result) -> void:
-	if raycast_result and raycast_result.collider.is_in_group("interactable") and selected_object == null:
+func handle_interaction(raycast_result: Dictionary) -> void:
+	if raycast_result and raycast_result.collider.is_in_group("interactable"):
 		selected_object = raycast_result.collider
 		if selected_object.has_method("on_interact"):
 			selected_object.on_interact()
