@@ -1,7 +1,7 @@
 [gd_scene load_steps=6 format=3 uid="uid://bmfn7nnstf5ve"]
 
 [ext_resource type="PackedScene" uid="uid://cmpwdrrts4nhj" path="res://Assets/fryer/fryer.glb" id="1_gpfiy"]
-[ext_resource type="Script" path="res://Scripts/Cookwear/fryer.gd" id="1_hoxw8"]
+[ext_resource type="Script" path="res://Scripts/Cookwear/Fryer.gd" id="1_hoxw8"]
 [ext_resource type="PackedScene" uid="uid://bk1kn3qmaqm72" path="res://Assets/fryer/fry_basket.glb" id="2_qai1e"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_rnehe"]
