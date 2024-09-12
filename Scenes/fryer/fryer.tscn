@@ -11,18 +11,23 @@ size = Vector3(1.46765, 0.932495, 1.44812)
 
 [node name="Fryer" type="Node3D"]
 transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, 0, 0.5, 0)
-script = ExtResource("1_hoxw8")
 
-[node name="Fry Basket" type="RigidBody3D" parent="."]
+[node name="Fry Basket" type="StaticBody3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.32599, 0)
+script = ExtResource("1_hoxw8")
+lerp_speed = 10.0
+max_height = 1.35
+min_height = 0.67
+sensitivity = 0.001
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Fry Basket"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.00384521, 0.00775146, 0.0136108)
 shape = SubResource("BoxShape3D_rnehe")
 
-[node name="Fry Basket Model" parent="Fry Basket" instance=ExtResource("2_qai1e")]
+[node name="fry_basket" parent="Fry Basket" instance=ExtResource("2_qai1e")]
 
 [node name="Fryer" type="StaticBody3D" parent="."]
+input_ray_pickable = false
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Fryer"]
 transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, 0, 0, 0)

@@ -24,9 +24,9 @@ func _input(event: InputEvent) -> void:
 
 func _unhandled_input(event: InputEvent) -> void:
 	if event is InputEventMouseMotion:
-		var mouse_position = get_viewport().get_mouse_position()
+		var mouse_position : Vector2 = get_viewport().get_mouse_position()
 		
-		var mouse_delta = mouse_position - prev_mouse_position
+		var mouse_delta : Vector2 = mouse_position - prev_mouse_position
 		
 		if is_right_mouse_down:
 			rotate_y(-mouse_delta.x * SENSITIVITY)
@@ -48,7 +48,7 @@ func _physics_process(delta: float) -> void:
 	# Get the input direction and handle the movement/deceleration.
 	# As good practice, you should replace UI actions with custom gameplay actions.
 	var input_dir := Input.get_vector("left", "right", "forward", "back")
-	var direction := (head.transform.basis * Vector3(input_dir.x, 0, input_dir.y)).normalized()
+	var direction := (transform.basis * Vector3(input_dir.x, 0, input_dir.y)).normalized()
 	if direction:
 		velocity.x = direction.x * SPEED
 		velocity.z = direction.z * SPEED
