@@ -16,13 +16,12 @@ size = Vector3(0.524536, 0.178864, 0.182678)
 transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, 0, 0.5, 0)
 
 [node name="Fry Basket" type="StaticBody3D" parent="." groups=["interactable"]]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.32599, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.825579, 0)
 script = ExtResource("1_hoxw8")
 lerp_speed = 0.95
-max_height = 1.35
-min_height = 0.75
+max_height = 0.5
 height_margin = 0.1
-sensitivity = 0.03
+sensitivity = 0.015
 
 [node name="Fry Basket Primary Collision" type="CollisionShape3D" parent="Fry Basket"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.00384521, 0.00775146, 0.0136108)

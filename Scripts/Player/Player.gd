@@ -1,11 +1,11 @@
 extends CharacterBody3D
 
 
-const MAX_SPEED = 5.0
-const ACCELERATION = 20.0
-const AIR_CONTROL = 0.4
-const JUMP_VELOCITY = 3.5
-const SENSITIVITY = 0.005
+@export var max_speed = 5.0
+@export var acceleration = 20.0
+@export_range(0, 1) var AIR_CONTROL = 0.4
+@export var JUMP_VELOCITY = 3.5
+@export var sensitivity = 0.005
 
 @onready var head: Node3D = $Head
 @onready var camera: Camera3D = $Head/Camera3D
@@ -31,8 +31,8 @@ func _unhandled_input(event: InputEvent) -> void:
 		var mouse_delta = mouse_position - prev_mouse_position
 		
 		if is_right_mouse_down:
-			rotate_y(-mouse_delta.x * SENSITIVITY)
-			head.rotate_x(-mouse_delta.y * SENSITIVITY)
+			rotate_y(-mouse_delta.x * sensitivity)
+			head.rotate_x(-mouse_delta.y * sensitivity)
 			head.rotation.x = clamp(head.rotation.x, deg_to_rad(-40), deg_to_rad(60))
 		
 		prev_mouse_position = mouse_position
@@ -47,15 +47,16 @@ func _physics_process(delta: float) -> void:
 	var local_dir2d: Vector2 = Input.get_vector("left", "right", "forward", "back")
 	var dir3d: Vector3 = (transform.basis * Vector3(local_dir2d.x, 0, local_dir2d.y)).normalized()
 	
+	var traction: float = acceleration
 	var target_vel2d: Vector2
 	if dir3d:
-		target_vel2d = Vector2(dir3d.x, dir3d.z) * MAX_SPEED
+		target_vel2d = Vector2(dir3d.x, dir3d.z) * max_speed
+		if not is_on_floor():
+			traction *= AIR_CONTROL
 	else:
 		target_vel2d = Vector2(0, 0)
-	
-	var traction: float = ACCELERATION
-	if not is_on_floor():
-		traction *= AIR_CONTROL
+		if not is_on_floor():
+			traction = 0
 	
 	var vel2d = Vector2(velocity.x, velocity.z)
 	

@@ -3,17 +3,19 @@ extends StaticBody3D
 
 @export_range(0, 1) var lerp_speed : float
 @export var max_height : float
-@export var min_height : float
 @export var height_margin : float
 @export var sensitivity : float
 
+var target_y: float = 0
+var offset_y: float = 0
+var base_y: float
+
 var held := false
 var previous_mouse_position : Vector2
-var target_y: float
 
 
 func _ready() -> void:
-	target_y = position.y
+	base_y = position.y
 
 
 func _process(delta: float) -> void:
@@ -22,8 +24,10 @@ func _process(delta: float) -> void:
 	else:
 		handle_released()
 	
-	position.y = Global.frame_lerp(position.y, target_y, lerp_speed, delta)
-	position.y = clamp(position.y, min_height - height_margin, max_height + height_margin)
+	offset_y = Global.frame_lerp(offset_y, target_y, lerp_speed, delta)
+	offset_y = clamp(offset_y, -height_margin, max_height + height_margin)
+	
+	position.y = base_y + offset_y
 
 
 func on_interact() -> void:
@@ -43,7 +47,7 @@ func handle_holding() -> void:
 
 
 func handle_released() -> void:
-	if (position.y - min_height) > (max_height - position.y):
+	if offset_y > max_height/2:
 		target_y = max_height
 	else:
-		target_y = min_height
+		target_y = 0
