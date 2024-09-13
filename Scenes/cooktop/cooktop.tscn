@@ -1,0 +1,16 @@
+[gd_scene load_steps=3 format=3 uid="uid://cv485pktorksn"]
+
+[ext_resource type="PackedScene" uid="uid://igwqthl1kv0x" path="res://Assets/cooktop.blend" id="1_yjo2y"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_oiaul"]
+size = Vector3(2, 1.56777, 2)
+
+[node name="Cooktop" type="Node3D"]
+
+[node name="cooktop" parent="." instance=ExtResource("1_yjo2y")]
+
+[node name="StaticBody3D" type="StaticBody3D" parent="cooktop"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="cooktop/StaticBody3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.00012207, 0.0661133, 0)
+shape = SubResource("BoxShape3D_oiaul")
