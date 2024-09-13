@@ -28,6 +28,7 @@ func _input(event: InputEvent) -> void:
 			selected_object.on_stop_interact()
 		selected_object = null
 
+
 func handle_interaction(raycast_result: Dictionary) -> void:
 	if raycast_result and raycast_result.collider.is_in_group("interactable"):
 		selected_object = raycast_result.collider

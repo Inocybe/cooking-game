@@ -17,12 +17,16 @@ config/icon="res://icon.svg"
 
 [autoload]
 
-Global="*res://Scripts/global.gd"
+Global="*res://Scripts/Global.gd"
 
 [display]
 
 window/size/viewport_width=1280
 window/size/viewport_height=720
+
+[global_group]
+
+interactable=""
 
 [input]
 
