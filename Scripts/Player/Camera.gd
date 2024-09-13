@@ -13,11 +13,13 @@ func _input(event: InputEvent) -> void:
 
 
 func shoot_ray() -> void:
-	var mouse_position: Vector2 = get_viewport().get_mouse_position()
-	var ray_length = 25
-	var from: Vector3 = project_ray_origin(mouse_position)
-	var to: Vector3 = from + project_ray_normal(mouse_position) * ray_length
+	var center_of_screen: Vector2 = get_viewport().get_size() / 2
+	var ray_length: float = 25
+	var from: Vector3 = global_position
+	var to: Vector3 = from - get_global_transform().basis.z * ray_length
+	print(to)
 	var space = get_world_3d().direct_space_state
 	var ray_query = PhysicsRayQueryParameters3D.create(from, to)
 	var raycast_result: Dictionary = space.intersect_ray(ray_query)
+	print(raycast_result)
 	mouse_raycast.emit(raycast_result)
