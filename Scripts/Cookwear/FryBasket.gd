@@ -5,14 +5,13 @@ extends StaticBody3D
 @export var max_height : float
 @export var height_margin : float
 @export var sensitivity : float
-
+ 	
 var target_y: float = 0
 var offset_y: float = 0
 var base_y: float
 
 var held := false
-var previous_mouse_position : Vector2
-
+var event_relative: Vector2
 
 func _ready() -> void:
 	base_y = position.y
@@ -30,8 +29,12 @@ func _process(delta: float) -> void:
 	position.y = base_y + offset_y
 
 
+func _unhandled_input(event: InputEvent) -> void:
+	if event is InputEventMouseMotion:
+		event_relative = event.relative
+
+
 func on_interact() -> void:
-	previous_mouse_position = get_viewport().get_mouse_position()
 	held = true
 
 
@@ -41,9 +44,7 @@ func on_stop_interact() -> void:
 
 func handle_holding() -> void:
 	var mouse_position : Vector2 = get_viewport().get_mouse_position()
-	var delta_y : float = previous_mouse_position.y - mouse_position.y
-	target_y += delta_y * sensitivity
-	previous_mouse_position = mouse_position
+	target_y += -event_relative.y * sensitivity
 
 
 func handle_released() -> void:

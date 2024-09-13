@@ -17,9 +17,7 @@ func shoot_ray() -> void:
 	var ray_length: float = 25
 	var from: Vector3 = global_position
 	var to: Vector3 = from - get_global_transform().basis.z * ray_length
-	print(to)
 	var space = get_world_3d().direct_space_state
 	var ray_query = PhysicsRayQueryParameters3D.create(from, to)
 	var raycast_result: Dictionary = space.intersect_ray(ray_query)
-	print(raycast_result)
 	mouse_raycast.emit(raycast_result)
