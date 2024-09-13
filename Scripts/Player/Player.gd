@@ -13,7 +13,6 @@ extends CharacterBody3D
 var game_manager = null
 
 var is_right_mouse_down := false
-var prev_mouse_position := Vector2(0, 0)
 
 
 func _input(event: InputEvent) -> void:
@@ -26,16 +25,11 @@ func _input(event: InputEvent) -> void:
 
 func _unhandled_input(event: InputEvent) -> void:
 	if event is InputEventMouseMotion:
-		var mouse_position = get_viewport().get_mouse_position()
+		var mouse_delta = event.relative
 		
-		var mouse_delta = mouse_position - prev_mouse_position
-		
-		if is_right_mouse_down:
-			rotate_y(-mouse_delta.x * sensitivity)
-			head.rotate_x(-mouse_delta.y * sensitivity)
-			head.rotation.x = clamp(head.rotation.x, deg_to_rad(-40), deg_to_rad(60))
-		
-		prev_mouse_position = mouse_position
+		rotate_y(-mouse_delta.x * sensitivity)
+		head.rotate_x(-mouse_delta.y * sensitivity)
+		head.rotation.x = clamp(head.rotation.x, deg_to_rad(-40), deg_to_rad(60))
 
 
 func _physics_process(delta: float) -> void:

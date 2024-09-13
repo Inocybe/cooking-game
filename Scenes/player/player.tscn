@@ -1,7 +1,8 @@
-[gd_scene load_steps=5 format=3 uid="uid://5s3oxlpup0wy"]
+[gd_scene load_steps=6 format=3 uid="uid://5s3oxlpup0wy"]
 
 [ext_resource type="Script" path="res://Scripts/Player/Player.gd" id="1_n5jpm"]
 [ext_resource type="Script" path="res://Scripts/Player/Camera.gd" id="1_onmnn"]
+[ext_resource type="Script" path="res://Scripts/Player/Reticle.gd" id="3_q220s"]
 
 [sub_resource type="CapsuleMesh" id="CapsuleMesh_mf15t"]
 
@@ -10,6 +11,7 @@ points = PackedVector3Array(-0.125207, -0.532801, -0.480507, 0.0227831, 0.47607,
 
 [node name="Player" type="CharacterBody3D"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
+input_ray_pickable = false
 script = ExtResource("1_n5jpm")
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="."]
@@ -24,3 +26,23 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.625167, 0)
 [node name="Camera3D" type="Camera3D" parent="Head"]
 current = true
 script = ExtResource("1_onmnn")
+
+[node name="UserInterface" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 1
+
+[node name="Reticle" type="CenterContainer" parent="UserInterface"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("3_q220s")

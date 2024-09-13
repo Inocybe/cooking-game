@@ -8,6 +8,7 @@ var selected_object = null
 
 
 func _ready() -> void:
+	Input.mouse_mode = Input.MOUSE_MODE_CAPTURED
 	set_process_input(true)
 	instantate_player()
 
@@ -27,10 +28,17 @@ func _input(event: InputEvent) -> void:
 		if selected_object != null:
 			selected_object.on_stop_interact()
 		selected_object = null
+		
+		if Input.mouse_mode == Input.MOUSE_MODE_VISIBLE:
+			Input.mouse_mode = Input.MOUSE_MODE_CAPTURED
+
+		
+	if event.is_action_pressed("ui_cancel"):
+		Input.mouse_mode = Input.MOUSE_MODE_VISIBLE
 
 
 func handle_interaction(raycast_result: Dictionary) -> void:
 	if raycast_result and raycast_result.collider.is_in_group("interactable"):
 		selected_object = raycast_result.collider
-		if selected_object.has_method("on_interact"):
-			selected_object.on_interact()
+		if selected_object.has_method("on_start_interact"):
+			selected_object.on_start_interact()
