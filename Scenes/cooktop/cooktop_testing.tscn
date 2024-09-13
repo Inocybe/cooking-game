@@ -1,7 +1,7 @@
 [gd_scene load_steps=7 format=3 uid="uid://bkcgyhoiduhmd"]
 
-[ext_resource type="PackedScene" uid="uid://igwqthl1kv0x" path="res://Assets/cooktop.blend" id="1_spbpr"]
 [ext_resource type="PackedScene" uid="uid://jj8yuf0syk57" path="res://Scenes/managers/game_manager.tscn" id="2_1ntok"]
+[ext_resource type="PackedScene" uid="uid://cv485pktorksn" path="res://Scenes/cooktop/cooktop.tscn" id="2_hqj1k"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_voffa"]
 
@@ -20,9 +20,6 @@ albedo_color = Color(0, 1, 0.262745, 1)
 [node name="WorldEnvironment" type="WorldEnvironment" parent="."]
 environment = SubResource("Environment_cfo0k")
 
-[node name="cooktop" parent="." instance=ExtResource("1_spbpr")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0719886, 0.493415, -1.66295)
-
 [node name="GameManager" parent="." instance=ExtResource("2_1ntok")]
 
 [node name="CSGBox3D" type="CSGBox3D" parent="."]
@@ -30,3 +27,6 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.5, 0)
 use_collision = true
 size = Vector3(11, 1, 11)
 material = SubResource("StandardMaterial3D_oyblm")
+
+[node name="Cooktop" parent="." instance=ExtResource("2_hqj1k")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.436589, 0)
