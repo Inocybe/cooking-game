@@ -30,7 +30,7 @@ func _process(delta: float) -> void:
 	position.y = base_y + offset_y
 
 
-func on_interact() -> void:
+func on_start_interact(interactee: Node3D) -> void:
 	previous_mouse_position = get_viewport().get_mouse_position()
 	held = true
 
