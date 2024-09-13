@@ -14,3 +14,8 @@ func pause_game() -> void:
 	
 func resume_game() -> void:
 	get_tree().paused = false
+
+
+func frame_lerp(from: float, to: float, speed: float, delta: float):
+	var lerp_amount: float = 1 - (1 - speed) ** delta
+	return lerp(from, to, lerp_amount)
