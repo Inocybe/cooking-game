@@ -22,7 +22,8 @@ func _process(delta: float) -> void:
 func on_interact() -> void:
 	previous_mouse_position = get_viewport().get_mouse_position()
 	clicked = true
-	
+
+
 func on_stop_interact() -> void:
 	clicked = false
 
@@ -41,7 +42,8 @@ func handle_holding(delta: float) -> void:
 		
 	
 	previous_mouse_position = mouse_position
-	
+
+
 func handle_release(delta: float) -> void:
 	if (position.y - min_height) > (max_height - position.y):
 		position.y = lerp(position.y, max_height, lerp_speed * delta)
