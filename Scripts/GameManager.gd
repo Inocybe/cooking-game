@@ -37,9 +37,8 @@ func _input(event: InputEvent) -> void:
 		Input.mouse_mode = Input.MOUSE_MODE_VISIBLE
 
 
-
 func handle_interaction(raycast_result: Dictionary) -> void:
 	if raycast_result and raycast_result.collider.is_in_group("interactable"):
 		selected_object = raycast_result.collider
-		if selected_object.has_method("on_interact"):
-			selected_object.on_interact()
+		if selected_object.has_method("on_start_interact"):
+			selected_object.on_start_interact()

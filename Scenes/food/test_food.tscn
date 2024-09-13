@@ -1,0 +1,20 @@
+[gd_scene load_steps=4 format=3 uid="uid://crvfdlkfiu73"]
+
+[ext_resource type="Script" path="res://Scripts/Food.gd" id="1_lva11"]
+
+[sub_resource type="BoxMesh" id="BoxMesh_kttgl"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_r5o7l"]
+
+[node name="TestFood" type="Node3D" groups=["food", "interactable"]]
+script = ExtResource("1_lva11")
+
+[node name="RigidBody3D" type="RigidBody3D" parent="."]
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="RigidBody3D"]
+transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, 0, 0, 0)
+mesh = SubResource("BoxMesh_kttgl")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="RigidBody3D"]
+transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, 0, 0, 0)
+shape = SubResource("BoxShape3D_r5o7l")
