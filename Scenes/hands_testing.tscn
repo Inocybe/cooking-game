@@ -32,4 +32,4 @@ size = Vector3(11, 1, 11)
 material = SubResource("StandardMaterial3D_5nbhq")
 
 [node name="Fryer" parent="." instance=ExtResource("2_ll0v7")]
-transform = Transform3D(6.55671e-08, 0, 0.5, 0, 0.5, 0, -0.5, 0, 6.55671e-08, 0, 0.5, -4)
+transform = Transform3D(7.54979e-08, 0, 1, 0, 1, 0, -1, 0, 7.54979e-08, 0, 0.5, -4)

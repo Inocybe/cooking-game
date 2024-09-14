@@ -1,4 +1,4 @@
-extends RigidBody3D
+class_name Holdable extends RigidBodyBase
 
 
 @export var standard_angular_damp: float = 1
@@ -11,13 +11,17 @@ extends RigidBody3D
 
 var held: bool = false
 var target_pos: Vector3
+var default_gravity_scale: float
 
 
 func _ready() -> void:
 	angular_damp = standard_angular_damp
+	default_gravity_scale = gravity_scale
 
 
 func _integrate_forces(state: PhysicsDirectBodyState3D) -> void:
+	super(state)
+	
 	if not held:
 		return
 
@@ -53,7 +57,7 @@ func on_start_interact() -> void:
 func on_stop_interact() -> void:
 	held = false
 	can_sleep = true
-	gravity_scale = 1
+	gravity_scale = default_gravity_scale
 	angular_damp = standard_angular_damp
 
 
