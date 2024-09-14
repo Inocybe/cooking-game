@@ -1,23 +1,63 @@
-extends Camera3D
+class_name Camera extends Camera3D
 
+
+@export var arm_length: float = 5
+@export var min_hold_dist: float = 1
+@export var hold_dist_sensitivity: float = 0.4
 
 var should_raycast: bool = false
 
+var selected_object: Node3D = null
+var held_distance: float
 
-signal mouse_raycast(raycast_result : Dictionary)
+
+func forward_vector() -> Vector3:
+	return -global_transform.basis.z
 
 
-func _input(event: InputEvent) -> void:
+func _unhandled_input(event: InputEvent) -> void:
 	if event.is_action_pressed("click"):
-		shoot_ray()
+		do_interact()
+	
+	var scroll: float = Input.get_axis("scroll_down", "scroll_up")
+	held_distance += hold_dist_sensitivity * scroll
+	held_distance = clamp(held_distance, min_hold_dist, arm_length)
 
 
-func shoot_ray() -> void:
-	var center_of_screen: Vector2 = get_viewport().get_size() / 2
-	var ray_length: float = 25
+func _process(_delta: float) -> void:
+	if selected_object and selected_object.is_in_group("holdable"):
+		selected_object.set_held_position(
+			global_position + forward_vector() * held_distance
+		)
+
+
+func shoot_ray() -> Dictionary:
 	var from: Vector3 = global_position
-	var to: Vector3 = from - get_global_transform().basis.z * ray_length
+	var to: Vector3 = from + forward_vector() * arm_length
 	var space = get_world_3d().direct_space_state
 	var ray_query = PhysicsRayQueryParameters3D.create(from, to)
-	var raycast_result: Dictionary = space.intersect_ray(ray_query)
-	mouse_raycast.emit(raycast_result)
+	return space.intersect_ray(ray_query)
+
+
+func pick_up(obj: Node) -> void:
+	selected_object = obj
+	obj.on_start_interact()
+	if obj.is_in_group("holdable"):
+		held_distance = (global_position - obj.global_position).length()
+
+
+func drop_selected() -> void:
+	selected_object.on_stop_interact()
+	selected_object = null
+
+
+func do_interact() -> void:
+	if selected_object != null:
+		drop_selected()
+		return
+	
+	var raycast_result: Dictionary = shoot_ray()
+	
+	if raycast_result and raycast_result.collider.is_in_group("interactable"):
+		pick_up(raycast_result.collider)
+		return

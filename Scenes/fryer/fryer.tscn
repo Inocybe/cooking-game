@@ -29,7 +29,7 @@ shape = SubResource("BoxShape3D_rnehe")
 
 [node name="Fry Basket Model" parent="Fry Basket" instance=ExtResource("2_qai1e")]
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="Fry Basket"]
+[node name="Fry Basket Handle" type="CollisionShape3D" parent="Fry Basket"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1, 0.347, 0)
 shape = SubResource("BoxShape3D_oscxn")
 

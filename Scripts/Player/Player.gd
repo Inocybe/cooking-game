@@ -15,21 +15,19 @@ var game_manager = null
 var is_right_mouse_down := false
 
 
-func _input(event: InputEvent) -> void:
+func _unhandled_input(event: InputEvent) -> void:
 	if event.is_action_pressed("click_right"):
 		is_right_mouse_down = true
 		
 	if event.is_action_released("click_right"):
 		is_right_mouse_down = false
-
-
-func _unhandled_input(event: InputEvent) -> void:
+	
 	if event is InputEventMouseMotion:
 		var mouse_delta = event.relative
 		
 		rotate_y(-mouse_delta.x * sensitivity)
 		head.rotate_x(-mouse_delta.y * sensitivity)
-		head.rotation.x = clamp(head.rotation.x, deg_to_rad(-40), deg_to_rad(60))
+		head.rotation.x = clamp(head.rotation.x, deg_to_rad(-80), deg_to_rad(80))
 
 
 func _physics_process(delta: float) -> void:

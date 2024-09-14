@@ -4,11 +4,12 @@ importer="scene"
 importer_version=1
 type="PackedScene"
 uid="uid://igwqthl1kv0x"
-valid=false
+path="res://.godot/imported/cooktop.blend-dbd26da9a5229af3c12b702ff553591f.scn"
 
 [deps]
 
 source_file="res://Assets/cooktop/cooktop.blend"
+dest_files=["res://.godot/imported/cooktop.blend-dbd26da9a5229af3c12b702ff553591f.scn"]
 
 [params]
 
