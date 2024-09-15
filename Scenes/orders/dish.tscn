@@ -1,13 +1,18 @@
-[gd_scene load_steps=3 format=3 uid="uid://rsgvt2xake4j"]
+[gd_scene load_steps=4 format=3 uid="uid://rsgvt2xake4j"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_xjpku"]
+albedo_color = Color(1, 0, 1, 1)
 
 [sub_resource type="BoxMesh" id="BoxMesh_ie21f"]
+material = SubResource("StandardMaterial3D_xjpku")
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_7dxny"]
+size = Vector3(0.3, 0.3, 0.3)
 
-[node name="Dish" type="StaticBody3D"]
-transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, 0, 0, 0)
+[node name="Dish" type="RigidBody3D"]
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+transform = Transform3D(0.3, 0, 0, 0, 0.3, 0, 0, 0, 0.3, 0, 0, 0)
 mesh = SubResource("BoxMesh_ie21f")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]

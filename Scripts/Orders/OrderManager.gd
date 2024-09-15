@@ -1,5 +1,7 @@
 extends Node
 
+const DISH = preload("res://Scenes/orders/dish.tscn")
+
 func _ready() -> void:
 	var order = OrderFunctions.new()
 	order.create_random_order()
