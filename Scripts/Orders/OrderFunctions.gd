@@ -1,10 +1,6 @@
-extends Node
-class_name Order
+class_name OrderFunctions
 
 var items : Array[Menu.Item]
-
-func _ready() -> void:
-	pass
 
 func create_random_order() -> void:
 	var order_size = randi_range(1,5)
