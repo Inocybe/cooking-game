@@ -40,7 +40,7 @@ material = SubResource("StandardMaterial3D_foqn1")
 
 [node name="GameManager" parent="." instance=ExtResource("2_3pki2")]
 
-[node name="OrderTester" parent="." instance=ExtResource("1_d3r6n")]
+[node name="OrderManager" parent="." instance=ExtResource("1_d3r6n")]
 
 [node name="CSGBox3D" type="CSGBox3D" parent="."]
 use_collision = true
