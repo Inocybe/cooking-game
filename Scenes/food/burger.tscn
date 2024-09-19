@@ -1,0 +1,20 @@
+[gd_scene load_steps=4 format=3 uid="uid://p4i78qwmbt7c"]
+
+[ext_resource type="Script" path="res://Scripts/Burger.gd" id="1_chnqt"]
+[ext_resource type="PackedScene" uid="uid://bl7462b3hiqlv" path="res://Assets/food/burger.blend" id="2_t8afi"]
+
+[sub_resource type="CylinderShape3D" id="CylinderShape3D_mawmg"]
+radius = 3.37909
+
+[node name="Burger" type="Node3D"]
+
+[node name="Burger" type="RigidBody3D" parent="."]
+script = ExtResource("1_chnqt")
+
+[node name="DoneTimer" type="Timer" parent="Burger"]
+wait_time = 20.0
+
+[node name="burger" parent="Burger" instance=ExtResource("2_t8afi")]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Burger"]
+shape = SubResource("CylinderShape3D_mawmg")

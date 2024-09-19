@@ -3,13 +3,13 @@
 importer="scene"
 importer_version=1
 type="PackedScene"
-uid="uid://6imqdsu2vv3n"
-path="res://.godot/imported/human.blend-aaa2db15bdf2a23c1a36d566e51c139c.scn"
+uid="uid://bl7462b3hiqlv"
+path="res://.godot/imported/burger.blend-f2eeaf054beeb701d81496b387bef8e6.scn"
 
 [deps]
 
-source_file="res://Assets/human.blend"
-dest_files=["res://.godot/imported/human.blend-aaa2db15bdf2a23c1a36d566e51c139c.scn"]
+source_file="res://Assets/food/burger.blend"
+dest_files=["res://.godot/imported/burger.blend-f2eeaf054beeb701d81496b387bef8e6.scn"]
 
 [params]
 
@@ -31,13 +31,7 @@ animation/trimming=false
 animation/remove_immutable_tracks=true
 animation/import_rest_as_RESET=false
 import_script/path=""
-_subresources={
-"materials": {
-"@MATERIAL:0": {
-"use_external/enabled": true
-}
-}
-}
+_subresources={}
 blender/nodes/visible=0
 blender/nodes/active_collection_only=false
 blender/nodes/punctual_lights=true

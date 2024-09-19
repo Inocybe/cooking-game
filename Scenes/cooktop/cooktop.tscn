@@ -1,17 +1,29 @@
-[gd_scene load_steps=3 format=3 uid="uid://cv485pktorksn"]
+[gd_scene load_steps=5 format=3 uid="uid://cv485pktorksn"]
 
+[ext_resource type="Script" path="res://Scripts/Cooktop.gd" id="1_u0sbm"]
 [ext_resource type="PackedScene" uid="uid://igwqthl1kv0x" path="res://Assets/cooktop/cooktop.blend" id="1_yjo2y"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_oiaul"]
 size = Vector3(2, 1.56777, 2)
 
+[sub_resource type="BoxShape3D" id="BoxShape3D_a75u5"]
+size = Vector3(1.59656, 0.414124, 1.59052)
+
 [node name="Cooktop" type="Node3D"]
 
-[node name="cooktop" parent="." instance=ExtResource("1_yjo2y")]
+[node name="Cooktop" type="StaticBody3D" parent="."]
 transform = Transform3D(0.6, 0, 0, 0, 0.6, 0, 0, 0, 0.6, 0, 0, 0)
+script = ExtResource("1_u0sbm")
 
-[node name="StaticBody3D" type="StaticBody3D" parent="cooktop"]
-
-[node name="CollisionShape3D" type="CollisionShape3D" parent="cooktop/StaticBody3D"]
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Cooktop"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.00012207, 0.0661133, 0)
 shape = SubResource("BoxShape3D_oiaul")
+
+[node name="Mesh" parent="Cooktop" instance=ExtResource("1_yjo2y")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0)
+
+[node name="CookingArea" type="Area3D" parent="Cooktop"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Cooktop/CookingArea"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.00787356, 1.06943, -0.0151062)
+shape = SubResource("BoxShape3D_a75u5")

@@ -1,6 +1,6 @@
 [gd_scene load_steps=3 format=3 uid="uid://bnnh4k2t41n0l"]
 
-[ext_resource type="PackedScene" uid="uid://454dnckvfhxd" path="res://Assets/soda_machine.blend" id="1_1iyfs"]
+[ext_resource type="PackedScene" uid="uid://454dnckvfhxd" path="res://Assets/soda_machine/soda_machine.blend" id="1_1iyfs"]
 
 [sub_resource type="CylinderMesh" id="CylinderMesh_ff3jr"]
 
