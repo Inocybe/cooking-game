@@ -54,7 +54,8 @@ func pick_up(obj: Node) -> void:
 
 
 func drop_selected() -> void:
-	selected_object.on_stop_interact()
+	if selected_object.has_method("on_stop_interact"):
+		selected_object.on_stop_interact()
 	selected_object = null
 
 

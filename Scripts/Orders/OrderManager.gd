@@ -7,6 +7,5 @@ func _ready() -> void:
 	order.create_random_order()
 	order.print_order_items()
 
-
 func _process(delta: float) -> void:
 	pass

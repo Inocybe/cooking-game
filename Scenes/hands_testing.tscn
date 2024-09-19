@@ -5,12 +5,12 @@
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_mlyax"]
 
-[sub_resource type="Sky" id="Sky_wesix"]
+[sub_resource type="Sky" id="Sky_eada6"]
 sky_material = SubResource("ProceduralSkyMaterial_mlyax")
 
 [sub_resource type="Environment" id="Environment_24j70"]
 background_mode = 2
-sky = SubResource("Sky_wesix")
+sky = SubResource("Sky_eada6")
 
 [sub_resource type="Compositor" id="Compositor_po1ta"]
 
