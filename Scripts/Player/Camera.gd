@@ -21,10 +21,9 @@ func _unhandled_input(event: InputEvent) -> void:
 	if event.is_action_pressed("click"):
 		do_interact()
 	
-	if event.is_action_released("click"):
-		if timer.is_stopped():
-			do_interact()
-		
+	if (event.is_action_released("click") and selected_object != null
+		and timer.is_stopped()):
+		drop_selected()
 	
 	var scroll: float = Input.get_axis("scroll_down", "scroll_up")
 	held_distance += hold_dist_sensitivity * scroll
