@@ -10,6 +10,8 @@ var should_raycast: bool = false
 var selected_object: Node3D = null
 var held_distance: float
 
+@onready var timer: Timer = $"../Timer"
+
 
 func forward_vector() -> Vector3:
 	return -global_transform.basis.z
@@ -18,6 +20,11 @@ func forward_vector() -> Vector3:
 func _unhandled_input(event: InputEvent) -> void:
 	if event.is_action_pressed("click"):
 		do_interact()
+	
+	if event.is_action_released("click"):
+		if timer.is_stopped():
+			do_interact()
+		
 	
 	var scroll: float = Input.get_axis("scroll_down", "scroll_up")
 	held_distance += hold_dist_sensitivity * scroll
@@ -42,6 +49,7 @@ func shoot_ray() -> Dictionary:
 func pick_up(obj: Node) -> void:
 	selected_object = obj
 	obj.on_start_interact()
+	timer.start()
 	if obj.is_in_group("holdable"):
 		held_distance = (global_position - obj.global_position).length()
 
