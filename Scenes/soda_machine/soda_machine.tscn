@@ -1,19 +1,59 @@
-[gd_scene load_steps=3 format=3 uid="uid://bnnh4k2t41n0l"]
+[gd_scene load_steps=9 format=3 uid="uid://bnnh4k2t41n0l"]
 
-[ext_resource type="PackedScene" uid="uid://454dnckvfhxd" path="res://Assets/soda_machine/soda_machine.blend" id="1_1iyfs"]
+[ext_resource type="PackedScene" uid="uid://454dnckvfhxd" path="res://Assets/soda_machine.blend" id="1_1iyfs"]
+[ext_resource type="Script" path="res://Scenes/soda_machine/SodaMachine.gd" id="1_480ux"]
+[ext_resource type="Script" path="res://Scenes/soda_machine/Button3d.gd" id="3_doyl0"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_y4he1"]
+size = Vector3(0.996826, 0.99765, 1)
 
 [sub_resource type="CylinderMesh" id="CylinderMesh_ff3jr"]
 
+[sub_resource type="BoxShape3D" id="BoxShape3D_t5nn4"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_qtgfu"]
+size = Vector3(1.99707, 1.99207, 1.99213)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_ku5us"]
+size = Vector3(1.98184, 2.11249, 1.29199)
+
 [node name="SodaMachine" type="Node3D"]
+transform = Transform3D(0.75, 0, 0, 0, 0.75, 0, 0, 0, 0.75, 0, 0, 0)
+script = ExtResource("1_480ux")
 
-[node name="soda_machine" parent="." instance=ExtResource("1_1iyfs")]
+[node name="LeftButton" type="StaticBody3D" parent="." groups=["interactable"]]
+transform = Transform3D(0.15, 0, 0, 0, 0.15, 0, 0, 0, 0.15, 3.97364e-08, -1.58946e-07, -0.463215)
+script = ExtResource("3_doyl0")
 
-[node name="LeftButton" type="MeshInstance3D" parent="."]
-transform = Transform3D(0.15, 0, 0, 0, -4.37114e-09, -0.15, 0, 0.1, -6.55671e-09, -0.507796, 2.19969, 0.926429)
+[node name="CollisionShape3D" type="CollisionShape3D" parent="LeftButton"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3.39151, 14.6654, 9.9059)
+shape = SubResource("BoxShape3D_y4he1")
+
+[node name="Mesh" type="MeshInstance3D" parent="LeftButton" groups=["interactable"]]
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, -1, 0, 1, -4.37114e-08, -3.38531, 14.6646, 9.26429)
 mesh = SubResource("CylinderMesh_ff3jr")
+skeleton = NodePath("../..")
 
-[node name="RightButton" type="MeshInstance3D" parent="."]
-transform = Transform3D(0.149972, 0.00191975, 6.55527e-09, 6.5567e-09, -7.62894e-12, -0.15, -0.00287962, 0.0999816, -1.37313e-10, 0.532798, 2.19969, 0.926429)
+[node name="RightButton" type="StaticBody3D" parent="." groups=["interactable"]]
+transform = Transform3D(0.15, 0, 0, 0, -6.55671e-09, -0.15, 0, 0.15, -6.55671e-09, 0.532798, 2.19969, 0.926429)
+script = ExtResource("3_doyl0")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="RightButton"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.544527, 0)
+shape = SubResource("BoxShape3D_t5nn4")
+
+[node name="Mesh" type="MeshInstance3D" parent="RightButton" groups=["interactable"]]
 mesh = SubResource("CylinderMesh_ff3jr")
+skeleton = NodePath("../..")
 
-[node name="GPUParticlesAttractorVectorField3D" type="GPUParticlesAttractorVectorField3D" parent="."]
+[node name="SodaMachineHitBox" type="StaticBody3D" parent="."]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="SodaMachineHitBox"]
+transform = Transform3D(1, 8.27332e-05, 2.77559e-05, -8.27332e-05, 1, -5.08426e-07, -2.77559e-05, 5.08426e-07, 1, 0.000508708, -0.00345842, 0.00186861)
+shape = SubResource("BoxShape3D_qtgfu")
+
+[node name="CollisionShape3D2" type="CollisionShape3D" parent="SodaMachineHitBox"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.000869751, 1.92619, -0.350069)
+shape = SubResource("BoxShape3D_ku5us")
+
+[node name="soda_machine" parent="SodaMachineHitBox" instance=ExtResource("1_1iyfs")]
