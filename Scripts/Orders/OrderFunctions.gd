@@ -1,9 +1,12 @@
 class_name OrderFunctions
 
+const MAX_ORDER_SIZE: int = 3
+const MIN_ORDER_SIZE: int = 1
+
 var items : Array[Menu.Item]
 
 func create_random_order() -> void:
-	var order_size = randi_range(1,5)
+	var order_size = randi_range(MIN_ORDER_SIZE, MAX_ORDER_SIZE)
 	for n in range(order_size):
 		items.append(create_random_item())
 
