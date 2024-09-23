@@ -1,15 +1,20 @@
-[gd_scene load_steps=4 format=3 uid="uid://rsgvt2xake4j"]
+[gd_scene load_steps=5 format=3 uid="uid://rsgvt2xake4j"]
+
+[ext_resource type="Script" path="res://Scripts/Dishes/Dish.gd" id="1_t4su6"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_xjpku"]
 albedo_color = Color(1, 0, 1, 1)
 
 [sub_resource type="BoxMesh" id="BoxMesh_ie21f"]
 material = SubResource("StandardMaterial3D_xjpku")
+size = Vector3(1, 0.05, 1)
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_7dxny"]
-size = Vector3(0.3, 0.3, 0.3)
+size = Vector3(0.3, 0.015, 0.3)
 
-[node name="Dish" type="RigidBody3D"]
+[node name="Dish" type="RigidBody3D" node_paths=PackedStringArray("food_positions") groups=["holdable", "interactable"]]
+script = ExtResource("1_t4su6")
+food_positions = [NodePath("FoodPosition1"), NodePath("FoodPosition2"), NodePath("FoodPosition3")]
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="."]
 transform = Transform3D(0.3, 0, 0, 0, 0.3, 0, 0, 0, 0.3, 0, 0, 0)
@@ -17,3 +22,12 @@ mesh = SubResource("BoxMesh_ie21f")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
 shape = SubResource("BoxShape3D_7dxny")
+
+[node name="FoodPosition1" type="Node3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0836483, 0.02, 0)
+
+[node name="FoodPosition2" type="Node3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0701595, 0.02, 0.0463582)
+
+[node name="FoodPosition3" type="Node3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.057318, 0.02, -0.071339)
