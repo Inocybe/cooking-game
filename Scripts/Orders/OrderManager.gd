@@ -18,6 +18,13 @@ func new_order() -> void:
 	order.create_random_order()
 	order.print_order_items()
 	order_array.append(order)
+	
+	# add dish to scene
+	var dish: Node3D = DISH.instantiate()
+	dish.order = order.items
+	get_tree().current_scene.add_child(dish)
+	dish.global_position = Vector3(-2, 2, 0)
+	
 
 func clear_orders() -> void:
 	order_array.clear()
