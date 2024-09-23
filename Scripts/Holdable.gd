@@ -3,8 +3,8 @@ class_name Holdable extends RigidBodyBase
 
 @export var standard_angular_damp: float = 1
 @export var held_angular_damp: float = 7.5
-@export var move_line_force: float = 15
-@export var move_plane_force: float = 8
+@export var move_line_force: float = 30
+@export var move_plane_force: float = 16
 @export_range(0, 1) var undershoot_amount: float = 0.9
 @export var freeze_dist: float = 0.1
 @export var freeze_vel: float = 0.1
