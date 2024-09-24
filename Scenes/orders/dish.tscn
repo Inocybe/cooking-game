@@ -10,9 +10,11 @@ material = SubResource("StandardMaterial3D_xjpku")
 size = Vector3(1, 0.05, 1)
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_7dxny"]
-size = Vector3(0.3, 0.015, 0.3)
+size = Vector3(0.3, 0.03, 0.3)
 
 [node name="Dish" type="RigidBody3D" node_paths=PackedStringArray("food_positions") groups=["holdable", "interactable"]]
+disable_mode = 1
+gravity_scale = 0.5
 script = ExtResource("1_t4su6")
 food_positions = [NodePath("FoodPosition1"), NodePath("FoodPosition2"), NodePath("FoodPosition3")]
 
@@ -31,3 +33,5 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0701595, 0.02, 0.0463582)
 
 [node name="FoodPosition3" type="Node3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.057318, 0.02, -0.071339)
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]
