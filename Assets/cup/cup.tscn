@@ -1,6 +1,6 @@
 [gd_scene load_steps=9 format=3 uid="uid://ca6thqwccusde"]
 
-[ext_resource type="Script" path="res://Scripts/RigidBodyBase.gd" id="1_b2cqc"]
+[ext_resource type="Script" path="res://Scripts/Object Moving/RigidBodyBase.gd" id="1_b2cqc"]
 [ext_resource type="PackedScene" uid="uid://7q370aiw7csi" path="res://Assets/food/cup.blend" id="1_d6bin"]
 
 [sub_resource type="CylinderShape3D" id="CylinderShape3D_bwg4b"]
