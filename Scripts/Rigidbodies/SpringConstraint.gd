@@ -10,19 +10,18 @@ extends Node
 var body: RigidBody3D
 
 
-func integrate_forces(state: PhysicsDirectBodyState3D):
+func _ready() -> void:
+	body = get_parent()
+
+
+func _physics_process(delta: float) -> void:
 	var axis_pos: float = body.position[axis]
 	var rel: float = axis_pos - spring_pos
 	# is the end of the spring solid and if so are we past it?
 	if is_solid and sign(rel) != sign(spring_len):
-		state.linear_velocity[axis] = 0
+		body.linear_velocity[axis] = 0
 		body.position[axis] = spring_pos
 	if abs(rel) < abs(spring_len):
 		var force: Vector3 = Vector3(0, 0, 0)
 		force[axis] = (spring_len - rel) * spring_constant
 		body.apply_central_force(force)
-
-
-func _ready() -> void:
-	body = get_parent()
-	body.integrate_forces.connect(integrate_forces)
