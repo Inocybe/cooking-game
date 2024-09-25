@@ -6,8 +6,8 @@ class_name Holdable extends RigidBodyBase
 @export var move_line_force: float = 30
 @export var move_plane_force: float = 16
 @export_range(0, 1) var undershoot_amount: float = 0.75
-@export var freeze_dist: float = 0.1
-@export var freeze_vel: float = 0.1
+@export var freeze_dist: float = 0.05
+@export var freeze_vel: float = 0.3
 
 var held: bool = false
 var target_pos: Vector3
@@ -51,8 +51,6 @@ func on_start_interact() -> void:
 	gravity_scale = 0
 	angular_damp = held_angular_damp
 
-	continuous_cd = true
-
 
 func on_stop_interact() -> void:
 	held = false
@@ -60,7 +58,6 @@ func on_stop_interact() -> void:
 	gravity_scale = default_gravity_scale
 	angular_damp = standard_angular_damp
 	sleeping = false
-
 
 
 func set_held_position(pos: Vector3) -> void:
