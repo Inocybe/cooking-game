@@ -51,8 +51,6 @@ func on_start_interact() -> void:
 	gravity_scale = 0
 	angular_damp = held_angular_damp
 
-	continuous_cd = true
-
 
 func on_stop_interact() -> void:
 	held = false
@@ -60,7 +58,6 @@ func on_stop_interact() -> void:
 	gravity_scale = default_gravity_scale
 	angular_damp = standard_angular_damp
 	sleeping = false
-
 
 
 func set_held_position(pos: Vector3) -> void:

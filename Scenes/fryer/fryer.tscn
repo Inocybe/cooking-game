@@ -1,9 +1,8 @@
-[gd_scene load_steps=9 format=3 uid="uid://bmfn7nnstf5ve"]
+[gd_scene load_steps=8 format=3 uid="uid://bmfn7nnstf5ve"]
 
 [ext_resource type="PackedScene" uid="uid://cmpwdrrts4nhj" path="res://Assets/fryer/fryer.glb" id="1_gpfiy"]
 [ext_resource type="Script" path="res://Scripts/Cookwear/FryBasket.gd" id="1_hoxw8"]
 [ext_resource type="PackedScene" uid="uid://bk1kn3qmaqm72" path="res://Assets/fryer/fry_basket.glb" id="2_qai1e"]
-[ext_resource type="Script" path="res://Scripts/Rigidbodies/SpringConstraint.gd" id="4_70lr1"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_7uoui"]
 size = Vector3(2, 1.23987, 2)
@@ -53,8 +52,6 @@ axis_lock_linear_z = true
 axis_lock_angular_x = true
 axis_lock_angular_y = true
 axis_lock_angular_z = true
-gravity_scale = 0.0
-linear_damp = 20.0
 script = ExtResource("1_hoxw8")
 
 [node name="Fry Basket Model" parent="Fry Basket" instance=ExtResource("2_qai1e")]
@@ -67,10 +64,3 @@ shape = SubResource("BoxShape3D_rnehe")
 [node name="Fry Basket Handle" type="CollisionShape3D" parent="Fry Basket"]
 transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, -0.497039, 0.176428, 0)
 shape = SubResource("BoxShape3D_oscxn")
-
-[node name="Spring Constraint" type="Node" parent="Fry Basket"]
-script = ExtResource("4_70lr1")
-axis = 1
-spring_pos = 0.7
-spring_len = -0.15
-spring_constant = 240.0
