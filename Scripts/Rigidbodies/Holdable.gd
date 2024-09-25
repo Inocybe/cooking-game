@@ -6,8 +6,8 @@ class_name Holdable extends RigidBodyBase
 @export var move_line_force: float = 30
 @export var move_plane_force: float = 16
 @export_range(0, 1) var undershoot_amount: float = 0.75
-@export var freeze_dist: float = 0.1
-@export var freeze_vel: float = 0.1
+@export var freeze_dist: float = 0.05
+@export var freeze_vel: float = 0.3
 
 var held: bool = false
 var target_pos: Vector3
