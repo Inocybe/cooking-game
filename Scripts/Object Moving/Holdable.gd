@@ -52,9 +52,6 @@ func on_start_interact() -> void:
 	can_sleep = false
 	gravity_scale = 0
 	angular_damp = held_angular_damp
-	
-	# prevent clipping (I think)
-	continuous_cd = true
 
 
 func on_stop_interact() -> void:
@@ -64,7 +61,6 @@ func on_stop_interact() -> void:
 	angular_damp = standard_angular_damp
 	
 	sleeping = false
-
 
 
 func set_held_position(pos: Vector3) -> void:
