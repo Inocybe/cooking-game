@@ -3,7 +3,7 @@
 [ext_resource type="PackedScene" uid="uid://cmpwdrrts4nhj" path="res://Assets/fryer/fryer.glb" id="1_gpfiy"]
 [ext_resource type="Script" path="res://Scripts/Cookwear/FryBasket.gd" id="1_hoxw8"]
 [ext_resource type="PackedScene" uid="uid://bk1kn3qmaqm72" path="res://Assets/fryer/fry_basket.glb" id="2_qai1e"]
-[ext_resource type="Script" path="res://Scripts/Object Moving/SpringConstraint.gd" id="4_70lr1"]
+[ext_resource type="Script" path="res://Scripts/Rigidbodies/SpringConstraint.gd" id="4_70lr1"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_7uoui"]
 size = Vector3(2, 1.23987, 2)
