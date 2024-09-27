@@ -2,8 +2,7 @@ extends Node
 class_name Menu
 
 enum Item {
-	CheeseBurger = 0,
-	HamBurger,
+	HamBurger = 0,
 	Fries,
 	Soda,
 	Unknown
