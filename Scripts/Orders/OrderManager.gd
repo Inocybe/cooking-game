@@ -16,7 +16,6 @@ func _process(delta: float) -> void:
 func new_order() -> void:
 	order = OrderFunctions.new()
 	order.create_random_order()
-	order.print_order_items()
 	order_array.append(order)
 	
 	# add dish to scene

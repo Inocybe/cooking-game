@@ -16,8 +16,6 @@ func create_random_item() -> Menu.Item:
 func print_order_items() -> void:
 	for item_id in items:
 		match item_id:
-			Menu.Item.CheeseBurger:
-				print("CheeseBurger")
 			Menu.Item.HamBurger:
 				print("HamBurger")
 			Menu.Item.Fries:

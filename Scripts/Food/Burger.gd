@@ -4,6 +4,7 @@ extends Holdable
 @export var cook_time: float = 10
 @export var uncooked_color: Color
 @export var cooked_color: Color
+@export var food_type: Menu.Item
 
 var cooked_amount: float = 0
 var cooking: bool = false
@@ -39,3 +40,7 @@ func _process(delta: float) -> void:
 
 func get_is_cooked() -> bool:
 	return is_cooked
+	
+
+func get_food_type() -> Menu.Item:
+	return food_type
