@@ -1,8 +1,16 @@
-[gd_scene load_steps=10 format=3 uid="uid://bm14yc4bqua6t"]
+[gd_scene load_steps=13 format=3 uid="uid://bm14yc4bqua6t"]
 
 [ext_resource type="PackedScene" uid="uid://bnnh4k2t41n0l" path="res://Scenes/soda_machine/soda_machine.tscn" id="1_bd5jl"]
 [ext_resource type="PackedScene" uid="uid://jj8yuf0syk57" path="res://Scenes/managers/game_manager.tscn" id="2_lvnbp"]
 [ext_resource type="PackedScene" uid="uid://ca6thqwccusde" path="res://Scenes/food/cup.tscn" id="3_ssgay"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_yd4fg"]
+albedo_color = Color(0, 0.666667, 0.666667, 1)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_wj7xj"]
+albedo_color = Color(0.75376, 0.000485158, 0.763489, 1)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_o066o"]
 
 [sub_resource type="PlaneMesh" id="PlaneMesh_o0g6p"]
 
@@ -24,6 +32,7 @@ sky = SubResource("Sky_wesix")
 
 [node name="SodaMachine" parent="." instance=ExtResource("1_bd5jl")]
 transform = Transform3D(0.75, 0, 0, 0, 0.75, 0, 0, 0, 0.75, 0, 1.03654, -1.79783)
+drinks = Array[StandardMaterial3D]([SubResource("StandardMaterial3D_yd4fg"), SubResource("StandardMaterial3D_wj7xj"), SubResource("StandardMaterial3D_o066o")])
 
 [node name="plain" type="MeshInstance3D" parent="."]
 transform = Transform3D(50, 0, 0, 0, 50, 0, 0, 0, 50, 0, 0, 0)

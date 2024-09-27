@@ -1,8 +1,9 @@
-[gd_scene load_steps=11 format=3 uid="uid://bnnh4k2t41n0l"]
+[gd_scene load_steps=12 format=3 uid="uid://bnnh4k2t41n0l"]
 
 [ext_resource type="PackedScene" uid="uid://454dnckvfhxd" path="res://Assets/soda_machine/soda_machine.blend" id="1_1iyfs"]
 [ext_resource type="Script" path="res://Scripts/Cookwear/SodaMachine.gd" id="1_480ux"]
 [ext_resource type="Script" path="res://Scripts/Button3D.gd" id="3_doyl0"]
+[ext_resource type="Script" path="res://Scenes/soda_machine/ChangeButtonColor.gd" id="3_x581t"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_y4he1"]
 size = Vector3(0.996826, 0.99765, 1)
@@ -39,6 +40,7 @@ shape = SubResource("BoxShape3D_y4he1")
 transform = Transform3D(1, 0, 0, 0, -4.37114e-08, -1, 0, 1, -4.37114e-08, -3.38531, 14.6646, 9.26429)
 mesh = SubResource("CylinderMesh_ff3jr")
 skeleton = NodePath("../..")
+script = ExtResource("3_x581t")
 
 [node name="RightButton" type="StaticBody3D" parent="." groups=["interactable"]]
 transform = Transform3D(0.15, 0, 0, 0, -6.55671e-09, -0.15, 0, 0.15, -6.55671e-09, 0.532798, 2.19969, 0.926429)

@@ -1,6 +1,10 @@
 extends Node3D
 
 var inside_machine: Array[Node3D] = []
+var drink_index: int = 0
+@export var drinks: Array[StandardMaterial3D]
+
+signal change_color(material: StandardMaterial3D)
 
 func _ready() -> void:
 	$LeftButton.on_click.connect(left_button_clicked)
@@ -12,7 +16,9 @@ func _ready() -> void:
 func left_button_clicked():
 	for obj in inside_machine:
 		if obj.has_method("set_liquid"):
-			obj.set_liquid(obj.water)
+			obj.set_liquid(drinks[drink_index % 3])
+			change_color.emit(drinks[drink_index % 3])
+			drink_index += 1
 			print("set liq")
 
 func right_button_clicked():
