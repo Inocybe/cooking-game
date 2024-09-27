@@ -1,8 +1,8 @@
 [gd_scene load_steps=11 format=3 uid="uid://bnnh4k2t41n0l"]
 
 [ext_resource type="PackedScene" uid="uid://454dnckvfhxd" path="res://Assets/soda_machine/soda_machine.blend" id="1_1iyfs"]
-[ext_resource type="Script" path="res://Scenes/soda_machine/SodaMachine.gd" id="1_480ux"]
-[ext_resource type="Script" path="res://Scenes/soda_machine/Button3d.gd" id="3_doyl0"]
+[ext_resource type="Script" path="res://Scripts/Cookwear/SodaMachine.gd" id="1_480ux"]
+[ext_resource type="Script" path="res://Scripts/Button3D.gd" id="3_doyl0"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_y4he1"]
 size = Vector3(0.996826, 0.99765, 1)
@@ -24,7 +24,7 @@ size = Vector3(2, 0.994537, 0.703735)
 size = Vector3(1.99164, 0.962463, 1.49603)
 
 [node name="SodaMachine" type="Node3D"]
-transform = Transform3D(0.75, 0, 0, 0, 0.75, 0, 0, 0, 0.75, 0, 0, 0)
+transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, 0, 0, 0)
 script = ExtResource("1_480ux")
 
 [node name="LeftButton" type="StaticBody3D" parent="." groups=["interactable"]]
