@@ -23,7 +23,7 @@ func _unhandled_input(event: InputEvent) -> void:
 		is_right_mouse_down = false
 	
 	if event is InputEventMouseMotion:
-		var mouse_delta = event.relative
+		var mouse_delta: Vector2 = event.relative
 		
 		rotate_y(-mouse_delta.x * sensitivity)
 		head.rotate_x(-mouse_delta.y * sensitivity)

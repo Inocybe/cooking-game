@@ -1,7 +1,8 @@
-[gd_scene load_steps=8 format=3 uid="uid://bbyk23usm68c4"]
+[gd_scene load_steps=9 format=3 uid="uid://bbyk23usm68c4"]
 
 [ext_resource type="PackedScene" uid="uid://jj8yuf0syk57" path="res://Scenes/managers/game_manager.tscn" id="1_61t4m"]
 [ext_resource type="PackedScene" uid="uid://bmfn7nnstf5ve" path="res://Scenes/fryer/fryer.tscn" id="2_ct7nm"]
+[ext_resource type="PackedScene" uid="uid://fkjb8mg8enxf" path="res://Scenes/food/burger.tscn" id="3_ptank"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_mlyax"]
 
@@ -33,3 +34,6 @@ material = SubResource("StandardMaterial3D_5nbhq")
 
 [node name="Fryer" parent="." instance=ExtResource("2_ct7nm")]
 transform = Transform3D(7.54979e-08, 0, 1, 0, 1, 0, -1, 0, 7.54979e-08, 0, 0.5, -4)
+
+[node name="Burger" parent="." instance=ExtResource("3_ptank")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.86341, 0.18296, 0)
