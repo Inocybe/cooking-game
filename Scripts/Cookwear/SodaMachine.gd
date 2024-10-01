@@ -19,12 +19,12 @@ func left_button_clicked():
 			obj.set_liquid(drinks[drink_index % 3])
 			change_color.emit(drinks[drink_index % 3])
 			drink_index += 1
-			print("set liq")
+			print("set liq",drink_index)
 
 func right_button_clicked():
 	for obj in inside_machine:
-		if obj.has_method("play_fill_animation"):
-			obj.play_fill_animation()
+		if obj.has_method("do_fill"):
+			obj.do_fill()
 			print("play fill")
 
 func on_body_entered(body: Node3D):

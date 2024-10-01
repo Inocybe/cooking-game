@@ -8,9 +8,10 @@
 albedo_color = Color(0, 0.666667, 0.666667, 1)
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_wj7xj"]
-albedo_color = Color(0.75376, 0.000485158, 0.763489, 1)
+albedo_color = Color(0.686275, 0, 0.694118, 0.843137)
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_o066o"]
+albedo_color = Color(0.392157, 0.156863, 0.0117647, 0.513726)
 
 [sub_resource type="PlaneMesh" id="PlaneMesh_o0g6p"]
 
