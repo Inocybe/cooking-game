@@ -20,7 +20,7 @@ size = Vector3(0.524536, 0.178864, 0.182678)
 size = Vector3(0.0559692, 0.463772, 0.744263)
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_2s587"]
-size = Vector3(0.623379, 0.426727, 0.625488)
+size = Vector3(0.623, 0.0777349, 0.625)
 
 [node name="Fryer" type="Node3D"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5, 0)
@@ -87,8 +87,10 @@ shape = SubResource("BoxShape3D_uph4t")
 transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -0.00569224, 0.00878561, -0.349167)
 shape = SubResource("BoxShape3D_uph4t")
 
-[node name="Frying Area" type="Area3D" parent="Fry Basket"]
+[node name="Frying Area" type="Area3D" parent="."]
+unique_name_in_owner = true
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.4, 0)
 
-[node name="Frying Area Collision" type="CollisionShape3D" parent="Fry Basket/Frying Area"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 9.53674e-06, 0.0207977, -0.00268555)
+[node name="Frying Area Collision" type="CollisionShape3D" parent="Frying Area"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 9.53674e-06, -0.152153, -0.00268555)
 shape = SubResource("BoxShape3D_2s587")
