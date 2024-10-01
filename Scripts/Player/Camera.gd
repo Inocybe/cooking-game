@@ -53,6 +53,10 @@ func pick_up(obj: Node) -> void:
 		held_distance = (global_position - obj.global_position).length()
 
 
+func interact_with(obj: Node) -> void:
+	obj.on_start_interact()
+
+
 func drop_selected() -> void:
 	if selected_object.has_method("on_stop_interact"):
 		selected_object.on_stop_interact()
@@ -66,6 +70,10 @@ func do_interact() -> void:
 	
 	var raycast_result: Dictionary = shoot_ray()
 	
-	if raycast_result and raycast_result.collider.is_in_group("interactable"):
-		pick_up(raycast_result.collider)
+	if raycast_result:
+		var collider = raycast_result.collider
+		if collider.is_in_group("holdable"):
+			pick_up(collider)
+		elif collider.is_in_group("interactable"):
+			interact_with(collider)
 		return
