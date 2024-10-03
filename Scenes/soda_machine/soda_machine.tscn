@@ -3,7 +3,7 @@
 [ext_resource type="PackedScene" uid="uid://454dnckvfhxd" path="res://Assets/soda_machine/soda_machine.blend" id="1_1iyfs"]
 [ext_resource type="Script" path="res://Scripts/Cookwear/SodaMachine.gd" id="1_480ux"]
 [ext_resource type="Script" path="res://Scripts/Button3D.gd" id="3_doyl0"]
-[ext_resource type="Script" path="res://Scenes/soda_machine/ChangeButtonColor.gd" id="3_x581t"]
+[ext_resource type="Script" path="res://Scripts/Cookwear/ChangableMaterial.gd" id="3_x581t"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_etwmr"]
 albedo_color = Color(0, 0.593056, 0.585776, 0.2)

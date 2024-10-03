@@ -4,7 +4,8 @@ var inside_machine: Array[Node3D] = []
 var drink_index: int = 0
 @export var drinks: Array[StandardMaterial3D]
 
-signal change_color(material: StandardMaterial3D)
+func update_drink() -> void:
+	$"LeftButton/Mesh".set_material(current_drink())
 
 func _ready() -> void:
 	$LeftButton.on_click.connect(left_button_clicked)
@@ -12,13 +13,15 @@ func _ready() -> void:
 	
 	$"Cup Fill Area".body_entered.connect(on_body_entered)
 	$"Cup Fill Area".body_exited.connect(on_body_exited)
+	
+	update_drink()
 
 func current_drink() -> StandardMaterial3D:
 	return drinks[drink_index % 3]
 
 func left_button_clicked():
 	drink_index += 1
-	change_color.emit(current_drink())
+	update_drink()
 
 func right_button_clicked():
 	for obj in inside_machine:
