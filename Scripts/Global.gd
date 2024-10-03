@@ -6,12 +6,17 @@ var player_input_enabled = true
 var game_manager: Node = null
 var order_manager: Node = null
 
+var current_scene: Node3D = null
+
 func _ready():
+	if get_tree().current_scene:
+		current_scene = get_tree().current_scene  # Reference to the current scene
+	else:
+		current_scene = null
 	find_managers()
 
 # This function looks for managers when a new scene is loaded or in the current scene
 func find_managers():
-	var current_scene = get_tree().current_scene  # Reference to the current scene
 	if not current_scene:
 		print("No current scene loaded!")
 		return
