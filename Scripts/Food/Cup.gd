@@ -1,20 +1,13 @@
 extends Holdable
 
 
-var new_material: StandardMaterial3D
-
-var material_changed: bool = false
+var old_material: StandardMaterial3D = null
 
 
-func set_liquid(material: StandardMaterial3D) -> void:
-	new_material = material
-	material_changed = true
-
-
-func do_fill() -> void:
-	if not material_changed:
+func do_fill(material: StandardMaterial3D) -> void:
+	if old_material == material:
 		return
-	$Liquid.set_surface_override_material(0, new_material)
-	material_changed = false
+	$Liquid.set_surface_override_material(0, material)
 	$Fill.stop(false)
 	$Fill.play("Fill")
+	old_material = material
