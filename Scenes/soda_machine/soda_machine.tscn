@@ -40,6 +40,8 @@ drinks = Array[StandardMaterial3D]([SubResource("StandardMaterial3D_etwmr"), Sub
 
 [node name="LeftButton" type="StaticBody3D" parent="." groups=["interactable"]]
 transform = Transform3D(0.15, 0, 0, 0, 0.15, 0, 0, 0, 0.15, -0.51, 2.2, 0.93)
+collision_layer = 3
+collision_mask = 3
 script = ExtResource("3_doyl0")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="LeftButton"]
@@ -54,6 +56,8 @@ script = ExtResource("3_x581t")
 
 [node name="RightButton" type="StaticBody3D" parent="." groups=["interactable"]]
 transform = Transform3D(0.15, 0, 0, 0, -6.55671e-09, -0.15, 0, 0.15, -6.55671e-09, 0.532798, 2.19969, 0.926429)
+collision_layer = 3
+collision_mask = 3
 script = ExtResource("3_doyl0")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="RightButton"]
@@ -65,6 +69,8 @@ mesh = SubResource("CylinderMesh_ff3jr")
 skeleton = NodePath("../..")
 
 [node name="SodaMachineHitBox" type="StaticBody3D" parent="."]
+collision_layer = 3
+collision_mask = 3
 
 [node name="Bottom Hitbox" type="CollisionShape3D" parent="SodaMachineHitBox"]
 transform = Transform3D(1, 8.27332e-05, 2.77559e-05, -8.27332e-05, 1, -5.08426e-07, -2.77559e-05, 5.08426e-07, 1, 0.000508708, -0.00345842, 0.00186861)
