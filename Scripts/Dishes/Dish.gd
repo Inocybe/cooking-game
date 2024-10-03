@@ -11,6 +11,7 @@ var order: Array[Menu.Item]
 
 func _ready() -> void:
 	super()
+	
 	for i in range(order.size()):
 		var food: Node3D = FOOD_ITEM.instantiate()
 		food_positions[i].add_child(food)
