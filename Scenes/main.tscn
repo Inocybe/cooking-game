@@ -129,3 +129,6 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.5, 2, 3)
 
 [node name="Burger" parent="." instance=ExtResource("10_e3yu5")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.5, 2, 3)
+
+[node name="Cup2" parent="." instance=ExtResource("8_y8pjk")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.46748, 4, 3.03417)

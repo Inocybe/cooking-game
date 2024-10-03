@@ -13,19 +13,17 @@ func _ready() -> void:
 	$"Cup Fill Area".body_entered.connect(on_body_entered)
 	$"Cup Fill Area".body_exited.connect(on_body_exited)
 
+func current_drink() -> StandardMaterial3D:
+	return drinks[drink_index % 3]
+
 func left_button_clicked():
-	for obj in inside_machine:
-		if obj.has_method("set_liquid"):
-			obj.set_liquid(drinks[drink_index % 3])
-			change_color.emit(drinks[drink_index % 3])
-			drink_index += 1
-			print("set liq",drink_index)
+	drink_index += 1
+	change_color.emit(current_drink())
 
 func right_button_clicked():
 	for obj in inside_machine:
 		if obj.has_method("do_fill"):
-			obj.do_fill()
-			print("play fill")
+			obj.do_fill(current_drink())
 
 func on_body_entered(body: Node3D):
 	print("body entered")
