@@ -11,11 +11,12 @@ size = Vector3(1.59656, 0.414124, 1.59052)
 
 [node name="Cooktop" type="Node3D"]
 
-[node name="Cooktop" type="StaticBody3D" parent="."]
+[node name="Cooktop" type="StaticBody3D" parent="." node_paths=PackedStringArray("cooking_area")]
 transform = Transform3D(0.6, 0, 0, 0, 0.6, 0, 0, 0, 0.6, 0, 0, 0)
 collision_layer = 3
 collision_mask = 3
 script = ExtResource("1_u0sbm")
+cooking_area = NodePath("CookingArea")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Cooktop"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.00012207, 0.0661133, 0)

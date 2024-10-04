@@ -4,8 +4,9 @@ class_name CookwearBase extends StaticBody3D
 @export var cooking_area: Area3D = null
 
 func _ready() -> void:
-	cooking_area.body_entered.connect(on_body_entered)
-	cooking_area.body_exited.connect(on_body_exited)
+	if cooking_area:
+		cooking_area.body_entered.connect(on_body_entered)
+		cooking_area.body_exited.connect(on_body_exited)
 
 
 func on_body_entered(body: Node3D):
