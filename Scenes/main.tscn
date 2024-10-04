@@ -111,7 +111,7 @@ shape = SubResource("BoxShape3D_r6nae")
 [node name="Cookwear" type="Node" parent="."]
 
 [node name="Fryer" parent="Cookwear" instance=ExtResource("5_57a3j")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2, 1, -0.5)
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 2, 1, -0.5)
 
 [node name="Cooktop" parent="Cookwear" instance=ExtResource("6_h677c")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2, 1, 1)
