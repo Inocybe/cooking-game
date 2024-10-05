@@ -1,4 +1,5 @@
-extends Node
+class_name OrderManager extends Node
+
 
 const DISH = preload("res://Scenes/orders/dish.tscn")
 

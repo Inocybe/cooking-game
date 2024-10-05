@@ -1,4 +1,4 @@
-extends CharacterBody3D
+class_name Player extends CharacterBody3D
 
 
 @export var max_speed = 5.0
@@ -7,10 +7,10 @@ extends CharacterBody3D
 @export var JUMP_VELOCITY = 3.5
 @export var sensitivity = 0.005
 
-@onready var head: Node3D = $Head
-@onready var camera: Camera3D = $Head/Camera3D
+@onready var head: Node3D = %Head
+@onready var camera: Camera3D = %Camera3D
+@onready var debug_display: DebugDisplay = %"Debug Display"
 
-var game_manager = null
 
 var is_right_mouse_down := false
 

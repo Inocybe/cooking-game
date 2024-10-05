@@ -1,7 +1,0 @@
-[gd_scene load_steps=2 format=3 uid="uid://dxbc35sfa1upm"]
-
-[ext_resource type="Script" path="res://Scripts/Dishes/FoodItems.gd" id="1_n736h"]
-
-[node name="CombinedFoodItems" type="Node" node_paths=PackedStringArray("burger_models")]
-script = ExtResource("1_n736h")
-burger_models = [null]

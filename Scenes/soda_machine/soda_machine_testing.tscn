@@ -13,11 +13,6 @@ albedo_color = Color(0.686275, 0, 0.694118, 0.843137)
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_o066o"]
 albedo_color = Color(0.392157, 0.156863, 0.0117647, 0.513726)
 
-[sub_resource type="PlaneMesh" id="PlaneMesh_o0g6p"]
-
-[sub_resource type="ConvexPolygonShape3D" id="ConvexPolygonShape3D_xtxm6"]
-points = PackedVector3Array(1.01587, 0.015873, 1.01587, -1.01587, -0.015873, -1.01587, -1.01587, 0.015873, -1.01587, 1.01587, -0.015873, -1.01587, -1.01587, -0.015873, 1.01587, -1.01587, 0.015873, 1.01587, 1.01587, 0.015873, -1.01587, 1.01587, -0.015873, 1.01587)
-
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_3n511"]
 
 [sub_resource type="Sky" id="Sky_wesix"]
@@ -29,22 +24,16 @@ sky = SubResource("Sky_wesix")
 
 [sub_resource type="Compositor" id="Compositor_bp3vy"]
 
+[sub_resource type="ConvexPolygonShape3D" id="ConvexPolygonShape3D_xtxm6"]
+points = PackedVector3Array(1.016, 0, 1.016, -1.01587, -0.015873, -1.01587, -1.016, 0, -1.016, 1.01587, -0.015873, -1.01587, -1.01587, -0.015873, 1.01587, -1.016, 0, 1.016, 1.016, 0, -1.016, 1.01587, -0.015873, 1.01587)
+
+[sub_resource type="PlaneMesh" id="PlaneMesh_o0g6p"]
+
 [node name="SodaMachineTesting" type="Node3D"]
 
 [node name="SodaMachine" parent="." instance=ExtResource("1_bd5jl")]
-transform = Transform3D(0.75, 0, 0, 0, 0.75, 0, 0, 0, 0.75, 0, 1.03654, -1.79783)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.49773, -1.79783)
 drinks = Array[StandardMaterial3D]([SubResource("StandardMaterial3D_yd4fg"), SubResource("StandardMaterial3D_wj7xj"), SubResource("StandardMaterial3D_o066o")])
-
-[node name="plain" type="MeshInstance3D" parent="."]
-transform = Transform3D(50, 0, 0, 0, 50, 0, 0, 0, 50, 0, 0, 0)
-mesh = SubResource("PlaneMesh_o0g6p")
-
-[node name="StaticBody3D" type="StaticBody3D" parent="plain"]
-collision_layer = 3
-collision_mask = 3
-
-[node name="CollisionShape3D" type="CollisionShape3D" parent="plain/StaticBody3D"]
-shape = SubResource("ConvexPolygonShape3D_xtxm6")
 
 [node name="GameManager" parent="." instance=ExtResource("2_lvnbp")]
 
@@ -53,4 +42,16 @@ environment = SubResource("Environment_plrf3")
 compositor = SubResource("Compositor_bp3vy")
 
 [node name="Cup" parent="." instance=ExtResource("3_ssgay")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.367363, 2.01775, -1.29017)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.13873, 0.197845, -0.675179)
+
+[node name="StaticBody3D" type="StaticBody3D" parent="."]
+transform = Transform3D(50, 0, 0, 0, 50, 0, 0, 0, 50, 0, 0, 0)
+collision_layer = 3
+collision_mask = 3
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="StaticBody3D"]
+shape = SubResource("ConvexPolygonShape3D_xtxm6")
+
+[node name="plain" type="MeshInstance3D" parent="StaticBody3D"]
+mesh = SubResource("PlaneMesh_o0g6p")
+skeleton = NodePath("../..")

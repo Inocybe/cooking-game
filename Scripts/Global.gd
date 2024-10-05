@@ -3,10 +3,11 @@ extends Node
 
 var player_input_enabled = true
 
-var game_manager: Node = null
-var order_manager: Node = null
+var game_manager: GameManager = null
+var order_manager: OrderManager = null
 
 var current_scene: Node3D = null
+
 
 func _ready():
 	if get_tree().current_scene:
@@ -42,6 +43,15 @@ func pause_game() -> void:
 	
 func resume_game() -> void:
 	get_tree().paused = false
+
+
+func debug_ray(from: Vector3, diff: Vector3, color: Color = Color.CHARTREUSE, width: float = 3):
+	var camera: Camera = game_manager.player.camera
+	game_manager.player.debug_display.add_ray(
+		camera.unproject_position(from), 
+		camera.unproject_position(from + diff),
+		color, width
+	)
 
 
 func frame_lerp(from: float, to: float, speed: float, delta: float):
