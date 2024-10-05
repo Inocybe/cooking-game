@@ -32,7 +32,7 @@ points = PackedVector3Array(1.016, 0, 1.016, -1.01587, -0.015873, -1.01587, -1.0
 [node name="SodaMachineTesting" type="Node3D"]
 
 [node name="SodaMachine" parent="." instance=ExtResource("1_bd5jl")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.49773, -1.79783)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 4.16972e-05, -1.79783)
 drinks = Array[StandardMaterial3D]([SubResource("StandardMaterial3D_yd4fg"), SubResource("StandardMaterial3D_wj7xj"), SubResource("StandardMaterial3D_o066o")])
 
 [node name="GameManager" parent="." instance=ExtResource("2_lvnbp")]
