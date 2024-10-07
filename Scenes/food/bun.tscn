@@ -1,7 +1,7 @@
 [gd_scene load_steps=5 format=3 uid="uid://b3024k6shxqvg"]
 
 [ext_resource type="Script" path="res://Scripts/New Food/FoodBase.gd" id="1_gg8ru"]
-[ext_resource type="PackedScene" uid="uid://brvkqgrf7civs" path="res://Assets/food/bun.blend" id="2_b0hcx"]
+[ext_resource type="PackedScene" uid="uid://brvkqgrf7civs" path="res://Assets/food componenets/bun.blend" id="2_b0hcx"]
 
 [sub_resource type="CylinderShape3D" id="CylinderShape3D_x3os3"]
 height = 6.18215
@@ -18,7 +18,7 @@ combine_range = NodePath("Combine Range")
 wait_time = 20.0
 one_shot = true
 
-[node name="Collision" type="CollisionShape3D" parent="."]
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
 transform = Transform3D(0.05, 0, 0, 0, 0.05, 0, 0, 0, 0.05, 0, 0.0269735, 0)
 shape = SubResource("CylinderShape3D_x3os3")
 
