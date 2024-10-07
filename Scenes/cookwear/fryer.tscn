@@ -1,6 +1,6 @@
 [gd_scene load_steps=13 format=3 uid="uid://bmfn7nnstf5ve"]
 
-[ext_resource type="PackedScene" uid="uid://cmpwdrrts4nhj" path="res://Assets/fryer/fryer.glb" id="1_b3kne"]
+[ext_resource type="PackedScene" uid="uid://hk4tw1ihmdyx" path="res://Assets/fryer/fryer.blend" id="1_b3kne"]
 [ext_resource type="Script" path="res://Scripts/Cookwear/FryBasket.gd" id="2_i8vih"]
 [ext_resource type="ArrayMesh" uid="uid://vmb5c05mvi3m" path="res://Assets/fryer/Fry Basket.obj" id="3_avjgy"]
 
@@ -11,6 +11,7 @@ size = Vector3(2, 1.23987, 2)
 size = Vector3(0.181496, 0.783051, 2.00134)
 
 [sub_resource type="PlaneMesh" id="PlaneMesh_ur8hw"]
+size = Vector2(1.9, 1.9)
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_qe14h"]
 transparency = 1
@@ -41,6 +42,7 @@ collision_mask = 3
 input_ray_pickable = false
 
 [node name="Fryer Model" parent="Fryer" instance=ExtResource("1_b3kne")]
+transform = Transform3D(1.19249e-08, 0, -1, 0, 1, 0, 1, 0, 1.19249e-08, 0, 0, 0)
 
 [node name="Fryer Base Collision" type="CollisionShape3D" parent="Fryer"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.382563, 0)
@@ -62,8 +64,8 @@ shape = SubResource("BoxShape3D_owx0e")
 transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, -0.000130793, 0.608, -0.900174)
 shape = SubResource("BoxShape3D_owx0e")
 
-[node name="MeshInstance3D" type="MeshInstance3D" parent="Fryer"]
-transform = Transform3D(0.8, 0, 0, 0, 0.8, 0, 0, 0, 0.8, 0, 0.655357, 0)
+[node name="Oil" type="MeshInstance3D" parent="Fryer"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.655357, 0)
 mesh = SubResource("PlaneMesh_ur8hw")
 surface_material_override/0 = SubResource("StandardMaterial3D_qe14h")
 
