@@ -1,23 +1,8 @@
-[gd_scene load_steps=14 format=3 uid="uid://bnnh4k2t41n0l"]
+[gd_scene load_steps=15 format=3 uid="uid://bnnh4k2t41n0l"]
 
 [ext_resource type="Script" path="res://Scripts/Cookwear/SodaMachine.gd" id="1_480ux"]
 [ext_resource type="Script" path="res://Scripts/Button3D.gd" id="3_doyl0"]
-[ext_resource type="Script" path="res://Scripts/Cookwear/ChangableMaterial.gd" id="3_x581t"]
 [ext_resource type="ArrayMesh" uid="uid://b3hirogdjwhcs" path="res://Assets/soda_machine/Soda Machine.obj" id="4_dxvpm"]
-
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_etwmr"]
-albedo_color = Color(0, 0.593056, 0.585776, 0.2)
-
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_30ijw"]
-albedo_color = Color(0.862745, 0, 0.862745, 0.388235)
-
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_mi8hx"]
-albedo_color = Color(0.352941, 0.0745098, 0, 0.898039)
-
-[sub_resource type="BoxShape3D" id="BoxShape3D_y4he1"]
-size = Vector3(0.996826, 0.99765, 2.15015)
-
-[sub_resource type="CylinderMesh" id="CylinderMesh_ff3jr"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_qtgfu"]
 size = Vector3(2, 2, 2)
@@ -31,40 +16,28 @@ size = Vector3(1.52118, 0.749817, 0.483215)
 [sub_resource type="BoxShape3D" id="BoxShape3D_dr1gd"]
 size = Vector3(1.99164, 1.00075, 0.698543)
 
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_duerw"]
+albedo_color = Color(0.266667, 0.431373, 1, 0.772549)
+
+[sub_resource type="CylinderMesh" id="CylinderMesh_ll3af"]
+material = SubResource("StandardMaterial3D_duerw")
+
+[sub_resource type="CylinderShape3D" id="CylinderShape3D_1r5b1"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_qkrca"]
+albedo_color = Color(0.518094, 0.127612, 0.559678, 0.756863)
+
+[sub_resource type="CylinderMesh" id="CylinderMesh_ksv2g"]
+material = SubResource("StandardMaterial3D_qkrca")
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_1xwtd"]
+albedo_color = Color(0.418282, 0.177854, 0.0795322, 0.784314)
+
+[sub_resource type="CylinderMesh" id="CylinderMesh_irn8t"]
+material = SubResource("StandardMaterial3D_1xwtd")
+
 [node name="SodaMachine" type="Node3D"]
 script = ExtResource("1_480ux")
-drinks = Array[StandardMaterial3D]([SubResource("StandardMaterial3D_etwmr"), SubResource("StandardMaterial3D_30ijw"), SubResource("StandardMaterial3D_mi8hx")])
-
-[node name="LeftButton" type="StaticBody3D" parent="." groups=["interactable"]]
-transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, -0.2, 2, 0.15)
-collision_layer = 3
-collision_mask = 3
-script = ExtResource("3_doyl0")
-
-[node name="CollisionShape3D" type="CollisionShape3D" parent="LeftButton"]
-transform = Transform3D(0.15, 0, 0, 0, 0.15, 0, 0, 0, 0.15, 0, 0, 0)
-shape = SubResource("BoxShape3D_y4he1")
-
-[node name="Mesh" type="MeshInstance3D" parent="LeftButton"]
-transform = Transform3D(0.15, 0, 0, 0, -6.55671e-09, -0.15, 0, 0.15, -6.55671e-09, 0, 0, 0)
-mesh = SubResource("CylinderMesh_ff3jr")
-skeleton = NodePath("../..")
-script = ExtResource("3_x581t")
-
-[node name="RightButton" type="StaticBody3D" parent="." groups=["interactable"]]
-transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, 0.2, 2, 0.15)
-collision_layer = 3
-collision_mask = 3
-script = ExtResource("3_doyl0")
-
-[node name="Mesh" type="MeshInstance3D" parent="RightButton" groups=["interactable"]]
-transform = Transform3D(0.15, 0, 0, 0, -6.55671e-09, -0.15, 0, 0.15, -6.55671e-09, 0, 0, 0)
-mesh = SubResource("CylinderMesh_ff3jr")
-skeleton = NodePath("../..")
-
-[node name="CollisionShape3D" type="CollisionShape3D" parent="RightButton"]
-transform = Transform3D(0.15, 0, 0, 0, 0.15, 0, 0, 0, 0.15, 0, 0, 0)
-shape = SubResource("BoxShape3D_y4he1")
 
 [node name="SodaMachine" type="StaticBody3D" parent="."]
 transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, 0, 0, 0)
@@ -88,10 +61,38 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 3.355, 0.56)
 shape = SubResource("BoxShape3D_2oqmp")
 
 [node name="Cup Fill Area" type="Area3D" parent="."]
-transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, 0, 0.75, 0.325)
+transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, 0, 1.23536, 0.325)
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Cup Fill Area"]
 shape = SubResource("BoxShape3D_dr1gd")
 
-[connection signal="on_click" from="LeftButton" to="." method="switch_drink"]
-[connection signal="on_click" from="RightButton" to="." method="fill_cups"]
+[node name="WaterButton" type="StaticBody3D" parent="." groups=["interactable"]]
+transform = Transform3D(0.1, 0, 0, 0, -4.37114e-09, -0.1, 0, 0.1, -4.37114e-09, -0.299873, 1.95743, 0.120159)
+script = ExtResource("3_doyl0")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="WaterButton"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.00856066, 0, 0)
+mesh = SubResource("CylinderMesh_ll3af")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="WaterButton"]
+shape = SubResource("CylinderShape3D_1r5b1")
+
+[node name="LeanButton" type="StaticBody3D" parent="." groups=["interactable"]]
+transform = Transform3D(0.1, 0, 0, 0, -4.37114e-09, -0.1, 0, 0.1, -4.37114e-09, -0.00298464, 1.95743, 0.120159)
+script = ExtResource("3_doyl0")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="LeanButton"]
+mesh = SubResource("CylinderMesh_ksv2g")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="LeanButton"]
+shape = SubResource("CylinderShape3D_1r5b1")
+
+[node name="ColaButton" type="StaticBody3D" parent="." groups=["interactable"]]
+transform = Transform3D(0.1, 0, 0, 0, -4.37114e-09, -0.1, 0, 0.1, -4.37114e-09, 0.302542, 1.95743, 0.120159)
+script = ExtResource("3_doyl0")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="ColaButton"]
+mesh = SubResource("CylinderMesh_irn8t")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="ColaButton"]
+shape = SubResource("CylinderShape3D_1r5b1")
