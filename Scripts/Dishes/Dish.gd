@@ -2,7 +2,7 @@ extends Holdable
 class_name Dish
 
 
-const FOOD_ITEM = preload("res://Scenes/orders/food_item.tscn")
+const GHOST_ORDER_CONTROLLER = preload("res://Scenes/orders/ghost_order_controller.tscn")
 
 var order: Array[Menu.Item]
 var order_functions : OrderFunctions
@@ -19,8 +19,15 @@ func _ready() -> void:
 		# instantiates each item in the order thing yes (good comment ain't it)
 		for scene in order_functions.get_food_item_scenes(order[i]):
 			var food: Node = instantiate_scene_from_path(scene)
-			combine_objects(food, i)
 			
+			# adding of ghost controller
+			# it makes the object transparent and stuff
+			var ghost_order_controller: Node = GHOST_ORDER_CONTROLLER.instantiate()
+			food.add_child(ghost_order_controller)
+			
+			# combine object to the thing
+			combine_objects(food, i)
+
 
 
 func instantiate_scene_from_path(scene_path: String) -> Node:
