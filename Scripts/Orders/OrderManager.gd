@@ -9,11 +9,10 @@ var dishes_in_scene: Array[Node3D]
 var order_array: Array[OrderFunctions]
 
 
-
-
 func _process(delta: float) -> void:
 	pass
-	
+
+
 func new_order() -> void:
 	order = OrderFunctions.new()
 	order.create_random_order()
@@ -22,9 +21,10 @@ func new_order() -> void:
 	# add dish to scene
 	var dish: Node3D = DISH.instantiate()
 	dish.order = order.items
+	dish.order_functions = order
 	get_tree().current_scene.add_child(dish)
-	dish.global_position = Vector3(-2, 2, 0)
-	
+	dish.global_position = Vector3(-4, 2, 0)
+
 
 func clear_orders() -> void:
 	order_array.clear()

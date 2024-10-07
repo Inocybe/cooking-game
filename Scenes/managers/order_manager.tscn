@@ -2,5 +2,5 @@
 
 [ext_resource type="Script" path="res://Scripts/Orders/OrderManager.gd" id="1_51p7i"]
 
-[node name="OrderTester" type="Node"]
+[node name="OrderManager" type="Node"]
 script = ExtResource("1_51p7i")

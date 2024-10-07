@@ -1,4 +1,5 @@
-class_name OrderFunctions
+class_name OrderFunctions extends Node
+
 
 const MAX_ORDER_SIZE: int = 3
 const MIN_ORDER_SIZE: int = 1
@@ -22,3 +23,9 @@ func print_order_items() -> void:
 				print("Fries")
 			Menu.Item.Soda:
 				print("Soda")
+
+func get_food_item_scenes(item: Menu.Item) -> Array:
+	if Menu.MENU_SCENES.has(item):
+		return Menu.MENU_SCENES[item]
+	else:
+		return []

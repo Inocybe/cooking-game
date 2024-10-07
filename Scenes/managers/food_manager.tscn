@@ -1,0 +1,6 @@
+[gd_scene load_steps=2 format=3 uid="uid://cbr83104bx5ji"]
+
+[ext_resource type="Script" path="res://Scripts/Managers/FoodManager.gd" id="1_usaca"]
+
+[node name="FoodManager" type="Node"]
+script = ExtResource("1_usaca")
