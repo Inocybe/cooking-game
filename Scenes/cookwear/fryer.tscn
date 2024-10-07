@@ -1,8 +1,8 @@
-[gd_scene load_steps=12 format=3 uid="uid://bmfn7nnstf5ve"]
+[gd_scene load_steps=13 format=3 uid="uid://bmfn7nnstf5ve"]
 
 [ext_resource type="PackedScene" uid="uid://cmpwdrrts4nhj" path="res://Assets/fryer/fryer.glb" id="1_b3kne"]
 [ext_resource type="Script" path="res://Scripts/Cookwear/FryBasket.gd" id="2_i8vih"]
-[ext_resource type="PackedScene" uid="uid://bk1kn3qmaqm72" path="res://Assets/fryer/fry_basket.glb" id="3_ky7fo"]
+[ext_resource type="ArrayMesh" uid="uid://vmb5c05mvi3m" path="res://Assets/fryer/Fry Basket.obj" id="3_avjgy"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_7uoui"]
 size = Vector3(2, 1.23987, 2)
@@ -19,14 +19,17 @@ albedo_color = Color(0.83, 0.487625, 0.2075, 0.768627)
 [sub_resource type="BoxShape3D" id="BoxShape3D_2s587"]
 size = Vector3(0.623, 0.116358, 0.625)
 
-[sub_resource type="BoxShape3D" id="BoxShape3D_rnehe"]
-size = Vector3(1.46765, 0.0695763, 1.49066)
+[sub_resource type="BoxShape3D" id="BoxShape3D_or8tv"]
+size = Vector3(0.677917, 0.0187073, 0.763245)
 
-[sub_resource type="BoxShape3D" id="BoxShape3D_oscxn"]
-size = Vector3(0.524536, 0.178864, 0.182678)
+[sub_resource type="BoxShape3D" id="BoxShape3D_3qglo"]
+size = Vector3(0.681396, 0.335724, 0.0157471)
 
-[sub_resource type="BoxShape3D" id="BoxShape3D_uph4t"]
-size = Vector3(0.0559692, 0.463772, 0.744263)
+[sub_resource type="BoxShape3D" id="BoxShape3D_17qm3"]
+size = Vector3(0.0741577, 0.0670776, 0.4245)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_xelrx"]
+size = Vector3(0.0168457, 0.3396, 0.767822)
 
 [node name="Fryer" type="Node3D"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5, 0)
@@ -81,29 +84,30 @@ axis_lock_angular_y = true
 axis_lock_angular_z = true
 script = ExtResource("2_i8vih")
 
-[node name="Fry Basket Model" parent="Fry Basket" instance=ExtResource("3_ky7fo")]
-transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, 0, 0.00427788, 0)
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Fry Basket"]
+transform = Transform3D(0.17, 0, 0, 0, 0.17, 0, 0, 0, 0.17, 0, 0, 0)
+mesh = ExtResource("3_avjgy")
 
-[node name="Fry Basket Bottom Collision" type="CollisionShape3D" parent="Fry Basket"]
-transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, 0, -0.208185, 0)
-shape = SubResource("BoxShape3D_rnehe")
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Fry Basket"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.000762939, -0.176163, -0.00942993)
+shape = SubResource("BoxShape3D_or8tv")
 
-[node name="Fry Basket Handle" type="CollisionShape3D" parent="Fry Basket"]
-transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, -0.497039, 0.176428, 0)
-shape = SubResource("BoxShape3D_oscxn")
+[node name="CollisionShape3D2" type="CollisionShape3D" parent="Fry Basket"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.000610352, -0.0204647, -0.382874)
+shape = SubResource("BoxShape3D_3qglo")
 
-[node name="Fry Basket Wall 1 Collision" type="CollisionShape3D" parent="Fry Basket"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.343121, 0.00519186, -0.00147116)
-shape = SubResource("BoxShape3D_uph4t")
+[node name="CollisionShape3D3" type="CollisionShape3D" parent="Fry Basket"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.000610352, -0.0204647, 0.365909)
+shape = SubResource("BoxShape3D_3qglo")
 
-[node name="Fry Basket Wall 2 Collision" type="CollisionShape3D" parent="Fry Basket"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.335479, 0.0103837, -0.00294232)
-shape = SubResource("BoxShape3D_uph4t")
+[node name="CollisionShape3D4" type="CollisionShape3D" parent="Fry Basket"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.00283813, 0.100861, 0.586151)
+shape = SubResource("BoxShape3D_17qm3")
 
-[node name="Fry Basket Wall 3 Collision" type="CollisionShape3D" parent="Fry Basket"]
-transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -1.72853e-05, 0.00599754, 0.341981)
-shape = SubResource("BoxShape3D_uph4t")
+[node name="CollisionShape3D5" type="CollisionShape3D" parent="Fry Basket"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.332153, -0.0172119, -0.00842285)
+shape = SubResource("BoxShape3D_xelrx")
 
-[node name="Fry Basket Wall 4 Collision" type="CollisionShape3D" parent="Fry Basket"]
-transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -0.00569224, 0.00878561, -0.349167)
-shape = SubResource("BoxShape3D_uph4t")
+[node name="CollisionShape3D6" type="CollisionShape3D" parent="Fry Basket"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.331591, -0.0172119, -0.00842285)
+shape = SubResource("BoxShape3D_xelrx")

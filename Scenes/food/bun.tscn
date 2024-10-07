@@ -1,6 +1,6 @@
 [gd_scene load_steps=5 format=3 uid="uid://b3024k6shxqvg"]
 
-[ext_resource type="Script" path="res://Scripts/Food/UncookableParentFood.gd" id="1_1f62g"]
+[ext_resource type="Script" path="res://Scripts/New Food/FoodBase.gd" id="1_gg8ru"]
 [ext_resource type="PackedScene" uid="uid://brvkqgrf7civs" path="res://Assets/food/bun.blend" id="2_b0hcx"]
 
 [sub_resource type="CylinderShape3D" id="CylinderShape3D_x3os3"]
@@ -11,7 +11,7 @@ radius = 3.26378
 radius = 0.264001
 
 [node name="Bun" type="RigidBody3D" node_paths=PackedStringArray("combine_range") groups=["holdable", "interactable"]]
-script = ExtResource("1_1f62g")
+script = ExtResource("1_gg8ru")
 combine_range = NodePath("Combine Range")
 
 [node name="DoneTimer" type="Timer" parent="."]
