@@ -1,8 +1,7 @@
-[gd_scene load_steps=8 format=3 uid="uid://ca6thqwccusde"]
+[gd_scene load_steps=7 format=3 uid="uid://ca6thqwccusde"]
 
 [ext_resource type="PackedScene" uid="uid://7q370aiw7csi" path="res://Assets/cup/cup.blend" id="1_d6bin"]
 [ext_resource type="Script" path="res://Scripts/New Food/Cup.gd" id="1_j075t"]
-[ext_resource type="Script" path="res://Assets/cup/liquid.gd" id="3_nunor"]
 
 [sub_resource type="CylinderShape3D" id="CylinderShape3D_bwg4b"]
 height = 0.275
@@ -63,4 +62,3 @@ libraries = {
 [node name="Liquid" type="MeshInstance3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.11, 0)
 mesh = SubResource("CylinderMesh_qwdt1")
-script = ExtResource("3_nunor")

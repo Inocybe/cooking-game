@@ -1,0 +1,21 @@
+[gd_scene load_steps=4 format=3 uid="uid://bws6s6beiqqk8"]
+
+[ext_resource type="Script" path="res://Scripts/Spill.gd" id="1_1qtge"]
+
+[sub_resource type="CylinderMesh" id="CylinderMesh_itsnd"]
+top_radius = 0.0
+height = 0.02
+
+[sub_resource type="CylinderShape3D" id="CylinderShape3D_dbmlw"]
+height = 0.02
+
+[node name="Spill" type="Area3D"]
+script = ExtResource("1_1qtge")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.01, 0)
+mesh = SubResource("CylinderMesh_itsnd")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.01, 0)
+shape = SubResource("CylinderShape3D_dbmlw")

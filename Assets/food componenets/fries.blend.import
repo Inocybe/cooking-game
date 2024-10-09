@@ -3,13 +3,13 @@
 importer="scene"
 importer_version=1
 type="PackedScene"
-uid="uid://brvkqgrf7civs"
-path="res://.godot/imported/bun.blend-07db4059786a4b2854e8439f167aaa83.scn"
+uid="uid://dsrcak3dl0ihe"
+path="res://.godot/imported/fries.blend-ed9de77fdfc90fc8850cb87d700d68d5.scn"
 
 [deps]
 
-source_file="res://Assets/food/bun.blend"
-dest_files=["res://.godot/imported/bun.blend-07db4059786a4b2854e8439f167aaa83.scn"]
+source_file="res://Assets/food componenets/fries.blend"
+dest_files=["res://.godot/imported/fries.blend-ed9de77fdfc90fc8850cb87d700d68d5.scn"]
 
 [params]
 

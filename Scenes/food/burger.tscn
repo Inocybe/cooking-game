@@ -1,7 +1,7 @@
 [gd_scene load_steps=4 format=3 uid="uid://fkjb8mg8enxf"]
 
 [ext_resource type="Script" path="res://Scripts/New Food/CookableFood.gd" id="1_a1o7p"]
-[ext_resource type="PackedScene" uid="uid://bl7462b3hiqlv" path="res://Assets/food/burger.blend" id="2_t8afi"]
+[ext_resource type="PackedScene" uid="uid://bl7462b3hiqlv" path="res://Assets/food componenets/burger.blend" id="2_t8afi"]
 
 [sub_resource type="CylinderShape3D" id="CylinderShape3D_mawmg"]
 radius = 3.0
