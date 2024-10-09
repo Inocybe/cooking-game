@@ -1,8 +1,9 @@
-[gd_scene load_steps=15 format=3 uid="uid://bnnh4k2t41n0l"]
+[gd_scene load_steps=18 format=3 uid="uid://bnnh4k2t41n0l"]
 
 [ext_resource type="Script" path="res://Scripts/Cookwear/SodaMachine.gd" id="1_480ux"]
 [ext_resource type="Script" path="res://Scripts/Button3D.gd" id="3_doyl0"]
 [ext_resource type="ArrayMesh" uid="uid://b3hirogdjwhcs" path="res://Assets/soda_machine/Soda Machine.obj" id="4_dxvpm"]
+[ext_resource type="Script" path="res://Scenes/soda_machine/sodaMachineParticles.gd" id="4_vcjki"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_qtgfu"]
 size = Vector3(2, 2, 2)
@@ -35,6 +36,14 @@ albedo_color = Color(0.418282, 0.177854, 0.0795322, 0.784314)
 
 [sub_resource type="CylinderMesh" id="CylinderMesh_irn8t"]
 material = SubResource("StandardMaterial3D_1xwtd")
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_yfbay"]
+albedo_color = Color(0, 0.313726, 0.890196, 1)
+
+[sub_resource type="SphereMesh" id="SphereMesh_3h020"]
+material = SubResource("StandardMaterial3D_yfbay")
+radius = 0.015
+height = 0.025
 
 [node name="SodaMachine" type="Node3D"]
 script = ExtResource("1_480ux")
@@ -96,3 +105,51 @@ mesh = SubResource("CylinderMesh_irn8t")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="ColaButton"]
 shape = SubResource("CylinderShape3D_1r5b1")
+
+[node name="Particles" type="Node3D" parent="."]
+script = ExtResource("4_vcjki")
+
+[node name="CPUParticles3D2" type="CPUParticles3D" parent="Particles"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.57, 0.306562)
+amount = 50
+lifetime = 3.04
+randomness = 1.0
+fixed_fps = 45
+local_coords = true
+draw_order = 2
+mesh = SubResource("SphereMesh_3h020")
+direction = Vector3(0, -1, 0)
+spread = 15.0
+gravity = Vector3(0, -2, 0)
+initial_velocity_min = 0.25
+initial_velocity_max = 0.25
+
+[node name="CPUParticles3D" type="CPUParticles3D" parent="Particles"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.304105, 1.57, 0.306562)
+amount = 50
+lifetime = 3.04
+randomness = 1.0
+fixed_fps = 45
+local_coords = true
+draw_order = 2
+mesh = SubResource("SphereMesh_3h020")
+direction = Vector3(0, -1, 0)
+spread = 15.0
+gravity = Vector3(0, -2, 0)
+initial_velocity_min = 0.25
+initial_velocity_max = 0.25
+
+[node name="CPUParticles3D3" type="CPUParticles3D" parent="Particles"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.304643, 1.57, 0.306562)
+amount = 50
+lifetime = 3.04
+randomness = 1.0
+fixed_fps = 45
+local_coords = true
+draw_order = 2
+mesh = SubResource("SphereMesh_3h020")
+direction = Vector3(0, -1, 0)
+spread = 15.0
+gravity = Vector3(0, -2, 0)
+initial_velocity_min = 0.25
+initial_velocity_max = 0.25
