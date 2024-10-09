@@ -9,12 +9,14 @@ class_name Holdable extends RigidBodyBase
 @export var freeze_dist: float = 0.02
 @export var freeze_vel: float = 0.3
 
-@export var rotational_acceleration: float = 2
-@export var freeze_angle: float = (PI / 180) * 1
+@export var rotational_acceleration: float = 10
+@export var vertical_freeze_angle: float = (PI / 180) * 1
+@export var forward_freeze_angle: float = (PI / 180) * 1
 @export var freeze_angular_speed: float = 4
 
 var held: bool = false
 var target_pos: Vector3
+var target_rot: float
 var default_gravity_scale: float
 
 
@@ -37,18 +39,27 @@ func _physics_process(delta: float) -> void:
 
 
 func do_rotational_correction(delta: float) -> void:
-	var remaining_angle: float = facing_direction().angle_to(Vector3.UP)
+	var remaining_angle_to_up: float = facing_direction().angle_to(Vector3.UP)
+	var remaining_angle_to_forward: float = fmod(target_rot - global_rotation.y + PI, 2 * PI) - PI
 	
-	if remaining_angle < freeze_angle and angular_velocity.length_squared() > freeze_angular_speed ** 2:
+	var target_angular_speed: float = 0
+	var target_angular_axis: Vector3 = Vector3(0, 0, 0)
+	
+	if remaining_angle_to_up > vertical_freeze_angle:
+		target_angular_speed = sqrt(2 * remaining_angle_to_up * rotational_acceleration)
+		target_angular_axis = facing_direction().cross(Vector3.UP).normalized()
+	elif abs(remaining_angle_to_forward) > forward_freeze_angle:
+		target_angular_speed = (sqrt(2 / abs(remaining_angle_to_forward) * rotational_acceleration)
+			* remaining_angle_to_forward)
+		target_angular_axis = Vector3.UP
+	elif angular_velocity.length_squared() < freeze_angular_speed ** 2:
 		angular_velocity = Vector3(0, 0, 0)
 		return
 	
-	var target_angular_speed: float = sqrt(2 * remaining_angle * rotational_acceleration)
-	var target_angular_axis: Vector3 = facing_direction().cross(Vector3.UP).normalized()
 	var target_angular_vel: Vector3 = target_angular_axis * target_angular_speed
 	var torque_direction: Vector3 = (target_angular_vel - angular_velocity).normalized()
 	var torque: Vector3 = torque_direction * rotational_acceleration * delta
-	apply_torque_impulse(torque)
+	angular_velocity += torque
 
 
 func do_position_correction(delta: float) -> void:
@@ -92,5 +103,6 @@ func on_stop_interact() -> void:
 	angular_damp = standard_angular_damp
 
 
-func set_held_position(pos: Vector3) -> void:
+func set_held_position(pos: Vector3, rot: float) -> void:
 	target_pos = pos
+	target_rot = rot

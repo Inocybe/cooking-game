@@ -5,7 +5,7 @@ var spill_scene = preload("res://Scenes/spill.tscn")
 
 @export var spill_count = 3
 @export var spill_angle = PI / 3
-@export var max_spill_distance = 1
+@export var max_spill_distance = 10
 
 var filled_with: StandardMaterial3D = null
 
@@ -36,10 +36,11 @@ func spill_liquid() -> void:
 	var from: Vector3 = global_position
 	var to: Vector3 = from + Vector3.DOWN * max_spill_distance
 	var space = get_world_3d().direct_space_state
-	var ray_query = PhysicsRayQueryParameters3D.create(from, to)
+	var collision_mask: int = 4
+	var ray_query = PhysicsRayQueryParameters3D.create(from, to, collision_mask)
 	var ray_result: Dictionary = space.intersect_ray(ray_query)
 	
-	if ray_result != null:
+	if ray_result != null and not ray_result.is_empty():
 		for i in spill_count:
 			generate_spill(ray_result.position)
 	

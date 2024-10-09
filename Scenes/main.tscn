@@ -51,10 +51,10 @@ material = SubResource("StandardMaterial3D_foqn1")
 
 [node name="OrderManager" parent="." instance=ExtResource("2_f5hnv")]
 
-[node name="CSGBox3D" type="CSGBox3D" parent="."]
+[node name="Ground" type="CSGBox3D" parent="."]
 use_collision = true
-collision_layer = 3
-collision_mask = 3
+collision_layer = 7
+collision_mask = 7
 size = Vector3(11, 1, 11)
 material = SubResource("StandardMaterial3D_uj5ys")
 
