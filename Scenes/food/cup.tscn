@@ -48,7 +48,7 @@ height = 0.03
 [node name="Cup" type="RigidBody3D" groups=["holdable", "interactable"]]
 script = ExtResource("1_j075t")
 
-[node name="Model" parent="." instance=ExtResource("1_d6bin")]
+[node name="cup" parent="." instance=ExtResource("1_d6bin")]
 transform = Transform3D(0.075, 0, 0, 0, 0.075, 0, 0, 0, 0.075, 0, 0, 0)
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
