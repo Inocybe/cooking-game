@@ -14,6 +14,9 @@ radius = 0.264001
 script = ExtResource("1_gg8ru")
 combine_range = NodePath("Combine Range")
 
+[node name="Model" parent="." instance=ExtResource("2_b0hcx")]
+transform = Transform3D(0.05, 0, 0, 0, 0.05, 0, 0, 0, 0.05, 0, 0, 0)
+
 [node name="DoneTimer" type="Timer" parent="."]
 wait_time = 20.0
 one_shot = true
@@ -21,9 +24,6 @@ one_shot = true
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
 transform = Transform3D(0.05, 0, 0, 0, 0.05, 0, 0, 0, 0.05, 0, 0.0269735, 0)
 shape = SubResource("CylinderShape3D_x3os3")
-
-[node name="Model" parent="." instance=ExtResource("2_b0hcx")]
-transform = Transform3D(0.05, 0, 0, 0, 0.05, 0, 0, 0, 0.05, 0, 0, 0)
 
 [node name="Combine Range" type="Area3D" parent="."]
 input_ray_pickable = false

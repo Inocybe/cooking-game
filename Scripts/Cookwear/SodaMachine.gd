@@ -1,32 +1,22 @@
 extends Node3D
 
-var inside_machine: Array[Node3D] = []
-var drink_index: int = 0
-@export var drinks: Array[StandardMaterial3D]
-
-func update_drink() -> void:
-	$"LeftButton/Mesh".set_material(current_drink())
+var in_machine: Array[Node3D] = []
 
 func _ready() -> void:
 	$"Cup Fill Area".body_entered.connect(on_body_entered)
 	$"Cup Fill Area".body_exited.connect(on_body_exited)
-	
-	update_drink()
+	$WaterButton.on_click.connect(ButtonPressed)
+	$LeanButton.on_click.connect(ButtonPressed)
+	$ColaButton.on_click.connect(ButtonPressed)
 
-func current_drink() -> StandardMaterial3D:
-	return drinks[drink_index]
-
-func switch_drink():
-	drink_index = (drink_index + 1) % drinks.size()
-	update_drink()
-
-func fill_cups():
-	for obj in inside_machine:
+func ButtonPressed(button_node: Node3D):
+	var button_material = button_node.get_child(0).get_mesh().get_material()
+	for obj in in_machine:
 		if obj.has_method("do_fill"):
-			obj.do_fill(current_drink())
+			obj.do_fill(button_material)
 
-func on_body_entered(body: Node3D):
-	inside_machine.append(body)
-	
-func on_body_exited(body: Node3D):
-	inside_machine.erase(body)
+func on_body_entered(object: Node3D):
+	in_machine.append(object)
+
+func on_body_exited(object: Node3D):
+	in_machine.erase(object)
