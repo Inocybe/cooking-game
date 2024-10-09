@@ -33,7 +33,8 @@ func _unhandled_input(event: InputEvent) -> void:
 func _process(_delta: float) -> void:
 	if selected_object and selected_object.is_in_group("holdable"):
 		selected_object.set_held_position(
-			global_position + forward_vector() * held_distance
+			global_position + forward_vector() * held_distance,
+			global_rotation.y + PI/2
 		)
 
 
