@@ -18,12 +18,7 @@ func _ready() -> void:
 		
 		# instantiates each item in the order thing yes (good comment ain't it)
 		for scene in order_functions.get_food_item_scenes(order[i]):
-			var food: Node = instantiate_scene_from_path(scene)
-			
-			# adding of ghost controller
-			# it makes the object transparent and stuff
-			var ghost_order_controller: Node = GHOST_ORDER_CONTROLLER.instantiate()
-			food.add_child(ghost_order_controller)
+			var food: Node3D = instantiate_scene_from_path(scene)
 			
 			# combine object to the thing
 			combine_objects(food, i)
@@ -62,3 +57,14 @@ func combine_objects(child: Holdable, food_position: int) -> void:
 	# set positoin to the center of objectd
 	child.global_position = parent.global_position
 	child.global_rotation = parent.global_rotation
+	
+	# add the ghost order thing here 
+	# I don't know why I do it here alr
+	add_ghost_order_controller(child)
+	
+	
+func add_ghost_order_controller(object: Node3D) -> void:
+	# adding of ghost controller
+	# it makes the object transparent and stuff
+	var ghost_order_controller: Node = GHOST_ORDER_CONTROLLER.instantiate()
+	object.add_child(ghost_order_controller)
