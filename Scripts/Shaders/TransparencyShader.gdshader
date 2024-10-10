@@ -1,8 +1,8 @@
 shader_type spatial;
 
 uniform float transparency_min: hint_range(0.0, 1.0) = 0.2; // min transparency
-uniform float transparency_max: hint_range(0.0, 1.0) = 0.5; // max transparency
-uniform float speed = 1.0; //speed of fluctiation
+uniform float transparency_max: hint_range(0.0, 1.0) = 0.7; // max transparency
+uniform float speed = 5.0; //speed of fluctiation
 
 
 void vertex() {
@@ -14,7 +14,6 @@ void fragment() {
 	float fluctuating_alpha = mix(transparency_min, transparency_max, time_factor);
 
 	// set materials alpha to fluctuate
-	ALBEDO = vec3(1.0);
 	ALPHA = fluctuating_alpha;
 }
 

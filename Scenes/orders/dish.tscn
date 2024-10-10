@@ -2,17 +2,18 @@
 
 [ext_resource type="Script" path="res://Scripts/Dishes/Dish.gd" id="1_t4su6"]
 
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_xjpku"]
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_bn23v"]
 albedo_color = Color(1, 0, 1, 1)
 
 [sub_resource type="BoxMesh" id="BoxMesh_ie21f"]
-material = SubResource("StandardMaterial3D_xjpku")
-size = Vector3(2, 0.05, 1)
+material = SubResource("StandardMaterial3D_bn23v")
+size = Vector3(1, 0.05, 2)
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_7dxny"]
-size = Vector3(0.6, 0.03, 0.3)
+size = Vector3(0.3, 0.03, 0.6)
 
 [node name="Dish" type="RigidBody3D" node_paths=PackedStringArray("food_positions") groups=["holdable", "interactable"]]
+transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 0, 0, 0)
 disable_mode = 1
 gravity_scale = 0.5
 script = ExtResource("1_t4su6")
@@ -26,12 +27,12 @@ mesh = SubResource("BoxMesh_ie21f")
 shape = SubResource("BoxShape3D_7dxny")
 
 [node name="FoodPosition1" type="Node3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.180679, 0.0643428, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.064, 0.18)
 
 [node name="FoodPosition2" type="Node3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.0643428, 0)
 
 [node name="FoodPosition3" type="Node3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.192617, 0.0643428, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.064, -0.18)
 
 [connection signal="body_entered" from="." to="." method="_on_body_entered"]
