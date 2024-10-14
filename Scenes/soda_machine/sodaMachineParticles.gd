@@ -4,9 +4,8 @@ var children: Array[Node] = []
 
 func _ready() -> void:
 	children = self.get_children()
-	set_particles()
 
-func set_particles():
+func set_particles(material: StandardMaterial3D):
 	for child in children:
-		#child.set_mesh()
-		pass
+		child.get_mesh().set_material(material)
+		child.restart()
