@@ -1,4 +1,4 @@
-[gd_scene load_steps=23 format=3 uid="uid://we0jch1p5bj5"]
+[gd_scene load_steps=25 format=3 uid="uid://we0jch1p5bj5"]
 
 [ext_resource type="PackedScene" uid="uid://jj8yuf0syk57" path="res://Scenes/managers/game_manager.tscn" id="1_go8us"]
 [ext_resource type="PackedScene" uid="uid://clqpcy2uu8xtw" path="res://Scenes/managers/order_manager.tscn" id="2_f5hnv"]
@@ -12,8 +12,16 @@
 [ext_resource type="PackedScene" uid="uid://fkjb8mg8enxf" path="res://Scenes/food/burger.tscn" id="10_e3yu5"]
 [ext_resource type="PackedScene" uid="uid://cdm4qy124ys6o" path="res://Scenes/food/fries.tscn" id="11_evggu"]
 
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_uj5ys"]
-albedo_color = Color(0.384314, 0.894118, 0.647059, 1)
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_2juh3"]
+albedo_color = Color(1.52815e-06, 0.292792, 1.92523e-07, 1)
+subsurf_scatter_strength = 0.48
+
+[sub_resource type="BoxMesh" id="BoxMesh_5ws66"]
+material = SubResource("StandardMaterial3D_2juh3")
+size = Vector3(10, 1, 10)
+
+[sub_resource type="ConvexPolygonShape3D" id="ConvexPolygonShape3D_x73ti"]
+points = PackedVector3Array(-5, -0.5, -5, -5, 0.5, -5, 5, -0.5, -5, -5, -0.5, 5, -5, 0.5, 5, 5, 0.5, -5, 5, -0.5, 5, 5, 0.5, 5)
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_blolg"]
 
@@ -51,12 +59,17 @@ material = SubResource("StandardMaterial3D_foqn1")
 
 [node name="OrderManager" parent="." instance=ExtResource("2_f5hnv")]
 
-[node name="Ground" type="CSGBox3D" parent="."]
-use_collision = true
-collision_layer = 7
-collision_mask = 7
-size = Vector3(11, 1, 11)
-material = SubResource("StandardMaterial3D_uj5ys")
+[node name="Ground2" type="Node3D" parent="."]
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Ground2"]
+mesh = SubResource("BoxMesh_5ws66")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="Ground2"]
+collision_layer = 3
+collision_mask = 3
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Ground2/StaticBody3D"]
+shape = SubResource("ConvexPolygonShape3D_x73ti")
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="."]
 environment = SubResource("Environment_p6ifs")

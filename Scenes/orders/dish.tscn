@@ -1,16 +1,14 @@
 [gd_scene load_steps=5 format=3 uid="uid://rsgvt2xake4j"]
 
 [ext_resource type="Script" path="res://Scripts/Dishes/Dish.gd" id="1_t4su6"]
-
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_bn23v"]
-albedo_color = Color(1, 0, 1, 1)
-
-[sub_resource type="BoxMesh" id="BoxMesh_ie21f"]
-material = SubResource("StandardMaterial3D_bn23v")
-size = Vector3(1, 0.05, 2)
+[ext_resource type="PackedScene" uid="uid://dib15fcwy22fq" path="res://Assets/food_tray.blend" id="2_8cj47"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_7dxny"]
-size = Vector3(0.3, 0.03, 0.6)
+size = Vector3(0.4, 0.03, 0.8)
+
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_fme2y"]
+radius = 0.3
+height = 1.0
 
 [node name="Dish" type="RigidBody3D" node_paths=PackedStringArray("food_positions") groups=["holdable", "interactable"]]
 transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 0, 0, 0)
@@ -18,17 +16,15 @@ disable_mode = 1
 gravity_scale = 0.5
 script = ExtResource("1_t4su6")
 food_positions = [NodePath("FoodPosition1"), NodePath("FoodPosition2"), NodePath("FoodPosition3")]
-freeze_angle = null
 
-[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
-transform = Transform3D(0.3, 0, 0, 0, 0.3, 0, 0, 0, 0.3, 0, 0, 0)
-mesh = SubResource("BoxMesh_ie21f")
+[node name="food_tray" parent="." instance=ExtResource("2_8cj47")]
+transform = Transform3D(-0.2, 0, 3.01992e-08, 0, 0.2, 0, -3.01992e-08, 0, -0.2, 0, 0, 0)
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
 shape = SubResource("BoxShape3D_7dxny")
 
 [node name="FoodPosition1" type="Node3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.064, 0.18)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.064, 0.25)
 
 [node name="FoodPosition2" type="Node3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.0643428, 0)
@@ -36,4 +32,11 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.0643428, 0)
 [node name="FoodPosition3" type="Node3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.064, -0.18)
 
+[node name="Area3D" type="Area3D" parent="."]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Area3D"]
+transform = Transform3D(1, 0, 3.82137e-15, -3.82137e-15, 4.37114e-08, 1, 0, -1, 4.37114e-08, 0, 0, 0)
+shape = SubResource("CapsuleShape3D_fme2y")
+
 [connection signal="body_entered" from="." to="." method="_on_body_entered"]
+[connection signal="area_entered" from="Area3D" to="." method="_on_area_entered"]
