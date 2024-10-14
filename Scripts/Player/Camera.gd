@@ -64,7 +64,7 @@ func drop_selected() -> void:
 	selected_object = null
 
 func drop_if_selected() -> void:
-	if selected_object == null:
+	if selected_object != null:
 		drop_selected()
 
 func do_interact() -> void:

@@ -3,7 +3,7 @@ extends Holdable
 
 var spill_scene = preload("res://Scenes/spill.tscn")
 
-@export var food_type = Menu.Item
+@export var food_type: Menu.Item
 @export var spill_count = 3
 @export var spill_angle = PI / 3
 @export var max_spill_distance = 10

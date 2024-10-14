@@ -10,7 +10,7 @@ radius = 3.26378
 [sub_resource type="SphereShape3D" id="SphereShape3D_ilnuv"]
 radius = 0.264001
 
-[node name="Bun" type="RigidBody3D" node_paths=PackedStringArray("combine_range") groups=["holdable", "interactable"]]
+[node name="Bun" type="RigidBody3D" node_paths=PackedStringArray("combine_range") groups=["food", "holdable", "interactable"]]
 script = ExtResource("1_gg8ru")
 combine_range = NodePath("Combine Range")
 
