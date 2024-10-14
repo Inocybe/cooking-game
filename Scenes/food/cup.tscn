@@ -45,7 +45,7 @@ top_radius = 0.075
 bottom_radius = 0.075
 height = 0.03
 
-[node name="Cup" type="RigidBody3D" groups=["holdable", "interactable"]]
+[node name="Cup" type="RigidBody3D" groups=["food", "holdable", "interactable"]]
 script = ExtResource("1_j075t")
 
 [node name="cup" parent="." instance=ExtResource("1_d6bin")]

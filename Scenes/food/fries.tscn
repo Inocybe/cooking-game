@@ -6,7 +6,7 @@
 [sub_resource type="BoxShape3D" id="BoxShape3D_ejgeh"]
 size = Vector3(0.227, 0.264, 0.388)
 
-[node name="Fries" type="RigidBody3D" groups=["holdable", "interactable"]]
+[node name="Fries" type="RigidBody3D" groups=["food", "holdable", "interactable"]]
 script = ExtResource("1_4snbo")
 unfryed_color = Color(1, 0.688333, 0.15, 1)
 fryed_color = Color(0.81, 0.6885, 0, 1)
