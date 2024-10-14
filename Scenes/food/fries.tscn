@@ -11,6 +11,7 @@ script = ExtResource("1_4snbo")
 unfryed_color = Color(1, 0.688333, 0.15, 1)
 fryed_color = Color(0.81, 0.6885, 0, 1)
 food_type = 1
+freeze_angle = null
 
 [node name="fries" parent="." instance=ExtResource("1_m3d73")]
 transform = Transform3D(0.1, 0, 0, 0, 0.1, 0, 0, 0, 0.1, 0, 0, 0)

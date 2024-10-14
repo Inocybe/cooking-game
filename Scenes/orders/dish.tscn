@@ -18,6 +18,7 @@ disable_mode = 1
 gravity_scale = 0.5
 script = ExtResource("1_t4su6")
 food_positions = [NodePath("FoodPosition1"), NodePath("FoodPosition2"), NodePath("FoodPosition3")]
+freeze_angle = null
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="."]
 transform = Transform3D(0.3, 0, 0, 0, 0.3, 0, 0, 0, 0.3, 0, 0, 0)
