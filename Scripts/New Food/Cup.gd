@@ -14,7 +14,7 @@ var filled_with: StandardMaterial3D = null
 func do_fill(material: StandardMaterial3D) -> void:
 	if has_fallen() or filled_with == material:
 		return
-	$Liquid.set_surface_override_material(0, material)
+	$Liquida
 	$Fill.stop(false)
 	$Fill.play("Fill")
 	filled_with = material

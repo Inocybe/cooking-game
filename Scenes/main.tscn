@@ -1,8 +1,9 @@
-[gd_scene load_steps=25 format=3 uid="uid://we0jch1p5bj5"]
+[gd_scene load_steps=26 format=3 uid="uid://we0jch1p5bj5"]
 
 [ext_resource type="PackedScene" uid="uid://jj8yuf0syk57" path="res://Scenes/managers/game_manager.tscn" id="1_go8us"]
 [ext_resource type="PackedScene" uid="uid://clqpcy2uu8xtw" path="res://Scenes/managers/order_manager.tscn" id="2_f5hnv"]
 [ext_resource type="Script" path="res://Scripts/Orders/NewOrderBox.gd" id="3_ic560"]
+[ext_resource type="Texture2D" uid="uid://b0n1jq041o6ai" path="res://Assets/floor.png" id="3_sw8jj"]
 [ext_resource type="Script" path="res://Scripts/Orders/ClearOrdersBox.gd" id="4_e6brh"]
 [ext_resource type="PackedScene" uid="uid://bmfn7nnstf5ve" path="res://Scenes/cookwear/fryer.tscn" id="5_57a3j"]
 [ext_resource type="PackedScene" uid="uid://cv485pktorksn" path="res://Scenes/cookwear/cooktop.tscn" id="6_h677c"]
@@ -11,17 +12,21 @@
 [ext_resource type="PackedScene" uid="uid://b3024k6shxqvg" path="res://Scenes/food/bun.tscn" id="9_t7j64"]
 [ext_resource type="PackedScene" uid="uid://fkjb8mg8enxf" path="res://Scenes/food/burger.tscn" id="10_e3yu5"]
 [ext_resource type="PackedScene" uid="uid://cdm4qy124ys6o" path="res://Scenes/food/fries.tscn" id="11_evggu"]
-
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_2juh3"]
-albedo_color = Color(1.52815e-06, 0.292792, 1.92523e-07, 1)
-subsurf_scatter_strength = 0.48
-
-[sub_resource type="BoxMesh" id="BoxMesh_5ws66"]
-material = SubResource("StandardMaterial3D_2juh3")
-size = Vector3(10, 1, 10)
+[ext_resource type="PackedScene" uid="uid://dw8rohdecg07i" path="res://Assets/kitchen.blend" id="13_y3nmx"]
 
 [sub_resource type="ConvexPolygonShape3D" id="ConvexPolygonShape3D_x73ti"]
 points = PackedVector3Array(-5, -0.5, -5, -5, 0.5, -5, 5, -0.5, -5, -5, -0.5, 5, -5, 0.5, 5, 5, 0.5, -5, 5, -0.5, 5, 5, 0.5, 5)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_hntic"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("3_sw8jj")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_blolg"]
 
@@ -59,19 +64,20 @@ material = SubResource("StandardMaterial3D_foqn1")
 
 [node name="OrderManager" parent="." instance=ExtResource("2_f5hnv")]
 
-[node name="Ground2" type="Node3D" parent="."]
+[node name="Ground" type="Node3D" parent="."]
 
-[node name="MeshInstance3D" type="MeshInstance3D" parent="Ground2"]
-mesh = SubResource("BoxMesh_5ws66")
-
-[node name="StaticBody3D" type="StaticBody3D" parent="Ground2"]
+[node name="StaticBody3D" type="StaticBody3D" parent="Ground"]
 collision_layer = 3
 collision_mask = 3
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="Ground2/StaticBody3D"]
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Ground/StaticBody3D"]
 shape = SubResource("ConvexPolygonShape3D_x73ti")
 
-[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+[node name="AnimatedSprite3D" type="AnimatedSprite3D" parent="Ground"]
+transform = Transform3D(0.194804, 0, 0, 0, -8.51515e-09, -1.00189, 0, 0.194804, -4.3794e-08, 0, 0.5, 0)
+sprite_frames = SubResource("SpriteFrames_hntic")
+
+[node name="Floor Texture" type="WorldEnvironment" parent="."]
 environment = SubResource("Environment_p6ifs")
 
 [node name="Tables" type="Node" parent="."]
@@ -149,3 +155,5 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.46748, 4, 3.03417)
 
 [node name="Fries" parent="." instance=ExtResource("11_evggu")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2, 2, 3)
+
+[node name="kitchen" parent="." instance=ExtResource("13_y3nmx")]

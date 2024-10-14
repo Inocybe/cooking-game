@@ -14,6 +14,7 @@ func ButtonPressed(button_node: Node3D):
 	for obj in in_machine:
 		if obj.has_method("do_fill"):
 			obj.do_fill(button_material)
+	$Particles.set_particles(button_material)
 
 func on_body_entered(object: Node3D):
 	in_machine.append(object)

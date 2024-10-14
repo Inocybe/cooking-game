@@ -111,8 +111,10 @@ script = ExtResource("4_vcjki")
 
 [node name="CPUParticles3D2" type="CPUParticles3D" parent="Particles"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.57, 0.306562)
+emitting = false
 amount = 50
-lifetime = 3.04
+lifetime = 2.5
+one_shot = true
 randomness = 1.0
 fixed_fps = 45
 local_coords = true
@@ -126,8 +128,10 @@ initial_velocity_max = 0.25
 
 [node name="CPUParticles3D" type="CPUParticles3D" parent="Particles"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.304105, 1.57, 0.306562)
+emitting = false
 amount = 50
-lifetime = 3.04
+lifetime = 2.5
+one_shot = true
 randomness = 1.0
 fixed_fps = 45
 local_coords = true
@@ -141,8 +145,10 @@ initial_velocity_max = 0.25
 
 [node name="CPUParticles3D3" type="CPUParticles3D" parent="Particles"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.304643, 1.57, 0.306562)
+emitting = false
 amount = 50
-lifetime = 3.04
+lifetime = 2.5
+one_shot = true
 randomness = 1.0
 fixed_fps = 45
 local_coords = true
