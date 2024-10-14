@@ -25,6 +25,8 @@ func _ready() -> void:
 
 
 
+
+
 func instantiate_scene_from_path(scene_path: String) -> Node:
 	# Load the scene from the given path
 	var scene = load(scene_path)
@@ -68,3 +70,7 @@ func add_ghost_order_controller(object: Node3D) -> void:
 	# it makes the object transparent and stuff
 	var ghost_order_controller: Node = GHOST_ORDER_CONTROLLER.instantiate()
 	object.add_child(ghost_order_controller)
+
+
+func _on_area_entered(area: Area3D) -> void:
+	pass # Replace with function body.

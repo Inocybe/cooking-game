@@ -23,6 +23,7 @@ var default_gravity_scale: float
 func _ready() -> void:
 	angular_damp = standard_angular_damp
 	default_gravity_scale = gravity_scale
+	can_sleep = false
 
 
 func facing_direction():
@@ -90,7 +91,6 @@ func do_position_correction(delta: float) -> void:
 
 func on_start_interact() -> void:
 	held = true
-	can_sleep = false
 	gravity_scale = 0
 	angular_damp = held_angular_damp
 	sleeping = false
@@ -98,7 +98,6 @@ func on_start_interact() -> void:
 
 func on_stop_interact() -> void:
 	held = false
-	can_sleep = true
 	gravity_scale = default_gravity_scale
 	angular_damp = standard_angular_damp
 

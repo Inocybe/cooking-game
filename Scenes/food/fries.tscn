@@ -1,7 +1,7 @@
 [gd_scene load_steps=4 format=3 uid="uid://cdm4qy124ys6o"]
 
 [ext_resource type="Script" path="res://Scripts/Food/Fries.gd" id="1_4snbo"]
-[ext_resource type="PackedScene" uid="uid://dsrcak3dl0ihe" path="res://Assets/food componenets/fries.blend" id="1_m3d73"]
+[ext_resource type="PackedScene" uid="uid://dsrcak3dl0ihe" path="res://Assets/food/fries.blend" id="1_m3d73"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_ejgeh"]
 size = Vector3(0.227, 0.264, 0.388)
@@ -11,7 +11,6 @@ script = ExtResource("1_4snbo")
 unfryed_color = Color(1, 0.688333, 0.15, 1)
 fryed_color = Color(0.81, 0.6885, 0, 1)
 food_type = 1
-freeze_angle = null
 
 [node name="fries" parent="." instance=ExtResource("1_m3d73")]
 transform = Transform3D(0.1, 0, 0, 0, 0.1, 0, 0, 0, 0.1, 0, 0, 0)
