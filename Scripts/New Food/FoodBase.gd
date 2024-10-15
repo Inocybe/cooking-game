@@ -29,7 +29,7 @@ func _input(event: InputEvent) -> void:
 
 
 func _on_body_entered(body: Node) -> void:
-	if body.is_in_group("food"):
+	if body.is_in_group("food") and not self:
 		if body.has_method("get_food_type") and !recently_removed_child.has(body):
 			if food_type == body.get_food_type():
 				combine_objects(body)
