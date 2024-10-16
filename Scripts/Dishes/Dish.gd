@@ -6,8 +6,13 @@ const GHOST_ORDER_CONTROLLER = preload("res://Scenes/orders/ghost_order_controll
 
 var order: Array[Menu.Item]
 var order_functions : OrderFunctions
+# tracking of food on tray
+var childed_objects: Array[Array]
+var recently_removed_child: Array[Holdable]
 
 @export var food_positions: Array[Node3D]
+
+
 
 
 func _ready() -> void:
@@ -16,12 +21,25 @@ func _ready() -> void:
 	# goes through order
 	for i in range(order.size()):
 		
+		var scene_counter = 0
+		
+		childed_objects.append([])
+		
 		# instantiates each item in the order thing yes (good comment ain't it)
 		for scene in order_functions.get_food_item_scenes(order[i]):
+			#instnatiate and add to childed objects
 			var food: Node3D = instantiate_scene_from_path(scene)
 			
 			# combine object to the thing
 			combine_objects(food, i)
+			
+			# add the ghost item
+			add_ghost_order_controller(food)
+			
+			# add to childed objects array
+			childed_objects[i].append(food)
+			
+			scene_counter += 1
 
 
 
@@ -45,6 +63,7 @@ func instantiate_scene_from_path(scene_path: String) -> Node:
 func combine_objects(child: Holdable, food_position: int) -> void:
 	var parent: Node3D = food_positions[food_position]
 	parent.add_child(child)
+	child.reparent(parent)
 	
 	# get collider to disable it
 	var collider: CollisionShape3D = child.get_node_or_null("CollisionShape3D")
@@ -59,12 +78,9 @@ func combine_objects(child: Holdable, food_position: int) -> void:
 	# set positoin to the center of objectd
 	child.global_position = parent.global_position
 	child.global_rotation = parent.global_rotation
-	
-	# add the ghost order thing here 
-	# I don't know why I do it here alr
-	add_ghost_order_controller(child)
-	
-	
+
+
+
 func add_ghost_order_controller(object: Node3D) -> void:
 	# adding of ghost controller
 	# it makes the object transparent and stuff
@@ -72,5 +88,21 @@ func add_ghost_order_controller(object: Node3D) -> void:
 	object.add_child(ghost_order_controller)
 
 
-func _on_area_entered(area: Area3D) -> void:
-	pass # Replace with function body.
+# detecting of a food objet goes near tray
+func _on_area_3d_body_entered(body: Node3D) -> void:
+	if body.is_in_group("food"):
+		if body.has_method("get_food_type") and !recently_removed_child.has(body):
+			check_order_and_add_object(body)
+
+
+func check_order_and_add_object(body: Node3D) -> void:
+	for i in range(order.size()):
+		print("here")
+		if body.get_food_type() == order[i]:
+			combine_objects(body, i)
+			disable_ghost_object(i)
+
+
+func disable_ghost_object(index: int) -> void:
+	for item: Holdable in childed_objects[index]:
+		item.visible = false
