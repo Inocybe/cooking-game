@@ -33,7 +33,8 @@ func _unhandled_input(event: InputEvent) -> void:
 func _physics_process(delta: float) -> void:
 	velocity += get_gravity() * delta
 
-	if Input.is_action_just_pressed("jump") and is_on_floor():
+	var is_on_floor_now: bool = is_on_floor()
+	if Input.is_action_just_pressed("jump") and is_on_floor_now:
 		velocity.y = JUMP_VELOCITY
 
 	var local_dir2d: Vector2 = Input.get_vector("left", "right", "forward", "back")
@@ -43,11 +44,11 @@ func _physics_process(delta: float) -> void:
 	var target_vel2d: Vector2
 	if dir3d:
 		target_vel2d = Vector2(dir3d.x, dir3d.z) * max_speed
-		if not is_on_floor():
+		if not is_on_floor_now:
 			traction *= AIR_CONTROL
 	else:
 		target_vel2d = Vector2(0, 0)
-		if not is_on_floor():
+		if not is_on_floor_now:
 			traction = 0
 	
 	var vel2d = Vector2(velocity.x, velocity.z)
