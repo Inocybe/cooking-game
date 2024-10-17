@@ -11,6 +11,8 @@ func _ready() -> void:
 
 func ButtonPressed(button_node: Node3D):
 	var button_material = button_node.get_child(0).get_mesh().get_material()
+	print(button_node.get_child(0).get_mesh())
+	print(button_material.albedo_color)
 	for obj in in_machine:
 		if obj.has_method("do_fill"):
 			obj.do_fill(button_material)
