@@ -9,7 +9,7 @@ const force_amount: float = 0.005
 var order: Array[Menu.Item]
 var order_functions : OrderFunctions
 # tracking of food on tray
-var childed_objects: Array[Array] = [[], [], []]
+var childed_objects: Array[Holdable]
 var childed_ghosts: Array[Array] = [[], [], []]
 var recently_removed_child: Array[Holdable]
 
@@ -65,20 +65,22 @@ func instantiate_scene_from_path(scene_path: String) -> Node:
 
 func combine_objects(child: Holdable, food_position: int) -> void:
 	var parent: Node3D = food_positions[food_position]
-	parent.add_child(child)
-	child.reparent(parent)
 	
-	# get collider to disable it
+	# Add child to parent if not already a child
+	if not parent.has_node(child.get_path()):
+		parent.add_child(child)
+	else:
+		child.reparent(parent)
+	
+	# Disable collider and freeze the child object
 	var collider: CollisionShape3D = child.get_node_or_null("CollisionShape3D")
 	if collider:
 		collider.disabled = true
 	child.collision_layer = 0
 	child.collision_mask = 0
-	
-	#child.freeze_mode = FREEZE_MODE_STATIC
 	child.freeze = true
 	
-	# set positoin to the center of objectd
+	# Set the position and rotation
 	child.global_position = parent.global_position
 	child.global_rotation = parent.global_rotation
 
@@ -93,13 +95,13 @@ func add_ghost_order_controller(object: Node3D) -> void:
 
 # detecting of a food objet goes near tray
 func _on_area_3d_body_entered(body: Node3D) -> void:
-	if body.is_in_group("food") and not childed_ghosts.has(body):
+	if body.is_in_group("food") and not childed_ghosts.has(body) and not childed_objects.has(body):
 		if body.has_method("get_food_type") and !recently_removed_child.has(body):
 			check_order_and_add_object(body)
 
 
 func _on_area_3d_body_exited(body: Node3D) -> void:
-	if body in recently_removed_child and not childed_ghosts.has(body):
+	if body in recently_removed_child and not childed_ghosts.has(body) and not childed_objects.has(body):
 		recently_removed_child.erase(body)
 
 
@@ -113,7 +115,7 @@ func check_order_and_add_object(body: Node3D) -> void:
 	for i in range(order.size()):
 		if body.get_food_type() == order[i]:
 			combine_objects(body, i)
-			childed_objects[i].append(body)
+			childed_objects.append(body)
 			disable_ghost_object(i)
 
 
@@ -123,32 +125,26 @@ func disable_ghost_object(index: int) -> void:
 
 
 func remove_all_objects() -> void:
-	for i in range(childed_objects.size()):
-		for child in childed_objects[i]:
-			var collider = child.get_node_or_null("CollisionShape3D")
+	for child in childed_objects:
+		var collider = child.get_node_or_null("CollisionShape3D")
+		
+		child.reparent(Global.current_scene)
+		object_removed(child)
+		
+		child.freeze = false
+		
+		#apply random direction of force
+		var random_direction = Vector3(randf_range(-1, 1), randf_range(-1, 1), randf_range(-1, 1)).normalized()
+		apply_impulse(Vector3(), random_direction * force_amount)
+		
+		collider.disabled = false
+		child.collision_layer = 1
+		child.collision_mask = 1
 			
-			child.reparent(Global.current_scene)
-			object_removed(child)
-			
-			child.freeze = false
-			
-			#apply random direction of force
-			var random_direction = Vector3(randf_range(-1, 1), randf_range(-1, 1), randf_range(-1, 1)).normalized()
-			apply_impulse(Vector3(), random_direction * force_amount)
-			
-			collider.disabled = false
-			child.collision_layer = 1
-			child.collision_mask = 1
-			
-	
-	set_childed_objects_to_null()
+	childed_objects.clear()
 		
 	
 func object_removed(object: Node3D) -> void:
 	recently_removed_child.append(object)
 	
-	
-func set_childed_objects_to_null() -> void:
-	for i: int in range(childed_objects.size()):
-		childed_objects[i].clear()
 			

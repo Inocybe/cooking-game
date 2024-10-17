@@ -25,8 +25,8 @@ func _unhandled_input(event: InputEvent) -> void:
 	if event is InputEventMouseMotion:
 		var mouse_delta: Vector2 = event.relative
 		
-		rotate_y(-mouse_delta.x * sensitivity)
-		head.rotate_x(-mouse_delta.y * sensitivity)
+		rotate_y(-mouse_delta.x * sensitivity * 0.01)
+		head.rotate_x(-mouse_delta.y * sensitivity * 0.01)
 		head.rotation.x = clamp(head.rotation.x, deg_to_rad(-80), deg_to_rad(80))
 
 
