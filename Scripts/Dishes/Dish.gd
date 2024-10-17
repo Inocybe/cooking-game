@@ -3,6 +3,8 @@ class_name Dish
 
 
 const GHOST_ORDER_CONTROLLER = preload("res://Scenes/orders/ghost_order_controller.tscn")
+const force_amount: float = 0.005
+
 
 var order: Array[Menu.Item]
 var order_functions : OrderFunctions
@@ -95,9 +97,19 @@ func _on_area_3d_body_entered(body: Node3D) -> void:
 			check_order_and_add_object(body)
 
 
+func _on_area_3d_body_exited(body: Node3D) -> void:
+	if body in recently_removed_child:
+		recently_removed_child.erase(body)
+
+
+func _input(event: InputEvent) -> void:
+	if event.is_action_pressed("remove_children") and childed_objects.size() > 0:
+		#remove_all_objects()
+		pass
+
+
 func check_order_and_add_object(body: Node3D) -> void:
 	for i in range(order.size()):
-		print("here")
 		if body.get_food_type() == order[i]:
 			combine_objects(body, i)
 			disable_ghost_object(i)
@@ -106,3 +118,27 @@ func check_order_and_add_object(body: Node3D) -> void:
 func disable_ghost_object(index: int) -> void:
 	for item: Holdable in childed_objects[index]:
 		item.visible = false
+
+func remove_all_objects() -> void:
+	for i in range(order.size()):
+		for child in childed_objects[i]:
+			var collider = child.get_node_or_null("CollisionShape3D")
+			
+			child.reparent(Global.current_scene)
+			object_removed(child)
+			
+			child.freeze = false
+			
+			#apply random direction of force
+			var random_direction = Vector3(randf_range(-1, 1), randf_range(-1, 1), randf_range(-1, 1)).normalized()
+			apply_impulse(Vector3(), random_direction * force_amount)
+			
+			collider.disabled = false
+			child.collision_layer = 1
+			child.collision_mask = 1
+			
+		
+	childed_objects.clear()
+	
+func object_removed(object: Node3D) -> void:
+	recently_removed_child.append(object)
