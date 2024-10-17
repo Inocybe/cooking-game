@@ -1,9 +1,9 @@
 [gd_scene load_steps=18 format=3 uid="uid://bnnh4k2t41n0l"]
 
 [ext_resource type="Script" path="res://Scripts/Cookwear/SodaMachine.gd" id="1_480ux"]
-[ext_resource type="Script" path="res://Scripts/Button3D.gd" id="3_doyl0"]
+[ext_resource type="Script" path="res://Scripts/Misc/Button3D.gd" id="3_doyl0"]
 [ext_resource type="ArrayMesh" uid="uid://b3hirogdjwhcs" path="res://Assets/soda_machine/Soda Machine.obj" id="4_dxvpm"]
-[ext_resource type="Script" path="res://Scenes/soda_machine/sodaMachineParticles.gd" id="4_vcjki"]
+[ext_resource type="Script" path="res://Scripts/Cookwear/SodaMachineParticles.gd" id="4_vcjki"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_qtgfu"]
 size = Vector3(2, 2, 2)
