@@ -1,4 +1,4 @@
-[gd_scene load_steps=25 format=3 uid="uid://we0jch1p5bj5"]
+[gd_scene load_steps=21 format=3 uid="uid://we0jch1p5bj5"]
 
 [ext_resource type="PackedScene" uid="uid://jj8yuf0syk57" path="res://Scenes/managers/game_manager.tscn" id="1_go8us"]
 [ext_resource type="PackedScene" uid="uid://clqpcy2uu8xtw" path="res://Scenes/managers/order_manager.tscn" id="2_f5hnv"]
@@ -12,19 +12,9 @@
 [ext_resource type="PackedScene" uid="uid://b3024k6shxqvg" path="res://Scenes/food/bun.tscn" id="9_t7j64"]
 [ext_resource type="PackedScene" uid="uid://fkjb8mg8enxf" path="res://Scenes/food/burger.tscn" id="10_e3yu5"]
 [ext_resource type="PackedScene" uid="uid://cdm4qy124ys6o" path="res://Scenes/food/fries.tscn" id="11_evggu"]
-[ext_resource type="PackedScene" uid="uid://dw8rohdecg07i" path="res://Assets/kitchen.blend" id="13_y3nmx"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_875dp"]
 size = Vector3(10, 1, 10)
-
-[sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_blolg"]
-
-[sub_resource type="Sky" id="Sky_tfntd"]
-sky_material = SubResource("ProceduralSkyMaterial_blolg")
-
-[sub_resource type="Environment" id="Environment_p6ifs"]
-background_mode = 2
-sky = SubResource("Sky_tfntd")
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_qxi3u"]
 
@@ -64,10 +54,8 @@ shape = SubResource("BoxShape3D_875dp")
 
 [node name="Sprite3D" type="Sprite3D" parent="Ground"]
 transform = Transform3D(0.2, 0, 0, 0, -8.74228e-09, -0.2, 0, 0.2, -8.74228e-09, 0, 0.5, 0)
+shaded = true
 texture = ExtResource("3_sw8jj")
-
-[node name="World Environment" type="WorldEnvironment" parent="."]
-environment = SubResource("Environment_p6ifs")
 
 [node name="Tables" type="Node" parent="."]
 
@@ -145,7 +133,11 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.46748, 4, 3.03417)
 [node name="Fries" parent="." instance=ExtResource("11_evggu")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2, 2, 3)
 
-[node name="kitchen" parent="." instance=ExtResource("13_y3nmx")]
-
 [node name="Bun2" parent="." instance=ExtResource("9_t7j64")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1, 2, -3)
+
+[node name="OmniLight3D" type="OmniLight3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 5.07746, 0)
+light_energy = 2.5
+shadow_enabled = true
+omni_range = 20.0
