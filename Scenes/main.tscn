@@ -12,7 +12,7 @@
 [ext_resource type="PackedScene" uid="uid://b3024k6shxqvg" path="res://Scenes/food/bun.tscn" id="9_t7j64"]
 [ext_resource type="PackedScene" uid="uid://fkjb8mg8enxf" path="res://Scenes/food/burger.tscn" id="10_e3yu5"]
 [ext_resource type="PackedScene" uid="uid://cdm4qy124ys6o" path="res://Scenes/food/fries.tscn" id="11_evggu"]
-[ext_resource type="PackedScene" path="res://Scenes/cookwear/table.tscn" id="13_uiy2b"]
+[ext_resource type="PackedScene" uid="uid://caiym4bxd68to" path="res://Scenes/cookwear/table.tscn" id="13_uiy2b"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_875dp"]
 size = Vector3(10, 1, 10)

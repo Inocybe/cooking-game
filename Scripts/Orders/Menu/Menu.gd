@@ -8,6 +8,13 @@ enum Item {
 	Unknown
 }
 
+enum FoodComponents {
+	Bun = 0,
+	Burger,
+	Fries,
+	Cup
+}
+
 const food_root: String = "res://Scenes/Food/"
 
 const MENU_SCENES: Dictionary = {
