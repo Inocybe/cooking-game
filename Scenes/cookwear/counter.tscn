@@ -1,0 +1,16 @@
+[gd_scene load_steps=3 format=3 uid="uid://lqh5vyeea7f8"]
+
+[ext_resource type="ArrayMesh" uid="uid://cy4rgt7m8pr56" path="res://Assets/Counter/Counter.obj" id="1_qmvtv"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_genr8"]
+size = Vector3(5, 1.6, 1.4)
+
+[node name="Counter" type="StaticBody3D"]
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+transform = Transform3D(0.2, 0, 0, 0, -8.74228e-09, 0.2, 0, -0.2, -8.74228e-09, 0, 0, 0)
+mesh = ExtResource("1_qmvtv")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.8, 0)
+shape = SubResource("BoxShape3D_genr8")
