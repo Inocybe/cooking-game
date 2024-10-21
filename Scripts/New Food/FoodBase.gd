@@ -4,6 +4,7 @@ class_name FoodBase extends Holdable
 const force_amount: float = 0.005
 
 @export var food_type: Menu.Item
+@export var food_component_type: Menu.FoodComponents
 @export var combine_range: Area3D = null
 
 var childed_objects: Array[Holdable]
@@ -29,9 +30,11 @@ func _input(event: InputEvent) -> void:
 
 
 func _on_body_entered(body: Node) -> void:
-	if body.is_in_group("food") and body != self and body.get_child(0) != self.get_child(0):
-		if body.has_method("get_food_type") and !recently_removed_child.has(body):
-			if food_type == body.get_food_type():
+	print(body.get_child(0))
+	print(self.get_child(0))
+	if body.is_in_group("food") and body != self:
+		if body.has_method("get_food_type") and body.has_method("get_food_component_type") and !recently_removed_child.has(body):
+			if food_type == body.get_food_type() and food_component_type != body.get_food_component_type():
 				combine_objects(body)
 
 
@@ -90,3 +93,6 @@ func object_removed(object: Holdable) -> void:
 
 func get_food_type() -> Menu.Item:
 	return food_type
+	
+func get_food_component_type() -> Menu.FoodComponents:
+	return food_component_type

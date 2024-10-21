@@ -9,7 +9,7 @@ const force_amount: float = 0.005
 var order: Array[Menu.Item]
 var order_functions : OrderFunctions
 # tracking of food on tray
-var childed_objects: Array[Holdable]
+var childed_objects: Array[Holdable] = []
 var childed_ghosts: Array[Array] = [[], [], []]
 var recently_removed_child: Array[Holdable]
 
