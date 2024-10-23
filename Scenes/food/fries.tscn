@@ -8,8 +8,8 @@ size = Vector3(0.227, 0.264, 0.388)
 
 [node name="Fries" type="RigidBody3D" groups=["food", "holdable", "interactable"]]
 script = ExtResource("1_4snbo")
-unfryed_color = Color(1, 0.688333, 0.15, 1)
-fryed_color = Color(0.81, 0.6885, 0, 1)
+unfryed_color = Color(0.811765, 0.690196, 0, 1)
+fryed_color = Color(0.658037, 0.43941, 0, 1)
 food_type = 1
 
 [node name="fries" parent="." instance=ExtResource("1_m3d73")]

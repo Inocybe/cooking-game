@@ -122,6 +122,15 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.46748, 4, 3.03417)
 [node name="Fries" parent="." instance=ExtResource("11_evggu")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.71546, 2, 3)
 
+[node name="Fries2" parent="." instance=ExtResource("11_evggu")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.71546, 3, 3)
+
+[node name="Fries3" parent="." instance=ExtResource("11_evggu")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.71546, 4, 3)
+
+[node name="Fries4" parent="." instance=ExtResource("11_evggu")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.71546, 5, 3)
+
 [node name="Bun2" parent="." instance=ExtResource("9_t7j64")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1, 2, -3)
 

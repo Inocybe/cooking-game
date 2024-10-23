@@ -5,10 +5,10 @@
 [ext_resource type="ArrayMesh" uid="uid://vmb5c05mvi3m" path="res://Assets/fryer/Fry Basket.obj" id="3_avjgy"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_7uoui"]
-size = Vector3(2, 1.23987, 2)
+size = Vector3(2, 1, 2)
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_owx0e"]
-size = Vector3(0.181496, 0.783051, 2.00134)
+size = Vector3(0.181, 0.3, 2.001)
 
 [sub_resource type="PlaneMesh" id="PlaneMesh_ur8hw"]
 size = Vector2(1.9, 1.9)
@@ -18,7 +18,7 @@ transparency = 1
 albedo_color = Color(0.83, 0.487625, 0.2075, 0.768627)
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_2s587"]
-size = Vector3(0.623, 0.116358, 0.625)
+size = Vector3(0.7, 0.2, 0.7)
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_or8tv"]
 size = Vector3(0.677917, 0.0187073, 0.763245)
@@ -33,7 +33,7 @@ size = Vector3(0.0741577, 0.0670776, 0.4245)
 size = Vector3(0.0168457, 0.3396, 0.767822)
 
 [node name="Fryer" type="Node3D"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.4, 0)
 
 [node name="Fryer" type="StaticBody3D" parent="."]
 transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, 0, 0, 0)
@@ -42,39 +42,39 @@ collision_mask = 3
 input_ray_pickable = false
 
 [node name="Fryer Model" parent="Fryer" instance=ExtResource("1_b3kne")]
-transform = Transform3D(1.19249e-08, 0, -1, 0, 1, 0, 1, 0, 1.19249e-08, 0, 0, 0)
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 0.8, 0, 1, 0, -4.37114e-08, 0, 0, 0)
 
 [node name="Fryer Base Collision" type="CollisionShape3D" parent="Fryer"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.382563, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.3, 0)
 shape = SubResource("BoxShape3D_7uoui")
 
 [node name="Fryer Wall 1 Collision" type="CollisionShape3D" parent="Fryer"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.900043, 0.607864, -0.000305176)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.900043, 0.7, -0.000305176)
 shape = SubResource("BoxShape3D_owx0e")
 
 [node name="Fryer Wall 2 Collision" type="CollisionShape3D" parent="Fryer"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.9, 0.608, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.9, 0.7, 0)
 shape = SubResource("BoxShape3D_owx0e")
 
 [node name="Fryer Wall 3 Collision" type="CollisionShape3D" parent="Fryer"]
-transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 0.000174304, 0.607864, 0.899869)
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 0.000174304, 0.7, 0.899869)
 shape = SubResource("BoxShape3D_owx0e")
 
 [node name="Fryer Wall 4 Collision" type="CollisionShape3D" parent="Fryer"]
-transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, -0.000130793, 0.608, -0.900174)
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, -0.000130793, 0.7, -0.900174)
 shape = SubResource("BoxShape3D_owx0e")
 
 [node name="Oil" type="MeshInstance3D" parent="Fryer"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.655357, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.757878, 0)
 mesh = SubResource("PlaneMesh_ur8hw")
 surface_material_override/0 = SubResource("StandardMaterial3D_qe14h")
 
 [node name="Frying Area" type="Area3D" parent="Fryer"]
 unique_name_in_owner = true
-transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, 0, 0.5, 0)
+transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, 0, 0.370941, 0)
 
 [node name="Frying Area Collision" type="CollisionShape3D" parent="Fryer/Frying Area"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.0193113, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.04613, 0)
 shape = SubResource("BoxShape3D_2s587")
 
 [node name="Fry Basket" type="RigidBody3D" parent="." groups=["holdable", "interactable"]]

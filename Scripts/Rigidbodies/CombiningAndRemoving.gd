@@ -17,7 +17,7 @@ func set_collider_and_state(child: Holdable, disable: bool) -> void:
 		child.freeze = false
 
 
-func remove_all_objects_in_array(from: Node3D, childed_objects: Array[Node3D]) -> void:
+func remove_all_objects_in_array(from: Node3D, childed_objects: Array) -> void:
 	for child in childed_objects:
 		child.reparent(Global.current_scene)
 		object_removed(from, child)
