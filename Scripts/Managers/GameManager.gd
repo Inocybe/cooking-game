@@ -1,9 +1,12 @@
 class_name GameManager extends Node
 
+var player: CharacterBody3D = null
 
 func _ready() -> void:
 	Input.mouse_mode = Input.MOUSE_MODE_CAPTURED
 	set_process_input(true)
+	
+	player = Global.current_scene.get_node_or_null("Player")
 
 
 func _input(event: InputEvent) -> void:
