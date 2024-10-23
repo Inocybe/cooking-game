@@ -2,7 +2,6 @@ extends Holdable
 class_name Dish
 
 const GHOST_ORDER_CONTROLLER = preload("res://Scenes/orders/ghost_order_controller.tscn")
-const FORCE_AMOUNT: float = 0.005
 
 @export var food_positions: Array[Node3D]
 
@@ -33,10 +32,10 @@ func instantiate_scene_from_path(scene_path: String) -> Node:
 
 func combine_objects(child: Holdable, food_position: int) -> void:
 	var parent = food_positions[food_position]
-	if not parent.has_node(child.get_path()):
-		parent.add_child(child)
-	else:
-		child.reparent(parent)
+	
+	parent.add_child(child)
+	child.reparent(parent)
+		
 	set_collider_and_state(child, true)
 	child.global_transform = parent.global_transform
 
@@ -47,7 +46,7 @@ func add_ghost_order_controller(object: Node3D) -> void:
 
 
 func _on_area_3d_body_entered(body: Node3D) -> void:
-	if body.is_in_group("food") and not childed_objects.has(body) and not recently_removed_child.has(body):
+	if body.is_in_group("food") and not recently_removed_child.has(body):
 		if body.has_method("get_food_type"):
 			check_order_and_add_object(body)
 
@@ -90,7 +89,6 @@ func remove_all_objects() -> void:
 			child.reparent(Global.current_scene)
 			object_removed(child)
 			child.freeze = false
-			apply_impulse(Vector3(), Vector3(randf_range(-1, 1), randf_range(-1, 1), randf_range(-1, 1)).normalized() * FORCE_AMOUNT)
 			set_collider_and_state(child, false)
 	enable_ghost_objects()
 	reset_child_arrays()

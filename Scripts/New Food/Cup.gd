@@ -4,31 +4,36 @@ extends Holdable
 var spill_scene = preload("res://Scenes/spill.tscn")
 
 @export var food_type: Menu.Item
-@export var spill_count = 3
-@export var spill_angle = PI / 3
-@export var max_spill_distance = 10
+@export var spill_count: int = 3
+@export var max_spill_distance: float = 10
 
 var filled_with: StandardMaterial3D = null
 
+var checking_upside_down_instance: CheckingUpsideDown = CheckingUpsideDown.new()
+
 
 func do_fill(material: StandardMaterial3D) -> void:
-	if has_fallen() or filled_with == material:
+	if checking_upside_down_instance.IsUpsideDown(self) or filled_with == material:
 		return
+		
 	$Liquid.set_surface_override_material(0, material)
 	$Fill.stop(false)
 	$Fill.play("Fill")
+	
 	filled_with = material
+	
+func _ready() -> void:
+	super()
+	
 
 
 func _physics_process(delta: float) -> void:
 	super(delta)
 	
-	if filled_with != null and has_fallen():
+	if checking_upside_down_instance.IsUpsideDown(self) and filled_with != null:
+	#if filled_with != null and has_fallen():
 		spill_liquid()
-
-
-func has_fallen() -> bool:
-	return facing_direction().angle_to(Vector3.UP) > spill_angle
+		
 
 
 func spill_liquid() -> void:
