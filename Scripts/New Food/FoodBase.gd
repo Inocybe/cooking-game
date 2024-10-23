@@ -6,8 +6,8 @@ const FORCE_AMOUNT: float = 0.005
 @export var food_component_type: Menu.FoodComponents
 @export var combine_range: Area3D = null
 
-var childed_objects: Array[Holdable] = []
-var recently_removed_child: Array[Holdable] = []
+var childed_objects: Array[Node3D] = []
+var recently_removed_child: Array[Node3D] = []
 var game_manager: Node = null
 var combining_and_removing_functions: CombiningAndRemoving = CombiningAndRemoving.new()
 

@@ -9,7 +9,7 @@ var order: Array[Menu.Item]
 var order_functions: OrderFunctions
 var childed_objects: Array[Array] = [[], [], []]
 var childed_ghosts: Array[Array] = [[], [], []]
-var recently_removed_child: Array[Holdable] = []
+var recently_removed_child: Array[Node3D] = []
 
 var combining_and_removing_functions: CombiningAndRemoving = CombiningAndRemoving.new()
 
