@@ -1,4 +1,4 @@
-[gd_scene load_steps=21 format=3 uid="uid://we0jch1p5bj5"]
+[gd_scene load_steps=22 format=3 uid="uid://we0jch1p5bj5"]
 
 [ext_resource type="PackedScene" uid="uid://jj8yuf0syk57" path="res://Scenes/managers/game_manager.tscn" id="1_go8us"]
 [ext_resource type="Script" path="res://Scripts/Orders/NewOrderBox.gd" id="3_ic560"]
@@ -11,6 +11,7 @@
 [ext_resource type="PackedScene" uid="uid://b3024k6shxqvg" path="res://Scenes/food/bun.tscn" id="9_t7j64"]
 [ext_resource type="PackedScene" uid="uid://fkjb8mg8enxf" path="res://Scenes/food/burger.tscn" id="10_e3yu5"]
 [ext_resource type="PackedScene" uid="uid://cdm4qy124ys6o" path="res://Scenes/food/fries.tscn" id="11_evggu"]
+[ext_resource type="PackedScene" uid="uid://5s3oxlpup0wy" path="res://Scenes/player/player.tscn" id="13_flo33"]
 [ext_resource type="PackedScene" uid="uid://caiym4bxd68to" path="res://Scenes/cookwear/table.tscn" id="13_uiy2b"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_875dp"]
@@ -134,3 +135,6 @@ transform = Transform3D(-4.37114e-09, 0, 0.1, 0, 0.1, 0, -0.1, 0, -4.37114e-09, 
 
 [node name="Table 2" parent="." instance=ExtResource("13_uiy2b")]
 transform = Transform3D(-4.37114e-09, 0, 0.1, 0, 0.1, 0, -0.1, 0, -4.37114e-09, -0.0813483, 0.5, 3.00879)
+
+[node name="Player" parent="." instance=ExtResource("13_flo33")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.637201, 1.5, -0.0351214)
