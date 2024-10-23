@@ -9,6 +9,8 @@ const FORCE_AMOUNT: float = 0.005
 var childed_objects: Array[Holdable] = []
 var recently_removed_child: Array[Holdable] = []
 var game_manager: Node = null
+var combining_and_removing_functions: CombiningAndRemoving = CombiningAndRemoving.new()
+
 
 func _ready() -> void:
 	super()
@@ -43,9 +45,8 @@ func _on_body_exited(body: Node) -> void:
 func combine_objects(child: Holdable) -> void: 
 	# Reparent the child under this node and disable its collider
 	child.reparent(self)
-	set_collider_state(child, true)
+	combining_and_removing_functions.set_collider_and_state(child, true)
 	
-	child.freeze = true  # Freeze the child object
 
 	# Drop the child object if it's currently selected
 	game_manager.player.camera.drop_if_selected()
@@ -58,41 +59,9 @@ func combine_objects(child: Holdable) -> void:
 
 
 func remove_all_objects() -> void:
-	for child in childed_objects:
-		# Reparent the child back to the main scene and unfreeze it
-		child.reparent(Global.current_scene)
-		object_removed(child)
-
-		child.freeze = false
-
-		# Apply a random impulse to each child
-		var random_direction = Vector3(randf_range(-1, 1), randf_range(-1, 1), randf_range(-1, 1)).normalized()
-		child.apply_impulse(Vector3(), random_direction * FORCE_AMOUNT)
-
-		set_collider_state(child, false)
-
-	# Clear the list of childed objects
+	combining_and_removing_functions.remove_all_objects_in_array(self, childed_objects)
 	childed_objects.clear()
 
-
-func object_removed(object: Holdable) -> void:
-	# Keep track of recently removed objects
-	recently_removed_child.append(object)
-
-
-func set_collider_state(object: Holdable, disable: bool) -> void:
-	# Enable/disable the collider of the object
-	var collider: CollisionShape3D = object.get_node_or_null("CollisionShape3D")
-	if collider:
-		collider.disabled = disable
-
-	# Update collision layers/masks based on the state
-	if disable:
-		object.collision_layer = 0
-		object.collision_mask = 0
-	else:
-		object.collision_layer = 1
-		object.collision_mask = 1
 
 
 func get_food_type() -> Menu.Item:

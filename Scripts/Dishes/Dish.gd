@@ -11,6 +11,7 @@ var childed_objects: Array[Array] = [[], [], []]
 var childed_ghosts: Array[Array] = [[], [], []]
 var recently_removed_child: Array[Holdable] = []
 
+var combining_and_removing_functions: CombiningAndRemoving = CombiningAndRemoving.new()
 
 func _ready() -> void:
 	super()
@@ -36,7 +37,7 @@ func combine_objects(child: Holdable, food_position: int) -> void:
 	parent.add_child(child)
 	child.reparent(parent)
 		
-	set_collider_and_state(child, true)
+	combining_and_removing_functions.set_collider_and_state(child, true)
 	child.global_transform = parent.global_transform
 
 
@@ -85,33 +86,10 @@ func enable_ghost_objects() -> void:
 
 func remove_all_objects() -> void:
 	for objects in childed_objects:
-		for child in objects:
-			child.reparent(Global.current_scene)
-			object_removed(child)
-			child.freeze = false
-			set_collider_and_state(child, false)
+		combining_and_removing_functions.remove_all_objects_in_array(self, objects)
 	enable_ghost_objects()
 	reset_child_arrays()
-
-
-func object_removed(object: Node3D) -> void:
-	recently_removed_child.append(object)
-
-
-func set_collider_and_state(child: Holdable, disable: bool) -> void:
-	var collider: CollisionShape3D = child.get_node_or_null("CollisionShape3D")
-	if collider:
-		collider.disabled = disable
-		
-	if disable:
-		child.collision_layer = 0
-		child.collision_mask = 0
-		child.freeze = true
-	else:
-		child.collision_layer = 1
-		child.collision_mask = 1
-		child.freeze = false
-
+	
 
 func reset_child_arrays() -> void:
 	for objects in childed_objects:
