@@ -20,6 +20,10 @@ func forward_vector() -> Vector3:
 func _unhandled_input(event: InputEvent) -> void:
 	if event.is_action_pressed("click"):
 		do_interact()
+		
+	if event.is_action_pressed("remove_children"):
+		if selected_object.has_method("remove_children"):
+			selected_object.remove_children()
 	
 	if (event.is_action_released("click") and selected_object != null
 		and timer.is_stopped()):

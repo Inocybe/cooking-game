@@ -35,7 +35,9 @@ func combine_objects(child: Holdable, food_position: int) -> void:
 	var parent = food_positions[food_position]
 	if not parent.has_node(child.get_path()):
 		parent.add_child(child)
-	_set_collider_and_state(child, true)
+	else:
+		child.reparent(parent)
+	set_collider_and_state(child, true)
 	child.global_transform = parent.global_transform
 
 
@@ -55,8 +57,8 @@ func _on_area_3d_body_exited(body: Node3D) -> void:
 		recently_removed_child.erase(body)
 
 
-func _input(event: InputEvent) -> void:
-	if event.is_action_pressed("remove_children") and childed_objects.size() > 0:
+func remove_children() -> void:
+	if childed_objects.size() > 0:
 		remove_all_objects()
 
 
@@ -89,16 +91,16 @@ func remove_all_objects() -> void:
 			object_removed(child)
 			child.freeze = false
 			apply_impulse(Vector3(), Vector3(randf_range(-1, 1), randf_range(-1, 1), randf_range(-1, 1)).normalized() * FORCE_AMOUNT)
-			_set_collider_and_state(child, false)
+			set_collider_and_state(child, false)
 	enable_ghost_objects()
-	_reset_child_arrays()
+	reset_child_arrays()
 
 
 func object_removed(object: Node3D) -> void:
 	recently_removed_child.append(object)
 
 
-func _set_collider_and_state(child: Holdable, disable: bool) -> void:
+func set_collider_and_state(child: Holdable, disable: bool) -> void:
 	var collider: CollisionShape3D = child.get_node_or_null("CollisionShape3D")
 	if collider:
 		collider.disabled = disable
@@ -113,6 +115,6 @@ func _set_collider_and_state(child: Holdable, disable: bool) -> void:
 		child.freeze = false
 
 
-func _reset_child_arrays() -> void:
+func reset_child_arrays() -> void:
 	for objects in childed_objects:
 		objects.clear()

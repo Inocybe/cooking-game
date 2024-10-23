@@ -20,9 +20,9 @@ func _ready() -> void:
 	game_manager = Global.game_manager
 
 
-func _input(event: InputEvent) -> void:
+func remove_children() -> void:
 	# Remove children when "remove_children" is pressed
-	if event.is_action_pressed("remove_children") and childed_objects.size() > 0:
+	if childed_objects.size() > 0:
 		remove_all_objects()
 
 
