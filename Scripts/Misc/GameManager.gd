@@ -2,7 +2,7 @@ class_name GameManager extends Node
 
 
 const PLAYER_SCENE = preload("res://Scenes/player/player.tscn")
-var player : Player = null
+var player: Player = null
 
 
 func _ready() -> void:
