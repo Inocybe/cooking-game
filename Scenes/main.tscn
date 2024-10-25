@@ -14,9 +14,6 @@
 [ext_resource type="PackedScene" uid="uid://5s3oxlpup0wy" path="res://Scenes/player/player.tscn" id="13_flo33"]
 [ext_resource type="PackedScene" uid="uid://caiym4bxd68to" path="res://Scenes/cookwear/table.tscn" id="13_uiy2b"]
 
-[sub_resource type="BoxShape3D" id="BoxShape3D_875dp"]
-size = Vector3(10, 1, 10)
-
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_qxi3u"]
 
 [sub_resource type="BoxMesh" id="BoxMesh_ruubo"]
@@ -38,12 +35,16 @@ albedo_color = Color(1, 0, 0, 1)
 [sub_resource type="BoxMesh" id="BoxMesh_5jbbi"]
 material = SubResource("StandardMaterial3D_foqn1")
 
+[sub_resource type="BoxShape3D" id="BoxShape3D_875dp"]
+size = Vector3(10, 1, 10)
+
 [node name="Base" type="Node3D"]
 
 [node name="GameManager" parent="." instance=ExtResource("1_go8us")]
 
-[node name="Ground" type="Node3D" parent="."]
+[node name="Wide Italy" type="Node" parent="."]
 
+[node name="Table" type="StaticBody3D" parent="Wide Italy"]
 [node name="StaticBody3D" type="StaticBody3D" parent="Ground"]
 collision_layer = 7
 collision_mask = 7
@@ -64,34 +65,34 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4, 1, 0)
 collision_layer = 3
 collision_mask = 3
 
-[node name="MeshInstance3D" type="MeshInstance3D" parent="Tables/Table"]
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Wide Italy/Table"]
 mesh = SubResource("BoxMesh_ruubo")
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="Tables/Table"]
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Wide Italy/Table"]
 shape = SubResource("BoxShape3D_r6nae")
 
-[node name="NewOrderBox" type="StaticBody3D" parent="Tables" groups=["interactable"]]
+[node name="NewOrderBox" type="StaticBody3D" parent="Wide Italy" groups=["interactable"]]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4, 1, 1.5)
 collision_layer = 3
 collision_mask = 3
 script = ExtResource("3_ic560")
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="Tables/NewOrderBox"]
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Wide Italy/NewOrderBox"]
 shape = SubResource("BoxShape3D_r6nae")
 
-[node name="MeshInstance3D" type="MeshInstance3D" parent="Tables/NewOrderBox"]
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Wide Italy/NewOrderBox"]
 mesh = SubResource("BoxMesh_7kpi8")
 
-[node name="ClearOrdersBox" type="StaticBody3D" parent="Tables" groups=["interactable"]]
+[node name="ClearOrdersBox" type="StaticBody3D" parent="Wide Italy" groups=["interactable"]]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4, 1, -1.5)
 collision_layer = 3
 collision_mask = 3
 script = ExtResource("4_e6brh")
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="Tables/ClearOrdersBox"]
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Wide Italy/ClearOrdersBox"]
 shape = SubResource("BoxShape3D_r6nae")
 
-[node name="MeshInstance3D" type="MeshInstance3D" parent="Tables/ClearOrdersBox"]
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Wide Italy/ClearOrdersBox"]
 mesh = SubResource("BoxMesh_5jbbi")
 
 [node name="Cookwear" type="Node" parent="."]
@@ -107,31 +108,31 @@ transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 2, 0.5
 
 [node name="FoodStuff" type="Node" parent="."]
 
-[node name="Cup" parent="." instance=ExtResource("8_y8pjk")]
+[node name="Cup" parent="FoodStuff" instance=ExtResource("8_y8pjk")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.1485, 2, 3)
 
-[node name="Bun" parent="." instance=ExtResource("9_t7j64")]
+[node name="Bun" parent="FoodStuff" instance=ExtResource("9_t7j64")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.400829, 2, 3)
 
-[node name="Burger" parent="." instance=ExtResource("10_e3yu5")]
+[node name="Burger" parent="FoodStuff" instance=ExtResource("10_e3yu5")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.22039, 2, 3)
 
-[node name="Cup2" parent="." instance=ExtResource("8_y8pjk")]
+[node name="Cup2" parent="FoodStuff" instance=ExtResource("8_y8pjk")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.46748, 4, 3.03417)
 
-[node name="Fries" parent="." instance=ExtResource("11_evggu")]
+[node name="Fries" parent="FoodStuff" instance=ExtResource("11_evggu")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.71546, 2, 3)
 
-[node name="Fries2" parent="." instance=ExtResource("11_evggu")]
+[node name="Fries2" parent="FoodStuff" instance=ExtResource("11_evggu")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.71546, 3, 3)
 
-[node name="Fries3" parent="." instance=ExtResource("11_evggu")]
+[node name="Fries3" parent="FoodStuff" instance=ExtResource("11_evggu")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.71546, 4, 3)
 
-[node name="Fries4" parent="." instance=ExtResource("11_evggu")]
+[node name="Fries4" parent="FoodStuff" instance=ExtResource("11_evggu")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.71546, 5, 3)
 
-[node name="Bun2" parent="." instance=ExtResource("9_t7j64")]
+[node name="Bun2" parent="FoodStuff" instance=ExtResource("9_t7j64")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1, 2, -3)
 
 [node name="OmniLight3D" type="OmniLight3D" parent="."]
@@ -140,11 +141,26 @@ light_energy = 2.5
 shadow_enabled = true
 omni_range = 20.0
 
-[node name="Table 1" parent="." instance=ExtResource("13_uiy2b")]
-transform = Transform3D(-4.37114e-09, 0, 0.1, 0, 0.1, 0, -0.1, 0, -4.37114e-09, -1.88368, 0.5, 3.00879)
-
-[node name="Table 2" parent="." instance=ExtResource("13_uiy2b")]
-transform = Transform3D(-4.37114e-09, 0, 0.1, 0, 0.1, 0, -0.1, 0, -4.37114e-09, -0.0813483, 0.5, 3.00879)
-
 [node name="Player" parent="." instance=ExtResource("13_flo33")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.637201, 1.5, -0.0351214)
+
+[node name="Ground" type="StaticBody3D" parent="."]
+collision_layer = 3
+collision_mask = 3
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Ground"]
+shape = SubResource("BoxShape3D_875dp")
+
+[node name="Sprite3D" type="Sprite3D" parent="Ground"]
+transform = Transform3D(0.2, 0, 0, 0, -8.74228e-09, -0.2, 0, 0.2, -8.74228e-09, 0, 0.5, 0)
+transparent = false
+shaded = true
+texture = ExtResource("3_sw8jj")
+
+[node name="Table" type="Node" parent="."]
+
+[node name="Table 1" parent="Table" instance=ExtResource("13_uiy2b")]
+transform = Transform3D(-4.37114e-09, 0, 0.1, 0, 0.1, 0, -0.1, 0, -4.37114e-09, -1.88368, 0.5, 3.00879)
+
+[node name="Table 2" parent="Table" instance=ExtResource("13_uiy2b")]
+transform = Transform3D(-4.37114e-09, 0, 0.1, 0, 0.1, 0, -0.1, 0, -4.37114e-09, -0.0813483, 0.5, 3.00879)
