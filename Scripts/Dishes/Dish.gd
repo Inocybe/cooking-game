@@ -17,18 +17,11 @@ func _ready() -> void:
 	super()
 	# Instantiate each item in the order
 	for i in range(order.size()):
-		for scene in order_functions.get_food_item_scenes(order[i]):
-			var food = instantiate_scene_from_path(scene) as Node3D
-			if food:
-				childed_ghosts[i].append(food)
-				combine_objects(food, i)
-				add_ghost_order_controller(food)
-
-
-func instantiate_scene_from_path(scene_path: String) -> Node:
-	var scene = load(scene_path)
-	var instance = scene.instantiate()
-	return instance
+		for component in Menu.get_item_components(order[i]):
+			var food = Menu.make_food_component_scene(component)
+			childed_ghosts[i].append(food)
+			combine_objects(food, i)
+			add_ghost_order_controller(food)
 
 
 func combine_objects(child: Holdable, food_position: int) -> void:

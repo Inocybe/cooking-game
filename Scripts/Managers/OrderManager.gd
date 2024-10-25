@@ -9,10 +9,6 @@ var dishes_in_scene: Array[Node3D]
 var order_array: Array[OrderFunctions]
 
 
-func _process(delta: float) -> void:
-	pass
-
-
 func new_order() -> void:
 	order = OrderFunctions.new()
 	order.create_random_order()
