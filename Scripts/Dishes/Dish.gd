@@ -21,6 +21,7 @@ func _ready() -> void:
 			var food = instantiate_scene_from_path(scene) as Node3D
 			if food:
 				childed_ghosts[i].append(food)
+				set_food_position_height(food, food_positions[i])
 				combine_objects(food, i)
 				add_ghost_order_controller(food)
 
@@ -89,8 +90,30 @@ func remove_all_objects() -> void:
 		combining_and_removing_functions.remove_all_objects_in_array(self, objects)
 	enable_ghost_objects()
 	reset_child_arrays()
-	
+
 
 func reset_child_arrays() -> void:
 	for objects in childed_objects:
 		objects.clear()
+
+
+func set_food_position_height(food: Node3D, food_position: Node3D) -> void:
+	var collision: CollisionShape3D = food.get_node_or_null("CollisionShape3D")
+	var mesh: Node3D = food.get_node_or_null("Model")
+	
+	
+	var collision_height: float = 0.0
+	
+	if collision.shape is BoxShape3D:
+		var box_shape: BoxShape3D = collision.shape as BoxShape3D
+		# Apply both the shape's size and mesh's scale for height
+		collision_height = box_shape.size.y * mesh.scale.y
+	elif collision.shape is CylinderShape3D:
+		var cylinder_shape: CylinderShape3D = collision.shape as CylinderShape3D
+		# Apply both the shape's height and mesh's scale for height
+		collision_height = (cylinder_shape.get_height() / 2) * mesh.scale.y
+		print(collision_height)
+		print(cylinder_shape.get_height())
+	
+	# Adjust food position by the calculated height
+	food_position.global_position.y += collision_height

@@ -12,7 +12,7 @@ unfryed_color = Color(0.811765, 0.690196, 0, 1)
 fryed_color = Color(0.658037, 0.43941, 0, 1)
 food_type = 1
 
-[node name="fries" parent="." instance=ExtResource("1_m3d73")]
+[node name="Model" parent="." instance=ExtResource("1_m3d73")]
 transform = Transform3D(0.1, 0, 0, 0, 0.1, 0, 0, 0, 0.1, 0, 0, 0)
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]

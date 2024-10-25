@@ -12,7 +12,7 @@ uncooked_color = Color(0.66, 0.30888, 0.2904, 1)
 cooked_color = Color(0.36, 0.20268, 0.1548, 1)
 food_component_type = 1
 
-[node name="burger" parent="." instance=ExtResource("2_t8afi")]
+[node name="Model" parent="." instance=ExtResource("2_t8afi")]
 transform = Transform3D(0.05, 0, 0, 0, 0.05, 0, 0, 0, 0.05, 0, 0, 0)
 
 [node name="DoneTimer" type="Timer" parent="."]
