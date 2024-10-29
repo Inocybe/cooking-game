@@ -51,11 +51,6 @@ func _on_area_3d_body_exited(body: Node3D) -> void:
 		recently_removed_child.erase(body)
 
 
-func remove_children() -> void:
-	if childed_objects.size() > 0:
-		remove_all_objects()
-
-
 func check_order_and_add_object(body: Node3D) -> void:
 	for i in range(childed_ghosts.size()):
 		if childed_objects[i].size() == 0:

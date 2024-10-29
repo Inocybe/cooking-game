@@ -1,4 +1,4 @@
-[gd_scene load_steps=23 format=3 uid="uid://we0jch1p5bj5"]
+[gd_scene load_steps=24 format=3 uid="uid://we0jch1p5bj5"]
 
 [ext_resource type="PackedScene" uid="uid://jj8yuf0syk57" path="res://Scenes/managers/game_manager.tscn" id="1_go8us"]
 [ext_resource type="Script" path="res://Scripts/Orders/NewOrderBox.gd" id="3_ic560"]
@@ -14,6 +14,7 @@
 [ext_resource type="PackedScene" uid="uid://5s3oxlpup0wy" path="res://Scenes/player/player.tscn" id="13_flo33"]
 [ext_resource type="PackedScene" uid="uid://caiym4bxd68to" path="res://Scenes/cookwear/table.tscn" id="13_uiy2b"]
 [ext_resource type="PackedScene" uid="uid://bvhk5tuyd686e" path="res://Scenes/food_spawner.tscn" id="14_tb5wk"]
+[ext_resource type="PackedScene" uid="uid://cxwddmbiw32wk" path="res://Scenes/orders/order_displayer.tscn" id="15_vyxci"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_875dp"]
 size = Vector3(10, 1, 10)
@@ -164,3 +165,6 @@ transform = Transform3D(-4.37114e-09, 0, 0.1, 0, 0.1, 0, -0.1, 0, -4.37114e-09, 
 [node name="Burger Spawner" parent="." instance=ExtResource("14_tb5wk")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.37904, 1.61888, 2.98235)
 food_resource = ExtResource("10_e3yu5")
+
+[node name="OrderDisplayer" parent="." instance=ExtResource("15_vyxci")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4, 2, 0)

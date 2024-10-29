@@ -1,11 +1,9 @@
-[gd_scene load_steps=4 format=3 uid="uid://jj8yuf0syk57"]
+[gd_scene load_steps=3 format=3 uid="uid://jj8yuf0syk57"]
 
 [ext_resource type="Script" path="res://Scripts/Managers/GameManager.gd" id="1_ll06w"]
 [ext_resource type="PackedScene" uid="uid://clqpcy2uu8xtw" path="res://Scenes/managers/order_manager.tscn" id="2_mk4je"]
-[ext_resource type="Script" path="res://Scripts/Managers/OrderManager.gd" id="3_pat3t"]
 
 [node name="GameManager" type="Node"]
 script = ExtResource("1_ll06w")
 
 [node name="OrderManager" parent="." instance=ExtResource("2_mk4je")]
-script = ExtResource("3_pat3t")
