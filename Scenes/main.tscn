@@ -14,6 +14,9 @@
 [ext_resource type="PackedScene" uid="uid://5s3oxlpup0wy" path="res://Scenes/player/player.tscn" id="13_flo33"]
 [ext_resource type="PackedScene" uid="uid://caiym4bxd68to" path="res://Scenes/cookwear/table.tscn" id="13_uiy2b"]
 
+[sub_resource type="BoxShape3D" id="BoxShape3D_875dp"]
+size = Vector3(10, 1, 10)
+
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_qxi3u"]
 
 [sub_resource type="BoxMesh" id="BoxMesh_ruubo"]
@@ -35,35 +38,27 @@ albedo_color = Color(1, 0, 0, 1)
 [sub_resource type="BoxMesh" id="BoxMesh_5jbbi"]
 material = SubResource("StandardMaterial3D_foqn1")
 
-[sub_resource type="BoxShape3D" id="BoxShape3D_875dp"]
-size = Vector3(10, 1, 10)
-
 [node name="Base" type="Node3D"]
 
 [node name="GameManager" parent="." instance=ExtResource("1_go8us")]
 
-[node name="Wide Italy" type="Node" parent="."]
-
-[node name="Table" type="StaticBody3D" parent="Wide Italy"]
-[node name="StaticBody3D" type="StaticBody3D" parent="Ground"]
+[node name="GroundStaticBody3D" type="StaticBody3D" parent="."]
 collision_layer = 7
 collision_mask = 7
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="Ground/StaticBody3D"]
+[node name="CollisionShape3D" type="CollisionShape3D" parent="GroundStaticBody3D"]
 shape = SubResource("BoxShape3D_875dp")
 
-[node name="Sprite3D" type="Sprite3D" parent="Ground"]
+[node name="Sprite3D" type="Sprite3D" parent="GroundStaticBody3D"]
 transform = Transform3D(0.2, 0, 0, 0, -8.74228e-09, -0.2, 0, 0.2, -8.74228e-09, 0, 0.5, 0)
 transparent = false
 shaded = true
 texture = ExtResource("3_sw8jj")
 
-[node name="Tables" type="Node" parent="."]
+[node name="Wide Italy" type="Node" parent="."]
 
-[node name="Table" type="StaticBody3D" parent="Tables"]
+[node name="Table" type="StaticBody3D" parent="Wide Italy"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4, 1, 0)
-collision_layer = 3
-collision_mask = 3
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="Wide Italy/Table"]
 mesh = SubResource("BoxMesh_ruubo")
