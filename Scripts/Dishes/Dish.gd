@@ -4,7 +4,6 @@ class_name Dish
 const GHOST_ORDER_CONTROLLER = preload("res://Scenes/orders/ghost_order_controller.tscn")
 
 @export var food_positions: Array[Node3D]
-@export var display_position: Node3D
 
 var order: Array[Menu.Item]
 var order_functions: OrderFunctions
@@ -22,8 +21,7 @@ func _ready() -> void:
 			combine_objects(food, i)
 			add_ghost_order_controller(food)
 			set_food_position_height(food, food_positions[i])
-			
-	display_position.set_order_display(order)
+
 
 func combine_objects(child: Holdable, food_position: int) -> void:
 	var parent = food_positions[food_position]

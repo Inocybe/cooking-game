@@ -1,24 +1,12 @@
-[gd_scene load_steps=6 format=3 uid="uid://cxwddmbiw32wk"]
+[gd_scene load_steps=3 format=3 uid="uid://cxwddmbiw32wk"]
 
 [ext_resource type="Script" path="res://Scripts/Dishes/OrderDisplay.gd" id="1_rvc11"]
-[ext_resource type="Texture2D" uid="uid://beh4u6je6e4oi" path="res://Assets/2d_food_items/empty.png" id="2_kiwoe"]
-[ext_resource type="Texture2D" uid="uid://dix3gyap2exyo" path="res://Assets/2d_food_items/fries.png" id="2_owdxr"]
-[ext_resource type="Texture2D" uid="uid://8uaggtdivvhk" path="res://Assets/2d_food_items/cup.png" id="3_j4apk"]
-[ext_resource type="Texture2D" uid="uid://dp4g6ql7dm82e" path="res://Assets/2d_food_items/hamburger.png" id="4_bulh2"]
 
-[node name="OrderDisplayer" type="Node3D" node_paths=PackedStringArray("positions")]
+[sub_resource type="CanvasTexture" id="CanvasTexture_5oa11"]
+
+[node name="OrderDisplayer" type="Node3D"]
 script = ExtResource("1_rvc11")
-food_sprites = Array[CompressedTexture2D]([ExtResource("4_bulh2"), ExtResource("2_owdxr"), ExtResource("3_j4apk")])
-positions = [NodePath("Position 1"), NodePath("Position 2"), NodePath("Position 3")]
 
-[node name="Position 1" type="Sprite3D" parent="."]
-transform = Transform3D(0.05, 0, 0, 0, 0.05, 0, 0, 0, 0.05, -0.213111, 0, 0)
-texture = ExtResource("2_kiwoe")
-
-[node name="Position 2" type="Sprite3D" parent="."]
-transform = Transform3D(0.05, 0, 0, 0, 0.05, 0, 0, 0, 0.05, 0, 0, 0)
-texture = ExtResource("2_kiwoe")
-
-[node name="Position 3" type="Sprite3D" parent="."]
-transform = Transform3D(0.05, 0, 0, 0, 0.05, 0, 0, 0, 0.05, 0.220962, 0, 0)
-texture = ExtResource("2_kiwoe")
+[node name="Sprite3D" type="Sprite3D" parent="."]
+transform = Transform3D(100, 0, 0, 0, 100, 0, 0, 0, 100, 0, 0, 0)
+texture = SubResource("CanvasTexture_5oa11")
