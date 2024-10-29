@@ -65,16 +65,15 @@ transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, -0.000
 shape = SubResource("BoxShape3D_owx0e")
 
 [node name="Oil" type="MeshInstance3D" parent="Fryer"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.757878, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.642484, 0)
 mesh = SubResource("PlaneMesh_ur8hw")
 surface_material_override/0 = SubResource("StandardMaterial3D_qe14h")
 
 [node name="Frying Area" type="Area3D" parent="Fryer"]
 unique_name_in_owner = true
-transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, 0, 0.370941, 0)
+transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, 0, 0.560527, 0)
 
 [node name="Frying Area Collision" type="CollisionShape3D" parent="Fryer/Frying Area"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.04613, 0)
 shape = SubResource("BoxShape3D_2s587")
 
 [node name="Fry Basket" type="RigidBody3D" parent="." groups=["holdable", "interactable"]]

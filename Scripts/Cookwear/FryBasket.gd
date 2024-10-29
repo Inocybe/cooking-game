@@ -1,7 +1,7 @@
 extends Holdable
 
 
-@export var max_height: float = 0.75
+@export var max_height: float = 0.55
 
 
 func _ready() -> void:

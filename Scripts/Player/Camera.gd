@@ -22,8 +22,8 @@ func _unhandled_input(event: InputEvent) -> void:
 		do_interact()
 		
 	if event.is_action_pressed("remove_children"):
-		if selected_object.has_method("remove_children"):
-			selected_object.remove_children()
+		if selected_object.has_method("remove_all_objects"):
+			selected_object.remove_all_objects()
 	
 	if (event.is_action_released("click") and selected_object != null
 		and timer.is_stopped()):

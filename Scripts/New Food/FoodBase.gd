@@ -21,12 +21,6 @@ func _ready() -> void:
 	game_manager = Global.game_manager
 
 
-func remove_children() -> void:
-	# Remove children when "remove_children" is pressed
-	if childed_objects.size() > 0:
-		remove_all_objects()
-
-
 func _on_body_entered(body: Node) -> void:
 	# Ensure the body is a valid food object and can be combined
 	if body.is_in_group("food") and body != self and not recently_removed_child.has(body):

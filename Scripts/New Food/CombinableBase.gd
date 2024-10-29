@@ -6,6 +6,7 @@ var recently_removed_child: Array[Node3D] = []
 
 func set_collider_and_state(child: Holdable, disable: bool) -> void:
 	var collider: CollisionShape3D = child.get_node_or_null("CollisionShape3D")
+	
 	if collider:
 		collider.disabled = disable
 		
