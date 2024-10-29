@@ -12,7 +12,21 @@ radius = 0.264001
 
 [node name="Bun" type="RigidBody3D" node_paths=PackedStringArray("combine_range") groups=["food", "holdable", "interactable"]]
 script = ExtResource("1_gg8ru")
+food_type = null
+food_component_type = null
 combine_range = NodePath("Combine Range")
+standard_angular_damp = null
+held_angular_damp = null
+move_line_acceleration = null
+move_plane_acceleration = null
+undershoot_amount = null
+freeze_dist = null
+freeze_vel = null
+rotational_acceleration = null
+vertical_freeze_angle = null
+forward_freeze_angle = null
+freeze_angular_speed = null
+max_speed = null
 
 [node name="Model" parent="." instance=ExtResource("2_b0hcx")]
 transform = Transform3D(0.05, 0, 0, 0, 0.05, 0, 0, 0, 0.05, 0, 0, 0)
