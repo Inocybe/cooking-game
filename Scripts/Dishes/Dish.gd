@@ -1,4 +1,4 @@
-extends Holdable
+extends CombinableBase
 class_name Dish
 
 const GHOST_ORDER_CONTROLLER = preload("res://Scenes/orders/ghost_order_controller.tscn")
@@ -9,9 +9,7 @@ var order: Array[Menu.Item]
 var order_functions: OrderFunctions
 var childed_objects: Array[Array] = [[], [], []]
 var childed_ghosts: Array[Array] = [[], [], []]
-var recently_removed_child: Array[Node3D] = []
 
-var combining_and_removing_functions: CombiningAndRemoving = CombiningAndRemoving.new()
 
 func _ready() -> void:
 	super()
@@ -31,7 +29,7 @@ func combine_objects(child: Holdable, food_position: int) -> void:
 	parent.add_child(child)
 	child.reparent(parent)
 		
-	combining_and_removing_functions.set_collider_and_state(child, true)
+	set_collider_and_state(child, true)
 	child.global_transform = parent.global_transform
 
 
@@ -80,7 +78,7 @@ func enable_ghost_objects() -> void:
 
 func remove_all_objects() -> void:
 	for objects in childed_objects:
-		combining_and_removing_functions.remove_all_objects_in_array(self, objects)
+		remove_all_objects_in_array(objects)
 	enable_ghost_objects()
 	reset_child_arrays()
 

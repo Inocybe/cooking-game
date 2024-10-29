@@ -1,4 +1,5 @@
-class_name FoodBase extends Holdable
+class_name FoodBase extends CombinableBase
+
 
 const FORCE_AMOUNT: float = 0.005
 
@@ -7,9 +8,7 @@ const FORCE_AMOUNT: float = 0.005
 @export var combine_range: Area3D = null
 
 var childed_objects: Array[Node3D] = []
-var recently_removed_child: Array[Node3D] = []
 var game_manager: Node = null
-var combining_and_removing_functions: CombiningAndRemoving = CombiningAndRemoving.new()
 
 
 func _ready() -> void:
@@ -45,7 +44,7 @@ func _on_body_exited(body: Node) -> void:
 func combine_objects(child: Holdable) -> void: 
 	# Reparent the child under this node and disable its collider
 	child.reparent(self)
-	combining_and_removing_functions.set_collider_and_state(child, true)
+	set_collider_and_state(child, true)
 	
 
 	# Drop the child object if it's currently selected
@@ -59,13 +58,14 @@ func combine_objects(child: Holdable) -> void:
 
 
 func remove_all_objects() -> void:
-	combining_and_removing_functions.remove_all_objects_in_array(self, childed_objects)
+	remove_all_objects_in_array(childed_objects)
 	childed_objects.clear()
 
 
 
 func get_food_type() -> Menu.Item:
 	return food_type
-	
+
+
 func get_food_component_type() -> Menu.FoodComponents:
 	return food_component_type

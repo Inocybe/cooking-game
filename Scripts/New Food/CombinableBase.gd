@@ -1,5 +1,7 @@
-class_name CombiningAndRemoving
+class_name CombinableBase extends Holdable
 
+
+var recently_removed_child: Array[Node3D] = []
 
 
 func set_collider_and_state(child: Holdable, disable: bool) -> void:
@@ -17,13 +19,13 @@ func set_collider_and_state(child: Holdable, disable: bool) -> void:
 		child.freeze = false
 
 
-func remove_all_objects_in_array(from: Node3D, childed_objects: Array) -> void:
+func remove_all_objects_in_array(childed_objects: Array) -> void:
 	for child in childed_objects:
 		child.reparent(Global.current_scene)
-		object_removed(from, child)
+		object_removed(child)
 		child.freeze = false
 		set_collider_and_state(child, false)
 
 
-func object_removed(from: Node3D, object: Node3D) -> void:
-	from.recently_removed_child.append(object)
+func object_removed(object: Node3D) -> void:
+	recently_removed_child.append(object)
