@@ -4,8 +4,8 @@
 [ext_resource type="PackedScene" uid="uid://brvkqgrf7civs" path="res://Assets/food/bun.blend" id="2_b0hcx"]
 
 [sub_resource type="CylinderShape3D" id="CylinderShape3D_x3os3"]
-height = 6.18215
-radius = 3.26378
+height = 0.28
+radius = 0.15
 
 [sub_resource type="SphereShape3D" id="SphereShape3D_ilnuv"]
 radius = 0.264001
@@ -22,7 +22,7 @@ wait_time = 20.0
 one_shot = true
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
-transform = Transform3D(0.05, 0, 0, 0, 0.05, 0, 0, 0, 0.05, 0, 0.0269735, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.0269735, 0)
 shape = SubResource("CylinderShape3D_x3os3")
 
 [node name="Combine Range" type="Area3D" parent="."]
