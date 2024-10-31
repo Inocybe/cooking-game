@@ -14,7 +14,7 @@
 [ext_resource type="PackedScene" uid="uid://5s3oxlpup0wy" path="res://Scenes/player/player.tscn" id="13_flo33"]
 [ext_resource type="PackedScene" uid="uid://caiym4bxd68to" path="res://Scenes/cookwear/table.tscn" id="13_uiy2b"]
 [ext_resource type="PackedScene" uid="uid://bvhk5tuyd686e" path="res://Scenes/food_spawner.tscn" id="14_tb5wk"]
-[ext_resource type="PackedScene" uid="uid://cxwddmbiw32wk" path="res://Scenes/orders/order_displayer.tscn" id="15_vyxci"]
+[ext_resource type="PackedScene" uid="uid://b3ocr5doqonyu" path="res://Scenes/food/food_truck.tscn" id="15_jkdue"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_875dp"]
 size = Vector3(10, 1, 10)
@@ -105,33 +105,6 @@ transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 2, 0.5
 
 [node name="FoodStuff" type="Node" parent="."]
 
-[node name="Cup" parent="FoodStuff" instance=ExtResource("8_y8pjk")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0327527, 2, 3)
-
-[node name="Bun" parent="FoodStuff" instance=ExtResource("9_t7j64")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.400829, 2, 3)
-
-[node name="Burger" parent="FoodStuff" instance=ExtResource("10_e3yu5")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.22039, 2, 3)
-
-[node name="Cup2" parent="FoodStuff" instance=ExtResource("8_y8pjk")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.46748, 4, 3.03417)
-
-[node name="Fries" parent="FoodStuff" instance=ExtResource("11_evggu")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.71546, 2, 3)
-
-[node name="Fries2" parent="FoodStuff" instance=ExtResource("11_evggu")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.71546, 3, 3)
-
-[node name="Fries3" parent="FoodStuff" instance=ExtResource("11_evggu")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.71546, 4, 3)
-
-[node name="Fries4" parent="FoodStuff" instance=ExtResource("11_evggu")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.71546, 5, 3)
-
-[node name="Bun2" parent="FoodStuff" instance=ExtResource("9_t7j64")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1, 2, -3)
-
 [node name="OmniLight3D" type="OmniLight3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 5.07746, 0)
 light_energy = 2.5
@@ -162,9 +135,23 @@ transform = Transform3D(-4.37114e-09, 0, 0.1, 0, 0.1, 0, -0.1, 0, -4.37114e-09, 
 [node name="Table 2" parent="Table" instance=ExtResource("13_uiy2b")]
 transform = Transform3D(-4.37114e-09, 0, 0.1, 0, 0.1, 0, -0.1, 0, -4.37114e-09, -0.0813483, 0.5, 3.00879)
 
-[node name="Burger Spawner" parent="." instance=ExtResource("14_tb5wk")]
+[node name="Spawners" type="Node" parent="."]
+
+[node name="Burger Spawner" parent="Spawners" instance=ExtResource("14_tb5wk")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.37904, 1.61888, 2.98235)
 food_resource = ExtResource("10_e3yu5")
 
-[node name="OrderDisplayer" parent="." instance=ExtResource("15_vyxci")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4, 2, 0)
+[node name="Cup Spawner" parent="Spawners" instance=ExtResource("14_tb5wk")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0388522, 1.61888, 2.98235)
+food_resource = ExtResource("8_y8pjk")
+
+[node name="Bun Spawner" parent="Spawners" instance=ExtResource("14_tb5wk")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.33381, 1.61888, 2.98235)
+food_resource = ExtResource("9_t7j64")
+
+[node name="Fry Spawner" parent="Spawners" instance=ExtResource("14_tb5wk")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.74421, 1.61888, 2.98235)
+food_resource = ExtResource("11_evggu")
+
+[node name="FoodTruck" parent="Spawners" instance=ExtResource("15_jkdue")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.29725, 0.513698, -4.72034)
