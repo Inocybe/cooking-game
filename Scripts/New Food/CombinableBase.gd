@@ -27,7 +27,7 @@ func set_dependance(child: Holdable, disable: bool) -> void:
 func unparent_children() -> void:
 	for child in children:
 		child.reparent(Global.current_scene)
-		removed_children.append(object)
+		removed_children.append(child)
 		set_dependance(child, false)
 
 
@@ -44,27 +44,33 @@ func is_compatible_with(other: Node):
 
 
 func _on_body_entered(body: Node) -> void:
-	# Ensure the body is a valid food object and can be combined
-	if is_compatible_with(body):
-		add_as_child(body as Holdable)
+	if children.size() >= hold_positions.size():
+		return
+	if not is_compatible_with(body):
+		return
+	add_as_child(body as Holdable)
 
 
 func add_as_child(child: Holdable) -> void: 
+	if children.has(child):
+		return
+	
+	# Add child to the list of childed objects
+	children.append(child)
+	
 	# Reparent the child under this node and disable its collider
 	child.reparent(self)
 	set_dependance(child, true)
 
 	# Drop the child object if it's currently selected
-	game_manager.player.camera.drop_if_selected()
+	Global.game_manager.player.camera.drop_if_specific_selected(child)
 
 	# Align child's position and rotation with this node
-	child.global_transform = hold_positions
-	
-	# Add child to the list of childed objects
-	children.append(child)
+	var new_pos: Node3D = hold_positions[children.size()-1]
+	child.global_transform = new_pos.global_transform
 
 
 func _on_body_exited(body: Node) -> void:
 	# Remove the body from the recently removed list if it's no longer in range
-	if body in removed_children:
+	if removed_children.has(body):
 		removed_children.erase(body)

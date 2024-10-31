@@ -3,7 +3,7 @@ extends Holdable
 
 var spill_scene = preload("res://Scenes/spill.tscn")
 
-@export var food_type: Menu.Item
+@export var from_item: Menu.Item
 @export var spill_count: int = 3
 @export var max_spill_distance: float = 10
 
@@ -61,4 +61,8 @@ func generate_spill(base_position: Vector3) -> void:
 	
 
 func get_food_type() -> Menu.Item:
-	return food_type
+	return Menu.Item.Soda
+	
+
+func get_food_component_type() -> Menu.FoodComponent:
+	return Menu.FoodComponent.Cup

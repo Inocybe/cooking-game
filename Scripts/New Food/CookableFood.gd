@@ -1,4 +1,4 @@
-extends FoodBase
+extends CombinableFoodBase
 
 #@export var object_cooked_by: something here
 

@@ -1,5 +1,4 @@
-extends CombinableBase
-class_name Dish
+class_name Dish extends CombinableBase
 
 const GHOST_ORDER_CONTROLLER = preload("res://Scenes/orders/ghost_order_controller.tscn")
 
@@ -8,7 +7,6 @@ const GHOST_ORDER_CONTROLLER = preload("res://Scenes/orders/ghost_order_controll
 
 var order: Array[Menu.Item]
 var order_functions: OrderFunctions
-var childed_objects: Array[Array] = [[], [], []]
 var childed_ghosts: Array[Array] = [[], [], []]
 
 
@@ -30,8 +28,8 @@ func combine_objects(child: Holdable, food_position: int) -> void:
 	
 	parent.add_child(child)
 	child.reparent(parent)
-		
-	set_collider_and_state(child, true)
+	
+	set_dependance(child, true)
 	child.global_transform = parent.global_transform
 
 
@@ -40,24 +38,13 @@ func add_ghost_order_controller(object: Node3D) -> void:
 	object.add_child(ghost_order_controller)
 
 
-func _on_area_3d_body_entered(body: Node3D) -> void:
-	if body.is_in_group("food") and not recently_removed_child.has(body):
-		if body.has_method("get_food_type"):
-			check_order_and_add_object(body)
-
-
-func _on_area_3d_body_exited(body: Node3D) -> void:
-	if body in recently_removed_child:
-		recently_removed_child.erase(body)
-
-
 func check_order_and_add_object(body: Node3D) -> void:
 	for i in range(childed_ghosts.size()):
-		if childed_objects[i].size() == 0:
+		if children[i].size() == 0:
 			for ghost in childed_ghosts[i]:
 				if ghost.get_food_type() == body.get_food_type():
 					combine_objects(body, i)
-					childed_objects[i].append(body)
+					children[i].append(body)
 					disable_ghost_object(i)
 					break
 
@@ -71,18 +58,6 @@ func enable_ghost_objects() -> void:
 	for ghosts in childed_ghosts:
 		for ghost in ghosts:
 			ghost.visible = true
-
-
-func remove_all_objects() -> void:
-	for objects in childed_objects:
-		remove_all_objects_in_array(objects)
-	enable_ghost_objects()
-	reset_child_arrays()
-
-
-func reset_child_arrays() -> void:
-	for objects in childed_objects:
-		objects.clear()
 
 
 func set_food_position_height(food: Node3D, food_position: Node3D) -> void:

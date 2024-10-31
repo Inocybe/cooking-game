@@ -8,7 +8,7 @@ enum Item {
 }
 
 
-enum FoodComponents {
+enum FoodComponent {
 	Bun,
 	Burger,
 	Fries,
@@ -16,31 +16,38 @@ enum FoodComponents {
 }
 
 
-static func get_item_components(item: Item) -> Array[FoodComponents]:
+static func get_item_components(item: Item) -> Array[FoodComponent]:
 	match item:
 		Item.HamBurger:
-			return [FoodComponents.Bun, FoodComponents.Burger]
+			return [FoodComponent.Bun, FoodComponent.Burger]
 		Item.Fries:
-			return [FoodComponents.Fries]
+			return [FoodComponent.Fries]
 		Item.Soda:
-			return [FoodComponents.Cup]
+			return [FoodComponent.Cup]
 	return []
 
 
-static func get_food_component_scene_path(component: FoodComponents) -> String:
+static func get_food_component_scene_path(component: FoodComponent) -> String:
 	match component:
-		FoodComponents.Bun:
+		FoodComponent.Bun:
 			return "res://Scenes/Food/bun.tscn"
-		FoodComponents.Burger:
+		FoodComponent.Burger:
 			return "res://Scenes/Food/burger.tscn"
-		FoodComponents.Fries:
+		FoodComponent.Fries:
 			return "res://Scenes/Food/fries.tscn"
-		FoodComponents.Cup:
+		FoodComponent.Cup:
 			return "res://Scenes/Food/cup.tscn"
 	return ""
 
 
-static func make_food_component_scene(component: FoodComponents) -> Node3D:
+static func make_food_component_scene(component: FoodComponent) -> Node3D:
 	return load(
 		get_food_component_scene_path(component)
 	).instantiate() as Node3D
+
+
+static func compatible_components(component: FoodComponent) -> Array[FoodComponent]:
+	match component:
+		FoodComponent.Bun:
+			return [FoodComponent.Burger]
+	return []

@@ -113,20 +113,6 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.400829, 2, 3)
 
 [node name="Burger" parent="FoodStuff" instance=ExtResource("10_e3yu5")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.22039, 2, 3)
-cook_time = null
-food_type = null
-standard_angular_damp = null
-held_angular_damp = null
-move_line_acceleration = null
-move_plane_acceleration = null
-undershoot_amount = null
-freeze_dist = null
-freeze_vel = null
-rotational_acceleration = null
-vertical_freeze_angle = null
-forward_freeze_angle = null
-freeze_angular_speed = null
-max_speed = null
 
 [node name="Cup2" parent="FoodStuff" instance=ExtResource("8_y8pjk")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.46748, 4, 3.03417)
