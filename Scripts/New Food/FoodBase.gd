@@ -8,7 +8,6 @@ const FORCE_AMOUNT: float = 0.005
 @export var combine_range: Area3D = null
 
 var childed_objects: Array[Node3D] = []
-var game_manager: Node = null
 
 
 func _ready() -> void:
@@ -17,8 +16,6 @@ func _ready() -> void:
 	if combine_range:
 		combine_range.connect("body_entered", _on_body_entered)
 		combine_range.connect("body_exited", _on_body_exited)
-	
-	game_manager = Global.game_manager
 
 
 func _on_body_entered(body: Node) -> void:
@@ -33,22 +30,6 @@ func _on_body_exited(body: Node) -> void:
 	# Remove the body from the recently removed list if it's no longer in range
 	if body in recently_removed_child:
 		recently_removed_child.erase(body)
-
-
-func combine_objects(child: Holdable) -> void: 
-	# Reparent the child under this node and disable its collider
-	child.reparent(self)
-	set_collider_and_state(child, true)
-	
-
-	# Drop the child object if it's currently selected
-	game_manager.player.camera.drop_if_selected()
-
-	# Align child's position and rotation with this node
-	child.global_transform = global_transform
-	
-	# Add child to the list of childed objects
-	childed_objects.append(child)
 
 
 func remove_all_objects() -> void:
