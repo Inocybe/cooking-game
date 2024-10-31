@@ -1,6 +1,5 @@
-extends CombinableFoodBase
+extends Node3D
 
-#@export var object_cooked_by: something here
 
 @export var cook_time: float = 10
 @export var uncooked_color: Color
@@ -13,9 +12,7 @@ var material: StandardMaterial3D = StandardMaterial3D.new()
 
 
 func _ready() -> void:
-	super()
-	
-	for mesh in find_children("*", "MeshInstance3D"):
+	for mesh in get_parent().find_children("*", "MeshInstance3D"):
 		mesh.set_surface_override_material(0, material)
 
 
