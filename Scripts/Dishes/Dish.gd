@@ -75,5 +75,3 @@ func set_food_position_height(food: Node3D, food_position: Node3D) -> void:
 	# Adjust food position by the calculated height
 	if food_position.position.y < collision_height:
 		food_position.position.y = collision_height
-		print(collision_height)
-		print(food_position.position.y)
