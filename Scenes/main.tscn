@@ -14,7 +14,7 @@
 [ext_resource type="PackedScene" uid="uid://5s3oxlpup0wy" path="res://Scenes/player/player.tscn" id="13_flo33"]
 [ext_resource type="PackedScene" uid="uid://caiym4bxd68to" path="res://Scenes/cookwear/table.tscn" id="13_uiy2b"]
 [ext_resource type="PackedScene" uid="uid://bvhk5tuyd686e" path="res://Scenes/food_spawner.tscn" id="14_tb5wk"]
-[ext_resource type="PackedScene" uid="uid://b3ocr5doqonyu" path="res://Scenes/food/food_truck.tscn" id="15_jkdue"]
+[ext_resource type="PackedScene" path="res://Scenes/food/food_truck.tscn" id="15_jkdue"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_875dp"]
 size = Vector3(10, 1, 10)

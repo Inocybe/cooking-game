@@ -1,7 +1,16 @@
 class_name CookwearBase extends StaticBody3D
 
 
+enum CookingType {
+	Cooktop,
+	Fryer
+}
+
+
 @export var cooking_area: Area3D = null
+
+@export var cooking_type: CookingType
+
 
 func _ready() -> void:
 	if cooking_area:
@@ -10,10 +19,12 @@ func _ready() -> void:
 
 
 func on_body_entered(body: Node3D):
-	if body.has_method("on_start_cooking"):
-		body.on_start_cooking()
+	var cookables = body.find_children("*", "Cookable")
+	if cookables.size() > 0:
+		cookables[0].on_start_cooking(cooking_type)
 
 
 func on_body_exited(body: Node3D):
-	if body.has_method("on_stop_cooking"):
-		body.on_stop_cooking()
+	var cookables = body.find_children("*", "Cookable")
+	if cookables.size() > 0:
+		cookables[0].on_stop_cooking(cooking_type)
