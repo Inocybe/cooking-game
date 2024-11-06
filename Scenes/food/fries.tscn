@@ -1,16 +1,14 @@
-[gd_scene load_steps=4 format=3 uid="uid://cdm4qy124ys6o"]
+[gd_scene load_steps=5 format=3 uid="uid://cdm4qy124ys6o"]
 
-[ext_resource type="Script" path="res://Scripts/Food/Fries.gd" id="1_4snbo"]
+[ext_resource type="Script" path="res://Scripts/New Food/Cookable.gd" id="1_4snbo"]
 [ext_resource type="PackedScene" uid="uid://dsrcak3dl0ihe" path="res://Assets/food/fries.blend" id="1_m3d73"]
+[ext_resource type="Script" path="res://Scripts/Rigidbodies/Holdable.gd" id="1_yl7tm"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_ejgeh"]
 size = Vector3(0.227, 0.264, 0.388)
 
 [node name="Fries" type="RigidBody3D" groups=["food", "holdable", "interactable"]]
-script = ExtResource("1_4snbo")
-unfryed_color = Color(0.811765, 0.690196, 0, 1)
-fryed_color = Color(0.658037, 0.43941, 0, 1)
-food_type = 1
+script = ExtResource("1_yl7tm")
 
 [node name="Model" parent="." instance=ExtResource("1_m3d73")]
 transform = Transform3D(0.1, 0, 0, 0, 0.1, 0, 0, 0, 0.1, 0, 0, 0)
@@ -18,3 +16,12 @@ transform = Transform3D(0.1, 0, 0, 0, 0.1, 0, 0, 0, 0.1, 0, 0, 0)
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.00257234, 0.0991977, 0.0150459)
 shape = SubResource("BoxShape3D_ejgeh")
+
+[node name="Cookable" type="Node" parent="."]
+script = ExtResource("1_4snbo")
+cook_time = 10.0
+uncooked_color = Color(0.83, 0.731368, 0.6391, 1)
+cooked_color = Color(1, 0.597, 0.07, 1)
+burnt_color = Color(0.201861, 0.102017, 1.20327e-08, 1)
+required_cooking_type = 1
+mesh_glob = "Fry*"

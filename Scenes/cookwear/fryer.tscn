@@ -1,5 +1,6 @@
-[gd_scene load_steps=13 format=3 uid="uid://bmfn7nnstf5ve"]
+[gd_scene load_steps=14 format=3 uid="uid://bmfn7nnstf5ve"]
 
+[ext_resource type="Script" path="res://Scripts/Cookwear/CookwearBase.gd" id="1_0qara"]
 [ext_resource type="PackedScene" uid="uid://hk4tw1ihmdyx" path="res://Assets/fryer/fryer.blend" id="1_b3kne"]
 [ext_resource type="Script" path="res://Scripts/Cookwear/FryBasket.gd" id="2_i8vih"]
 [ext_resource type="ArrayMesh" uid="uid://vmb5c05mvi3m" path="res://Assets/fryer/Fry Basket.obj" id="3_avjgy"]
@@ -35,11 +36,14 @@ size = Vector3(0.0168457, 0.3396, 0.767822)
 [node name="Fryer" type="Node3D"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.4, 0)
 
-[node name="Fryer" type="StaticBody3D" parent="."]
+[node name="Fryer" type="StaticBody3D" parent="." node_paths=PackedStringArray("cooking_area")]
 transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, 0, 0, 0)
 collision_layer = 3
 collision_mask = 3
 input_ray_pickable = false
+script = ExtResource("1_0qara")
+cooking_area = NodePath("Frying Area")
+cooking_type = 1
 
 [node name="Fryer Model" parent="Fryer" instance=ExtResource("1_b3kne")]
 transform = Transform3D(-4.37114e-08, 0, -1, 0, 0.8, 0, 1, 0, -4.37114e-08, 0, 0, 0)
