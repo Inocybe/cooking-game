@@ -98,7 +98,7 @@ mesh = SubResource("BoxMesh_5jbbi")
 transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 2, 1, -0.5)
 
 [node name="Cooktop" parent="Cookwear" instance=ExtResource("6_h677c")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2, 0.930663, 1)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2, 0.5, 0.947689)
 
 [node name="SodaMachine" parent="Cookwear" instance=ExtResource("7_fkape")]
 transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 2, 0.500042, -1.5)
@@ -154,4 +154,4 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.74421, 1.61888, 2.98235)
 food_resource = ExtResource("11_evggu")
 
 [node name="FoodTruck" parent="Spawners" instance=ExtResource("15_jkdue")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.29725, 0.513698, -4.72034)
+transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, -1.29725, 0.513698, -4.72034)
