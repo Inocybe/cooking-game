@@ -1,4 +1,4 @@
-[gd_scene load_steps=24 format=3 uid="uid://we0jch1p5bj5"]
+[gd_scene load_steps=25 format=3 uid="uid://we0jch1p5bj5"]
 
 [ext_resource type="PackedScene" uid="uid://jj8yuf0syk57" path="res://Scenes/managers/game_manager.tscn" id="1_go8us"]
 [ext_resource type="Script" path="res://Scripts/Orders/NewOrderBox.gd" id="3_ic560"]
@@ -25,8 +25,10 @@ size = Vector3(10, 1, 18.6094)
 material = SubResource("StandardMaterial3D_qxi3u")
 size = Vector3(1, 1, 2)
 
-[sub_resource type="BoxShape3D" id="BoxShape3D_r6nae"]
+[sub_resource type="BoxShape3D" id="BoxShape3D_38sul"]
 size = Vector3(1, 1, 2)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_r6nae"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_8jygo"]
 albedo_color = Color(0, 0.964706, 0, 1)
@@ -62,12 +64,15 @@ texture = ExtResource("3_sw8jj")
 
 [node name="Table" type="StaticBody3D" parent="Wide Italy"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4, 1, 0)
+collision_layer = 3
+collision_mask = 3
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="Wide Italy/Table"]
 mesh = SubResource("BoxMesh_ruubo")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Wide Italy/Table"]
-shape = SubResource("BoxShape3D_r6nae")
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -0.0134277)
+shape = SubResource("BoxShape3D_38sul")
 
 [node name="NewOrderBox" type="StaticBody3D" parent="Wide Italy" groups=["interactable"]]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4, 1, 1.5)
