@@ -1,7 +1,7 @@
 extends Holdable
 
 
-var spill_scene = preload("res://Scenes/spill.tscn")
+var spill_scene = preload("res://Scenes/misc/spill.tscn")
 
 @export var from_item: Menu.Item
 @export var spill_count: int = 3

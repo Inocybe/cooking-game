@@ -58,19 +58,26 @@ func enable_ghost_objects() -> void:
 			ghost.visible = true
 
 
+func get_collision_y_offset(shape: Shape3D):
+	if shape is BoxShape3D:
+		var box_shape: BoxShape3D = shape as BoxShape3D
+		# Apply both the shape's size and mesh's scale for height
+		return box_shape.size.y / 5
+	elif shape is CylinderShape3D:
+		var cylinder_shape: CylinderShape3D = shape as CylinderShape3D
+		# Apply both the shape's height and mesh's scale for height
+		return cylinder_shape.get_height() / 2
+
+
 func set_food_position_height(food: Node3D, food_position: Node3D) -> void:
-	var collision: CollisionShape3D = food.get_node_or_null("CollisionShape3D")
+	var collision_shapes = food.find_children("*", "CollisionShape3D")
 	
 	var collision_height: float = 0.0
 	
-	if collision.shape is BoxShape3D:
-		var box_shape: BoxShape3D = collision.shape as BoxShape3D
-		# Apply both the shape's size and mesh's scale for height
-		collision_height = box_shape.size.y / 5
-	elif collision.shape is CylinderShape3D:
-		var cylinder_shape: CylinderShape3D = collision.shape as CylinderShape3D
-		# Apply both the shape's height and mesh's scale for height
-		collision_height = (cylinder_shape.get_height() / 2)
+	for collision in collision_shapes:
+		var this_collision_height = get_collision_y_offset(collision.shape)
+		if this_collision_height > collision_height:
+			collision_height = this_collision_height
 	
 	# Adjust food position by the calculated height
 	if food_position.position.y < collision_height:
