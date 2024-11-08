@@ -3,7 +3,7 @@
 [ext_resource type="Script" path="res://Scripts/Player/Player.gd" id="1_n5jpm"]
 [ext_resource type="Script" path="res://Scripts/Player/Camera.gd" id="1_onmnn"]
 [ext_resource type="Script" path="res://Scripts/Player/Reticle.gd" id="3_q220s"]
-[ext_resource type="Script" path="res://Scripts/DebugDisplay.gd" id="4_1ejs7"]
+[ext_resource type="Script" path="res://Scripts/Misc/DebugDisplay.gd" id="4_1ejs7"]
 
 [sub_resource type="CapsuleMesh" id="CapsuleMesh_mf15t"]
 

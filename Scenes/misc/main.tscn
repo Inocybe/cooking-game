@@ -11,7 +11,7 @@
 [ext_resource type="PackedScene" uid="uid://b3024k6shxqvg" path="res://Scenes/food/bun.tscn" id="9_t7j64"]
 [ext_resource type="PackedScene" uid="uid://fkjb8mg8enxf" path="res://Scenes/food/burger.tscn" id="10_e3yu5"]
 [ext_resource type="PackedScene" uid="uid://cdm4qy124ys6o" path="res://Scenes/food/fries.tscn" id="11_evggu"]
-[ext_resource type="PackedScene" uid="uid://5s3oxlpup0wy" path="res://Scenes/player.tscn" id="13_flo33"]
+[ext_resource type="PackedScene" uid="uid://5s3oxlpup0wy" path="res://Scenes/misc/player.tscn" id="13_flo33"]
 [ext_resource type="PackedScene" path="res://Scenes/cookwear/table.tscn" id="13_uiy2b"]
 [ext_resource type="PackedScene" uid="uid://bvhk5tuyd686e" path="res://Scenes/food/food_spawner.tscn" id="14_tb5wk"]
 [ext_resource type="PackedScene" path="res://Scenes/food/food_truck.tscn" id="15_jkdue"]
