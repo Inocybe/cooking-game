@@ -3,15 +3,15 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://cutiyuiewqo6g"
-path="res://.godot/imported/chrome.png-d09809f67556a8442bff8b3956c4a39d.ctex"
+path="res://.godot/imported/chrome.png-8fa1c30facc6153d83841f9d389986ec.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Scenes/food/textures/chrome.png"
-dest_files=["res://.godot/imported/chrome.png-d09809f67556a8442bff8b3956c4a39d.ctex"]
+source_file="res://Assets/textures/chrome.png"
+dest_files=["res://.godot/imported/chrome.png-8fa1c30facc6153d83841f9d389986ec.ctex"]
 
 [params]
 
