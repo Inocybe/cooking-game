@@ -14,10 +14,10 @@
 [ext_resource type="PackedScene" uid="uid://5s3oxlpup0wy" path="res://Scenes/player/player.tscn" id="13_flo33"]
 [ext_resource type="PackedScene" uid="uid://caiym4bxd68to" path="res://Scenes/cookwear/table.tscn" id="13_uiy2b"]
 [ext_resource type="PackedScene" uid="uid://bvhk5tuyd686e" path="res://Scenes/food_spawner.tscn" id="14_tb5wk"]
-[ext_resource type="PackedScene" path="res://Scenes/food/food_truck.tscn" id="15_jkdue"]
+[ext_resource type="PackedScene" uid="uid://b3ocr5doqonyu" path="res://Scenes/food/food_truck.tscn" id="15_jkdue"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_875dp"]
-size = Vector3(10, 1, 10)
+size = Vector3(10, 1, 18.6094)
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_qxi3u"]
 
@@ -49,6 +49,7 @@ collision_layer = 7
 collision_mask = 7
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="GroundStaticBody3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -4.30469)
 shape = SubResource("BoxShape3D_875dp")
 
 [node name="Sprite3D" type="Sprite3D" parent="GroundStaticBody3D"]
@@ -153,5 +154,5 @@ food_resource = ExtResource("9_t7j64")
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.74421, 1.61888, 2.98235)
 food_resource = ExtResource("11_evggu")
 
-[node name="FoodTruck" parent="Spawners" instance=ExtResource("15_jkdue")]
-transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, -1.29725, 0.513698, -4.72034)
+[node name="FoodTruck" parent="." instance=ExtResource("15_jkdue")]
+transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 0.446864, 0.227403, -12.5173)
