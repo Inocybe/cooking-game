@@ -25,7 +25,8 @@ shape = SubResource("BoxShape3D_oiaul")
 [node name="Mesh" parent="Cooktop" instance=ExtResource("1_yjo2y")]
 
 [node name="CookingArea" type="Area3D" parent="Cooktop"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.95, 0)
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Cooktop/CookingArea"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.00787356, 1.06943, -0.0151062)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0)
 shape = SubResource("BoxShape3D_a75u5")
