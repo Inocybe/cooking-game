@@ -10,12 +10,13 @@ size = Vector3(0.4, 0.03, 0.8)
 radius = 0.3
 height = 1.0
 
-[node name="Dish" type="RigidBody3D" node_paths=PackedStringArray("food_positions") groups=["holdable", "interactable"]]
+[node name="Dish" type="RigidBody3D" node_paths=PackedStringArray("combine_range", "hold_positions") groups=["holdable", "interactable"]]
 transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 0, 0, 0)
 disable_mode = 1
 gravity_scale = 0.5
 script = ExtResource("1_t4su6")
-food_positions = [NodePath("FoodPosition1"), NodePath("FoodPosition2"), NodePath("FoodPosition3")]
+combine_range = NodePath("Combine Range")
+hold_positions = [NodePath("FoodPosition1"), NodePath("FoodPosition2"), NodePath("FoodPosition3")]
 
 [node name="food_tray" parent="." instance=ExtResource("2_8cj47")]
 transform = Transform3D(-0.2, 0, 3.01992e-08, 0, 0.2, 0, -3.01992e-08, 0, -0.2, 0, 0, 0)
@@ -24,20 +25,16 @@ transform = Transform3D(-0.2, 0, 3.01992e-08, 0, 0.2, 0, -3.01992e-08, 0, -0.2, 
 shape = SubResource("BoxShape3D_7dxny")
 
 [node name="FoodPosition1" type="Node3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0.25)
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 0, 0.015, 0.25)
 
 [node name="FoodPosition2" type="Node3D" parent="."]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 0, 0.0149999, 0)
 
 [node name="FoodPosition3" type="Node3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -0.18)
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 0, 0.0149999, -0.18)
 
-[node name="Area3D" type="Area3D" parent="."]
+[node name="Combine Range" type="Area3D" parent="."]
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="Area3D"]
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Combine Range"]
 transform = Transform3D(1, 0, 3.82137e-15, -3.82137e-15, 4.37114e-08, 1, 0, -1, 4.37114e-08, 0, 0, 0)
 shape = SubResource("CapsuleShape3D_fme2y")
-
-[connection signal="body_entered" from="." to="." method="_on_body_entered"]
-[connection signal="area_entered" from="Area3D" to="." method="_on_area_entered"]
-[connection signal="body_entered" from="Area3D" to="." method="_on_area_3d_body_entered"]
-[connection signal="body_exited" from="Area3D" to="." method="_on_area_3d_body_exited"]

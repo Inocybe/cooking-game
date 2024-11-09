@@ -7,11 +7,11 @@ class ScreenRay:
 	var color: Color
 	var width: float
 	
-	func _init(from: Vector2, to: Vector2, color: Color, width: float) -> void:
-		self.from = from
-		self.to = to
-		self.color = color
-		self.width = width
+	func _init(from_: Vector2, to_: Vector2, color_: Color, width_: float) -> void:
+		self.from = from_
+		self.to = to_
+		self.color = color_
+		self.width = width_
 
 
 var rays: Array[ScreenRay] = []

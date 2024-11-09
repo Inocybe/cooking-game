@@ -8,7 +8,7 @@ func _integrate_forces(_state: PhysicsDirectBodyState3D) -> void:
 	position.y = min(position.y, max_height)
 
 
-func _process(delta: float) -> void:
+func _process(_delta: float) -> void:
 	freeze = not held
 	
 	if not held:

@@ -16,28 +16,56 @@ enum FoodComponent {
 }
 
 
-static func get_item_components(item: Item) -> Array[FoodComponent]:
-	match item:
-		Item.HamBurger:
-			return [FoodComponent.Bun, FoodComponent.Burger]
-		Item.Fries:
-			return [FoodComponent.Fries]
-		Item.Soda:
-			return [FoodComponent.Cup]
-	return []
+class ItemComposition:
+	var base: FoodComponent
+	var children: Array[ItemComposition]
+	
+	func _init(base_: FoodComponent, children_: Array[ItemComposition] = []) -> void:
+		self.base = base_
+		self.children = children_
+	
+	func make() -> Node3D:
+		var base_node: Node3D = Menu.make_food_component_scene(self.base)
+		for child in children:
+			base_node.add_as_child(child.make())
+		return base_node
+	
+	func matches(other: Node3D) -> bool:
+		if other.get_food_component_type() != self.base:
+			return false
+		for i in range(children.size()):
+			var other_child: Node3D = other.get_slot_occupant(i)
+			if not other_child:
+				return false
+			if not children[i].matches(other_child):
+				return false
+		return true
+
+
+static var item_compositions: Dictionary = {
+	Item.HamBurger: ItemComposition.new(
+		FoodComponent.Bun, 
+		[ItemComposition.new(FoodComponent.Burger)]
+	),
+	Item.Fries: ItemComposition.new(FoodComponent.Fries),
+	Item.Soda: ItemComposition.new(FoodComponent.Cup),
+}
+
+
+static var food_component_scene_paths: Dictionary = {
+	FoodComponent.Bun: "res://Scenes/food/bun.tscn",
+	FoodComponent.Burger: "res://Scenes/food/burger.tscn",
+	FoodComponent.Fries: "res://Scenes/food/fries.tscn",
+	FoodComponent.Cup: "res://Scenes/food/cup.tscn"
+}
+
+
+static func get_item_composition(item: Item) -> ItemComposition:
+	return item_compositions[item]
 
 
 static func get_food_component_scene_path(component: FoodComponent) -> String:
-	match component:
-		FoodComponent.Bun:
-			return "res://Scenes/Food/bun.tscn"
-		FoodComponent.Burger:
-			return "res://Scenes/Food/burger.tscn"
-		FoodComponent.Fries:
-			return "res://Scenes/Food/fries.tscn"
-		FoodComponent.Cup:
-			return "res://Scenes/Food/cup.tscn"
-	return ""
+	return food_component_scene_paths[component]
 
 
 static func make_food_component_scene(component: FoodComponent) -> Node3D:

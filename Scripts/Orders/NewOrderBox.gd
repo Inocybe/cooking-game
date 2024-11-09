@@ -1,6 +1,6 @@
 extends StaticBody3D
 
-var order_manager: Node
+var order_manager: OrderManager
 
 func _ready() -> void:
 	order_manager = Global.order_manager

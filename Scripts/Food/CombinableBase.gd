@@ -8,7 +8,7 @@ var children: Array[Node3D] = []
 var removed_children: Array[Node3D] = []
 
 
-func set_dependance(child: Holdable, disable: bool) -> void:
+func set_dependance(child: Node3D, disable: bool) -> void:
 	var collider: CollisionShape3D = child.get_node_or_null("CollisionShape3D")
 	
 	if collider:
@@ -24,13 +24,6 @@ func set_dependance(child: Holdable, disable: bool) -> void:
 		child.freeze = false
 
 
-func unparent_children() -> void:
-	for child in children:
-		child.reparent(Global.current_scene)
-		removed_children.append(child)
-		set_dependance(child, false)
-
-
 func _ready() -> void:
 	super()
 	# Connect combine range signals if present
@@ -44,33 +37,59 @@ func is_compatible_with(other: Node):
 
 
 func _on_body_entered(body: Node) -> void:
-	if children.size() >= hold_positions.size():
-		return
 	if not is_compatible_with(body):
 		return
 	add_as_child(body as Holdable)
 
 
-func add_as_child(child: Holdable) -> void: 
+func add_as_child(child: Holdable) -> void:
 	if children.has(child):
 		return
 	
-	# Add child to the list of childed objects
+	var slot: int = choose_child_slot(child)
+	if slot == -1:
+		return
+	
+	Global.game_manager.player.camera.drop_if_specific_selected(child)
+	
 	children.append(child)
 	
-	# Reparent the child under this node and disable its collider
-	child.reparent(self)
-	set_dependance(child, true)
+	move_to_slot(child, slot)
 
-	# Drop the child object if it's currently selected
-	Global.game_manager.player.camera.drop_if_specific_selected(child)
 
+func choose_child_slot(_child: Node3D) -> int:
+	if children.size() >= hold_positions.size():
+		return -1
+	return children.size()
+
+
+func move_to_slot(child: Node3D, slot: int) -> void:
+	if child.get_parent():
+		child.get_parent().remove_child(child)
+	add_child(child)
+
+	call_deferred("set_dependance", child, true)
+	
+	call_deferred("set_child_position", child, slot)
+
+
+func set_child_position(child: Node3D, slot: int) -> void:
 	# Align child's position and rotation with this node
-	var new_pos: Node3D = hold_positions[children.size()-1]
+	var new_pos: Node3D = hold_positions[slot]
 	child.global_transform = new_pos.global_transform
+	offset_added_child(child)
+
+
+func offset_added_child(_child: Node3D):
+	pass
+
+
+func get_slot_occupant(slot: int) -> Node3D:
+	if slot >= children.size():
+		return null
+	return children[slot]
 
 
 func _on_body_exited(body: Node) -> void:
 	# Remove the body from the recently removed list if it's no longer in range
-	if removed_children.has(body):
-		removed_children.erase(body)
+	removed_children.erase(body)
