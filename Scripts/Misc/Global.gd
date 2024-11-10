@@ -22,19 +22,8 @@ func find_managers():
 		print("No current scene loaded!")
 		return
 	
-	# Try to find the GameManager and OrderManager in the current scene tree
 	game_manager = current_scene.get_node_or_null("GameManager")
 	order_manager = game_manager.get_node_or_null("OrderManager")
-
-	if game_manager:
-		print("GameManager located in scene: ", game_manager)
-	else:
-		print("GameManager not found in the scene.")
-	
-	if order_manager:
-		print("OrderManager located in scene: ", order_manager)
-	else:
-		print("OrderManager not found in the scene.")
 
 
 func pause_game() -> void:

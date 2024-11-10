@@ -84,7 +84,7 @@ shape = SubResource("BoxShape3D_r6nae")
 [node name="MeshInstance3D" type="MeshInstance3D" parent="Wide Italy/NewOrderBox"]
 mesh = SubResource("BoxMesh_7kpi8")
 
-[node name="ClearOrdersBox" type="StaticBody3D" parent="Wide Italy" groups=["interactable"]]
+[node name="ClearOrdersBox" type="StaticBody3D" parent="Wide Italy"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4, 1, -1.5)
 collision_layer = 3
 collision_mask = 3

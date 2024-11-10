@@ -8,20 +8,10 @@ var children: Array[Node3D] = []
 var removed_children: Array[Node3D] = []
 
 
-func set_dependance(child: Node3D, disable: bool) -> void:
-	var collider: CollisionShape3D = child.get_node_or_null("CollisionShape3D")
-	
-	if collider:
-		collider.disabled = disable
-		
-	if disable:
-		child.collision_layer = 0
-		child.collision_mask = 0
-		child.freeze = true
-	else:
-		child.collision_layer = 1
-		child.collision_mask = 1
-		child.freeze = false
+func set_dependance(child: RigidBody3D, disable: bool) -> void:
+	child.freeze = disable
+	child.freeze_mode = RigidBody3D.FREEZE_MODE_STATIC
+	child.add_collision_exception_with(self)
 
 
 func _ready() -> void:
@@ -37,6 +27,8 @@ func is_compatible_with(other: Node):
 
 
 func _on_body_entered(body: Node) -> void:
+	if body.get_parent() and body.get_parent() is CombinableBase:
+		return
 	if not is_compatible_with(body):
 		return
 	add_as_child(body as Holdable)

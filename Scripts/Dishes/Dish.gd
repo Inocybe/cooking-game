@@ -5,6 +5,7 @@ const GHOST_ORDER_CONTROLLER = preload("res://Scenes/orders/ghost_order_controll
 
 var order: Array[Menu.Item]
 var ghosts: Array[Node3D] = []
+var fufilled_slots: Array[int] = []
 
 
 func _ready() -> void:
@@ -13,12 +14,15 @@ func _ready() -> void:
 		var ghost = Menu.get_item_composition(order[i]).make()
 		ghosts.append(ghost)
 		move_to_slot(ghost, i)
-		add_ghost_order_controller(ghost)
+		make_item_ghost(ghost)
 
 
-func add_ghost_order_controller(object: Node3D) -> void:
+func make_item_ghost(obj: Node3D) -> void:
+	for body in [obj]+obj.find_children("*", "CollisionObject3D", true, false):
+		body.collision_layer = 0
+		body.collision_mask = 0
 	var ghost_order_controller = GHOST_ORDER_CONTROLLER.instantiate()
-	object.add_child(ghost_order_controller)
+	obj.add_child(ghost_order_controller)
 
 
 func get_collision_y_offset(shape: Shape3D):
@@ -37,8 +41,11 @@ func get_collision_y_offset(shape: Shape3D):
 
 func choose_child_slot(food: Node3D) -> int:
 	for i in range(order.size()):
+		if fufilled_slots.has(i):
+			continue
 		if Menu.get_item_composition(order[i]).matches(food):
 			remove_ghost(i)
+			fufilled_slots.append(i)
 			return i
 	return -1
 
