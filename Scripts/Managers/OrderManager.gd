@@ -20,12 +20,12 @@ func create_random_order() -> Array[Menu.Item]:
 	return items
 
 
-func new_order() -> void:
+func new_order() -> Node3D:
 	# add dish to scene
 	var dish: Dish = DISH.instantiate()
 	dish.order = create_random_order()
 	get_tree().current_scene.add_child(dish)
-	dish.global_position = Vector3(-4, 2, 0)
+	return dish
 
 
 func clear_orders() -> void:

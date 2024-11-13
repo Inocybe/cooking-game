@@ -1,15 +1,17 @@
-[gd_scene load_steps=24 format=3 uid="uid://b3ocr5doqonyu"]
+[gd_scene load_steps=26 format=3 uid="uid://b3ocr5doqonyu"]
 
+[ext_resource type="Script" path="res://Scripts/Misc/food_truck.gd" id="1_rvaml"]
 [ext_resource type="PackedScene" uid="uid://cwg00vnmmye0c" path="res://Assets/FoodTruck/FOOD TRUCK.glb" id="1_vgmr4"]
 [ext_resource type="PackedScene" uid="uid://cv485pktorksn" path="res://Scenes/cookwear/cooktop.tscn" id="2_vnxue"]
 [ext_resource type="PackedScene" uid="uid://caiym4bxd68to" path="res://Scenes/cookwear/table.tscn" id="3_87muv"]
 [ext_resource type="PackedScene" uid="uid://bmfn7nnstf5ve" path="res://Scenes/cookwear/fryer.tscn" id="4_q7klp"]
-[ext_resource type="PackedScene" uid="uid://bnnh4k2t41n0l" path="res://Scenes/soda_machine/soda_machine.tscn" id="5_w5osk"]
-[ext_resource type="PackedScene" uid="uid://bvhk5tuyd686e" path="res://Scenes/food_spawner.tscn" id="6_0r1ja"]
+[ext_resource type="PackedScene" path="res://Scenes/cookwear/soda_machine.tscn" id="5_w5osk"]
+[ext_resource type="PackedScene" uid="uid://bvhk5tuyd686e" path="res://Scenes/food/food_spawner.tscn" id="6_0r1ja"]
 [ext_resource type="PackedScene" uid="uid://fkjb8mg8enxf" path="res://Scenes/food/burger.tscn" id="7_wfhy5"]
 [ext_resource type="PackedScene" uid="uid://ca6thqwccusde" path="res://Scenes/food/cup.tscn" id="8_d63o7"]
 [ext_resource type="PackedScene" uid="uid://b3024k6shxqvg" path="res://Scenes/food/bun.tscn" id="9_ib87w"]
 [ext_resource type="PackedScene" uid="uid://cdm4qy124ys6o" path="res://Scenes/food/fries.tscn" id="10_xfg8j"]
+[ext_resource type="PackedScene" uid="uid://b2x5v5mwhvvmy" path="res://Scenes/misc/finished_order_bell.tscn" id="11_na1yo"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_ariqs"]
 size = Vector3(7.48709, 3.7818, 0.148438)
@@ -50,7 +52,10 @@ size = Vector3(0.174805, 3.07336, 0.277557)
 [sub_resource type="BoxShape3D" id="BoxShape3D_tuvtj"]
 size = Vector3(7.43597, 0.809082, 0.251709)
 
-[node name="FoodTruck" type="Node3D"]
+[node name="FoodTruck" type="Node3D" node_paths=PackedStringArray("dish_positions")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0296402, -0.0441494, -0.0324593)
+script = ExtResource("1_rvaml")
+dish_positions = [NodePath("Food Tray Positions/1"), NodePath("Food Tray Positions/2"), NodePath("Food Tray Positions/4"), NodePath("Food Tray Positions/3")]
 
 [node name="truck" type="Node3D" parent="."]
 transform = Transform3D(0.8, 0, 0, 0, 0.8, 0, 0, 0, 0.8, 0, 0, 0)
@@ -165,7 +170,7 @@ transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 2.4922
 transform = Transform3D(1.19249e-09, 0, -0.1, 0, 0.1, 0, 0.1, 0, 1.19249e-09, 1.01161, 0.689894, 0.698522)
 
 [node name="Table2" parent="Cookwear" instance=ExtResource("3_87muv")]
-transform = Transform3D(0.1, 0, 0, 0, 0.1, 0, 0, 0, 0.1, 2.80149, 0.688822, -1.26343)
+transform = Transform3D(0.1, 0, 0, 0, 0.1, 0, 0, 0, 0.1, 3.19735, 0.688822, -1.25322)
 
 [node name="Lights" type="Node3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.84595, -0.266257)
@@ -185,5 +190,23 @@ omni_range = 0.743973
 [node name="Stove" type="OmniLight3D" parent="Lights"]
 transform = Transform3D(1, 2.99533e-05, -5.48667e-06, -2.99541e-05, 1, -0.0001541, 5.48205e-06, 0.0001541, 1, -0.477102, -0.658579, 0.930378)
 omni_range = 0.728784
+
+[node name="Finished Order" parent="." instance=ExtResource("11_na1yo")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.647062, 1.76796, -2.20901)
+
+[node name="Food Tray Positions" type="Node3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.18937, 1.68007, -2.55065)
+
+[node name="1" type="Node3D" parent="Food Tray Positions"]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 0.42, 0, 0)
+
+[node name="2" type="Node3D" parent="Food Tray Positions"]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -0.42, 0, 0)
+
+[node name="3" type="Node3D" parent="Food Tray Positions"]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 1.25775, -0.00111294, -0.00173664)
+
+[node name="4" type="Node3D" parent="Food Tray Positions"]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -1.2515, -0.00280333, -0.00480509)
 
 [editable path="truck/FOOD TRUCK"]
