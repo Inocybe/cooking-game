@@ -67,3 +67,24 @@ func offset_added_child(food: Node3D) -> void:
 			offset_height = this_offset_height
 	
 	food.position.y += offset_height
+
+
+func is_order_complete() -> bool:
+	return order.size() == fufilled_slots.size()
+
+
+func get_order_quality() -> float:
+	if not is_order_complete():
+		return 0
+	var quality: float = 1
+	var queue: Array[CombinableBase] = [self]
+	while queue.size() > 0:
+		for item in queue.pop_back().children:
+			if item.has_method("get_quality"):
+				quality *= item.get_quality()
+			var cookable: Cookable = item.get_node_or_null("Cookable")
+			if cookable != null:
+				quality *= cookable.get_quality()
+			if item is CombinableBase:
+				queue.append(item)
+	return quality

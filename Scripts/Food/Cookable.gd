@@ -31,6 +31,10 @@ func on_stop_cooking(cooking_type: CookwearBase.CookingType) -> void:
 		cooking = false
 
 
+func get_burn_amount() -> float:
+	return (cooked_amount - 1) / (burn_multiple - 1)
+
+
 func _process(delta: float) -> void:
 	if cooking and not is_burnt:
 		cooked_amount += delta / cook_time
@@ -46,8 +50,7 @@ func _process(delta: float) -> void:
 	if cooked_amount < 1:
 		new_color = uncooked_color.lerp(cooked_color, cooked_amount)
 	else:
-		var burn_amount: float = (cooked_amount - 1) / (burn_multiple - 1)
-		new_color = cooked_color.lerp(burnt_color, burn_amount)
+		new_color = cooked_color.lerp(burnt_color, get_burn_amount())
 	
 	material.albedo_color = new_color
 
@@ -58,3 +61,10 @@ func get_is_cooked() -> bool:
 
 func get_is_burnt() -> bool:
 	return is_burnt
+
+
+func get_quality() -> float:
+	if cooked_amount < 1:
+		return cooked_amount
+	else:
+		return 1 - get_burn_amount()

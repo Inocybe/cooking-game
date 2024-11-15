@@ -57,3 +57,9 @@ func generate_spill(base_position: Vector3) -> void:
 	spill.position = base_position
 	spill.set_material(filled_with)
 	get_tree().current_scene.add_child(spill)
+
+
+func get_quality() -> float:
+	if filled_with == null:
+		return 0.5
+	return 1
