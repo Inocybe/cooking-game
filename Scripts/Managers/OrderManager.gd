@@ -3,7 +3,7 @@ class_name OrderManager extends Node
 
 const DISH = preload("res://Scenes/orders/dish.tscn")
 
-var dishes_in_scene: Array[Node3D]
+var active_orders: Array[Dish] = []
 
 
 const MAX_ORDER_SIZE: int = 3
@@ -25,9 +25,11 @@ func new_order() -> Node3D:
 	var dish: Dish = DISH.instantiate()
 	dish.order = create_random_order()
 	get_tree().current_scene.add_child(dish)
+	active_orders.append(dish)
 	return dish
 
 
 func clear_orders() -> void:
-	for i in range(dishes_in_scene.size()):
-		dishes_in_scene.remove_at(i)
+	for dish in active_orders:
+		dish.get_parent().remove_child(dish)
+	active_orders.clear()
