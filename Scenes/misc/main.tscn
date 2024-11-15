@@ -5,7 +5,7 @@
 [ext_resource type="Texture2D" uid="uid://qfjnpgbslpbg" path="res://Assets/floor/floor.png" id="3_sw8jj"]
 [ext_resource type="PackedScene" uid="uid://bmfn7nnstf5ve" path="res://Scenes/cookwear/fryer.tscn" id="5_57a3j"]
 [ext_resource type="PackedScene" uid="uid://cv485pktorksn" path="res://Scenes/cookwear/cooktop.tscn" id="6_h677c"]
-[ext_resource type="PackedScene" uid="uid://bnnh4k2t41n0l" path="res://Scenes/cookwear/soda_machine.tscn" id="7_fkape"]
+[ext_resource type="PackedScene" path="res://Scenes/cookwear/soda_machine.tscn" id="7_fkape"]
 [ext_resource type="PackedScene" uid="uid://ca6thqwccusde" path="res://Scenes/food/cup.tscn" id="8_y8pjk"]
 [ext_resource type="PackedScene" uid="uid://b3024k6shxqvg" path="res://Scenes/food/bun.tscn" id="9_t7j64"]
 [ext_resource type="PackedScene" uid="uid://fkjb8mg8enxf" path="res://Scenes/food/burger.tscn" id="10_e3yu5"]
@@ -156,5 +156,5 @@ food_resource = ExtResource("9_t7j64")
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.74421, 1.61888, 2.98235)
 food_resource = ExtResource("11_evggu")
 
-[node name="FoodTruck" parent="Spawners" instance=ExtResource("15_jkdue")]
+[node name="FoodTruck" parent="." instance=ExtResource("15_jkdue")]
 transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, -1.29725, 0.419853, -4.72034)
