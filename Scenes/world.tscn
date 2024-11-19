@@ -1,7 +1,9 @@
-[gd_scene load_steps=8 format=3 uid="uid://bmw48ei0dff0i"]
+[gd_scene load_steps=10 format=3 uid="uid://bmw48ei0dff0i"]
 
 [ext_resource type="PackedScene" uid="uid://jj8yuf0syk57" path="res://Scenes/managers/game_manager.tscn" id="1_0s671"]
 [ext_resource type="PackedScene" uid="uid://b3ocr5doqonyu" path="res://Scenes/environment/food_truck.tscn" id="2_3dmfd"]
+[ext_resource type="PackedScene" uid="uid://5s3oxlpup0wy" path="res://Scenes/misc/player.tscn" id="2_rbjev"]
+[ext_resource type="PackedScene" uid="uid://qndigfn12fmd" path="res://Assets/food componenets/la_night_city.glb" id="4_f5rf2"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_r88qt"]
 
@@ -11,27 +13,42 @@ sky_material = SubResource("ProceduralSkyMaterial_r88qt")
 [sub_resource type="Environment" id="Environment_ge0im"]
 background_mode = 2
 sky = SubResource("Sky_wvisd")
-fog_enabled = true
-volumetric_fog_enabled = true
 
 [sub_resource type="WorldBoundaryShape3D" id="WorldBoundaryShape3D_wlqu1"]
 
-[sub_resource type="PlaneMesh" id="PlaneMesh_tuafa"]
-size = Vector2(100, 100)
+[sub_resource type="BoxShape3D" id="BoxShape3D_tejqe"]
 
 [node name="World" type="Node3D"]
 
 [node name="GameManager" parent="." instance=ExtResource("1_0s671")]
 
+[node name="Player" parent="." instance=ExtResource("2_rbjev")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.87757, 14.4587, 5.27264)
+
 [node name="WorldEnvironment" type="WorldEnvironment" parent="."]
 environment = SubResource("Environment_ge0im")
 
 [node name="FoodTruck" parent="." instance=ExtResource("2_3dmfd")]
+transform = Transform3D(-0.761335, 0, -0.648359, 0, 1, 0, 0.648359, 0, -0.761335, -0.0296402, -0.0441494, -0.0324593)
 
 [node name="Ground" type="StaticBody3D" parent="."]
+collision_layer = 3
+collision_mask = 3
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Ground"]
 shape = SubResource("WorldBoundaryShape3D_wlqu1")
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="Ground"]
-mesh = SubResource("PlaneMesh_tuafa")
+
+[node name="Person Spawner" type="Node3D" parent="."]
+
+[node name="StaticBody3D" type="StaticBody3D" parent="Person Spawner"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Person Spawner/StaticBody3D"]
+shape = SubResource("BoxShape3D_tejqe")
+
+[node name="Sketchfab_Scene" parent="." instance=ExtResource("4_f5rf2")]
+transform = Transform3D(100, 0, 0, 0, -100, 8.74228e-06, 0, -8.74228e-06, -100, 0, 200, 0)
+
+[node name="Sketchfab_Scene2" parent="." instance=ExtResource("4_f5rf2")]
+transform = Transform3D(100, 0, 0, 0, 100, 0, 0, 0, 100, 0, -43.5673, -94.2115)
