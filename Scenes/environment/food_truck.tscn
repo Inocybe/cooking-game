@@ -1,11 +1,11 @@
-[gd_scene load_steps=26 format=3 uid="uid://b3ocr5doqonyu"]
+[gd_scene load_steps=25 format=3 uid="uid://b3ocr5doqonyu"]
 
 [ext_resource type="Script" path="res://Scripts/Misc/food_truck.gd" id="1_rvaml"]
 [ext_resource type="PackedScene" uid="uid://cwg00vnmmye0c" path="res://Assets/FoodTruck/FOOD TRUCK.glb" id="1_vgmr4"]
 [ext_resource type="PackedScene" uid="uid://cv485pktorksn" path="res://Scenes/cookwear/cooktop.tscn" id="2_vnxue"]
 [ext_resource type="PackedScene" uid="uid://caiym4bxd68to" path="res://Scenes/cookwear/table.tscn" id="3_87muv"]
 [ext_resource type="PackedScene" uid="uid://bmfn7nnstf5ve" path="res://Scenes/cookwear/fryer.tscn" id="4_q7klp"]
-[ext_resource type="PackedScene" path="res://Scenes/cookwear/soda_machine.tscn" id="5_w5osk"]
+[ext_resource type="PackedScene" uid="uid://bnnh4k2t41n0l" path="res://Scenes/cookwear/soda_machine.tscn" id="5_w5osk"]
 [ext_resource type="PackedScene" uid="uid://bvhk5tuyd686e" path="res://Scenes/food/food_spawner.tscn" id="6_0r1ja"]
 [ext_resource type="PackedScene" uid="uid://fkjb8mg8enxf" path="res://Scenes/food/burger.tscn" id="7_wfhy5"]
 [ext_resource type="PackedScene" uid="uid://ca6thqwccusde" path="res://Scenes/food/cup.tscn" id="8_d63o7"]
@@ -22,21 +22,6 @@ size = Vector3(7.52191, 0.250732, 4.73419)
 [sub_resource type="BoxShape3D" id="BoxShape3D_44nrn"]
 size = Vector3(0.190308, 3.73969, 4.61719)
 
-[sub_resource type="BoxShape3D" id="BoxShape3D_q47o4"]
-size = Vector3(1.20874, 4.03506, 5.69904)
-
-[sub_resource type="BoxShape3D" id="BoxShape3D_6so8n"]
-size = Vector3(0.984375, 3.29828, 0.595032)
-
-[sub_resource type="BoxShape3D" id="BoxShape3D_pu23f"]
-size = Vector3(2.58044, 3.37219, 1)
-
-[sub_resource type="BoxShape3D" id="BoxShape3D_qtwxd"]
-size = Vector3(1, 3.24878, 4.59094)
-
-[sub_resource type="BoxShape3D" id="BoxShape3D_p8ql8"]
-size = Vector3(8.8512, 0.31311, 4.64136)
-
 [sub_resource type="BoxShape3D" id="BoxShape3D_st5n1"]
 size = Vector3(4.77295, 0.0595703, 0.675293)
 
@@ -52,89 +37,76 @@ size = Vector3(0.174805, 3.07336, 0.277557)
 [sub_resource type="BoxShape3D" id="BoxShape3D_tuvtj"]
 size = Vector3(7.43597, 0.809082, 0.251709)
 
+[sub_resource type="BoxShape3D" id="BoxShape3D_p8ql8"]
+size = Vector3(8.8512, 0.31311, 4.64136)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_6so8n"]
+size = Vector3(0.984375, 3.29828, 0.595032)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_pu23f"]
+size = Vector3(2.58044, 3.37219, 1)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_qtwxd"]
+size = Vector3(1, 3.24878, 4.59094)
+
 [node name="FoodTruck" type="Node3D" node_paths=PackedStringArray("dish_positions") groups=["interactable"]]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0296402, -0.0441494, -0.0324593)
 script = ExtResource("1_rvaml")
 dish_positions = [NodePath("Food Tray Positions/1"), NodePath("Food Tray Positions/2"), NodePath("Food Tray Positions/4"), NodePath("Food Tray Positions/3")]
 
-[node name="truck" type="Node3D" parent="."]
+[node name="Truck Body" type="StaticBody3D" parent="."]
 transform = Transform3D(0.8, 0, 0, 0, 0.8, 0, 0, 0, 0.8, 0, 0, 0)
 
-[node name="FOOD TRUCK" parent="truck" instance=ExtResource("1_vgmr4")]
+[node name="Model" parent="Truck Body" instance=ExtResource("1_vgmr4")]
 transform = Transform3D(3, 0, 0, 0, 3, 0, 0, 0, 3, 0, 0, 0)
 
-[node name="StaticBody3D" type="StaticBody3D" parent="truck"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.356997, 0)
-collision_layer = 3
-collision_mask = 3
-
-[node name="Left" type="CollisionShape3D" parent="truck/StaticBody3D"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.659897, 2.0809, 1.70769)
+[node name="Left" type="CollisionShape3D" parent="Truck Body"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.659897, 2.4379, 1.70769)
 shape = SubResource("BoxShape3D_ariqs")
 
-[node name="Ceiling" type="CollisionShape3D" parent="truck/StaticBody3D"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.636383, 3.81011, -0.472443)
+[node name="Ceiling" type="CollisionShape3D" parent="Truck Body"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.636383, 4.16711, -0.472443)
 shape = SubResource("BoxShape3D_2gyic")
 
-[node name="Back" type="CollisionShape3D" parent="truck/StaticBody3D"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.31545, 2.07407, -0.547852)
+[node name="Back" type="CollisionShape3D" parent="Truck Body"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.31545, 2.43107, -0.547852)
 shape = SubResource("BoxShape3D_44nrn")
 
-[node name="Front" type="StaticBody3D" parent="truck/StaticBody3D"]
-collision_layer = 3
-collision_mask = 3
-
-[node name="Front" type="CollisionShape3D" parent="truck/StaticBody3D/Front"]
-transform = Transform3D(0.8, 0, 0, 0, 0.8, 0, 0, 0, 0.8, -4.16003, 2.03913, -0.588501)
-shape = SubResource("BoxShape3D_q47o4")
-
-[node name="Next to door part" type="CollisionShape3D" parent="truck/StaticBody3D/Front"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3.15033, 2.09879, -2.55897)
-shape = SubResource("BoxShape3D_6so8n")
-
-[node name="Next to door part2" type="CollisionShape3D" parent="truck/StaticBody3D/Front"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3.15033, 2.09879, 1.46537)
-shape = SubResource("BoxShape3D_6so8n")
-
-[node name="No chair to be used" type="CollisionShape3D" parent="truck/StaticBody3D/Front"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.47814, 2.3109, 0.64992)
-shape = SubResource("BoxShape3D_pu23f")
-
-[node name="CollisionShape3D" type="CollisionShape3D" parent="truck/StaticBody3D/Front"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3.34533, 2.27182, -0.443131)
-shape = SubResource("BoxShape3D_qtwxd")
-
-[node name="Spillable On" type="StaticBody3D" parent="truck/StaticBody3D"]
-collision_layer = 7
-collision_mask = 7
-
-[node name="Bottom" type="CollisionShape3D" parent="truck/StaticBody3D/Spillable On"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0167847, 0.348816, -0.540893)
-shape = SubResource("BoxShape3D_p8ql8")
-
-[node name="overhang" type="CollisionShape3D" parent="truck/StaticBody3D"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.48755, 1.60626, -3.21069)
+[node name="Overhang" type="CollisionShape3D" parent="Truck Body"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.48755, 1.96326, -3.21069)
 shape = SubResource("BoxShape3D_st5n1")
 
-[node name="Right" type="StaticBody3D" parent="truck/StaticBody3D"]
-collision_layer = 3
-collision_mask = 3
-
-[node name="Bottom" type="CollisionShape3D" parent="truck/StaticBody3D/Right"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.65167, 0.965488, -2.68914)
+[node name="Right Bottom" type="CollisionShape3D" parent="Truck Body"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.65167, 1.32249, -2.68914)
 shape = SubResource("BoxShape3D_oy4dk")
 
-[node name="Left" type="CollisionShape3D" parent="truck/StaticBody3D/Right"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.1491, 2.046, -2.70303)
+[node name="Right Back" type="CollisionShape3D" parent="Truck Body"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.1491, 2.403, -2.70303)
 shape = SubResource("BoxShape3D_x5qr0")
 
-[node name="Right" type="CollisionShape3D" parent="truck/StaticBody3D/Right"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.01698, 1.72613, -2.70428)
+[node name="Right Middle" type="CollisionShape3D" parent="Truck Body"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.01698, 2.08313, -2.70428)
 shape = SubResource("BoxShape3D_c773r")
 
-[node name="Top" type="CollisionShape3D" parent="truck/StaticBody3D/Right"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.651288, 3.58494, -2.69645)
+[node name="Top" type="CollisionShape3D" parent="Truck Body"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.651288, 3.94194, -2.69645)
 shape = SubResource("BoxShape3D_tuvtj")
+
+[node name="Floor" type="CollisionShape3D" parent="Truck Body"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0167847, 0.705813, -0.540893)
+shape = SubResource("BoxShape3D_p8ql8")
+
+[node name="Right Front" type="CollisionShape3D" parent="Truck Body"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3.15033, 2.45579, -2.55897)
+shape = SubResource("BoxShape3D_6so8n")
+
+[node name="Chair Wall" type="CollisionShape3D" parent="Truck Body"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.47814, 2.6679, 0.64992)
+shape = SubResource("BoxShape3D_pu23f")
+
+[node name="Front" type="CollisionShape3D" parent="Truck Body"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3.34533, 2.62882, -0.443131)
+shape = SubResource("BoxShape3D_qtwxd")
 
 [node name="Spawners" type="Node3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.012, 1.29403, 0.75)
@@ -209,4 +181,4 @@ transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 1.2577
 [node name="4" type="Node3D" parent="Food Tray Positions"]
 transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -1.2515, -0.00280333, -0.00480509)
 
-[editable path="truck/FOOD TRUCK"]
+[editable path="Truck Body/Model"]
