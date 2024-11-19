@@ -52,7 +52,7 @@ size = Vector3(0.174805, 3.07336, 0.277557)
 [sub_resource type="BoxShape3D" id="BoxShape3D_tuvtj"]
 size = Vector3(7.43597, 0.809082, 0.251709)
 
-[node name="FoodTruck" type="Node3D" node_paths=PackedStringArray("dish_positions")]
+[node name="FoodTruck" type="Node3D" node_paths=PackedStringArray("dish_positions") groups=["interactable"]]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0296402, -0.0441494, -0.0324593)
 script = ExtResource("1_rvaml")
 dish_positions = [NodePath("Food Tray Positions/1"), NodePath("Food Tray Positions/2"), NodePath("Food Tray Positions/4"), NodePath("Food Tray Positions/3")]
