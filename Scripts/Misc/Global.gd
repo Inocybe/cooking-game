@@ -23,7 +23,8 @@ func find_managers():
 		return
 	
 	game_manager = current_scene.get_node_or_null("GameManager")
-	order_manager = game_manager.get_node_or_null("OrderManager")
+	if game_manager:
+		order_manager = game_manager.get_node_or_null("OrderManager")
 
 
 func pause_game() -> void:
