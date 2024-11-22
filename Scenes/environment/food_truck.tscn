@@ -1,11 +1,11 @@
 [gd_scene load_steps=26 format=3 uid="uid://b3ocr5doqonyu"]
 
-[ext_resource type="Script" path="res://Scripts/Misc/food_truck.gd" id="1_rvaml"]
+[ext_resource type="Script" path="res://Scripts/Misc/FoodTruck.gd" id="1_rvaml"]
 [ext_resource type="PackedScene" uid="uid://cwg00vnmmye0c" path="res://Assets/FoodTruck/FOOD TRUCK.glb" id="1_vgmr4"]
 [ext_resource type="PackedScene" uid="uid://cv485pktorksn" path="res://Scenes/cookwear/cooktop.tscn" id="2_vnxue"]
 [ext_resource type="PackedScene" uid="uid://caiym4bxd68to" path="res://Scenes/cookwear/table.tscn" id="3_87muv"]
 [ext_resource type="PackedScene" uid="uid://bmfn7nnstf5ve" path="res://Scenes/cookwear/fryer.tscn" id="4_q7klp"]
-[ext_resource type="PackedScene" path="res://Scenes/cookwear/soda_machine.tscn" id="5_w5osk"]
+[ext_resource type="PackedScene" uid="uid://bnnh4k2t41n0l" path="res://Scenes/cookwear/soda_machine.tscn" id="5_w5osk"]
 [ext_resource type="PackedScene" uid="uid://bvhk5tuyd686e" path="res://Scenes/food/food_spawner.tscn" id="6_0r1ja"]
 [ext_resource type="PackedScene" uid="uid://fkjb8mg8enxf" path="res://Scenes/food/burger.tscn" id="7_wfhy5"]
 [ext_resource type="PackedScene" uid="uid://ca6thqwccusde" path="res://Scenes/food/cup.tscn" id="8_d63o7"]
@@ -180,8 +180,5 @@ collision_mask = 7
 [node name="Floor" type="CollisionShape3D" parent="Floor"]
 transform = Transform3D(0.8, 0, 0, 0, 0.8, 0, 0, 0, 0.8, -0.0134278, 0.56465, -0.432714)
 shape = SubResource("BoxShape3D_p8ql8")
-
-[node name="Ordering Position" type="Node3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.903445, 1, -4.18072)
 
 [editable path="Truck Body/Model"]
