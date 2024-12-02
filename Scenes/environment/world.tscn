@@ -14,6 +14,16 @@ sky_material = SubResource("ProceduralSkyMaterial_r88qt")
 [sub_resource type="Environment" id="Environment_ge0im"]
 background_mode = 2
 sky = SubResource("Sky_wvisd")
+tonemap_mode = 2
+tonemap_exposure = 0.6
+tonemap_white = 0.7
+ssao_enabled = true
+ssao_intensity = 6.0
+sdfgi_enabled = true
+glow_enabled = true
+glow_intensity = 2.0
+glow_strength = 1.5
+volumetric_fog_enabled = true
 
 [sub_resource type="WorldBoundaryShape3D" id="WorldBoundaryShape3D_wlqu1"]
 

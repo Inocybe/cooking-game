@@ -27,7 +27,7 @@ func _process(delta: float) -> void:
 		constant_force = Vector3(direction.x, 0, direction.y)
 	else:
 		var food_truck_order_position: Vector3 = Global.game_manager.food_truck.ordering_position.global_position
-
+		
 		
 		constant_force = Vector3(food_truck_order_position - global_position).normalized() * move_speed
 		

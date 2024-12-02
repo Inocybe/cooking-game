@@ -7,7 +7,7 @@ var order_manager: OrderManager
 var orders: Array[Node3D]
 
 
-@onready var ordering_position: Node3D = $"Ordering Position"
+@onready var ordering_position: Node3D = $"OrderingPosition"
 
 
 
