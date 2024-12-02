@@ -1,9 +1,8 @@
-[gd_scene load_steps=11 format=3 uid="uid://bmw48ei0dff0i"]
+[gd_scene load_steps=10 format=3 uid="uid://bmw48ei0dff0i"]
 
 [ext_resource type="PackedScene" uid="uid://jj8yuf0syk57" path="res://Scenes/managers/game_manager.tscn" id="1_0s671"]
 [ext_resource type="PackedScene" uid="uid://b3ocr5doqonyu" path="res://Scenes/environment/food_truck.tscn" id="2_3dmfd"]
 [ext_resource type="PackedScene" uid="uid://5s3oxlpup0wy" path="res://Scenes/misc/player.tscn" id="2_rbjev"]
-[ext_resource type="PackedScene" uid="uid://qndigfn12fmd" path="res://Assets/food componenets/la_night_city.glb" id="4_f5rf2"]
 [ext_resource type="PackedScene" uid="uid://bkyacjbaq3p" path="res://Scenes/misc/person.tscn" id="5_pc0hn"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_r88qt"]
@@ -57,12 +56,6 @@ shape = SubResource("WorldBoundaryShape3D_wlqu1")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Person Spawner/StaticBody3D"]
 shape = SubResource("BoxShape3D_tejqe")
-
-[node name="Sketchfab_Scene" parent="." instance=ExtResource("4_f5rf2")]
-transform = Transform3D(100, 0, 0, 0, -100, 8.74228e-06, 0, -8.74228e-06, -100, 0, 200, 0)
-
-[node name="Sketchfab_Scene2" parent="." instance=ExtResource("4_f5rf2")]
-transform = Transform3D(100, 0, 0, 0, 100, 0, 0, 0, 100, 0, -43.5673, -94.2115)
 
 [node name="Person" parent="." instance=ExtResource("5_pc0hn")]
 process_priority = 1

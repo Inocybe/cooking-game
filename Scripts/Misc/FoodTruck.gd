@@ -43,4 +43,4 @@ func _input(event: InputEvent) -> void:
 
 func _on_ordering_position_body_entered(body: Node3D) -> void:
 	if body.has_method("in_order_radius"):
-		body.is_order_radius()
+		body.in_order_radius()
