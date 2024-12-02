@@ -8,8 +8,8 @@ func _ready() -> void:
 	Input.mouse_mode = Input.MOUSE_MODE_CAPTURED
 	set_process_input(true)
 	
-	player = Global.current_scene.get_node_or_null("Player")
-	food_truck = Global.current_scene.get_node_or_null("FoodTruck")
+	player = Global.current_scene.get_node("Player")
+	food_truck = Global.current_scene.get_node("FoodTruck")
 
 
 func _input(event: InputEvent) -> void:

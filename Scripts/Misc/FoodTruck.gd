@@ -7,7 +7,7 @@ var order_manager: OrderManager
 var orders: Array[Node3D]
 
 
-@onready var ordering_position: Node3D = $"OrderingPosition"
+@onready var ordering_position: Area3D = $"OrderingPosition"
 
 
 
@@ -32,7 +32,6 @@ func remove_completed_orders() -> void:
 		
 		if order.has_method("is_order_complete"):
 			if order.is_order_complete():
-				print("made it here")
 				orders.erase(order)
 				order.free()
 
@@ -40,3 +39,8 @@ func remove_completed_orders() -> void:
 func _input(event: InputEvent) -> void:
 	if Input.is_key_pressed(KEY_G):
 		add_order()
+
+
+func _on_ordering_position_body_entered(body: Node3D) -> void:
+	if body.has_method("in_order_radius"):
+		body.is_order_radius()
