@@ -10,8 +10,6 @@ var orders: Array[Node3D]
 @onready var ordering_position: Area3D = $"OrderingPosition"
 
 
-
-
 func _ready() -> void:
 	order_manager = Global.order_manager
 
