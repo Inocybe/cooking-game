@@ -1,0 +1,27 @@
+[gd_scene load_steps=4 format=3 uid="uid://dnpsrsigbk7pl"]
+
+[ext_resource type="Script" path="res://Scripts/Customers/Customer.gd" id="1_ds7bf"]
+
+[sub_resource type="CylinderShape3D" id="CylinderShape3D_07yf6"]
+
+[sub_resource type="CapsuleMesh" id="CapsuleMesh_kkdac"]
+
+[node name="Person" type="RigidBody3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
+axis_lock_linear_y = true
+axis_lock_angular_x = true
+axis_lock_angular_z = true
+script = ExtResource("1_ds7bf")
+move_speed = 0.7
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+shape = SubResource("CylinderShape3D_07yf6")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+mesh = SubResource("CapsuleMesh_kkdac")
+
+[node name="NewDirectionTimer" type="Timer" parent="."]
+wait_time = 5.0
+autostart = true
+
+[connection signal="timeout" from="NewDirectionTimer" to="." method="_on_new_direction_timer_timeout"]
