@@ -17,7 +17,7 @@ func _ready() -> void:
 	food_truck = Global.current_scene.get_node("FoodTruck")
 	customer_walk_area = Global.current_scene.get_node("CustomerWalkArea")
 	
-	for i in range(20):
+	for i in range(50):
 		create_customer()
 
 
@@ -38,8 +38,6 @@ func return_food_truck() -> Node3D:
 
 
 
-
-
 func create_customer() -> void:
 	var customer = CUSTOMER.instantiate()
 	
@@ -47,3 +45,7 @@ func create_customer() -> void:
 	Global.current_scene.add_child.call_deferred(customer)
 	
 	customer.global_position = customer_walk_area.sample_point() + Vector3(0, 1, 0)
+
+
+func random_customer_order() -> void:
+	pass
