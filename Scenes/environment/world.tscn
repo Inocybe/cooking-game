@@ -54,6 +54,8 @@ shape = SubResource("WorldBoundaryShape3D_wlqu1")
 shape = SubResource("BoxShape3D_tejqe")
 
 [node name="CustomerWalkArea" type="Node3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6.7156, 0, 7.36982)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 18.4068, 0, 19.657)
 script = ExtResource("5_xk452")
-max_radius = 7.0
+max_radius = 15.0
+
+[editable path="GameManager"]

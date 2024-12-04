@@ -1,10 +1,13 @@
 class_name GameManager extends Node
 
 
+const CUSTOMER = preload("res://Scenes/misc/customer.tscn")
+
 var player: CharacterBody3D = null
 var food_truck: FoodTruck = null
 var customer_walk_area: PointSampler = null
 
+var customers: Array[Node3D]
 
 func _ready() -> void:
 	Input.mouse_mode = Input.MOUSE_MODE_CAPTURED
@@ -13,6 +16,9 @@ func _ready() -> void:
 	player = Global.current_scene.get_node("Player")
 	food_truck = Global.current_scene.get_node("FoodTruck")
 	customer_walk_area = Global.current_scene.get_node("CustomerWalkArea")
+	
+	for i in range(20):
+		create_customer()
 
 
 func _input(event: InputEvent) -> void:
@@ -28,3 +34,16 @@ func return_player() -> CharacterBody3D:
 
 func return_food_truck() -> Node3D:
 	return food_truck
+
+
+
+
+
+
+func create_customer() -> void:
+	var customer = CUSTOMER.instantiate()
+	
+	customers.append(customer)
+	Global.current_scene.add_child.call_deferred(customer)
+	
+	customer.global_position = customer_walk_area.sample_point() + Vector3(0, 1, 0)
