@@ -1,9 +1,10 @@
-[gd_scene load_steps=10 format=3 uid="uid://bmw48ei0dff0i"]
+[gd_scene load_steps=11 format=3 uid="uid://bmw48ei0dff0i"]
 
 [ext_resource type="PackedScene" uid="uid://jj8yuf0syk57" path="res://Scenes/managers/game_manager.tscn" id="1_0s671"]
 [ext_resource type="PackedScene" uid="uid://b3ocr5doqonyu" path="res://Scenes/environment/food_truck.tscn" id="2_3dmfd"]
 [ext_resource type="PackedScene" uid="uid://5s3oxlpup0wy" path="res://Scenes/misc/player.tscn" id="2_rbjev"]
-[ext_resource type="PackedScene" uid="uid://bkyacjbaq3p" path="res://Scenes/misc/person.tscn" id="5_pc0hn"]
+[ext_resource type="PackedScene" uid="uid://bkyacjbaq3p" path="res://Scenes/misc/customer.tscn" id="5_pc0hn"]
+[ext_resource type="Script" path="res://Scripts/Misc/PointSampler.gd" id="5_xk452"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_r88qt"]
 
@@ -57,6 +58,11 @@ shape = SubResource("WorldBoundaryShape3D_wlqu1")
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Person Spawner/StaticBody3D"]
 shape = SubResource("BoxShape3D_tejqe")
 
-[node name="Person" parent="." instance=ExtResource("5_pc0hn")]
+[node name="Customer" parent="." instance=ExtResource("5_pc0hn")]
 process_priority = 1
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.50903, 1, 13.6847)
+
+[node name="CustomerWalkArea" type="Node3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6.7156, 0, 7.36982)
+script = ExtResource("5_xk452")
+max_radius = 7.0

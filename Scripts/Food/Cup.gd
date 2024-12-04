@@ -1,18 +1,22 @@
 extends BasicFood
 
 
-var spill_scene = preload("res://Scenes/misc/spill.tscn")
+var spill_scene = preload("res://Scenes/environment/spill.tscn")
+
+@export var spill_angle: float = PI / 3
 
 @export var spill_count: int = 3
 @export var max_spill_distance: float = 10
 
 var filled_with: StandardMaterial3D = null
 
-var checking_upside_down_instance: CheckingUpsideDown = CheckingUpsideDown.new()
+
+func is_upside_down() -> bool:
+	return facing_direction().angle_to(Vector3.UP) > spill_angle
 
 
 func do_fill(material: StandardMaterial3D) -> void:
-	if checking_upside_down_instance.IsUpsideDown(self) or filled_with == material:
+	if is_upside_down() or filled_with == material:
 		return
 		
 	$Liquid.set_surface_override_material(0, material)
@@ -20,19 +24,18 @@ func do_fill(material: StandardMaterial3D) -> void:
 	$Fill.play("Fill")
 	
 	filled_with = material
-	
+
+
 func _ready() -> void:
 	super()
-	
 
 
 func _physics_process(delta: float) -> void:
 	super(delta)
 	
-	if checking_upside_down_instance.IsUpsideDown(self) and filled_with != null:
+	if is_upside_down() and filled_with != null:
 	#if filled_with != null and has_fallen():
 		spill_liquid()
-		
 
 
 func spill_liquid() -> void:

@@ -16,10 +16,10 @@ func _ready():
 		current_scene = null
 	find_managers()
 
+
 # This function looks for managers when a new scene is loaded or in the current scene
 func find_managers():
 	if not current_scene:
-		print("No current scene loaded!")
 		return
 	
 	game_manager = current_scene.get_node_or_null("GameManager")

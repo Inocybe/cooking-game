@@ -1,7 +1,9 @@
 class_name GameManager extends Node
 
+
 var player: CharacterBody3D = null
-var food_truck: Node3D = null
+var food_truck: FoodTruck = null
+var customer_walk_area: PointSampler = null
 
 
 func _ready() -> void:
@@ -10,6 +12,7 @@ func _ready() -> void:
 	
 	player = Global.current_scene.get_node("Player")
 	food_truck = Global.current_scene.get_node("FoodTruck")
+	customer_walk_area = Global.current_scene.get_node("CustomerWalkArea")
 
 
 func _input(event: InputEvent) -> void:

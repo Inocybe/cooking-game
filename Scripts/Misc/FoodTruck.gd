@@ -1,11 +1,9 @@
-extends Node3D
-
+class_name FoodTruck extends Node3D
 
 
 @export var dish_positions: Array[Node3D]
 var order_manager: OrderManager
 var orders: Array[Node3D]
-
 
 @onready var ordering_position: Area3D = $"OrderingPosition"
 
@@ -40,5 +38,5 @@ func _input(event: InputEvent) -> void:
 
 
 func _on_ordering_position_body_entered(body: Node3D) -> void:
-	if body.has_method("in_order_radius"):
-		body.in_order_radius()
+	if body.has_method("try_to_order"):
+		body.try_to_order()
