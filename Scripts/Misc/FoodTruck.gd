@@ -36,9 +36,9 @@ func add_order() -> void:
 	return
 
 
-func add_order_from(customer: Customer):
+func request_order_from(customer: Customer):
 	add_order()
-	customer.finished_ordering()
+	#customer.finished_ordering()
 
 
 func remove_completed_orders() -> void:
@@ -53,8 +53,8 @@ func maybe_invoke_ordering() -> void:
 
 
 func do_order_hitbox_entered(body: Node3D) -> void:
-	if body.has_method("try_to_order"):
-		body.try_to_order()
+	if body.has_method("await_order_taken"):
+		body.await_order_taken()
 
 
 func get_order_position() -> Vector3:

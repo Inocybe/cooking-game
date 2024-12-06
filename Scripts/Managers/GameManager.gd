@@ -47,4 +47,6 @@ func create_customer() -> void:
 
 
 func make_customer_order() -> void:
-	customers.pick_random().move_to_foodcart()
+	var customer: Node3D = customers.pick_random()
+	customer.move_to_foodcart()
+	customer.wants_to_order = true

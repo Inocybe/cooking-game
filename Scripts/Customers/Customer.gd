@@ -9,8 +9,9 @@ class_name Customer extends AnimatableBody3D
 
 var target: Vector3
 var velocity: Vector3 = Vector3.ZERO
-var currently_placing_order: bool = false
+var is_awaiting_order_taken: bool = false
 var has_active_order: bool = false
+var wants_to_order: bool = false
 var is_idle_in_position: bool = false
 
 
@@ -52,7 +53,7 @@ func _process(delta: float) -> void:
 		start_idle()
 	
 	var target_vel = Vector3.ZERO
-	if not currently_placing_order and not is_idle_in_position:
+	if not is_awaiting_order_taken and not is_idle_in_position:
 		var target_vel_2d: Vector2 = get_target_offset().normalized() * move_speed
 		target_vel = Vector3(target_vel_2d.x, 0, target_vel_2d.y)
 	
@@ -60,13 +61,22 @@ func _process(delta: float) -> void:
 	position += velocity * delta
 
 
-func try_to_order() -> void:
+func order_taken() -> void:
 	if not has_active_order:
-		currently_placing_order = true
-		Global.game_manager.food_truck.add_order_from(self)
+		Global.game_manager.food_truck.request_order_from(self)
 		has_active_order = true
 
 
 func finished_ordering() -> void:
-	currently_placing_order = false
+	is_awaiting_order_taken = false
 	choose_random_target()
+
+
+func on_start_interact() -> void:
+	if wants_to_order:
+		order_taken()
+		finished_ordering()
+
+
+func await_order_taken() -> void:
+	is_awaiting_order_taken = true
