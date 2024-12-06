@@ -1,6 +1,8 @@
-[gd_scene load_steps=5 format=3 uid="uid://bkyacjbaq3p"]
+[gd_scene load_steps=10 format=3 uid="uid://bkyacjbaq3p"]
 
 [ext_resource type="Script" path="res://Scripts/Customers/Customer.gd" id="1_ds7bf"]
+[ext_resource type="Texture2D" uid="uid://b2ck5m6nl44aj" path="res://Assets/Sprites/2d_food_items.png" id="2_rejie"]
+[ext_resource type="Script" path="res://Scripts/Customers/CustomerAlert.gd" id="3_38i8a"]
 
 [sub_resource type="CylinderShape3D" id="CylinderShape3D_07yf6"]
 
@@ -10,6 +12,43 @@ albedo_color = Color(0, 1, 1, 1)
 [sub_resource type="CapsuleMesh" id="CapsuleMesh_kkdac"]
 material = SubResource("StandardMaterial3D_y872s")
 
+[sub_resource type="Animation" id="Animation_vv4xd"]
+resource_name = "awaiting order taken"
+length = 0.2
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("ExclimatioPoint:visible")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.2),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [false, true]
+}
+
+[sub_resource type="Animation" id="Animation_m6tk2"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("ExclimatioPoint:visible")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_8vnfi"]
+_data = {
+"RESET": SubResource("Animation_m6tk2"),
+"awaiting order taken": SubResource("Animation_vv4xd")
+}
+
 [node name="Customer" type="AnimatableBody3D" groups=["interactable"]]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
 axis_lock_linear_y = true
@@ -17,9 +56,6 @@ axis_lock_angular_x = true
 axis_lock_angular_z = true
 sync_to_physics = false
 script = ExtResource("1_ds7bf")
-move_speed = null
-target_margin = null
-traction = null
 min_idle_time = 5.0
 max_idle_time = 20.0
 
@@ -33,6 +69,17 @@ mesh = SubResource("CapsuleMesh_kkdac")
 
 [node name="AngryOrderNotTakenTimer" type="Timer" parent="."]
 wait_time = 5.0
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_8vnfi")
+}
+
+[node name="ExclimatioPoint" type="Sprite3D" parent="."]
+transform = Transform3D(0.25, 0, 0, 0, 0.25, 0, 0, 0, 0.25, 0, 1.65982, 0)
+visible = false
+texture = ExtResource("2_rejie")
+script = ExtResource("3_38i8a")
 
 [connection signal="timeout" from="IdleTimer" to="." method="finish_idling"]
 [connection signal="timeout" from="AngryOrderNotTakenTimer" to="." method="finished_ordering"]

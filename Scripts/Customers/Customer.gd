@@ -1,5 +1,6 @@
 class_name Customer extends AnimatableBody3D
 
+@onready var animation_player: AnimationPlayer = $AnimationPlayer
 
 @export var move_speed: float = 2
 @export var target_margin: float = 0.1
@@ -70,6 +71,8 @@ func order_taken() -> void:
 func finished_ordering() -> void:
 	is_awaiting_order_taken = false
 	choose_random_target()
+	animation_player.play_backwards("awaiting order taken")
+
 
 
 func on_start_interact() -> void:
@@ -80,3 +83,4 @@ func on_start_interact() -> void:
 
 func await_order_taken() -> void:
 	is_awaiting_order_taken = true
+	animation_player.play("awaiting order taken")
