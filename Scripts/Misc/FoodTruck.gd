@@ -43,9 +43,8 @@ func add_order_from(customer: Customer):
 
 func remove_completed_orders() -> void:
 	for order in Global.order_manager.active_orders:
-		if order.has_method("is_order_complete"):
-			if order.is_order_complete():
-				Global.order_manager.remove_order(order)
+		if order.is_order_complete():
+			Global.order_manager.remove_order(order)
 
 
 func maybe_invoke_ordering() -> void:

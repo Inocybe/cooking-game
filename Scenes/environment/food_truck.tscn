@@ -192,6 +192,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.052002, 0.898926, -0.310088
 shape = SubResource("BoxShape3D_nb8ur")
 
 [node name="New Order Timer" type="Timer" parent="."]
+wait_time = 20.0
 autostart = true
 
 [node name="OrderingPosition" type="Node3D" parent="."]

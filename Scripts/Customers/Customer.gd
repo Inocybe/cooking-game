@@ -55,7 +55,6 @@ func _process(delta: float) -> void:
 	if not currently_placing_order and not is_idle_in_position:
 		var target_vel_2d: Vector2 = get_target_offset().normalized() * move_speed
 		target_vel = Vector3(target_vel_2d.x, 0, target_vel_2d.y)
-		Global.debug_ray(global_position, target-global_position)
 	
 	velocity = velocity.move_toward(target_vel, traction * delta)
 	position += velocity * delta
