@@ -2,12 +2,14 @@ class_name Customer extends AnimatableBody3D
 
 @onready var animation_player: AnimationPlayer = $AnimationPlayer
 
-@export var move_speed: float = 2
+@export var min_move_speed: float = 1
+@export var max_move_speed: float = 3
 @export var target_margin: float = 0.1
 @export var traction: float = 4
 @export var min_idle_time: float = 0
 @export var max_idle_time: float = 0
 
+var move_speed: float
 var target: Vector3
 var velocity: Vector3 = Vector3.ZERO
 var is_awaiting_order_taken: bool = false
@@ -18,6 +20,7 @@ var is_idle_in_position: bool = false
 var dish_ordered: Node3D = null
 
 func _ready() -> void:
+	move_speed = randf() * (max_move_speed - min_move_speed) + min_move_speed
 	choose_random_target()
 
 

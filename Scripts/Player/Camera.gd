@@ -20,14 +20,15 @@ func forward_vector() -> Vector3:
 func _unhandled_input(event: InputEvent) -> void:
 	if event.is_action_pressed("click"):
 		do_interact()
-		
-	if event.is_action_pressed("remove_children"):
-		if selected_object.has_method("remove_all_objects"):
-			selected_object.remove_all_objects()
 	
 	if (event.is_action_released("click") and selected_object != null
 		and timer.is_stopped()):
 		drop_if_selected()
+	
+	
+	if event.is_action_pressed("remove_children") and selected_object != null:
+		if selected_object.has_method("unparent_all_children"):
+			selected_object.unparent_all_children()
 	
 	var scroll: float = Input.get_axis("scroll_down", "scroll_up")
 	held_distance += hold_dist_sensitivity * scroll
@@ -67,13 +68,16 @@ func drop_selected() -> void:
 		selected_object.on_stop_interact()
 	selected_object = null
 
+
 func drop_if_selected() -> void:
 	if selected_object != null:
 		drop_selected()
 
+
 func drop_if_specific_selected(obj: Node) -> void:
 	if selected_object == obj:
 		drop_selected()
+
 
 func do_interact() -> void:
 	if selected_object != null:

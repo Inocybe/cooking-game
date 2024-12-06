@@ -5,7 +5,7 @@ const GHOST_ORDER_CONTROLLER = preload("res://Scenes/orders/ghost_order_controll
 
 var order: Array[Menu.Item]
 var ghosts: Array[Node3D] = []
-var fufilled_slots: Array[int] = []
+var food_slots: Dictionary = Dictionary()
 
 var active_time: float = 0
 
@@ -15,10 +15,14 @@ var customer_who_gave_me: Node3D = null
 func _ready() -> void:
 	super()
 	for i in range(order.size()):
-		var ghost = Menu.get_item_composition(order[i]).make()
-		ghosts.append(ghost)
-		move_to_slot(ghost, i)
-		make_item_ghost(ghost)
+		add_ghost_to_slot(i)
+
+
+func add_ghost_to_slot(i: int) -> void:
+	var ghost = Menu.get_item_composition(order[i]).make()
+	ghosts.append(ghost)
+	move_to_slot(ghost, i)
+	make_item_ghost(ghost)
 
 
 func _process(delta: float) -> void:
@@ -49,13 +53,18 @@ func get_collision_y_offset(shape: Shape3D):
 
 func choose_child_slot(food: Node3D) -> int:
 	for i in range(order.size()):
-		if fufilled_slots.has(i):
+		if food_slots.values().has(i):
 			continue
 		if Menu.get_item_composition(order[i]).matches(food):
 			remove_ghost(i)
-			fufilled_slots.append(i)
+			food_slots[food] = i
 			return i
 	return -1
+
+
+func handle_child_removal(child: Node3D) -> void:
+	add_ghost_to_slot(food_slots[child])
+	food_slots.erase(child)
 
 
 func remove_ghost(i: int) -> void:
@@ -78,7 +87,7 @@ func offset_added_child(food: Node3D) -> void:
 
 
 func is_order_complete() -> bool:
-	return order.size() == fufilled_slots.size()
+	return order.size() == food_slots.size()
 
 
 func get_order_quality() -> float:

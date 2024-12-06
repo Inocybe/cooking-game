@@ -5,13 +5,18 @@ class_name CombinableBase extends Holdable
 @export var hold_positions: Array[Node3D] = []
 
 var children: Array[Node3D] = []
+var children_being_removed: Array[Node3D] = []
 var removed_children: Array[Node3D] = []
 
 
 func set_dependance(child: RigidBody3D, disable: bool) -> void:
 	child.freeze = disable
-	child.freeze_mode = RigidBody3D.FREEZE_MODE_STATIC
-	child.add_collision_exception_with(self)
+	if disable:
+		child.freeze_mode = RigidBody3D.FREEZE_MODE_STATIC
+		child.add_collision_exception_with(self)
+	else:
+		child.freeze_mode = RigidBody3D.FREEZE_MODE_KINEMATIC
+		child.remove_collision_exception_with(self)
 
 
 func _ready() -> void:
@@ -23,15 +28,37 @@ func _ready() -> void:
 
 
 func is_compatible_with(other: Node):
-	return other.is_in_group("food") and other != self and not removed_children.has(other)
+	return other.is_in_group("food") and other != self
 
 
 func _on_body_entered(body: Node) -> void:
 	if body.get_parent() and body.get_parent() is CombinableBase:
 		return
+	if removed_children.has(body) or children_being_removed.has(body):
+		return
 	if not is_compatible_with(body):
 		return
 	add_as_child(body as Holdable)
+
+
+func unparent_child(child: Node3D) -> void:
+	children.erase(child)
+	child.reparent.call_deferred(get_tree().current_scene)
+	set_dependance.call_deferred(child, false)
+	children_being_removed.append(child)
+	await get_tree().process_frame
+	handle_child_removal(child)
+	children_being_removed.erase(child)
+	removed_children.append(child)
+
+
+func handle_child_removal(child: Node3D) -> void:
+	pass
+
+
+func unparent_all_children() -> void:
+	for child in children:
+		unparent_child(child)
 
 
 func add_as_child(child: Holdable) -> void:
