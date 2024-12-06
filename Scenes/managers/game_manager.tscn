@@ -7,5 +7,3 @@
 script = ExtResource("1_ll06w")
 
 [node name="OrderManager" parent="." instance=ExtResource("2_mk4je")]
-
-[node name="CreateMorePeople" type="Timer" parent="."]

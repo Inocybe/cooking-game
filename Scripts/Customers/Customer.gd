@@ -1,4 +1,4 @@
-extends StaticBody3D
+class_name Customer extends AnimatableBody3D
 
 
 @export var move_speed: float = 2
@@ -15,7 +15,7 @@ var is_idle_in_position: bool = false
 
 
 func _ready() -> void:
-	target = global_position
+	choose_random_target()
 
 
 func move_to_foodcart() -> void:
@@ -34,8 +34,12 @@ func is_at_target() -> bool:
 func finish_idling() -> void:
 	if not is_idle_in_position:
 		return
-	target = Global.game_manager.customer_walk_area.sample_point()
+	choose_random_target()
 	is_idle_in_position = false
+
+
+func choose_random_target() -> void:
+	target = Global.game_manager.customer_walk_area.sample_point()
 
 
 func start_idle() -> void:
@@ -44,21 +48,26 @@ func start_idle() -> void:
 
 
 func _process(delta: float) -> void:
-	if currently_placing_order:
-		return
-	if is_idle_in_position:
-		return
 	if is_at_target():
 		start_idle()
-	var target_vel_2d: Vector2 = get_target_offset().normalized() * move_speed
-	var target_vel = Vector3(target_vel_2d.x, 0, target_vel_2d.y)
+	
+	var target_vel = Vector3.ZERO
+	if not currently_placing_order and not is_idle_in_position:
+		var target_vel_2d: Vector2 = get_target_offset().normalized() * move_speed
+		target_vel = Vector3(target_vel_2d.x, 0, target_vel_2d.y)
+		Global.debug_ray(global_position, target-global_position)
+	
 	velocity = velocity.move_toward(target_vel, traction * delta)
 	position += velocity * delta
-	Global.debug_ray(global_position, target-global_position)
 
 
-func place_order() -> void:
+func try_to_order() -> void:
 	if not has_active_order:
 		currently_placing_order = true
-		Global.game_manager.food_truck.add_order()
+		Global.game_manager.food_truck.add_order_from(self)
 		has_active_order = true
+
+
+func finished_ordering() -> void:
+	currently_placing_order = false
+	choose_random_target()

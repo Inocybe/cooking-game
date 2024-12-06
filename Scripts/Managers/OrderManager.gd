@@ -5,7 +5,6 @@ const DISH = preload("res://Scenes/orders/dish.tscn")
 
 var active_orders: Array[Dish] = []
 
-
 const MAX_ORDER_SIZE: int = 3
 const MIN_ORDER_SIZE: int = 1
 
@@ -33,3 +32,8 @@ func clear_orders() -> void:
 	for dish in active_orders:
 		dish.get_parent().remove_child(dish)
 	active_orders.clear()
+
+
+func remove_order(dish: Dish) -> void:
+	dish.get_parent().remove_child(dish)
+	active_orders.erase(dish)

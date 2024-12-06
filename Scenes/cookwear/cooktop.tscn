@@ -28,5 +28,4 @@ shape = SubResource("BoxShape3D_oiaul")
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.95, 0)
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Cooktop/CookingArea"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0)
 shape = SubResource("BoxShape3D_a75u5")

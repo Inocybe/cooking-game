@@ -10,11 +10,12 @@ albedo_color = Color(0, 1, 1, 1)
 [sub_resource type="CapsuleMesh" id="CapsuleMesh_kkdac"]
 material = SubResource("StandardMaterial3D_y872s")
 
-[node name="Customer" type="StaticBody3D"]
+[node name="Customer" type="AnimatableBody3D"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
 axis_lock_linear_y = true
 axis_lock_angular_x = true
 axis_lock_angular_z = true
+sync_to_physics = false
 script = ExtResource("1_ds7bf")
 min_idle_time = 5.0
 max_idle_time = 20.0

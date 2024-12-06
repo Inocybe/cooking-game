@@ -7,6 +7,8 @@ var order: Array[Menu.Item]
 var ghosts: Array[Node3D] = []
 var fufilled_slots: Array[int] = []
 
+var active_time: float = 0
+
 
 func _ready() -> void:
 	super()
@@ -15,6 +17,10 @@ func _ready() -> void:
 		ghosts.append(ghost)
 		move_to_slot(ghost, i)
 		make_item_ghost(ghost)
+
+
+func _process(delta: float) -> void:
+	active_time += delta
 
 
 func make_item_ghost(obj: Node3D) -> void:
@@ -76,7 +82,7 @@ func is_order_complete() -> bool:
 func get_order_quality() -> float:
 	if not is_order_complete():
 		return 0
-	var quality: float = 1
+	var quality: float = min(0.5**(active_time/30-1), 1)
 	var queue: Array[CombinableBase] = [self]
 	while queue.size() > 0:
 		for item in queue.pop_back().children:
