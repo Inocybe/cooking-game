@@ -9,6 +9,8 @@ var fufilled_slots: Array[int] = []
 
 var active_time: float = 0
 
+var customer_who_gave_me: Node3D = null
+
 
 func _ready() -> void:
 	super()

@@ -26,25 +26,28 @@ func choose_best_dish_spawnpoint() -> Node3D:
 	return dish_spawnpoints.pick_random()
 
 
-func add_order() -> void:
+func add_order(customer: Customer) -> void:
 	var pos: Node3D = choose_best_dish_spawnpoint()
 	
 	var order: Dish = Global.order_manager.new_order()
 	order.global_position = pos.global_position
 	order.global_rotation = pos.global_rotation
+	order.customer_who_gave_me = customer
+	
+	customer.dish_ordered = order # setting dish to customer so customer knows what dish they ordered
 	
 	return
 
 
 func request_order_from(customer: Customer):
-	add_order()
+	add_order(customer)
 	#customer.finished_ordering()
 
 
-func remove_completed_orders() -> void:
+func call_customers_with_completed_orders() -> void:
 	for order in Global.order_manager.active_orders:
 		if order.is_order_complete():
-			Global.order_manager.remove_order(order)
+			order.customer_who_gave_me.move_to_foodcart()
 
 
 func maybe_invoke_ordering() -> void:

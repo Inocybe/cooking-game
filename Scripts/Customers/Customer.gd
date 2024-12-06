@@ -15,6 +15,7 @@ var has_active_order: bool = false
 var wants_to_order: bool = false
 var is_idle_in_position: bool = false
 
+var dish_ordered: Node3D = null
 
 func _ready() -> void:
 	choose_random_target()
@@ -60,6 +61,10 @@ func _process(delta: float) -> void:
 	
 	velocity = velocity.move_toward(target_vel, traction * delta)
 	position += velocity * delta
+	
+	#if is_idle_in_position and is_at_target():
+		#if dish_ordered.is_order_completed():
+		#	collect_food()
 
 
 func order_taken() -> void:
@@ -74,7 +79,6 @@ func finished_ordering() -> void:
 	animation_player.play_backwards("awaiting order taken")
 
 
-
 func on_start_interact() -> void:
 	if wants_to_order:
 		order_taken()
@@ -84,3 +88,7 @@ func on_start_interact() -> void:
 func await_order_taken() -> void:
 	is_awaiting_order_taken = true
 	animation_player.play("awaiting order taken")
+
+
+func collect_food() -> void:
+	Global.order_manager.remove_order(dish_ordered)
