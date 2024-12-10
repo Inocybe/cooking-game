@@ -13,7 +13,6 @@ var move_speed: float
 var target: Vector3
 var velocity: Vector3 = Vector3.ZERO
 var is_awaiting_order_taken: bool = false
-var has_active_order: bool = false
 var wants_to_order: bool = false
 var is_idle_in_position: bool = false
 
@@ -25,6 +24,8 @@ func _ready() -> void:
 
 
 func move_to_foodcart() -> void:
+	if dish_ordered == null:
+			wants_to_order = true
 	is_idle_in_position = false
 	target = Global.game_manager.food_truck.get_order_position()
 
@@ -71,9 +72,9 @@ func _process(delta: float) -> void:
 
 
 func order_taken() -> void:
-	if not has_active_order:
-		Global.game_manager.food_truck.request_order_from(self)
-		has_active_order = true
+	if not dish_ordered:
+		Global.order_manager.request_order_from(self)
+		wants_to_order = false
 
 
 func finished_ordering() -> void:

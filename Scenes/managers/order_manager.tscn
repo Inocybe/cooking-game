@@ -4,3 +4,9 @@
 
 [node name="OrderManager" type="Node"]
 script = ExtResource("1_51p7i")
+
+[node name="MaybeInvokeOrderingTimer" type="Timer" parent="."]
+wait_time = 15.0
+autostart = true
+
+[connection signal="timeout" from="MaybeInvokeOrderingTimer" to="." method="maybe_invoke_ordering"]

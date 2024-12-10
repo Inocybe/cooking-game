@@ -44,9 +44,3 @@ func create_customer() -> void:
 	
 	customer.position = customer_walk_area.sample_point() + Vector3(0, 1, 0)
 	Global.current_scene.add_child.call_deferred(customer)
-
-
-func make_customer_order() -> void:
-	var customer: Node3D = customers.pick_random()
-	customer.move_to_foodcart()
-	customer.wants_to_order = true

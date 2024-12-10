@@ -37,3 +37,36 @@ func clear_orders() -> void:
 func remove_order(dish: Dish) -> void:
 	dish.get_parent().remove_child(dish)
 	active_orders.erase(dish)
+
+############
+
+func maybe_invoke_ordering() -> void:
+	if randf() < 0.5 ** active_orders.size():
+		make_customer_order()
+
+func add_order(customer: Customer) -> void:
+	var pos: Node3D = Global.game_manager.food_truck.choose_best_dish_spawnpoint()
+	
+	var order: Dish = new_order()
+	order.global_position = pos.global_position
+	order.global_rotation = pos.global_rotation
+	order.customer_who_gave_me = customer
+	
+	customer.dish_ordered = order # setting dish to customer so customer knows what dish they ordered
+
+
+func request_order_from(customer: Customer):
+	add_order(customer)
+	#customer.finished_ordering()
+
+
+func call_customers_with_completed_orders() -> void:
+	for order in active_orders:
+		if order.is_order_complete():
+			
+					order.customer_who_gave_me.move_to_foodcart()
+
+
+func make_customer_order() -> void:
+	var customer: Node3D = Global.game_manager.customers.pick_random()
+	customer.move_to_foodcart()
