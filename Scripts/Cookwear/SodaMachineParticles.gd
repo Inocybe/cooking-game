@@ -1,6 +1,8 @@
 extends Node3D
 
+
 var children: Array[Node] = []
+
 
 func _ready() -> void:
 	children = self.get_children()
