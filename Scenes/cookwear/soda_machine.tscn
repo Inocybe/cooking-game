@@ -1,6 +1,7 @@
-[gd_scene load_steps=21 format=3 uid="uid://bnnh4k2t41n0l"]
+[gd_scene load_steps=25 format=3 uid="uid://bnnh4k2t41n0l"]
 
 [ext_resource type="Script" path="res://Scripts/Cookwear/SodaMachine.gd" id="1_480ux"]
+[ext_resource type="Shader" path="res://Scripts/Shaders/ColaShader.gdshader" id="2_8k15g"]
 [ext_resource type="Script" path="res://Scripts/Misc/SodaMachineButton.gd" id="3_doyl0"]
 [ext_resource type="ArrayMesh" uid="uid://b3hirogdjwhcs" path="res://Assets/soda_machine/Soda Machine.obj" id="4_dxvpm"]
 [ext_resource type="Script" path="res://Scripts/Cookwear/SodaMachineParticles.gd" id="4_vcjki"]
@@ -12,10 +13,30 @@ albedo_color = Color(0.266667, 0.431373, 1, 0.772549)
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_p6s1e"]
 albedo_color = Color(0.42, 0, 0.45, 1)
 
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_nus3t"]
-transparency = 1
-albedo_color = Color(0.42, 0.17619, 0.0798, 0.992157)
-subsurf_scatter_strength = 0.5
+[sub_resource type="Gradient" id="Gradient_8fxbt"]
+
+[sub_resource type="FastNoiseLite" id="FastNoiseLite_xc7ke"]
+noise_type = 5
+frequency = 0.076
+
+[sub_resource type="NoiseTexture3D" id="NoiseTexture3D_imdbm"]
+width = 256
+height = 256
+depth = 256
+color_ramp = SubResource("Gradient_8fxbt")
+noise = SubResource("FastNoiseLite_xc7ke")
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_mr2fa"]
+render_priority = 0
+shader = ExtResource("2_8k15g")
+shader_parameter/base_color = Color(0.42, 0.17619, 0.0798, 0.980392)
+shader_parameter/bubble_color = Color(1, 1, 1, 1)
+shader_parameter/time_scale = 0.1
+shader_parameter/bubble_cutoff = 0.7
+shader_parameter/position_scale = 3.0
+shader_parameter/round_amount = 0.03
+shader_parameter/max_bubble_radius = 1.0
+shader_parameter/noise_texture = SubResource("NoiseTexture3D_imdbm")
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_qtgfu"]
 size = Vector3(2, 2, 2)
@@ -59,7 +80,7 @@ height = 0.025
 
 [node name="SodaMachine" type="Node3D"]
 script = ExtResource("1_480ux")
-liquid_materials = Array[StandardMaterial3D]([SubResource("StandardMaterial3D_h0ur8"), SubResource("StandardMaterial3D_p6s1e"), SubResource("StandardMaterial3D_nus3t")])
+liquid_materials = Array[Material]([SubResource("StandardMaterial3D_h0ur8"), SubResource("StandardMaterial3D_p6s1e"), SubResource("ShaderMaterial_mr2fa")])
 
 [node name="SodaMachine" type="StaticBody3D" parent="."]
 transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, 0, 0, 0)

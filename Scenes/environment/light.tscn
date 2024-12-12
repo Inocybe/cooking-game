@@ -4,7 +4,7 @@
 
 [sub_resource type="SphereMesh" id="SphereMesh_em4pt"]
 
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_j4e1y"]
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_w7hil"]
 render_priority = 0
 shader = ExtResource("1_8feot")
 shader_parameter/center_color = Color(1, 0.988235, 0.968627, 1)
@@ -26,7 +26,7 @@ transform = Transform3D(0.1, 0, 0, 0, 0.1, 0, 0, 0, 0.1, 0, 0, 0)
 cast_shadow = 0
 gi_mode = 0
 mesh = SubResource("SphereMesh_em4pt")
-surface_material_override/0 = SubResource("ShaderMaterial_j4e1y")
+surface_material_override/0 = SubResource("ShaderMaterial_w7hil")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
 transform = Transform3D(0.1, 0, 0, 0, 0.1, 0, 0, 0, 0.1, 0, 0, 0)

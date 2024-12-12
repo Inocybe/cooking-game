@@ -8,14 +8,14 @@ var spill_scene = preload("res://Scenes/environment/spill.tscn")
 @export var spill_count: int = 3
 @export var max_spill_distance: float = 10
 
-var filled_with: StandardMaterial3D = null
+var filled_with: Material = null
 
 
 func is_upside_down() -> bool:
 	return facing_direction().angle_to(Vector3.UP) > spill_angle
 
 
-func do_fill(material: StandardMaterial3D) -> void:
+func do_fill(material: Material) -> void:
 	if is_upside_down() or filled_with == material:
 		return
 		

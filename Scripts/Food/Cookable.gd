@@ -13,7 +13,7 @@ var cooked_amount: float = 0
 var cooking: bool = false
 var is_cooked: bool = false
 var is_burnt: bool = false
-var material: StandardMaterial3D = StandardMaterial3D.new()
+var material: Material = StandardMaterial3D.new()
 
 
 func _ready() -> void:

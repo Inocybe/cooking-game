@@ -15,5 +15,5 @@ func _ready() -> void:
 	)
 
 
-func set_material(material: StandardMaterial3D) -> void:
+func set_material(material: Material) -> void:
 	$MeshInstance3D.set_surface_override_material(0, material)

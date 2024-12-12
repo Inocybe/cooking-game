@@ -8,7 +8,7 @@ enum Liquid {
 }
 
 
-@export var liquid_materials: Array[StandardMaterial3D] = []
+@export var liquid_materials: Array[Material] = []
 
 var in_machine: Array[Node3D] = []
 
@@ -26,7 +26,7 @@ func _ready() -> void:
 
 
 func button_pressed(liquid: Liquid):
-	var liquid_material: StandardMaterial3D = get_liquid_material(liquid)
+	var liquid_material: Material = get_liquid_material(liquid)
 	for obj in in_machine:
 		if obj.has_method("do_fill"):
 			obj.do_fill(liquid_material)
