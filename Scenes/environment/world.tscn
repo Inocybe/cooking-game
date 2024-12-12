@@ -1,4 +1,4 @@
-[gd_scene load_steps=9 format=3 uid="uid://bmw48ei0dff0i"]
+[gd_scene load_steps=10 format=3 uid="uid://bmw48ei0dff0i"]
 
 [ext_resource type="PackedScene" uid="uid://jj8yuf0syk57" path="res://Scenes/managers/game_manager.tscn" id="1_0s671"]
 [ext_resource type="PackedScene" uid="uid://b3ocr5doqonyu" path="res://Scenes/environment/food_truck.tscn" id="2_3dmfd"]
@@ -21,6 +21,9 @@ glow_enabled = true
 volumetric_fog_enabled = true
 
 [sub_resource type="WorldBoundaryShape3D" id="WorldBoundaryShape3D_wlqu1"]
+
+[sub_resource type="SphereShape3D" id="SphereShape3D_s6vxi"]
+radius = 20.0
 
 [node name="World" type="Node3D"]
 
@@ -45,7 +48,10 @@ shape = SubResource("WorldBoundaryShape3D_wlqu1")
 [node name="MeshInstance3D" type="MeshInstance3D" parent="Ground"]
 
 [node name="CustomerWalkArea" type="Node3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 15.0276, 0, 14.0764)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 14.8349, 0, 18.1658)
 script = ExtResource("5_xk452")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="CustomerWalkArea"]
+shape = SubResource("SphereShape3D_s6vxi")
 
 [editable path="GameManager"]
