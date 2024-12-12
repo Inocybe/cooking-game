@@ -1,7 +1,7 @@
 [gd_scene load_steps=25 format=3 uid="uid://bnnh4k2t41n0l"]
 
 [ext_resource type="Script" path="res://Scripts/Cookwear/SodaMachine.gd" id="1_480ux"]
-[ext_resource type="Shader" path="res://Scripts/Shaders/ColaShader.gdshader" id="2_8k15g"]
+[ext_resource type="Shader" path="res://Scripts/Shaders/BubbleShader.gdshader" id="2_8k15g"]
 [ext_resource type="Script" path="res://Scripts/Misc/SodaMachineButton.gd" id="3_doyl0"]
 [ext_resource type="ArrayMesh" uid="uid://b3hirogdjwhcs" path="res://Assets/soda_machine/Soda Machine.obj" id="4_dxvpm"]
 [ext_resource type="Script" path="res://Scripts/Cookwear/SodaMachineParticles.gd" id="4_vcjki"]
