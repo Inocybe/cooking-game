@@ -1,4 +1,4 @@
-[gd_scene load_steps=27 format=3 uid="uid://b3ocr5doqonyu"]
+[gd_scene load_steps=29 format=3 uid="uid://b3ocr5doqonyu"]
 
 [ext_resource type="Script" path="res://Scripts/Misc/FoodTruck.gd" id="1_rvaml"]
 [ext_resource type="PackedScene" uid="uid://cwg00vnmmye0c" path="res://Assets/FoodTruck/FOOD TRUCK.glb" id="1_vgmr4"]
@@ -13,6 +13,7 @@
 [ext_resource type="PackedScene" uid="uid://cdm4qy124ys6o" path="res://Scenes/food/fries.tscn" id="10_xfg8j"]
 [ext_resource type="PackedScene" uid="uid://b2x5v5mwhvvmy" path="res://Scenes/misc/finished_order_bell.tscn" id="11_na1yo"]
 [ext_resource type="PackedScene" uid="uid://dq04w2oxbyp7f" path="res://Scenes/environment/light.tscn" id="12_o0it0"]
+[ext_resource type="Script" path="res://Scripts/ObjectsInsideMe.gd" id="14_gpjyj"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_ariqs"]
 size = Vector3(7.48709, 3.7818, 0.148438)
@@ -52,6 +53,9 @@ size = Vector3(8.8512, 0.31311, 4.64136)
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_nb8ur"]
 size = Vector3(3.80371, 1.61621, 1.65154)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_t5xi5"]
+size = Vector3(3.8725, 0.643555, 0.525513)
 
 [node name="FoodTruck" type="Node3D" node_paths=PackedStringArray("dish_spawnpoints") groups=["interactable"]]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0296402, -0.0441494, -0.0324593)
@@ -184,13 +188,6 @@ collision_mask = 7
 transform = Transform3D(0.8, 0, 0, 0, 0.8, 0, 0, 0, 0.8, -0.0134278, 0.56465, -0.432714)
 shape = SubResource("BoxShape3D_p8ql8")
 
-[node name="DoOrderHitbox" type="Area3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.12232, 0, -3.36127)
-
-[node name="CollisionShape3D" type="CollisionShape3D" parent="DoOrderHitbox"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.052002, 0.898926, -0.310088)
-shape = SubResource("BoxShape3D_nb8ur")
-
 [node name="New Order Timer" type="Timer" parent="."]
 wait_time = 20.0
 autostart = true
@@ -198,7 +195,24 @@ autostart = true
 [node name="OrderingPosition" type="Node3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.1707, 2.38419e-07, -4.17863)
 
-[connection signal="body_entered" from="DoOrderHitbox" to="." method="do_order_hitbox_entered"]
+[node name="Areas" type="Node3D" parent="."]
+
+[node name="DoOrderHitbox" type="Area3D" parent="Areas"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.12232, 0, -3.36127)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Areas/DoOrderHitbox"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.052002, 0.898926, -0.310088)
+shape = SubResource("BoxShape3D_nb8ur")
+
+[node name="FinishedOrderPosition" type="Area3D" parent="Areas"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.217, 2.07255, -2.7634)
+script = ExtResource("14_gpjyj")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Areas/FinishedOrderPosition"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0105896, -0.178223, 0.186584)
+shape = SubResource("BoxShape3D_t5xi5")
+
 [connection signal="timeout" from="New Order Timer" to="." method="maybe_invoke_ordering"]
+[connection signal="body_entered" from="Areas/DoOrderHitbox" to="." method="do_order_hitbox_entered"]
 
 [editable path="Truck Body/Model"]

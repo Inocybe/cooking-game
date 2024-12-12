@@ -25,7 +25,7 @@ func _ready() -> void:
 
 func move_to_foodcart() -> void:
 	if dish_ordered == null:
-			wants_to_order = true
+		wants_to_order = true
 	is_idle_in_position = false
 	target = Global.game_manager.food_truck.get_order_position()
 
@@ -56,12 +56,15 @@ func start_idle() -> void:
 
 func _process(delta: float) -> void:
 	if is_at_target():
+		if target == Global.game_manager.food_truck.get_order_position() and dish_ordered != null:
+			collect_order()
 		start_idle()
 	
 	var target_vel = Vector3.ZERO
 	if not is_awaiting_order_taken and not is_idle_in_position:
 		var target_vel_2d: Vector2 = get_target_offset().normalized() * move_speed
 		target_vel = Vector3(target_vel_2d.x, 0, target_vel_2d.y)
+		
 	
 	velocity = velocity.move_toward(target_vel, traction * delta)
 	position += velocity * delta
@@ -80,7 +83,7 @@ func order_taken() -> void:
 func finished_ordering() -> void:
 	is_awaiting_order_taken = false
 	choose_random_target()
-	animation_player.play_backwards("awaiting order taken")
+	animation_player.play_backwards("awaiting_order_taken")
 
 
 func on_start_interact() -> void:
@@ -91,8 +94,13 @@ func on_start_interact() -> void:
 
 func await_order_taken() -> void:
 	is_awaiting_order_taken = true
-	animation_player.play("awaiting order taken")
+	animation_player.play("awaiting_order_taken")
 
 
-func collect_food() -> void:
-	Global.order_manager.remove_order(dish_ordered)
+func collect_order() -> void:
+	if Global.game_manager.food_truck.check_dish_in_area(dish_ordered):
+		if not dish_ordered.held:
+			animation_player.play("collect_order")
+			dish_ordered.queue_free()
+	else:
+		print("yur checking dish in area function doesn't work")

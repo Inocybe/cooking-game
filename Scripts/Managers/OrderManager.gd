@@ -62,9 +62,9 @@ func request_order_from(customer: Customer):
 
 func call_customers_with_completed_orders() -> void:
 	for order in active_orders:
+		# Checking if order complete, then goes to food truck and calls the check dish in area
 		if order.is_order_complete():
-			
-					order.customer_who_gave_me.move_to_foodcart()
+			order.customer_who_gave_me.move_to_foodcart()
 
 
 func make_customer_order() -> void:
