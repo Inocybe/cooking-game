@@ -10,6 +10,7 @@ class_name Customer extends AnimatableBody3D
 @export var max_idle_time: float = 0
 
 var move_speed: float
+var running_to_collect_order_speed: float = 2
 var target: Vector3
 var velocity: Vector3 = Vector3.ZERO
 var is_awaiting_order_taken: bool = false
@@ -26,6 +27,8 @@ func _ready() -> void:
 func move_to_foodcart() -> void:
 	if dish_ordered == null:
 		wants_to_order = true
+	else:
+		move_speed *= running_to_collect_order_speed
 	is_idle_in_position = false
 	target = Global.game_manager.food_truck.get_order_position()
 
@@ -102,5 +105,6 @@ func collect_order() -> void:
 		if not dish_ordered.held:
 			animation_player.play("collect_order")
 			dish_ordered.queue_free()
+			move_speed /= running_to_collect_order_speed
 	else:
 		print("yur checking dish in area function doesn't work")
