@@ -4,18 +4,20 @@ class_name Customer extends AnimatableBody3D
 
 @export var min_move_speed: float = 1
 @export var max_move_speed: float = 3
-@export var target_margin: float = 0.1
+@export var target_pos_margin: float = 0.1
+@export var target_speed_margin: float = 0.1
 @export var traction: float = 4
 @export var min_idle_time: float = 0
 @export var max_idle_time: float = 0
+@export var order_collect_speed_multiplier = 2
 
 var move_speed: float
-var running_to_collect_order_speed: float = 2
 var target: Vector3
 var velocity: Vector3 = Vector3.ZERO
 var is_awaiting_order_taken: bool = false
 var wants_to_order: bool = false
 var is_idle_in_position: bool = false
+var picking_up_dish: bool = false
 
 var dish_ordered: Node3D = null
 
@@ -28,7 +30,7 @@ func move_to_foodcart() -> void:
 	if dish_ordered == null:
 		wants_to_order = true
 	else:
-		move_speed *= running_to_collect_order_speed
+		picking_up_dish = true
 	is_idle_in_position = false
 	target = Global.game_manager.food_truck.get_order_position()
 
@@ -38,7 +40,7 @@ func get_target_offset() -> Vector2:
 
 
 func is_at_target() -> bool:
-	return get_target_offset().length_squared() < target_margin ** 2
+	return get_target_offset().length_squared() < target_pos_margin ** 2
 
 
 func finish_idling() -> void:
@@ -57,17 +59,34 @@ func start_idle() -> void:
 	$IdleTimer.start(randf() * (max_idle_time - min_idle_time) + min_idle_time)
 
 
+func get_current_move_speed() -> float:
+	if picking_up_dish:
+		return move_speed * order_collect_speed_multiplier
+	else:
+		return move_speed
+
+
 func _process(delta: float) -> void:
 	if is_at_target():
 		if target == Global.game_manager.food_truck.get_order_position() and dish_ordered != null:
 			collect_order()
 		start_idle()
 	
-	var target_vel = Vector3.ZERO
-	if not is_awaiting_order_taken and not is_idle_in_position:
-		var target_vel_2d: Vector2 = get_target_offset().normalized() * move_speed
+	var speed: float = velocity.length()
+	if is_at_target() and speed < target_speed_margin:
+		return
+	
+	var stopping_time: float = speed / traction
+	var dist_to_stop: float = speed * stopping_time - 0.5 * traction * stopping_time ** 2
+	var target_offset: Vector2 = get_target_offset()
+	
+	var target_vel: Vector3
+	if target_offset.length() > dist_to_stop:
+		var target_vel_2d: Vector2 = target_offset.normalized() * get_current_move_speed()
 		target_vel = Vector3(target_vel_2d.x, 0, target_vel_2d.y)
-		
+	else:
+		target_vel = velocity.normalized() * -get_current_move_speed()
+	
 	
 	velocity = velocity.move_toward(target_vel, traction * delta)
 	position += velocity * delta
@@ -105,6 +124,6 @@ func collect_order() -> void:
 		if not dish_ordered.held:
 			animation_player.play("collect_order")
 			dish_ordered.queue_free()
-			move_speed /= running_to_collect_order_speed
+			picking_up_dish = false
 	else:
 		print("yur checking dish in area function doesn't work")
