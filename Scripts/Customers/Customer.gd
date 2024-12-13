@@ -68,8 +68,6 @@ func get_current_move_speed() -> float:
 
 func _process(delta: float) -> void:
 	if is_at_target():
-		if target == Global.game_manager.food_truck.get_order_position() and dish_ordered != null:
-			collect_order()
 		start_idle()
 	
 	var speed: float = velocity.length()
@@ -87,13 +85,8 @@ func _process(delta: float) -> void:
 	else:
 		target_vel = velocity.normalized() * -get_current_move_speed()
 	
-	
 	velocity = velocity.move_toward(target_vel, traction * delta)
 	position += velocity * delta
-	
-	#if is_idle_in_position and is_at_target():
-		#if dish_ordered.is_order_completed():
-		#	collect_food()
 
 
 func order_taken() -> void:
@@ -123,7 +116,11 @@ func collect_order() -> void:
 	if Global.game_manager.food_truck.check_dish_in_area(dish_ordered):
 		if not dish_ordered.held:
 			animation_player.play("collect_order")
-			dish_ordered.queue_free()
+			Global.order_manager.remove_order(dish_ordered)
 			picking_up_dish = false
-	else:
-		print("yur checking dish in area function doesn't work")
+			animation_player.animation_finished.connect(
+				finished_collecting, ConnectFlags.CONNECT_ONE_SHOT)
+
+
+func finished_collecting(_animation: String) -> void:
+	choose_random_target()

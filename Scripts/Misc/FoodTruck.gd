@@ -34,9 +34,11 @@ func check_dish_in_area(dish: Node3D) -> bool:
 
 
 func do_order_hitbox_entered(body: Node3D) -> void:
-	if body.has_method("await_order_taken"):
+	if body is Customer:
 		if body.wants_to_order:
 			body.await_order_taken()
+		elif body.picking_up_dish:
+			body.collect_order()
 
 
 func get_order_position() -> Vector3:

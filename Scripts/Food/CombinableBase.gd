@@ -52,7 +52,7 @@ func unparent_child(child: Node3D) -> void:
 	removed_children.append(child)
 
 
-func handle_child_removal(child: Node3D) -> void:
+func handle_child_removal(_child: Node3D) -> void:
 	pass
 
 
