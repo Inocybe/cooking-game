@@ -102,7 +102,6 @@ func finish_ordering() -> void:
 
 
 func on_start_interact() -> void:
-	print(state)
 	if state == CustomerState.WANTS_TO_ORDER:
 		finish_ordering()
 
