@@ -11,15 +11,22 @@ class_name Customer extends AnimatableBody3D
 @export var max_idle_time: float = 0
 @export var order_collect_speed_multiplier = 2
 
+enum CustomerState {
+	IDLING,
+	RANDOM_MOVING,
+	GOING_TO_ORDER,
+	WANTS_TO_ORDER,
+	PICKING_UP_DISH,
+	ANIMATING_PICKUP
+}
+
 var move_speed: float
 var target: Vector3
 var velocity: Vector3 = Vector3.ZERO
-var is_awaiting_order_taken: bool = false
-var wants_to_order: bool = false
-var is_idle_in_position: bool = false
-var picking_up_dish: bool = false
+var state: CustomerState
 
 var dish_ordered: Node3D = null
+
 
 func _ready() -> void:
 	move_speed = randf() * (max_move_speed - min_move_speed) + min_move_speed
@@ -28,10 +35,9 @@ func _ready() -> void:
 
 func move_to_foodcart() -> void:
 	if dish_ordered == null:
-		wants_to_order = true
+		state = CustomerState.GOING_TO_ORDER
 	else:
-		picking_up_dish = true
-	is_idle_in_position = false
+		state = CustomerState.PICKING_UP_DISH
 	target = Global.game_manager.food_truck.get_order_position()
 
 
@@ -44,30 +50,29 @@ func is_at_target() -> bool:
 
 
 func finish_idling() -> void:
-	if not is_idle_in_position:
-		return
-	choose_random_target()
-	is_idle_in_position = false
+	if state == CustomerState.IDLING:
+		choose_random_target()
 
 
 func choose_random_target() -> void:
 	target = Global.game_manager.customer_walk_area.sample_point()
+	state = CustomerState.RANDOM_MOVING
 
 
 func start_idle() -> void:
-	is_idle_in_position = true
 	$IdleTimer.start(randf() * (max_idle_time - min_idle_time) + min_idle_time)
+	state = CustomerState.IDLING
 
 
 func get_current_move_speed() -> float:
-	if picking_up_dish:
+	if state == CustomerState.PICKING_UP_DISH:
 		return move_speed * order_collect_speed_multiplier
 	else:
 		return move_speed
 
 
 func _process(delta: float) -> void:
-	if is_at_target():
+	if is_at_target() and state == CustomerState.RANDOM_MOVING:
 		start_idle()
 	
 	var speed: float = velocity.length()
@@ -89,37 +94,34 @@ func _process(delta: float) -> void:
 	position += velocity * delta
 
 
-func order_taken() -> void:
+func finish_ordering() -> void:
 	if not dish_ordered:
 		Global.order_manager.request_order_from(self)
-		wants_to_order = false
-
-
-func finished_ordering() -> void:
-	is_awaiting_order_taken = false
-	choose_random_target()
-	animation_player.play_backwards("awaiting_order_taken")
+		choose_random_target()
+		animation_player.play_backwards("awaiting_order_taken")
 
 
 func on_start_interact() -> void:
-	if wants_to_order:
-		order_taken()
-		finished_ordering()
+	print(state)
+	if state == CustomerState.WANTS_TO_ORDER:
+		finish_ordering()
 
 
 func await_order_taken() -> void:
-	is_awaiting_order_taken = true
+	state = CustomerState.WANTS_TO_ORDER
 	animation_player.play("awaiting_order_taken")
 
 
 func collect_order() -> void:
-	if Global.game_manager.food_truck.check_dish_in_area(dish_ordered):
-		if not dish_ordered.held:
-			animation_player.play("collect_order")
-			Global.order_manager.remove_order(dish_ordered)
-			picking_up_dish = false
-			animation_player.animation_finished.connect(
-				finished_collecting, ConnectFlags.CONNECT_ONE_SHOT)
+	if (Global.game_manager.food_truck.check_dish_in_area(dish_ordered)
+		and not dish_ordered.held and dish_ordered.is_order_complete()):
+		animation_player.play("collect_order")
+		Global.order_manager.remove_order(dish_ordered)
+		state = CustomerState.ANIMATING_PICKUP
+		animation_player.animation_finished.connect(
+			finished_collecting, ConnectFlags.CONNECT_ONE_SHOT)
+	else:
+		choose_random_target()
 
 
 func finished_collecting(_animation: String) -> void:

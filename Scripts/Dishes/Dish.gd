@@ -15,12 +15,13 @@ var customer_who_gave_me: Node3D = null
 func _ready() -> void:
 	super()
 	for i in range(order.size()):
+		ghosts.append(null)
 		add_ghost_to_slot(i)
 
 
 func add_ghost_to_slot(i: int) -> void:
 	var ghost = Menu.get_item_composition(order[i]).make()
-	ghosts.append(ghost)
+	ghosts[i] = ghost
 	move_to_slot(ghost, i)
 	make_item_ghost(ghost)
 

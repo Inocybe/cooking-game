@@ -28,6 +28,7 @@ func choose_best_dish_spawnpoint() -> Node3D:
 			return pos
 	return dish_spawnpoints.pick_random()
 
+
 # Raycasts down to make sure the dish is in the area, and if it is then returns true
 func check_dish_in_area(dish: Node3D) -> bool:
 	return finished_order_position.objects.has(dish)
@@ -35,9 +36,9 @@ func check_dish_in_area(dish: Node3D) -> bool:
 
 func do_order_hitbox_entered(body: Node3D) -> void:
 	if body is Customer:
-		if body.wants_to_order:
+		if body.state == Customer.CustomerState.GOING_TO_ORDER:
 			body.await_order_taken()
-		elif body.picking_up_dish:
+		elif body.state == Customer.CustomerState.PICKING_UP_DISH:
 			body.collect_order()
 
 
