@@ -1,4 +1,4 @@
-[gd_scene load_steps=30 format=3 uid="uid://b3ocr5doqonyu"]
+[gd_scene load_steps=31 format=3 uid="uid://b3ocr5doqonyu"]
 
 [ext_resource type="Script" path="res://Scripts/Misc/FoodTruck.gd" id="1_rvaml"]
 [ext_resource type="PackedScene" uid="uid://cwg00vnmmye0c" path="res://Assets/FoodTruck/FOOD TRUCK.glb" id="1_vgmr4"]
@@ -15,6 +15,7 @@
 [ext_resource type="PackedScene" uid="uid://dq04w2oxbyp7f" path="res://Scenes/environment/light.tscn" id="12_o0it0"]
 [ext_resource type="Script" path="res://Scripts/ObjectsInsideMe.gd" id="14_gpjyj"]
 [ext_resource type="Script" path="res://Scripts/Enviornment/OrderHitbox.gd" id="14_n46fa"]
+[ext_resource type="PackedScene" uid="uid://b4k2x0teld7lx" path="res://Scenes/misc/ui.tscn" id="16_a52jp"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_ariqs"]
 size = Vector3(7.48709, 3.7818, 0.148438)
@@ -213,6 +214,9 @@ script = ExtResource("14_gpjyj")
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Areas/FinishedOrderPosition"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0105896, -0.178223, 0.186584)
 shape = SubResource("BoxShape3D_t5xi5")
+
+[node name="UI3D" parent="." instance=ExtResource("16_a52jp")]
+transform = Transform3D(-1.09278e-08, 0, -0.25, 0, 0.25, 0, 0.25, 0, -1.09278e-08, 3.32291, 2.31599, -0.391596)
 
 [connection signal="timeout" from="New Order Timer" to="." method="maybe_invoke_ordering"]
 

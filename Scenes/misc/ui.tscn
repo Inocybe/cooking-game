@@ -1,33 +1,59 @@
-[gd_scene load_steps=3 format=3 uid="uid://b4k2x0teld7lx"]
+[gd_scene load_steps=4 format=3 uid="uid://b4k2x0teld7lx"]
 
 [ext_resource type="Script" path="res://Scripts/UIController.gd" id="1_pfcgb"]
+[ext_resource type="Script" path="res://Scripts/Stupid Shit/SubviewportMover.gd" id="2_6fupd"]
 
 [sub_resource type="ViewportTexture" id="ViewportTexture_oc1vb"]
-viewport_path = NodePath("Sprite/SubViewport")
+viewport_path = NodePath("Sprite3D/SubViewportContainer/SubViewport")
 
 [node name="UI3D" type="Node3D"]
 script = ExtResource("1_pfcgb")
 
-[node name="Sprite" type="Sprite3D" parent="."]
-billboard = 2
+[node name="Sprite3D" type="Sprite3D" parent="."]
 texture = SubResource("ViewportTexture_oc1vb")
 
-[node name="SubViewport" type="SubViewport" parent="Sprite"]
-size = Vector2i(1920, 1080)
-
-[node name="Panel" type="Panel" parent="Sprite/SubViewport"]
-anchors_preset = 5
-anchor_left = 0.5
-anchor_right = 0.5
-offset_left = -25.0
-offset_right = 25.0
-offset_bottom = 50.0
+[node name="SubViewportContainer" type="SubViewportContainer" parent="Sprite3D"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
 grow_horizontal = 2
+grow_vertical = 2
+stretch = true
+script = ExtResource("2_6fupd")
+
+[node name="SubViewport" type="SubViewport" parent="Sprite3D/SubViewportContainer"]
+transparent_bg = true
+handle_input_locally = false
+size = Vector2i(1280, 720)
+render_target_update_mode = 4
+
+[node name="Control" type="Control" parent="Sprite3D/SubViewportContainer/SubViewport"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+
+[node name="Panel" type="Panel" parent="Sprite3D/SubViewportContainer/SubViewport/Control"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -100.0
+offset_top = -150.0
+offset_right = 100.0
+offset_bottom = -50.0
+grow_horizontal = 2
+grow_vertical = 2
 size_flags_horizontal = 6
 size_flags_vertical = 6
 mouse_filter = 2
 
-[node name="Money" type="Label" parent="Sprite/SubViewport/Panel"]
+[node name="Money" type="Label" parent="Sprite3D/SubViewportContainer/SubViewport/Control/Panel"]
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
@@ -43,20 +69,32 @@ grow_vertical = 2
 text = "Work?
 "
 
-[node name="Panel2" type="Panel" parent="Sprite/SubViewport"]
-offset_right = 40.0
-offset_bottom = 40.0
+[node name="Panel2" type="Panel" parent="Sprite3D/SubViewportContainer/SubViewport/Control"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -100.0
+offset_top = -50.0
+offset_right = 100.0
+offset_bottom = 50.0
+grow_horizontal = 2
+grow_vertical = 2
 
-[node name="OrderCompleteCount" type="Label" parent="Sprite/SubViewport/Panel2"]
-layout_mode = 0
-offset_right = 40.0
-offset_bottom = 23.0
-
-[node name="Panel3" type="Panel" parent="Sprite/SubViewport"]
-offset_right = 40.0
-offset_bottom = 40.0
-
-[node name="ListOrderComplete" type="Label" parent="Sprite/SubViewport/Panel3"]
-layout_mode = 0
-offset_right = 40.0
-offset_bottom = 23.0
+[node name="OrderCompleteCount" type="Label" parent="Sprite3D/SubViewportContainer/SubViewport/Control/Panel2"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -32.0
+offset_top = -11.5
+offset_right = 32.0
+offset_bottom = 11.5
+grow_horizontal = 2
+grow_vertical = 2
+text = "Another
+"

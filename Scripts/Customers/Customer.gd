@@ -121,14 +121,21 @@ func await_order_taken() -> void:
 func collect_order() -> void:
 	if (Global.game_manager.food_truck.check_dish_in_area(dish_ordered)
 		and not dish_ordered.held and dish_ordered.is_order_complete()):
+		
+		call_calculations()
+		
 		animation_player.play("collect_order")
 		Global.order_manager.remove_order(dish_ordered)
 		state = CustomerState.ANIMATING_PICKUP
 		animation_player.animation_finished.connect(
 			finished_collecting, ConnectFlags.CONNECT_ONE_SHOT)
+		
 	else:
 		choose_random_target()
 
 
 func finished_collecting(_animation: String) -> void:
 	choose_random_target()
+
+func call_calculations() -> void:
+	Global.order_manager.calculate_worth()

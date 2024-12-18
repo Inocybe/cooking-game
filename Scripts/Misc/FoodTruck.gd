@@ -4,9 +4,8 @@ class_name FoodTruck extends Node3D
 @export var dish_spawnpoints: Array[Node3D] = []
 
 @onready var ordering_position: Node3D = $"OrderingPosition"
-
-
 @onready var finished_order_position: Area3D = $Areas/FinishedOrderPosition
+@onready var ui_3d: Node3D = $UI3D
 
 
 func is_dish_position_occupied(pos: Node3D) -> bool:

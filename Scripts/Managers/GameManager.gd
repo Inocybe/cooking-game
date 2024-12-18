@@ -11,6 +11,10 @@ var starting_customer_count: int = 20
 var customers: Array[Node3D]
 
 
+var money: float = 0
+var orders_complete: int = 0
+
+
 func _ready() -> void:
 	Input.mouse_mode = Input.MOUSE_MODE_CAPTURED
 	set_process_input(true)
@@ -21,6 +25,14 @@ func _ready() -> void:
 	
 	for i in range(starting_customer_count):
 		create_customer()
+
+
+func _process(delta: float) -> void:
+	call_ui_updates()
+
+
+
+
 
 
 func _input(event: InputEvent) -> void:
@@ -44,3 +56,10 @@ func create_customer() -> void:
 	
 	customer.position = customer_walk_area.sample_point() + Vector3(0, 1, 0)
 	Global.current_scene.add_child.call_deferred(customer)
+
+
+
+
+func call_ui_updates() -> void:
+	food_truck.ui_3d.change_order_complete_count(orders_complete)
+	food_truck.ui_3d.change_money(money)

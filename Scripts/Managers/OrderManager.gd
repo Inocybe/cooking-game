@@ -8,6 +8,7 @@ var active_orders: Array[Dish] = []
 const MAX_ORDER_SIZE: int = 3
 const MIN_ORDER_SIZE: int = 1
 
+#############
 
 func create_random_order() -> Array[Menu.Item]:
 	var items: Array[Menu.Item] = []
@@ -71,3 +72,10 @@ func make_customer_order() -> void:
 	var customer: Node3D = Global.game_manager.customers.pick_random()
 	if customer.state in [Customer.CustomerState.IDLING, Customer.CustomerState.RANDOM_MOVING]:
 		customer.move_to_foodcart()
+
+##########################
+
+#TODO implement this shit to do right thing
+func calculate_worth() -> void:
+	Global.game_manager.money += 1
+	Global.game_manager.orders_complete += 1
