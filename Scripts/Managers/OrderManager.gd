@@ -69,4 +69,5 @@ func call_customers_with_completed_orders() -> void:
 
 func make_customer_order() -> void:
 	var customer: Node3D = Global.game_manager.customers.pick_random()
-	customer.move_to_foodcart()
+	if customer.state in [Customer.CustomerState.IDLING, Customer.CustomerState.RANDOM_MOVING]:
+		customer.move_to_foodcart()

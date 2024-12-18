@@ -25,6 +25,7 @@ var target: Vector3
 var velocity: Vector3 = Vector3.ZERO
 var state: CustomerState
 
+var is_in_order_hitbox: bool = false
 var dish_ordered: Node3D = null
 
 
@@ -74,6 +75,12 @@ func get_current_move_speed() -> float:
 func _process(delta: float) -> void:
 	if is_at_target() and state == CustomerState.RANDOM_MOVING:
 		start_idle()
+	
+	if is_in_order_hitbox:
+		if state == Customer.CustomerState.GOING_TO_ORDER:
+			await_order_taken()
+		elif state == Customer.CustomerState.PICKING_UP_DISH:
+			collect_order()
 	
 	var speed: float = velocity.length()
 	if is_at_target() and speed < target_speed_margin:
