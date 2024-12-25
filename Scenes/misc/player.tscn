@@ -19,6 +19,7 @@ script = ExtResource("1_n5jpm")
 sensitivity = 0.2
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+visible = false
 cast_shadow = 0
 mesh = SubResource("CapsuleMesh_mf15t")
 
@@ -65,3 +66,5 @@ anchors_preset = 0
 script = ExtResource("4_1ejs7")
 
 [node name="XR System" parent="." instance=ExtResource("5_gvrl4")]
+world_scale = 1.1
+current = true
