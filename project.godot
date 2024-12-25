@@ -10,7 +10,7 @@ config_version=5
 
 [application]
 
-config/name="cooking-game"
+config/name="CookingGame"
 run/main_scene="res://Scenes/environment/world.tscn"
 config/features=PackedStringArray("4.3", "Forward Plus")
 config/icon="res://icon.svg"
@@ -89,3 +89,12 @@ remove_children={
 3d_physics/layer_1="food_collision"
 3d_physics/layer_2="player_collision"
 3d_physics/layer_3="floor_collision"
+
+[rendering]
+
+textures/vram_compression/import_etc2_astc=true
+
+[xr]
+
+openxr/enabled=true
+shaders/enabled=true

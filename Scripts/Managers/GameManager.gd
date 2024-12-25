@@ -27,12 +27,8 @@ func _ready() -> void:
 		create_customer()
 
 
-func _process(delta: float) -> void:
+func _process(_delta: float) -> void:
 	call_ui_updates()
-
-
-
-
 
 
 func _input(event: InputEvent) -> void:
