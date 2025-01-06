@@ -14,6 +14,9 @@ class_name Player extends CharacterBody3D
 
 var is_right_mouse_down := false
 
+func _ready() -> void:
+	if !$XRSystem.xr_interface:
+		%XRSystem.queue_free()
 
 func _unhandled_input(event: InputEvent) -> void:
 	if event.is_action_pressed("click_right"):

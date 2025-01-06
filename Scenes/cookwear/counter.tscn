@@ -1,6 +1,6 @@
 [gd_scene load_steps=3 format=3 uid="uid://lqh5vyeea7f8"]
 
-[ext_resource type="ArrayMesh" uid="uid://cy4rgt7m8pr56" path="res://Assets/Counter/Counter.obj" id="1_qmvtv"]
+[ext_resource type="ArrayMesh" uid="uid://cy4rgt7m8pr56" path="res://Assets/cookwear/Counter/Counter.obj" id="1_qmvtv"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_genr8"]
 size = Vector3(5, 1.6, 1.4)

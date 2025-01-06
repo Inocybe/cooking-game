@@ -3,13 +3,13 @@
 importer="scene"
 importer_version=1
 type="PackedScene"
-uid="uid://hk4tw1ihmdyx"
-path="res://.godot/imported/fryer.blend-6aababa858f99d8bbae178cfde6176f7.scn"
+uid="uid://clt5qyqn8pisa"
+path="res://.godot/imported/left_hand.blend-a3efc85b4635d8e95e8b0763c794d001.scn"
 
 [deps]
 
-source_file="res://Assets/fryer/fryer.blend"
-dest_files=["res://.godot/imported/fryer.blend-6aababa858f99d8bbae178cfde6176f7.scn"]
+source_file="res://Assets/Player/left_hand.blend"
+dest_files=["res://.godot/imported/left_hand.blend-a3efc85b4635d8e95e8b0763c794d001.scn"]
 
 [params]
 

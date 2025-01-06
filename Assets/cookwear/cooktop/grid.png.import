@@ -2,9 +2,9 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://qfjnpgbslpbg"
-path.s3tc="res://.godot/imported/floor.png-3b4ea0fd6acfd39b353df57f4754ad9e.s3tc.ctex"
-path.etc2="res://.godot/imported/floor.png-3b4ea0fd6acfd39b353df57f4754ad9e.etc2.ctex"
+uid="uid://dimjdubwlovgi"
+path.s3tc="res://.godot/imported/grid.png-a53f3476b498757525e3d612493c6a07.s3tc.ctex"
+path.etc2="res://.godot/imported/grid.png-a53f3476b498757525e3d612493c6a07.etc2.ctex"
 metadata={
 "imported_formats": ["s3tc_bptc", "etc2_astc"],
 "vram_texture": true
@@ -12,8 +12,8 @@ metadata={
 
 [deps]
 
-source_file="res://Assets/floor/floor.png"
-dest_files=["res://.godot/imported/floor.png-3b4ea0fd6acfd39b353df57f4754ad9e.s3tc.ctex", "res://.godot/imported/floor.png-3b4ea0fd6acfd39b353df57f4754ad9e.etc2.ctex"]
+source_file="res://Assets/cookwear/cooktop/grid.png"
+dest_files=["res://.godot/imported/grid.png-a53f3476b498757525e3d612493c6a07.s3tc.ctex", "res://.godot/imported/grid.png-a53f3476b498757525e3d612493c6a07.etc2.ctex"]
 
 [params]
 
