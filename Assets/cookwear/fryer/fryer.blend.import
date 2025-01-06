@@ -3,13 +3,13 @@
 importer="scene"
 importer_version=1
 type="PackedScene"
-uid="uid://igwqthl1kv0x"
-path="res://.godot/imported/cooktop.blend-dbd26da9a5229af3c12b702ff553591f.scn"
+uid="uid://hk4tw1ihmdyx"
+path="res://.godot/imported/fryer.blend-3cd45eb88465ee0cc32fab3e0615c5d0.scn"
 
 [deps]
 
-source_file="res://Assets/cooktop/cooktop.blend"
-dest_files=["res://.godot/imported/cooktop.blend-dbd26da9a5229af3c12b702ff553591f.scn"]
+source_file="res://Assets/cookwear/fryer/fryer.blend"
+dest_files=["res://.godot/imported/fryer.blend-3cd45eb88465ee0cc32fab3e0615c5d0.scn"]
 
 [params]
 

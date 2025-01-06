@@ -2,7 +2,7 @@
 
 [ext_resource type="PackedScene" uid="uid://jj8yuf0syk57" path="res://Scenes/managers/game_manager.tscn" id="1_go8us"]
 [ext_resource type="Script" path="res://Scripts/Orders/NewOrderBox.gd" id="3_ic560"]
-[ext_resource type="Texture2D" uid="uid://qfjnpgbslpbg" path="res://Assets/floor/floor.png" id="3_sw8jj"]
+[ext_resource type="Texture2D" uid="uid://qfjnpgbslpbg" path="res://Assets/FoodTruck/floor/floor.png" id="3_sw8jj"]
 [ext_resource type="PackedScene" uid="uid://bmfn7nnstf5ve" path="res://Scenes/cookwear/fryer.tscn" id="5_57a3j"]
 [ext_resource type="PackedScene" uid="uid://cv485pktorksn" path="res://Scenes/cookwear/cooktop.tscn" id="6_h677c"]
 [ext_resource type="PackedScene" uid="uid://bnnh4k2t41n0l" path="res://Scenes/cookwear/soda_machine.tscn" id="7_fkape"]
@@ -11,7 +11,7 @@
 [ext_resource type="PackedScene" uid="uid://fkjb8mg8enxf" path="res://Scenes/food/burger.tscn" id="10_e3yu5"]
 [ext_resource type="PackedScene" uid="uid://cdm4qy124ys6o" path="res://Scenes/food/fries.tscn" id="11_evggu"]
 [ext_resource type="PackedScene" uid="uid://5s3oxlpup0wy" path="res://Scenes/misc/player.tscn" id="13_flo33"]
-[ext_resource type="PackedScene" path="res://Scenes/cookwear/table.tscn" id="13_uiy2b"]
+[ext_resource type="PackedScene" uid="uid://caiym4bxd68to" path="res://Scenes/cookwear/table.tscn" id="13_uiy2b"]
 [ext_resource type="PackedScene" uid="uid://bvhk5tuyd686e" path="res://Scenes/food/food_spawner.tscn" id="14_tb5wk"]
 [ext_resource type="PackedScene" uid="uid://b3ocr5doqonyu" path="res://Scenes/environment/food_truck.tscn" id="15_jkdue"]
 

@@ -4,12 +4,12 @@ importer="scene"
 importer_version=1
 type="PackedScene"
 uid="uid://7q370aiw7csi"
-path="res://.godot/imported/cup.blend-b598d1431140b5202350fe98d88e485b.scn"
+path="res://.godot/imported/cup.blend-c65736344c2f120203f7be4c9285b341.scn"
 
 [deps]
 
-source_file="res://Assets/cup/cup.blend"
-dest_files=["res://.godot/imported/cup.blend-b598d1431140b5202350fe98d88e485b.scn"]
+source_file="res://Assets/food/cup/cup.blend"
+dest_files=["res://.godot/imported/cup.blend-c65736344c2f120203f7be4c9285b341.scn"]
 
 [params]
 

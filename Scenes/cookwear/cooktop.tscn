@@ -1,7 +1,7 @@
 [gd_scene load_steps=5 format=3 uid="uid://cv485pktorksn"]
 
 [ext_resource type="Script" path="res://Scripts/Cookwear/Cooktop.gd" id="1_u0sbm"]
-[ext_resource type="PackedScene" uid="uid://igwqthl1kv0x" path="res://Assets/cooktop/cooktop.blend" id="1_yjo2y"]
+[ext_resource type="PackedScene" uid="uid://igwqthl1kv0x" path="res://Assets/cookwear/cooktop/cooktop.blend" id="1_yjo2y"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_oiaul"]
 size = Vector3(1.77759, 1.80156, 1.78906)

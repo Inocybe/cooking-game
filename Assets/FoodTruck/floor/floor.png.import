@@ -2,9 +2,9 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://dimjdubwlovgi"
-path.s3tc="res://.godot/imported/grid.png-9e6731d8821fccc314cc4a391c923395.s3tc.ctex"
-path.etc2="res://.godot/imported/grid.png-9e6731d8821fccc314cc4a391c923395.etc2.ctex"
+uid="uid://qfjnpgbslpbg"
+path.s3tc="res://.godot/imported/floor.png-14f340721f11a8e0a3782fe186fc8c35.s3tc.ctex"
+path.etc2="res://.godot/imported/floor.png-14f340721f11a8e0a3782fe186fc8c35.etc2.ctex"
 metadata={
 "imported_formats": ["s3tc_bptc", "etc2_astc"],
 "vram_texture": true
@@ -12,8 +12,8 @@ metadata={
 
 [deps]
 
-source_file="res://Assets/cooktop/grid.png"
-dest_files=["res://.godot/imported/grid.png-9e6731d8821fccc314cc4a391c923395.s3tc.ctex", "res://.godot/imported/grid.png-9e6731d8821fccc314cc4a391c923395.etc2.ctex"]
+source_file="res://Assets/FoodTruck/floor/floor.png"
+dest_files=["res://.godot/imported/floor.png-14f340721f11a8e0a3782fe186fc8c35.s3tc.ctex", "res://.godot/imported/floor.png-14f340721f11a8e0a3782fe186fc8c35.etc2.ctex"]
 
 [params]
 

@@ -1,9 +1,9 @@
 [gd_scene load_steps=19 format=3 uid="uid://bmfn7nnstf5ve"]
 
 [ext_resource type="Script" path="res://Scripts/Cookwear/CookwearBase.gd" id="1_0qara"]
-[ext_resource type="PackedScene" uid="uid://hk4tw1ihmdyx" path="res://Assets/fryer/fryer.blend" id="1_b3kne"]
+[ext_resource type="PackedScene" uid="uid://hk4tw1ihmdyx" path="res://Assets/cookwear/fryer/fryer.blend" id="1_b3kne"]
 [ext_resource type="Script" path="res://Scripts/Cookwear/FryBasket.gd" id="2_i8vih"]
-[ext_resource type="ArrayMesh" uid="uid://vmb5c05mvi3m" path="res://Assets/fryer/Fry Basket.obj" id="3_avjgy"]
+[ext_resource type="ArrayMesh" uid="uid://vmb5c05mvi3m" path="res://Assets/cookwear/fryer/Fry Basket.obj" id="3_avjgy"]
 [ext_resource type="Shader" path="res://Scripts/Shaders/BubbleShader.gdshader" id="3_i8tab"]
 [ext_resource type="Script" path="res://Scripts/Cookwear/Oil.gd" id="4_omym2"]
 

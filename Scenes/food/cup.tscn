@@ -1,6 +1,6 @@
 [gd_scene load_steps=7 format=3 uid="uid://ca6thqwccusde"]
 
-[ext_resource type="PackedScene" uid="uid://7q370aiw7csi" path="res://Assets/cup/cup.blend" id="1_d6bin"]
+[ext_resource type="PackedScene" uid="uid://7q370aiw7csi" path="res://Assets/food/cup/cup.blend" id="1_d6bin"]
 [ext_resource type="Script" path="res://Scripts/Food/Cup.gd" id="1_j075t"]
 
 [sub_resource type="CylinderShape3D" id="CylinderShape3D_bwg4b"]

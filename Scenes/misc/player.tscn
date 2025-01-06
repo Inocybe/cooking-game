@@ -65,6 +65,5 @@ unique_name_in_owner = true
 anchors_preset = 0
 script = ExtResource("4_1ejs7")
 
-[node name="XR System" parent="." instance=ExtResource("5_gvrl4")]
-world_scale = 1.1
+[node name="XRSystem" parent="." instance=ExtResource("5_gvrl4")]
 current = true

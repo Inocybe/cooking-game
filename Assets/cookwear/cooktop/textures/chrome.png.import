@@ -3,15 +3,15 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://cgp8h1rsljadg"
-path="res://.godot/imported/chrome.png-3f56590d82d58943f53bdfe463d5f59e.ctex"
+path="res://.godot/imported/chrome.png-189047c6e67c2127c190dd5d8c22c703.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/cooktop/textures/chrome.png"
-dest_files=["res://.godot/imported/chrome.png-3f56590d82d58943f53bdfe463d5f59e.ctex"]
+source_file="res://Assets/cookwear/cooktop/textures/chrome.png"
+dest_files=["res://.godot/imported/chrome.png-189047c6e67c2127c190dd5d8c22c703.ctex"]
 
 [params]
 

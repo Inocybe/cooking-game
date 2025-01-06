@@ -1,6 +1,6 @@
 [gd_scene load_steps=5 format=3 uid="uid://caiym4bxd68to"]
 
-[ext_resource type="ArrayMesh" uid="uid://isndu7gvgi0" path="res://Assets/Table/Table.obj" id="1_o1waa"]
+[ext_resource type="ArrayMesh" uid="uid://isndu7gvgi0" path="res://Assets/cookwear/Table/Table.obj" id="1_o1waa"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_y3kb6"]
 albedo_color = Color(0.23, 0.23, 0.23, 1)
