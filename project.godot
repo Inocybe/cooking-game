@@ -19,11 +19,6 @@ config/icon="res://icon.svg"
 
 Global="*res://Scripts/Misc/Global.gd"
 
-[display]
-
-window/size/viewport_width=1280
-window/size/viewport_height=720
-
 [global_group]
 
 interactable=""
@@ -91,6 +86,7 @@ remove_children={
 
 [rendering]
 
+renderer/rendering_method.mobile="gl_compatibility"
 textures/vram_compression/import_etc2_astc=true
 
 [xr]
