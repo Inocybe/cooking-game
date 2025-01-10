@@ -1,8 +1,9 @@
-[gd_scene load_steps=4 format=3 uid="uid://dfrxdhybpfspt"]
+[gd_scene load_steps=5 format=3 uid="uid://dfrxdhybpfspt"]
 
 [ext_resource type="Script" path="res://Scripts/Player/XRManager.gd" id="1_t1x1u"]
 [ext_resource type="PackedScene" uid="uid://clt5qyqn8pisa" path="res://Assets/Player/left_hand.blend" id="2_3k3qi"]
 [ext_resource type="PackedScene" uid="uid://bmkvu2w25n2th" path="res://Assets/Player/right_hand.blend" id="3_2w4fk"]
+[ext_resource type="PackedScene" uid="uid://bl2nuu3qhlb5k" path="res://addons/godot-xr-tools/functions/movement_direct.tscn" id="3_a6m8y"]
 
 [node name="XROrigin3D" type="XROrigin3D"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -1, 0)
@@ -17,6 +18,9 @@ tracker = &"left_hand"
 
 [node name="left_hand" parent="Left Hand" instance=ExtResource("2_3k3qi")]
 transform = Transform3D(2.86603e-16, -6.55671e-09, 0.15, -0.15, -6.55671e-09, -1.98523e-22, 6.55671e-09, -0.15, -6.55671e-09, 0, 0, 0.12)
+
+[node name="MovementDirect" parent="Left Hand" instance=ExtResource("3_a6m8y")]
+strafe = true
 
 [node name="Right Hand" type="XRController3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.5, 1, -0.5)

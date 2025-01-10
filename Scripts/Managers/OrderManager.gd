@@ -76,6 +76,15 @@ func make_customer_order() -> void:
 ##########################
 
 #TODO implement this shit to do right thing
-func calculate_worth() -> void:
-	Global.game_manager.money += 1
+func increase_variables_based_off_food_completed(dish: Node3D) -> void:
+	var base_worth: float = calculate_worth(dish)
+	var worth: float = base_worth * dish.get_order_quality()
+	
+	Global.game_manager.money += worth
 	Global.game_manager.orders_complete += 1
+
+func calculate_worth(dish: Node3D) -> float:
+	var worth: float = 0
+	for item: Menu.Item in dish.order:
+		worth += Menu.item_price(item)
+	return worth
