@@ -8,6 +8,10 @@ class_name FoodTruck extends Node3D
 @onready var ui_3d: Node3D = $UI3D
 
 
+func _ready() -> void:
+	Customer.spawn_customers()
+
+
 func is_dish_position_occupied(pos: Node3D) -> bool:
 	var from: Vector3 = pos.global_position
 	var to: Vector3 = from + Vector3.DOWN

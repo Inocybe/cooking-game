@@ -1,14 +1,13 @@
 class_name GameManager extends Node
 
 
-const CUSTOMER = preload("res://Scenes/misc/customer.tscn")
+const XR_system = preload("res://Scenes/misc/xr_system.tscn")
+
 
 var player: CharacterBody3D = null
 var food_truck: FoodTruck = null
 var customer_walk_area: PointSampler = null
-var starting_customer_count: int = 20
-
-var customers: Array[Node3D]
+var customers: Array[Node3D] = []
 
 
 var money: float = 0
@@ -22,9 +21,6 @@ func _ready() -> void:
 	player = Global.current_scene.get_node("Player")
 	food_truck = Global.current_scene.get_node("FoodTruck")
 	customer_walk_area = Global.current_scene.get_node("CustomerWalkArea")
-	
-	for i in range(starting_customer_count):
-		create_customer()
 
 
 func _process(_delta: float) -> void:
@@ -44,16 +40,6 @@ func return_player() -> CharacterBody3D:
 
 func return_food_truck() -> Node3D:
 	return food_truck
-
-
-func create_customer() -> void:
-	var customer = CUSTOMER.instantiate()
-	customers.append(customer)
-	
-	customer.position = customer_walk_area.sample_point() + Vector3(0, 1, 0)
-	Global.current_scene.add_child.call_deferred(customer)
-
-
 
 
 func call_ui_updates() -> void:
