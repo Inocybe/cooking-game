@@ -1,5 +1,10 @@
 class_name Customer extends AnimatableBody3D
 
+
+const STARTING_CUSTOMER_COUNT: int = 20
+
+const CUSTOMER = preload("res://Scenes/misc/customer.tscn")
+
 @onready var animation_player: AnimationPlayer = $AnimationPlayer
 
 @export var min_move_speed: float = 1
@@ -32,6 +37,7 @@ var dish_ordered: Node3D = null
 func _ready() -> void:
 	move_speed = randf() * (max_move_speed - min_move_speed) + min_move_speed
 	choose_random_target()
+	Global.game_manager.customers.append(self)
 
 
 func move_to_foodcart() -> void:
@@ -139,3 +145,11 @@ func finished_collecting(_animation: String) -> void:
 
 func call_calculations() -> void:
 	Global.order_manager.calculate_worth()
+
+
+static func spawn_customers() -> void:
+	var customer_walk_area = Global.game_manager.customer_walk_area
+	for i in range(STARTING_CUSTOMER_COUNT):
+		var customer = CUSTOMER.instantiate()
+		customer.position = customer_walk_area.sample_point() + Vector3(0, 1, 0)
+		Global.current_scene.add_child.call_deferred(customer)
