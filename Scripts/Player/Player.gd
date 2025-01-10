@@ -13,7 +13,7 @@ class_name Player extends CharacterBody3D
 
 
 var is_right_mouse_down := false
-
+var xr_enabled: bool = false
 
 func _unhandled_input(event: InputEvent) -> void:
 	if event.is_action_pressed("click_right"):
@@ -32,11 +32,19 @@ func _unhandled_input(event: InputEvent) -> void:
 
 func _physics_process(delta: float) -> void:
 	velocity += get_gravity() * delta
+	
+	if xr_enabled:
+		xr_movement_calls(delta)
+	else:
+		normal_movement_calls(delta)
 
+
+
+func normal_movement_calls(delta: float) -> void:
 	var is_on_floor_now: bool = is_on_floor()
 	if Input.is_action_pressed("jump") and is_on_floor_now:
 		velocity.y = JUMP_VELOCITY
-
+	
 	var local_dir2d: Vector2 = Input.get_vector("left", "right", "forward", "back")
 	var dir3d: Vector3 = (transform.basis * Vector3(local_dir2d.x, 0, local_dir2d.y)).normalized()
 	
@@ -57,5 +65,24 @@ func _physics_process(delta: float) -> void:
 	
 	velocity.x = vel2d.x
 	velocity.z = vel2d.y
-
+	
 	move_and_slide()
+
+
+func xr_movement_calls(delta: float) -> void:
+	Input.action_press	
+	
+
+
+func open_xr_initialized(initialized: bool, open_xr: Node3D) -> void:
+	if initialized:
+		xr_enabled = true
+	else:
+		open_xr.process_mode = Node.PROCESS_MODE_DISABLED
+		open_xr.visible = false
+		
+		head.process_mode = Node.PROCESS_MODE_DISABLED
+		head.visible = false
+		
+		debug_display.get_parent().process_mode = Node.PROCESS_MODE_DISABLED
+		debug_display.get_parent().visible = false

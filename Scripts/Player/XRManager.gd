@@ -1,6 +1,7 @@
 extends Node3D
 
 var xr_interface: XRInterface
+var initilized: bool = false
 
 func _ready():
 	xr_interface = XRServer.find_interface("OpenXR")
@@ -12,7 +13,9 @@ func _ready():
 		
 		# Change our main viewport to output to the HMD
 		get_viewport().use_xr = true
+		initilized = true
 	else:
 		print("OpenXR not initialized, please check if your headset is connected")
-		
-		self.queue_free()
+
+	
+	get_parent().open_xr_initialized(initilized, self)

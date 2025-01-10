@@ -144,7 +144,7 @@ func finished_collecting(_animation: String) -> void:
 	choose_random_target()
 
 func call_calculations() -> void:
-	Global.order_manager.calculate_worth()
+	Global.order_manager.increase_variables_based_off_food_completed(dish_ordered)
 
 
 static func spawn_customers() -> void:
