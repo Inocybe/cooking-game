@@ -1,23 +1,25 @@
-[gd_scene load_steps=5 format=3 uid="uid://dfrxdhybpfspt"]
+[gd_scene load_steps=6 format=3 uid="uid://dfrxdhybpfspt"]
 
+[ext_resource type="Script" path="res://addons/godot-xr-tools/player/player_body.gd" id="1_e7bnu"]
 [ext_resource type="Script" path="res://Scripts/Player/XRManager.gd" id="1_t1x1u"]
-[ext_resource type="PackedScene" uid="uid://clt5qyqn8pisa" path="res://Assets/Player/left_hand.blend" id="2_3k3qi"]
-[ext_resource type="PackedScene" uid="uid://bmkvu2w25n2th" path="res://Assets/Player/right_hand.blend" id="3_2w4fk"]
 [ext_resource type="PackedScene" uid="uid://bl2nuu3qhlb5k" path="res://addons/godot-xr-tools/functions/movement_direct.tscn" id="3_a6m8y"]
+[ext_resource type="PackedScene" uid="uid://bq86r4yll8po" path="res://addons/godot-xr-tools/hands/scenes/lowpoly/left_fullglove_low.tscn" id="4_kq285"]
+[ext_resource type="PackedScene" uid="uid://xqimcf20s2jp" path="res://addons/godot-xr-tools/hands/scenes/lowpoly/right_fullglove_low.tscn" id="6_ovxyl"]
 
 [node name="XROrigin3D" type="XROrigin3D"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -1, 0)
+world_scale = 0.7
+current = true
 script = ExtResource("1_t1x1u")
 
 [node name="XRCamera3D" type="XRCamera3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.7, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.2, 0)
+current = true
 
 [node name="Left Hand" type="XRController3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.5, 1, -0.5)
 tracker = &"left_hand"
 
-[node name="left_hand" parent="Left Hand" instance=ExtResource("2_3k3qi")]
-transform = Transform3D(2.86603e-16, -6.55671e-09, 0.15, -0.15, -6.55671e-09, -1.98523e-22, 6.55671e-09, -0.15, -6.55671e-09, 0, 0, 0.12)
+[node name="LeftHand" parent="Left Hand" instance=ExtResource("4_kq285")]
 
 [node name="MovementDirect" parent="Left Hand" instance=ExtResource("3_a6m8y")]
 strafe = true
@@ -26,5 +28,9 @@ strafe = true
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.5, 1, -0.5)
 tracker = &"right_hand"
 
-[node name="right_hand" parent="Right Hand" instance=ExtResource("3_2w4fk")]
-transform = Transform3D(2.86603e-16, -6.55671e-09, 0.15, -0.15, -6.55671e-09, -1.98523e-22, 6.55671e-09, -0.15, -6.55671e-09, 0, 0, 0.12)
+[node name="RightHand" parent="Right Hand" instance=ExtResource("6_ovxyl")]
+
+[node name="XRToolsPlayerBody" type="CharacterBody3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
+top_level = true
+script = ExtResource("1_e7bnu")
