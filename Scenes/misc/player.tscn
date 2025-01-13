@@ -66,4 +66,3 @@ anchors_preset = 0
 script = ExtResource("4_1ejs7")
 
 [node name="XRSystem" parent="." instance=ExtResource("5_gvrl4")]
-current = true

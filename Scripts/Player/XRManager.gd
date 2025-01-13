@@ -1,4 +1,4 @@
-extends Node3D
+extends Node
 
 var xr_interface: XRInterface
 var initilized: bool = false
@@ -18,4 +18,4 @@ func _ready():
 		print("OpenXR not initialized, please check if your headset is connected")
 
 	
-	get_parent().open_xr_initialized(initilized, self)
+	#get_parent().open_xr_initialized(initilized, self)

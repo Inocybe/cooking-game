@@ -1,8 +1,9 @@
-[gd_scene load_steps=10 format=3 uid="uid://bmw48ei0dff0i"]
+[gd_scene load_steps=11 format=3 uid="uid://bmw48ei0dff0i"]
 
 [ext_resource type="PackedScene" uid="uid://jj8yuf0syk57" path="res://Scenes/managers/game_manager.tscn" id="1_0s671"]
 [ext_resource type="PackedScene" uid="uid://b3ocr5doqonyu" path="res://Scenes/environment/food_truck.tscn" id="2_3dmfd"]
 [ext_resource type="PackedScene" uid="uid://5s3oxlpup0wy" path="res://Scenes/misc/player.tscn" id="2_rbjev"]
+[ext_resource type="PackedScene" uid="uid://dfrxdhybpfspt" path="res://Scenes/misc/xr_system.tscn" id="5_rou7g"]
 [ext_resource type="Script" path="res://Scripts/Misc/PointSampler.gd" id="5_xk452"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_r88qt"]
@@ -30,7 +31,9 @@ size = Vector2(100, 100)
 [node name="GameManager" parent="." instance=ExtResource("1_0s671")]
 
 [node name="Player" parent="." instance=ExtResource("2_rbjev")]
+process_mode = 4
 transform = Transform3D(-0.76628, 0, -0.642507, 0, 1, 0, 0.642507, 0, -0.76628, -0.404418, 1.64574, 1.46279)
+visible = false
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="."]
 environment = SubResource("Environment_ge0im")
@@ -51,5 +54,8 @@ mesh = SubResource("PlaneMesh_o37bp")
 [node name="CustomerWalkArea" type="Node3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 14.8349, 0, 18.1658)
 script = ExtResource("5_xk452")
+
+[node name="XROrigin3D" parent="." instance=ExtResource("5_rou7g")]
+transform = Transform3D(-0.87462, 0, -0.48481, 0, 1, 0, 0.48481, 0, -0.87462, 0, 1, 0.949427)
 
 [editable path="GameManager"]
