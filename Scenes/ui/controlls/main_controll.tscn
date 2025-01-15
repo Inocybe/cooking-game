@@ -1,0 +1,85 @@
+[gd_scene load_steps=2 format=3 uid="uid://dts51sc5121xa"]
+
+[ext_resource type="Script" path="res://Scripts/UI/main_controll.gd" id="1_dxuk2"]
+
+[node name="Control" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 6
+size_flags_vertical = 6
+mouse_filter = 2
+script = ExtResource("1_dxuk2")
+metadata/_edit_use_anchors_ = true
+
+[node name="HBoxContainer" type="HBoxContainer" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Left" type="ColorRect" parent="HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+color = Color(1, 1, 1, 0.509804)
+
+[node name="VBoxContainer" type="VBoxContainer" parent="HBoxContainer/Left"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Money" type="Label" parent="HBoxContainer/Left/VBoxContainer"]
+layout_mode = 2
+text = "Money:"
+
+[node name="OrdersComplete" type="Label" parent="HBoxContainer/Left/VBoxContainer"]
+layout_mode = 2
+text = "Orders Complete:"
+
+[node name="Middle" type="ColorRect" parent="HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+color = Color(1, 1, 1, 0.509804)
+
+[node name="VBoxContainer" type="VBoxContainer" parent="HBoxContainer/Middle"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Money" type="Label" parent="HBoxContainer/Middle/VBoxContainer"]
+layout_mode = 2
+
+[node name="OrdersComplete" type="Label" parent="HBoxContainer/Middle/VBoxContainer"]
+layout_mode = 2
+
+[node name="Right" type="ColorRect" parent="HBoxContainer"]
+custom_minimum_size = Vector2(250, 0)
+layout_mode = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="HBoxContainer/Right"]
+layout_mode = 1
+anchors_preset = 10
+anchor_right = 1.0
+offset_bottom = 66.0
+grow_horizontal = 2
+
+[node name="Button" type="Button" parent="HBoxContainer/Right/VBoxContainer"]
+layout_mode = 2
+mouse_filter = 1
+text = "Pause"
+
+[node name="Button2" type="Button" parent="HBoxContainer/Right/VBoxContainer"]
+layout_mode = 2
+mouse_filter = 1
+text = "Reset Origin"

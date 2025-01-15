@@ -1,0 +1,33 @@
+[gd_scene load_steps=5 format=3 uid="uid://b4k2x0teld7lx"]
+
+[ext_resource type="Script" path="res://Scripts/UIController.gd" id="1_fwoal"]
+[ext_resource type="Script" path="res://Scripts/Stupid Shit/SubviewportMover.gd" id="2_jewpv"]
+[ext_resource type="PackedScene" uid="uid://dts51sc5121xa" path="res://Scenes/ui/controlls/main_controll.tscn" id="3_bwahu"]
+
+[sub_resource type="ViewportTexture" id="ViewportTexture_oc1vb"]
+viewport_path = NodePath("Sprite3D/SubViewportContainer/SubViewport")
+
+[node name="UI3D" type="Node3D"]
+script = ExtResource("1_fwoal")
+
+[node name="Sprite3D" type="Sprite3D" parent="."]
+texture = SubResource("ViewportTexture_oc1vb")
+
+[node name="SubViewportContainer" type="SubViewportContainer" parent="Sprite3D"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+stretch = true
+script = ExtResource("2_jewpv")
+
+[node name="SubViewport" type="SubViewport" parent="Sprite3D/SubViewportContainer"]
+transparent_bg = true
+handle_input_locally = false
+size = Vector2i(1152, 648)
+render_target_update_mode = 4
+
+[node name="Control" parent="Sprite3D/SubViewportContainer/SubViewport" instance=ExtResource("3_bwahu")]
+
+[editable path="Sprite3D/SubViewportContainer/SubViewport/Control"]

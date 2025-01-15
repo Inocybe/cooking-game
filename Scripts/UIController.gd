@@ -1,13 +1,14 @@
 extends Node3D
 
-@onready var money: Label = $Sprite3D/SubViewportContainer/SubViewport/Control/Panel/Money
-@onready var order_complete_count: Label = $Sprite3D/SubViewportContainer/SubViewport/Control/Panel2/OrderCompleteCount
-
+@onready var money: Label = $Sprite3D/SubViewportContainer/SubViewport/Control/HBoxContainer/Middle/VBoxContainer/Money
+@onready var orders_complete: Label = $Sprite3D/SubViewportContainer/SubViewport/Control/HBoxContainer/Middle/VBoxContainer/OrdersComplete
 
 
 func change_money(current_money: float) -> void:
-	money.set_text("Money: " + str(current_money))
+    if money:
+        money.set_text(str(current_money))
 
 
 func change_order_complete_count(current_orders_complete: int) -> void:
-	order_complete_count.set_text("Orders Complete: " + str(current_orders_complete))
+    if orders_complete:
+        orders_complete.set_text(str(current_orders_complete))
