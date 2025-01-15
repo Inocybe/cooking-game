@@ -1,10 +1,9 @@
-[gd_scene load_steps=8 format=3 uid="uid://5s3oxlpup0wy"]
+[gd_scene load_steps=7 format=3 uid="uid://5s3oxlpup0wy"]
 
 [ext_resource type="Script" path="res://Scripts/Player/Player.gd" id="1_n5jpm"]
 [ext_resource type="Script" path="res://Scripts/Player/Camera.gd" id="1_onmnn"]
 [ext_resource type="Script" path="res://Scripts/Player/Reticle.gd" id="3_q220s"]
 [ext_resource type="Script" path="res://Scripts/Misc/DebugDisplay.gd" id="4_1ejs7"]
-[ext_resource type="PackedScene" uid="uid://dfrxdhybpfspt" path="res://Scenes/misc/xr_system.tscn" id="5_gvrl4"]
 
 [sub_resource type="CapsuleMesh" id="CapsuleMesh_mf15t"]
 
@@ -16,6 +15,7 @@ collision_layer = 2
 collision_mask = 2
 input_ray_pickable = false
 script = ExtResource("1_n5jpm")
+vr_max_speed = 2.0
 sensitivity = 0.2
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="."]
@@ -65,4 +65,6 @@ unique_name_in_owner = true
 anchors_preset = 0
 script = ExtResource("4_1ejs7")
 
-[node name="XRSystem" parent="." instance=ExtResource("5_gvrl4")]
+[node name="Feet" type="Node3D" parent="."]
+unique_name_in_owner = true
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -1, 0)
