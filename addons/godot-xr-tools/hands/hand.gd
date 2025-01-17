@@ -161,6 +161,8 @@ func _physics_process(_delta: float) -> void:
 		# Allow overriding of grip and trigger
 		if _force_grip >= 0.0: grip = _force_grip
 		if _force_trigger >= 0.0: trigger = _force_trigger
+		
+		if trigger > grip: grip = trigger
 
 		$AnimationTree.set("parameters/Grip/blend_amount", grip)
 		$AnimationTree.set("parameters/Trigger/blend_amount", trigger)
