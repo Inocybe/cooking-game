@@ -5,10 +5,10 @@ extends Node3D
 
 
 func change_money(current_money: float) -> void:
-    if money:
-        money.set_text(str(current_money))
+	if money:
+		money.set_text(str(current_money))
 
 
 func change_order_complete_count(current_orders_complete: int) -> void:
-    if orders_complete:
-        orders_complete.set_text(str(current_orders_complete))
+	if orders_complete:
+		orders_complete.set_text(str(current_orders_complete))
