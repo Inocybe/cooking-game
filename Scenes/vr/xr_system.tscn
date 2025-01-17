@@ -1,0 +1,21 @@
+[gd_scene load_steps=5 format=3 uid="uid://dfrxdhybpfspt"]
+
+[ext_resource type="Script" path="res://Scripts/Player/XRManager.gd" id="1_h3yyi"]
+[ext_resource type="Script" path="res://Scripts/Player/XRCamera.gd" id="2_igulh"]
+[ext_resource type="PackedScene" uid="uid://c5tfvsidfrypo" path="res://Scenes/vr/left_hand.tscn" id="3_mlg0m"]
+[ext_resource type="PackedScene" uid="uid://cb16sqj18iuk" path="res://Scenes/vr/right_hand.tscn" id="4_a5g18"]
+
+[node name="XROrigin3D" type="XROrigin3D"]
+current = true
+script = ExtResource("1_h3yyi")
+
+[node name="XRCamera3D" type="XRCamera3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.2, 0)
+current = true
+script = ExtResource("2_igulh")
+
+[node name="Left Hand" parent="." instance=ExtResource("3_mlg0m")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.5, 1, -0.5)
+
+[node name="Right Hand" parent="." instance=ExtResource("4_a5g18")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.5, 1, -0.5)

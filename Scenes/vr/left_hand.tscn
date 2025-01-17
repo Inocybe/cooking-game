@@ -1,0 +1,9 @@
+[gd_scene load_steps=3 format=3 uid="uid://c5tfvsidfrypo"]
+
+[ext_resource type="PackedScene" uid="uid://b1ysbf8y1uwov" path="res://Scenes/vr/hand.tscn" id="1_wrpv3"]
+[ext_resource type="PackedScene" uid="uid://bq86r4yll8po" path="res://addons/godot-xr-tools/hands/scenes/lowpoly/left_fullglove_low.tscn" id="2_wsu3u"]
+
+[node name="Left Hand" instance=ExtResource("1_wrpv3")]
+tracker = &"left_hand"
+
+[node name="Left Hand Model" parent="." index="1" instance=ExtResource("2_wsu3u")]
