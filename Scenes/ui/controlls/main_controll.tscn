@@ -83,3 +83,8 @@ text = "Pause"
 layout_mode = 2
 mouse_filter = 1
 text = "Reset Origin"
+
+[node name="Button3" type="Button" parent="HBoxContainer/Right/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+text = "VR Move Mode Switch"
