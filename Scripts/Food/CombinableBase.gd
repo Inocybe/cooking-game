@@ -9,16 +9,6 @@ var children_being_removed: Array[Node3D] = []
 var removed_children: Array[Node3D] = []
 
 
-func set_dependance(child: RigidBody3D, disable: bool) -> void:
-	child.freeze = disable
-	if disable:
-		child.freeze_mode = RigidBody3D.FREEZE_MODE_STATIC
-		child.add_collision_exception_with(self)
-	else:
-		child.freeze_mode = RigidBody3D.FREEZE_MODE_KINEMATIC
-		child.remove_collision_exception_with(self)
-
-
 func _ready() -> void:
 	super()
 	# Connect combine range signals if present
@@ -43,8 +33,7 @@ func _on_body_entered(body: Node) -> void:
 
 func unparent_child(child: Node3D) -> void:
 	children.erase(child)
-	child.reparent.call_deferred(get_tree().current_scene)
-	set_dependance.call_deferred(child, false)
+	Global.set_dependance.call_deferred(self, child, false)
 	children_being_removed.append(child)
 	await get_tree().process_frame
 	handle_child_removal(child)
@@ -83,13 +72,9 @@ func choose_child_slot(_child: Node3D) -> int:
 
 
 func move_to_slot(child: Node3D, slot: int) -> void:
-	if child.get_parent():
-		child.get_parent().remove_child(child)
-	add_child(child)
-
-	call_deferred("set_dependance", child, true)
+	Global.set_dependance.call_deferred(self, child, true)
 	
-	call_deferred("set_child_position", child, slot)
+	set_child_position.call_deferred(child, slot)
 
 
 func set_child_position(child: Node3D, slot: int) -> void:
