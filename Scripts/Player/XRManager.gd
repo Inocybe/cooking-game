@@ -6,6 +6,12 @@ class_name XRManager extends Node
 
 var xr_interface: XRInterface
 
+enum Hand_States {
+	idle,
+	point,
+	grab
+}
+
 
 func _ready():
 	# Turn off v-sync!
