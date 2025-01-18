@@ -495,7 +495,6 @@ func set_state(grip: float, trigger: float) -> void:
 func check_state() -> void:
 	match current_state:
 		hand_state.grabbing:
-			print("grabbing")
 			if grabbed_item:
 				grabbed_object_calcualtions()
 			else:
@@ -508,13 +507,14 @@ func check_state() -> void:
 func start_grab() -> void:
 	if grab_area.has_method("return_holdable_inside_me"):
 		var item: Node3D = grab_area.return_holdable_inside_me()
-		if !item.held:
-			grabbed_item = item
+		if item:
+			if !item.held:
+				grabbed_item = item
 
 # function to move grabbed object towards hand
 func grabbed_object_calcualtions() -> void:
-		if grabbed_item and grabbed_item.is_in_group("holdable"):
-			grabbed_item.set_held_position(global_position, global_rotation.y + PI/2)
+		if grabbed_item:
+			grabbed_item.global_position = global_position
 
 # Function to drop item that was held
 func drop_grabbed_object() -> void:
