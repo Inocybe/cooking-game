@@ -9,7 +9,6 @@ func _ready() -> void:
 	
 func _on_body_entered(body: Node3D) -> void:
 	objects.append(body)
-	print("body entered!")
 
 func _on_body_exited(body: Node3D) -> void:
 	if objects.has(body):
