@@ -72,7 +72,9 @@ func check_XR() -> void:
 
 func get_xy_input() -> Vector2:
 	if is_vr:
-		var direct_input = xr_manager.left_hand.get_vector2("primary")
-		return Vector2(direct_input.x, -direct_input.y)
+		if xr_manager.left_hand:
+			var direct_input = xr_manager.left_hand.get_vector2("primary")
+			return Vector2(direct_input.x, -direct_input.y)
+		return Vector2.ZERO
 	else:
 		return Input.get_vector("left", "right", "forward", "back")

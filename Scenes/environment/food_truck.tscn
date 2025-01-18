@@ -117,7 +117,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3.34533, 2.62882, -0.443131)
 shape = SubResource("BoxShape3D_qtwxd")
 
 [node name="Spawners" type="Node3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.012, 1.29403, 0.75)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.012, 1.29403, 0.164086)
 
 [node name="Burger Spawner" parent="Spawners" instance=ExtResource("6_0r1ja")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.560836, 0.396229, 0)

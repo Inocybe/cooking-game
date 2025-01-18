@@ -33,6 +33,12 @@ signal hand_scale_changed(scale)
 ## Name of the Trigger action in the OpenXR Action Map.
 @export var trigger_action : String = "trigger"
 
+## Point area where point interaction happen
+@export var grab_area: Area3D = %GrabArea
+
+## Grab area where grab interactions happen
+@export var point_area: Area3D = %PointArea
+
 
 ## Last world scale (for scaling hands)
 var _last_world_scale : float = 1.0
@@ -73,6 +79,17 @@ var _target_overrides := []
 # Current target (controller or override)
 var _target : Node3D
 
+# enum and values to set the states of the hands
+var _grab_threshold: float = 0.9
+var _point_threshold: float  = 0.9
+enum hand_state {
+	default,
+	pointing,
+	grabbing
+}
+var current_state: hand_state = hand_state.default
+
+var grabbed_item: Node3D = null
 
 ## Pose-override class
 class PoseOverride:
@@ -157,15 +174,19 @@ func _physics_process(_delta: float) -> void:
 	if _controller:
 		var grip : float = _controller.get_float(grip_action)
 		var trigger : float = _controller.get_float(trigger_action)
-
+		
 		# Allow overriding of grip and trigger
 		if _force_grip >= 0.0: grip = _force_grip
 		if _force_trigger >= 0.0: trigger = _force_trigger
 		
 		if trigger > grip: grip = trigger
-
+		
 		$AnimationTree.set("parameters/Grip/blend_amount", grip)
 		$AnimationTree.set("parameters/Trigger/blend_amount", trigger)
+		
+		set_state(grip, trigger)
+		
+		check_state()
 
 	# Move to target
 	global_transform = _target.global_transform * _transform
@@ -462,6 +483,45 @@ func _update_target() -> void:
 	else:
 		_target = get_parent()
 
+# Function created by yours truly to determine the hand's state
+func set_state(grip: float, trigger: float) -> void:
+	if trigger >= _grab_threshold:
+		current_state = hand_state.grabbing
+	elif grip >= _point_threshold:
+		current_state = hand_state.pointing
+	else:
+		current_state = hand_state.default
+
+func check_state() -> void:
+	match current_state:
+		hand_state.grabbing:
+			print("grabbing")
+			if grabbed_item:
+				grabbed_object_calcualtions()
+			else:
+				start_grab()
+		hand_state.pointing:
+			drop_grabbed_object()
+		hand_state.default:
+			drop_grabbed_object()
+
+func start_grab() -> void:
+	if grab_area.has_method("return_holdable_inside_me"):
+		var item: Node3D = grab_area.return_holdable_inside_me()
+		if !item.held:
+			grabbed_item = item
+
+# function to move grabbed object towards hand
+func grabbed_object_calcualtions() -> void:
+		if grabbed_item and grabbed_item.is_in_group("holdable"):
+			grabbed_item.set_held_position(global_position, global_rotation.y + PI/2)
+
+# Function to drop item that was held
+func drop_grabbed_object() -> void:
+	if grabbed_item:
+		if grabbed_item.has_method("on_stop_interact"):
+			grabbed_item.on_stop_interact()
+	grabbed_item = null
 
 static func _find_child(node : Node, type : String) -> Node:
 	# Iterate through all children
