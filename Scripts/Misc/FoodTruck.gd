@@ -20,6 +20,8 @@ func is_dish_position_occupied(pos: Node3D) -> bool:
 	var raycast = space.intersect_ray(ray_query)
 	if raycast == null:
 		return false
+	if not raycast.has("collider"):
+		return false
 	if raycast["collider"] == null:
 		return false
 	return raycast["collider"].get_name() != "Truck Body"
