@@ -29,4 +29,7 @@ render_target_update_mode = 4
 
 [node name="Control" parent="Sprite3D/SubViewportContainer/SubViewport" instance=ExtResource("3_bwahu")]
 
+[node name="VBoxContainer" parent="Sprite3D/SubViewportContainer/SubViewport/Control/HBoxContainer/Right" index="0"]
+theme_override_constants/separation = 2
+
 [editable path="Sprite3D/SubViewportContainer/SubViewport/Control"]
