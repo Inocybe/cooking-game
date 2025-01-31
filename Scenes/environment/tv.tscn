@@ -1,0 +1,20 @@
+[gd_scene load_steps=4 format=3 uid="uid://bqqwcdfwo3i5m"]
+
+[ext_resource type="ArrayMesh" uid="uid://b3asv7cymggaa" path="res://Assets/FoodTruck/TV.obj" id="1_o13vh"]
+[ext_resource type="PackedScene" uid="uid://b4k2x0teld7lx" path="res://Scenes/ui/ui.tscn" id="1_ons2m"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_ji6vx"]
+size = Vector3(10.5, 7.5, 0.7)
+
+[node name="TV" type="StaticBody3D"]
+transform = Transform3D(0.1, 0, 0, 0, 0.1, 0, 0, 0, 0.1, 0, 0, 0)
+
+[node name="UI3D" parent="." instance=ExtResource("1_ons2m")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0.77361)
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+mesh = ExtResource("1_o13vh")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0.35)
+shape = SubResource("BoxShape3D_ji6vx")

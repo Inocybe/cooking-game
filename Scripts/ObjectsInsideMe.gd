@@ -13,3 +13,9 @@ func _on_body_entered(body: Node3D) -> void:
 func _on_body_exited(body: Node3D) -> void:
 	if objects.has(body):
 		objects.erase(body)
+
+func return_holdable_inside_me() -> Node3D:
+	for object in objects:
+		if object.is_in_group("holdable"):
+			return object
+	return null
