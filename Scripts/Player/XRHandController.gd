@@ -11,6 +11,9 @@ var held_object: Node3D = null
 var was_grip: bool = false
 var was_trigger: bool = false
 
+var last_position: Vector3
+var velocity: Vector3 = Vector3.ZERO
+
 
 func is_grip_down() -> bool:
 	return get_float("grip") >= grip_cutoff
@@ -26,8 +29,6 @@ func on_body_enter_hold_area(body: Node3D) -> void:
 	boundaried_objects.append(body)
 	if is_grip_down():
 		interact_enter(body)
-	if is_trigger_down():
-		held_enter(body)
 
 
 func on_body_exit_hold_area(body: Node3D) -> void:
@@ -49,7 +50,6 @@ func held_enter(body: Node3D):
 		held_object = body
 		var body_transform: Transform3D = body.global_transform
 		Global.set_dependance(self, body, true)
-		body.on_start_interact()
 		body.global_transform = body_transform
 
 
@@ -64,15 +64,15 @@ func interact_exit(body: Node3D):
 
 func held_exit(body: Node3D):
 	if body == held_object:
-		held_object = null
-		var body_transform: Transform3D = body.global_transform
 		Global.set_dependance(self, body, false)
-		if body.has_method("on_stop_interact"):
-			body.on_stop_interact()
-		body.global_transform = body_transform
+		body.linear_velocity = velocity
+		held_object = null
 
 
-func _process(_delta: float) -> void:
+func _process(delta: float) -> void:
+	velocity = (global_position - last_position) / delta
+	last_position = global_position
+	
 	var is_trigger: bool = is_trigger_down()
 	if is_trigger and not was_trigger:
 		for object: Node3D in boundaried_objects:
@@ -90,3 +90,6 @@ func _process(_delta: float) -> void:
 		for object: Node3D in boundaried_objects:
 			interact_exit(object)
 	was_grip = is_grip
+	
+	if held_object != null and held_object.get_parent() != self:
+		held_object = null
