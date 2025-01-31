@@ -13,3 +13,4 @@ func _ready() -> void:
 	for child in parent.find_children("*", "MeshInstance3D", true, false):
 		for i in range(child.get_surface_override_material_count()):
 			child.set_surface_override_material(i, shader_material)
+ 

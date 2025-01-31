@@ -1,7 +1,7 @@
 [gd_scene load_steps=5 format=3 uid="uid://b4k2x0teld7lx"]
 
 [ext_resource type="Script" path="res://Scripts/UIController.gd" id="1_fwoal"]
-[ext_resource type="Script" path="res://Scripts/Stupid Shit/SubviewportMover.gd" id="2_jewpv"]
+[ext_resource type="Script" path="res://Scripts/Misc/SubviewportMover.gd" id="2_jewpv"]
 [ext_resource type="PackedScene" uid="uid://dts51sc5121xa" path="res://Scenes/ui/controlls/main_controll.tscn" id="3_bwahu"]
 
 [sub_resource type="ViewportTexture" id="ViewportTexture_oc1vb"]

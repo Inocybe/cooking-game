@@ -1,7 +1,7 @@
 class_name GameManager extends Node
 
 
-const XR_system = preload("res://Scenes/misc/xr_system.tscn")
+const XR_system = preload("res://Scenes/vr/xr_system.tscn")
 
 
 var player: Player = null
@@ -12,7 +12,6 @@ var customers: Array[Node3D] = []
 var money: float = 0
 var orders_complete: int = 0
 
-var is_vr: bool = false
 var xr_manager: XRManager = null
 
 enum VRMoveMode {
@@ -63,18 +62,19 @@ func check_XR() -> void:
 	var xr_interface = XRServer.find_interface("OpenXR")
 	if xr_interface and xr_interface.is_initialized():
 		print("OpenXR initialized successfully")
-		is_vr = true
 		xr_manager = XR_system.instantiate()
 		xr_manager.xr_interface = xr_interface
 		get_tree().get_root().add_child.call_deferred(xr_manager)
 		XR_detected.emit.call_deferred()
 
 
+func is_vr_avaliable() -> bool:
+	return xr_manager != null and xr_manager.is_avaliable
+
+
 func get_xy_input() -> Vector2:
-	if is_vr:
-		if xr_manager.left_hand:
-			var direct_input = xr_manager.left_hand.get_vector2("primary")
-			return Vector2(direct_input.x, -direct_input.y)
-		return Vector2.ZERO
+	if is_vr_avaliable():
+		var direct_input = xr_manager.left_hand.get_vector2("primary")
+		return Vector2(direct_input.x, -direct_input.y)
 	else:
 		return Input.get_vector("left", "right", "forward", "back")

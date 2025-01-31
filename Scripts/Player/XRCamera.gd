@@ -4,7 +4,7 @@ extends XRCamera3D
 var xr_origin: XRManager
 var player: Player
 
-@export var look_sensitivity: float
+@export var look_sensitivity: float = 3
 
 func _ready() -> void:
 	player = Global.game_manager.player
@@ -21,5 +21,6 @@ func _process(delta: float) -> void:
 		player.global_position.z = global_position.z
 	
 	if Global.game_manager.vr_move_mode == Global.game_manager.VRMoveMode.CHAIR:
-		xr_origin.rotate_y(delta * -xr_origin.right_hand.get_vector2("primary").x)
+		var input_rotation: float = -xr_origin.right_hand.get_vector2("primary").x
+		xr_origin.rotate_y(delta * input_rotation * look_sensitivity)
 	

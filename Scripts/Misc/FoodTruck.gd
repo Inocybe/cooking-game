@@ -20,6 +20,8 @@ func is_dish_position_occupied(pos: Node3D) -> bool:
 	var raycast = space.intersect_ray(ray_query)
 	if raycast == null:
 		return false
+	if not raycast.has("collider"):
+		return false
 	if raycast["collider"] == null:
 		return false
 	return raycast["collider"].get_name() != "Truck Body"
@@ -34,7 +36,7 @@ func choose_best_dish_spawnpoint() -> Node3D:
 
 # Raycasts down to make sure the dish is in the area, and if it is then returns true
 func check_dish_in_area(dish: Node3D) -> bool:
-	return finished_order_position.objects.has(dish)
+	return finished_order_position.overlaps_body(dish)
 
 
 func get_order_position() -> Vector3:

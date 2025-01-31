@@ -51,13 +51,14 @@ func frame_lerp(from: float, to: float, speed: float, delta: float):
 
 func set_dependance(parent: Node3D, child: RigidBody3D, dependance: bool) -> void:
 	child.freeze = dependance
+	child.freeze_mode = RigidBody3D.FREEZE_MODE_STATIC
 	if dependance:
-		child.freeze_mode = RigidBody3D.FREEZE_MODE_STATIC
-		child.add_collision_exception_with(parent)
+		if parent is CollisionObject3D:
+			child.add_collision_exception_with(parent)
 		if child.get_parent():
 			child.get_parent().remove_child(child)
 		parent.add_child(child)
 	else:
-		child.freeze_mode = RigidBody3D.FREEZE_MODE_KINEMATIC
-		child.remove_collision_exception_with(parent)
+		if parent is CollisionObject3D:
+			child.remove_collision_exception_with(parent)
 		child.reparent.call_deferred(get_tree().current_scene)
