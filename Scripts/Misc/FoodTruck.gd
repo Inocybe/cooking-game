@@ -36,7 +36,7 @@ func choose_best_dish_spawnpoint() -> Node3D:
 
 # Raycasts down to make sure the dish is in the area, and if it is then returns true
 func check_dish_in_area(dish: Node3D) -> bool:
-	return finished_order_position.objects.has(dish)
+	return finished_order_position.overlaps_body(dish)
 
 
 func get_order_position() -> Vector3:
