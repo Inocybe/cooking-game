@@ -5,6 +5,7 @@ class_name XRManager extends Node
 @onready var right_hand: XRController3D = $"Right Hand"
 
 var xr_interface: XRInterface
+var is_avaliable: bool = false
 
 enum Hand_States {
 	idle,
@@ -19,3 +20,5 @@ func _ready():
 	
 	# Change our main viewport to output to the HMD
 	get_viewport().use_xr = true
+	
+	is_avaliable = true
