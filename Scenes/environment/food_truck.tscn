@@ -130,16 +130,16 @@ food_resource = ExtResource("10_xfg8j")
 [node name="Cookwear" type="Node3D" parent="."]
 
 [node name="Cooktop" parent="Cookwear" instance=ExtResource("2_vnxue")]
-transform = Transform3D(1.19249e-08, 0, -1, 0, 1, 0, 1, 0, 1.19249e-08, -0.453343, 0.68915, 0.333945)
+transform = Transform3D(1.19249e-08, 0, -1, 0, 1, 0, 1, 0, 1.19249e-08, -0.453343, 0.68915, 0.633086)
 
 [node name="SodaMachine" parent="Cookwear" instance=ExtResource("5_w5osk")]
-transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -2.34143, 0.726951, -0.737113)
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -2.34143, 0.44699, -0.737113)
 
 [node name="Fryer" parent="Cookwear" instance=ExtResource("4_q7klp")]
-transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 2.49224, 1.09403, 0.433602)
+transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 2.49224, 1.09403, 0.732743)
 
 [node name="Table" parent="Cookwear" instance=ExtResource("3_87muv")]
-transform = Transform3D(-4.37114e-09, 0, -0.1, 0, 0.1, 0, 0.1, 0, -4.37114e-09, 1.01161, 0.689894, 0.329632)
+transform = Transform3D(-4.37114e-09, 0, -0.1, 0, 0.1, 0, 0.1, 0, -4.37114e-09, 1.01161, 0.689894, 0.628773)
 
 [node name="Lights" type="Node3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.84595, -0.266257)
