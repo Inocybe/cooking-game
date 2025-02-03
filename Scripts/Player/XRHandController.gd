@@ -1,6 +1,8 @@
 extends XRController3D
 
 
+@export var remote_touch_distance: float = 5
+
 @export var grip_cutoff = 0.5
 @export var trigger_cutoff = 0.5
 
@@ -69,6 +71,23 @@ func held_exit(body: Node3D):
 		held_object = null
 
 
+func forward_vector() -> Vector3:
+	return -global_transform.basis.z
+
+
+func try_remote_interact() -> void:
+	var from: Vector3 = global_position
+	var to: Vector3 = from + forward_vector() * remote_touch_distance
+	var space = get_world_3d().direct_space_state
+	var ray_query = PhysicsRayQueryParameters3D.create(from, to)
+	var raycast_result: Dictionary = space.intersect_ray(ray_query)
+	
+	if raycast_result:
+		var collider = raycast_result.collider
+		if collider.is_in_group("remote-interactable"):
+			interact_enter(collider)
+
+
 func _process(delta: float) -> void:
 	velocity = (global_position - last_position) / delta
 	last_position = global_position
@@ -86,6 +105,7 @@ func _process(delta: float) -> void:
 	if is_grip and not was_grip:
 		for object: Node3D in boundaried_objects:
 			interact_enter(object)
+		try_remote_interact()
 	elif not is_grip and was_grip:
 		for object: Node3D in boundaried_objects:
 			interact_exit(object)

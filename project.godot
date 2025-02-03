@@ -30,6 +30,7 @@ enabled=PackedStringArray("res://addons/godot-xr-tools/plugin.cfg")
 interactable=""
 holdable=""
 food="a food item"
+remote-interactable=""
 
 [input]
 
