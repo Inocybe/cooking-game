@@ -1,6 +1,6 @@
 [gd_scene load_steps=3 format=3 uid="uid://dts51sc5121xa"]
 
-[ext_resource type="Script" path="res://Scripts/UI/main_controll.gd" id="1_dxuk2"]
+[ext_resource type="Script" path="res://Scripts/UI/MainControll.gd" id="1_dxuk2"]
 [ext_resource type="Script" path="res://Scripts/UI/Maximizer.gd" id="2_3snea"]
 
 [node name="Control" type="Control"]
