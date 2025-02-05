@@ -3,8 +3,11 @@ extends XRController3D
 
 @export var remote_touch_distance: float = 5
 
-@export var grip_cutoff = 0.5
-@export var trigger_cutoff = 0.5
+@export var grip_cutoff: float = 0.5
+@export var trigger_cutoff: float = 0.5
+
+@export var shake_max_time: float = 0.2
+@export var shake_required_speed: float = 2
 
 var boundaried_objects: Array[Node3D] = []
 var interacted_objects: Array[Node3D] = []
@@ -15,6 +18,9 @@ var was_trigger: bool = false
 
 var last_position: Vector3
 var velocity: Vector3 = Vector3.ZERO
+
+var last_shake_speed_time: float = 0
+var last_shake_velocity: Vector3
 
 
 func is_grip_down() -> bool:
@@ -88,6 +94,20 @@ func try_remote_interact() -> void:
 			interact_enter(collider)
 
 
+func check_food_shake() -> void:
+	if velocity.length_squared() > shake_required_speed:
+		var now: float = Time.get_unix_time_from_system()
+		
+		var move_not_expired: bool = last_shake_speed_time + shake_max_time > now
+		var has_reversed = velocity.dot(last_shake_velocity) < 0
+		var holding_combinable = held_object != null and held_object is CombinableBase
+		if move_not_expired and has_reversed and holding_combinable:
+			held_object.unparent_all_children()
+		
+		last_shake_speed_time = now
+		last_shake_velocity = velocity
+
+
 func _process(delta: float) -> void:
 	velocity = (global_position - last_position) / delta
 	last_position = global_position
@@ -113,3 +133,9 @@ func _process(delta: float) -> void:
 	
 	if held_object != null and held_object.get_parent() != self:
 		held_object = null
+	
+	for boundaried_object in boundaried_objects:
+		if boundaried_object.get_parent() is CombinableBase:
+			boundaried_objects.erase(boundaried_object)
+	
+	check_food_shake()
