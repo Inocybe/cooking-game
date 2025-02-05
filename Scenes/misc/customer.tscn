@@ -185,7 +185,7 @@ _data = {
 "collect_order": SubResource("Animation_db6yr")
 }
 
-[node name="Customer" type="AnimatableBody3D" groups=["interactable"]]
+[node name="Customer" type="AnimatableBody3D" groups=["interactable", "remote-interactable"]]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
 collision_layer = 3
 collision_mask = 3
