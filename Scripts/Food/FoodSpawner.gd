@@ -13,7 +13,7 @@ func _process(_delta: float) -> void:
 		spawn_food()
 		return
 	
-	var camera: Camera = Global.game_manager.player.camera
+	var camera: Node3D = Global.game_manager.get_camera_node()
 	var rel_pos = global_position - camera.global_position
 	if rel_pos.angle_to(camera.forward_vector()) < appear_angle:
 		return
