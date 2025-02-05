@@ -1,6 +1,7 @@
 class_name XRManager extends Node
 
 
+@onready var camera: XRCamera3D = $XRCamera3D
 @onready var left_hand: XRController3D = $"Left Hand"
 @onready var right_hand: XRController3D = $"Right Hand"
 
