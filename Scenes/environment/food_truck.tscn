@@ -26,10 +26,10 @@ size = Vector3(7.52191, 0.250732, 4.73419)
 size = Vector3(0.190308, 3.73969, 4.61719)
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_st5n1"]
-size = Vector3(4.773, 0.165859, 0.99082)
+size = Vector3(4.773, 0.150312, 0.99082)
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_oy4dk"]
-size = Vector3(5.52795, 1.53064, 0.284302)
+size = Vector3(5.52795, 1.51386, 0.284302)
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_x5qr0"]
 size = Vector3(0.509537, 3.69775, 0.282715)
@@ -81,11 +81,11 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.31545, 2.43107, -0.547852)
 shape = SubResource("BoxShape3D_44nrn")
 
 [node name="Overhang" type="CollisionShape3D" parent="Truck Body"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.48755, 2.01632, -3.05278)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.48755, 2.00855, -3.05278)
 shape = SubResource("BoxShape3D_st5n1")
 
 [node name="Right Bottom" type="CollisionShape3D" parent="Truck Body"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.65167, 1.32205, -2.68914)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.65167, 1.31366, -2.68914)
 shape = SubResource("BoxShape3D_oy4dk")
 
 [node name="Right Back" type="CollisionShape3D" parent="Truck Body"]
