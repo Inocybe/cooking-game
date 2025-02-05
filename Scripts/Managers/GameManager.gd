@@ -72,6 +72,13 @@ func is_vr_avaliable() -> bool:
 	return xr_manager != null and xr_manager.is_avaliable
 
 
+func get_camera_node() -> Node3D:
+	if is_vr_avaliable():
+		return xr_manager.camera
+	else:
+		return player.camera
+
+
 func get_xy_input() -> Vector2:
 	if is_vr_avaliable():
 		var direct_input = xr_manager.left_hand.get_vector2("primary")
