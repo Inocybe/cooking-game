@@ -1,4 +1,4 @@
-class_name XRManager extends Node
+class_name XRManager extends XROrigin3D
 
 
 @onready var camera: XRCamera3D = $XRCamera3D
@@ -23,3 +23,6 @@ func _ready():
 	get_viewport().use_xr = true
 	
 	is_avaliable = true
+	
+	xr_interface.xr_play_area_mode = XRInterface.XR_PLAY_AREA_ROOMSCALE
+	global_transform = Global.game_manager.player.feet.global_transform
