@@ -154,7 +154,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.444499, 0.465, 0)
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.63205, 0.465, 0)
 
 [node name="Finished Order" parent="." instance=ExtResource("11_na1yo")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.450339, 1.76796, -2.19683)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.6109, 1.76796, -2.13855)
 
 [node name="Food Tray Positions" type="Node3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.18937, 1.68007, -2.42782)

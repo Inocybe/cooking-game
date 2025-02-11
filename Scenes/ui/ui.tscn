@@ -17,6 +17,7 @@ texture = SubResource("ViewportTexture_oc1vb")
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
+offset_bottom = 57.0
 grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("2_jewpv")
@@ -28,5 +29,8 @@ size = Vector2i(1000, 705)
 render_target_update_mode = 4
 
 [node name="Control" parent="Sprite3D/SubViewportContainer/SubViewport" instance=ExtResource("3_bwahu")]
+
+[node name="ColorRect" parent="Sprite3D/SubViewportContainer/SubViewport/Control/HBoxContainer/Left/GridContainer/Control" index="0" node_paths=PackedStringArray("relative_to")]
+relative_to = NodePath("../../..")
 
 [editable path="Sprite3D/SubViewportContainer/SubViewport/Control"]
