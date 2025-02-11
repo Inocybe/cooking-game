@@ -72,9 +72,11 @@ func interact_exit(body: Node3D):
 
 func held_exit(body: Node3D):
 	if body == held_object:
+		held_object = null
 		Global.set_dependance(self, body, false)
 		body.linear_velocity = velocity
-		held_object = null
+		if not $HoldArea.overlaps_body(body):
+			on_body_exit_hold_area(body)
 
 
 func forward_vector() -> Vector3:
