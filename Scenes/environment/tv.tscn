@@ -6,7 +6,7 @@
 [sub_resource type="BoxShape3D" id="BoxShape3D_ji6vx"]
 size = Vector3(10.5, 7.5, 0.7)
 
-[node name="TV" type="StaticBody3D"]
+[node name="TV" type="StaticBody3D" groups=["world-ui"]]
 transform = Transform3D(0.1, 0, 0, 0, 0.1, 0, 0, 0, 0.1, 0, 0, 0)
 
 [node name="UI3D" parent="." instance=ExtResource("1_ons2m")]
