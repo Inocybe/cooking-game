@@ -19,5 +19,4 @@ func handle_resize() -> void:
 	if apply_to_x:
 		size.x = parent_size.x - x_padding * 2
 	if apply_to_y:
-		print(parent_size.y)
 		size.y = parent_size.y - y_padding * 2

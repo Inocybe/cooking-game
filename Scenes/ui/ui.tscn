@@ -2,7 +2,7 @@
 
 [ext_resource type="Script" path="res://Scripts/UIController.gd" id="1_fwoal"]
 [ext_resource type="Script" path="res://Scripts/Misc/SubviewportMover.gd" id="2_jewpv"]
-[ext_resource type="PackedScene" uid="uid://dts51sc5121xa" path="res://Scenes/ui/controlls/main_controll.tscn" id="3_bwahu"]
+[ext_resource type="PackedScene" uid="uid://dts51sc5121xa" path="res://Scenes/ui/controls/main_control.tscn" id="3_bwahu"]
 
 [sub_resource type="ViewportTexture" id="ViewportTexture_oc1vb"]
 viewport_path = NodePath("Sprite3D/SubViewportContainer/SubViewport")
@@ -28,9 +28,10 @@ handle_input_locally = false
 size = Vector2i(1000, 705)
 render_target_update_mode = 4
 
-[node name="Control" parent="Sprite3D/SubViewportContainer/SubViewport" instance=ExtResource("3_bwahu")]
+[node name="MainControl" parent="Sprite3D/SubViewportContainer/SubViewport" instance=ExtResource("3_bwahu")]
+unique_name_in_owner = true
 
-[node name="ColorRect" parent="Sprite3D/SubViewportContainer/SubViewport/Control/HBoxContainer/Left/GridContainer/Control" index="0" node_paths=PackedStringArray("relative_to")]
+[node name="ColorRect" parent="Sprite3D/SubViewportContainer/SubViewport/MainControl/HBoxContainer/Left/GridContainer/Control" index="0" node_paths=PackedStringArray("relative_to")]
 relative_to = NodePath("../../..")
 
-[editable path="Sprite3D/SubViewportContainer/SubViewport/Control"]
+[editable path="Sprite3D/SubViewportContainer/SubViewport/MainControl"]
