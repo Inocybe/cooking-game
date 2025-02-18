@@ -1,4 +1,4 @@
-[gd_scene load_steps=18 format=3 uid="uid://b3ocr5doqonyu"]
+[gd_scene load_steps=20 format=3 uid="uid://b3ocr5doqonyu"]
 
 [ext_resource type="Script" path="res://Scripts/Misc/FoodTruck.gd" id="1_rvaml"]
 [ext_resource type="PackedScene" uid="uid://cv485pktorksn" path="res://Scenes/cookwear/cooktop.tscn" id="2_vnxue"]
@@ -16,11 +16,17 @@
 [ext_resource type="PackedScene" uid="uid://cqfghqikinccl" path="res://Assets/World/food_truck_v3.glb" id="15_4upiy"]
 [ext_resource type="PackedScene" uid="uid://bqqwcdfwo3i5m" path="res://Scenes/environment/tv.tscn" id="16_5lsjn"]
 
+[sub_resource type="BoxShape3D" id="BoxShape3D_3sp5k"]
+size = Vector3(3.40479, 0.108276, 0.613831)
+
 [sub_resource type="BoxShape3D" id="BoxShape3D_nb8ur"]
 size = Vector3(3.80371, 1.61621, 1.65154)
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_t5xi5"]
 size = Vector3(3.8725, 0.643555, 0.525513)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_aej1q"]
+size = Vector3(6.29565, 1, 3.86462)
 
 [node name="FoodTruck" type="Node3D" node_paths=PackedStringArray("dish_spawnpoints") groups=["interactable"]]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0296402, -0.0441494, -0.0324593)
@@ -29,6 +35,17 @@ dish_spawnpoints = [NodePath("Food Tray Positions/1"), NodePath("Food Tray Posit
 
 [node name="food_truck_v3" parent="." instance=ExtResource("15_4upiy")]
 transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, -0.560616, 0, 0)
+
+[node name="collision" parent="food_truck_v3" index="2"]
+collision_layer = 3
+collision_mask = 3
+
+[node name="TreyPositionCollision" type="StaticBody3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.45319, -1.72917)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="TreyPositionCollision"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.923834, 0.0090766, 0.0993958)
+shape = SubResource("BoxShape3D_3sp5k")
 
 [node name="Spawners" type="Node3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.012, 1.51527, 0.250902)
@@ -79,7 +96,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.63205, 0.465, 0)
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.6109, 1.6345, -1.41185)
 
 [node name="Food Tray Positions" type="Node3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.18937, 1.68007, -2.42782)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.965504, 1.68007, -1.69716)
 
 [node name="1" type="Node3D" parent="Food Tray Positions"]
 transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 0.42, 0, 0)
@@ -120,4 +137,14 @@ shape = SubResource("BoxShape3D_t5xi5")
 [node name="TV" parent="." instance=ExtResource("16_5lsjn")]
 transform = Transform3D(-4.37114e-09, 0, -0.1, 0, 0.1, 0, 0.1, 0, -4.37114e-09, 3.21573, 2.21848, -0.288062)
 
+[node name="Floor" type="StaticBody3D" parent="."]
+collision_layer = 7
+collision_mask = 7
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Floor"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.022583, 0.246105, 0.09198)
+shape = SubResource("BoxShape3D_aej1q")
+
 [connection signal="timeout" from="New Order Timer" to="." method="maybe_invoke_ordering"]
+
+[editable path="food_truck_v3"]
