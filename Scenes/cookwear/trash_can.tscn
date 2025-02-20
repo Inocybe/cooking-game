@@ -17,6 +17,7 @@ height = 0.511951
 radius = 0.778545
 
 [node name="Trash Can" type="Node3D"]
+transform = Transform3D(0.3, 0, 0, 0, 0.3, 0, 0, 0, 0.3, 0, 0, 0)
 script = ExtResource("1_qsd77")
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="."]
