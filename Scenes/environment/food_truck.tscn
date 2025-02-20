@@ -1,4 +1,4 @@
-[gd_scene load_steps=28 format=3 uid="uid://b3ocr5doqonyu"]
+[gd_scene load_steps=29 format=3 uid="uid://b3ocr5doqonyu"]
 
 [ext_resource type="Script" path="res://Scripts/Misc/FoodTruck.gd" id="1_rvaml"]
 [ext_resource type="PackedScene" uid="uid://cv485pktorksn" path="res://Scenes/cookwear/cooktop.tscn" id="2_vnxue"]
@@ -15,6 +15,7 @@
 [ext_resource type="Script" path="res://Scripts/Enviornment/OrderHitbox.gd" id="14_n46fa"]
 [ext_resource type="PackedScene" uid="uid://cqfghqikinccl" path="res://Assets/World/food_truck_v3.glb" id="15_4upiy"]
 [ext_resource type="PackedScene" uid="uid://bqqwcdfwo3i5m" path="res://Scenes/environment/tv.tscn" id="16_5lsjn"]
+[ext_resource type="PackedScene" uid="uid://cc6na2w6f2gjp" path="res://Scenes/cookwear/trash_can.tscn" id="16_i5ql0"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_nb8ur"]
 size = Vector3(3.80371, 1.61621, 1.65154)
@@ -202,6 +203,9 @@ shape = SubResource("BoxShape3D_fge8j")
 [node name="RightTopWall" type="CollisionShape3D" parent="CollisionShape"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.920155, 3.41861, -1.3652)
 shape = SubResource("BoxShape3D_m3460")
+
+[node name="Trash Can" parent="." instance=ExtResource("16_i5ql0")]
+transform = Transform3D(0.3, 0, 0, 0, 0.3, 0, 0, 0, 0.3, 2.7878, 0.746105, -0.887227)
 
 [connection signal="timeout" from="New Order Timer" to="." method="maybe_invoke_ordering"]
 
