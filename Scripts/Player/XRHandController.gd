@@ -59,6 +59,9 @@ func held_enter(body: Node3D):
 		var body_transform: Transform3D = body.global_transform
 		Global.set_dependance(self, body, true)
 		body.global_transform = body_transform
+		
+		change_hand_positioning(body)
+
 
 
 func interact_exit(body: Node3D):
@@ -77,6 +80,8 @@ func held_exit(body: Node3D):
 		body.linear_velocity = velocity
 		if not $HoldArea.overlaps_body(body):
 			on_body_exit_hold_area(body)
+		
+		change_hand_positioning(body)
 
 
 func forward_vector() -> Vector3:
@@ -109,6 +114,15 @@ func check_food_shake() -> void:
 		last_shake_speed_time = now
 		last_shake_velocity = velocity
 
+
+func change_hand_positioning(object: Node3D) -> void:
+	var is_left_hand = name.begins_with("Left") # Checking what hand is being used
+	if visible:
+		if is_left_hand:
+			object.get_node()
+	else:
+		pass
+	
 
 func _process(delta: float) -> void:
 	velocity = (global_position - last_position) / delta
