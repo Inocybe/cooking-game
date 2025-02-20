@@ -170,6 +170,8 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.022583, 0.246105, 0.09198)
 shape = SubResource("BoxShape3D_aej1q")
 
 [node name="CollisionShape" type="StaticBody3D" parent="."]
+collision_layer = 3
+collision_mask = 3
 
 [node name="LeftWall" type="CollisionShape3D" parent="CollisionShape"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0153809, 1.97379, 1.33694)
