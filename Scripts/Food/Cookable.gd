@@ -22,23 +22,22 @@ func _ready() -> void:
 		if mesh.get_surface_override_material(0) == null:
 			mesh.set_surface_override_material(0, material)
 	
-	get_cook_particles()
+	cook_particles = get_cook_particles()
 
 
 func on_start_cooking(cooking_type: CookwearBase.CookingType) -> void:
 	if required_cooking_type == cooking_type:
 		cooking = true
 		
-		if cook_particles:
-			cook_particles.emitting = true
+		change_cooking_paticles()
+		
 
 
 func on_stop_cooking(cooking_type: CookwearBase.CookingType) -> void:
 	if required_cooking_type == cooking_type:
 		cooking = false
 		
-		if cook_particles:
-			cook_particles.emitting = false
+		change_cooking_paticles()
 
 
 func get_burn_amount() -> float:
@@ -84,3 +83,10 @@ func get_cook_particles() -> GPUParticles3D:
 		return get_parent().get_node_or_null("GPUParticles3D")
 	else:
 		return null
+
+func change_cooking_paticles() -> void:
+	if cook_particles:
+		if cook_particles.emitting:
+			cook_particles.emitting = false
+		else:
+			cook_particles.emitting = true
