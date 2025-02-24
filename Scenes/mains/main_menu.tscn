@@ -1,0 +1,31 @@
+[gd_scene load_steps=3 format=3 uid="uid://cltfmjw0bavf4"]
+
+[ext_resource type="Script" path="res://Scripts/UI/main_menu.gd" id="1_mex12"]
+[ext_resource type="Script" path="res://Scripts/Misc/SubviewportMover.gd" id="1_obrb5"]
+
+[node name="MAIN MENU" type="Node3D"]
+script = ExtResource("1_mex12")
+
+[node name="XRUI" type="Node3D" parent="."]
+
+[node name="Map" type="Sprite3D" parent="XRUI"]
+
+[node name="SubViewportContainer" type="SubViewportContainer" parent="XRUI/Map"]
+offset_right = 40.0
+offset_bottom = 40.0
+script = ExtResource("1_obrb5")
+
+[node name="SubViewport" type="SubViewport" parent="XRUI/Map/SubViewportContainer"]
+handle_input_locally = false
+render_target_update_mode = 4
+
+[node name="Main" type="Sprite3D" parent="XRUI"]
+
+[node name="SubViewportContainer" type="SubViewportContainer" parent="XRUI/Main"]
+offset_right = 40.0
+offset_bottom = 40.0
+script = ExtResource("1_obrb5")
+
+[node name="SubViewport" type="SubViewport" parent="XRUI/Main/SubViewportContainer"]
+handle_input_locally = false
+render_target_update_mode = 4

@@ -15,7 +15,7 @@
 [ext_resource type="Script" path="res://Scripts/Enviornment/OrderHitbox.gd" id="14_n46fa"]
 [ext_resource type="PackedScene" uid="uid://cqfghqikinccl" path="res://Assets/World/food_truck_v3.glb" id="15_4upiy"]
 [ext_resource type="PackedScene" uid="uid://bqqwcdfwo3i5m" path="res://Scenes/environment/tv.tscn" id="16_5lsjn"]
-[ext_resource type="PackedScene" uid="uid://cc6na2w6f2gjp" path="res://Scenes/cookwear/trash_can.tscn" id="16_i5ql0"]
+[ext_resource type="PackedScene" path="res://Scenes/cookwear/trash_can.tscn" id="16_i5ql0"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_nb8ur"]
 size = Vector3(3.80371, 1.61621, 1.65154)
@@ -48,7 +48,7 @@ size = Vector3(2.40131, 3.6098, 0.224854)
 size = Vector3(6.13879, 0.168457, 2.77539)
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_fge8j"]
-size = Vector3(0.913574, 3.53705, 1)
+size = Vector3(0.913574, 3.53705, 0.164307)
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_m3460"]
 size = Vector3(3.30786, 0.784668, 0.138916)
@@ -199,7 +199,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.30719, 3.69999, -0.0166016)
 shape = SubResource("BoxShape3D_of7it")
 
 [node name="RightBackWall" type="CollisionShape3D" parent="CollisionShape"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.01906, 1.98526, -0.97282)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.01906, 1.98526, -1.39067)
 shape = SubResource("BoxShape3D_fge8j")
 
 [node name="RightTopWall" type="CollisionShape3D" parent="CollisionShape"]

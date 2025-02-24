@@ -81,7 +81,7 @@ func held_exit(body: Node3D):
 		if not $HoldArea.overlaps_body(body):
 			on_body_exit_hold_area(body)
 		
-		change_hand_positioning(body)
+		#change_hand_positioning(body)
 
 
 func forward_vector() -> Vector3:
@@ -119,7 +119,8 @@ func change_hand_positioning(object: Node3D) -> void:
 	var is_left_hand = name.begins_with("Left") # Checking what hand is being used
 	if visible:
 		if is_left_hand:
-			object.get_node()
+			#object.get_node()
+			pass
 	else:
 		pass
 	

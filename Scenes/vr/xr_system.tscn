@@ -16,16 +16,6 @@ script = ExtResource("2_igulh")
 
 [node name="Left Hand" parent="." instance=ExtResource("3_mlg0m")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.5, 1, -0.5)
-remote_touch_distance = null
-grip_cutoff = null
-trigger_cutoff = null
-shake_max_time = null
-shake_required_speed = null
 
 [node name="Right Hand" parent="." instance=ExtResource("4_a5g18")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.5, 1, -0.5)
-remote_touch_distance = null
-grip_cutoff = null
-trigger_cutoff = null
-shake_max_time = null
-shake_required_speed = null
