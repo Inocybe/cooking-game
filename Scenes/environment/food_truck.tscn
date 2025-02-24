@@ -15,7 +15,7 @@
 [ext_resource type="Script" path="res://Scripts/Enviornment/OrderHitbox.gd" id="14_n46fa"]
 [ext_resource type="PackedScene" uid="uid://cqfghqikinccl" path="res://Assets/World/food_truck_v3.glb" id="15_4upiy"]
 [ext_resource type="PackedScene" uid="uid://bqqwcdfwo3i5m" path="res://Scenes/environment/tv.tscn" id="16_5lsjn"]
-[ext_resource type="PackedScene" path="res://Scenes/cookwear/trash_can.tscn" id="16_i5ql0"]
+[ext_resource type="PackedScene" uid="uid://cc6na2w6f2gjp" path="res://Scenes/cookwear/trash_can.tscn" id="16_i5ql0"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_nb8ur"]
 size = Vector3(3.80371, 1.61621, 1.65154)
