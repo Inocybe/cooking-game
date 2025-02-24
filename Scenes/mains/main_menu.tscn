@@ -1,8 +1,10 @@
-[gd_scene load_steps=4 format=3 uid="uid://cltfmjw0bavf4"]
+[gd_scene load_steps=6 format=3 uid="uid://cltfmjw0bavf4"]
 
 [ext_resource type="Script" path="res://Scripts/UI/main_menu.gd" id="1_mex12"]
 [ext_resource type="Script" path="res://Scripts/Misc/SubviewportMover.gd" id="1_obrb5"]
 [ext_resource type="PackedScene" uid="uid://jj8yuf0syk57" path="res://Scenes/managers/game_manager.tscn" id="2_c7t12"]
+[ext_resource type="PackedScene" uid="uid://cd7anw3qhpovq" path="res://Scenes/ui/controls/map_control.tscn" id="4_goatg"]
+[ext_resource type="PackedScene" uid="uid://cfx7q0sm4jea5" path="res://Scenes/ui/controls/main_menu_control.tscn" id="5_uyd07"]
 
 [node name="MAIN MENU" type="Node3D"]
 script = ExtResource("1_mex12")
@@ -23,6 +25,8 @@ script = ExtResource("1_obrb5")
 handle_input_locally = false
 render_target_update_mode = 4
 
+[node name="MapControl" parent="XRUI/Map/SubViewportContainer/SubViewport" instance=ExtResource("4_goatg")]
+
 [node name="Main" type="Sprite3D" parent="XRUI"]
 
 [node name="SubViewportContainer" type="SubViewportContainer" parent="XRUI/Main"]
@@ -34,6 +38,8 @@ script = ExtResource("1_obrb5")
 handle_input_locally = false
 render_target_update_mode = 4
 
+[node name="MainMenuControl" parent="XRUI/Main/SubViewportContainer/SubViewport" instance=ExtResource("5_uyd07")]
+
 [node name="DesktopUI" type="Node3D" parent="."]
 
 [node name="Sprite3D" type="Sprite3D" parent="DesktopUI"]
@@ -44,3 +50,5 @@ offset_bottom = 40.0
 script = ExtResource("1_obrb5")
 
 [node name="SubViewport" type="SubViewport" parent="DesktopUI/Sprite3D/SubViewportContainer"]
+handle_input_locally = false
+render_target_update_mode = 4
