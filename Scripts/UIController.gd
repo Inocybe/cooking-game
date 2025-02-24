@@ -1,7 +1,7 @@
 extends Node3D
 
 
-@onready var main_control = %Subviewport
+@onready var main_control: Control = %MainControl
 
 func change_money(current_money: float) -> void:
 	main_control.money.set_text(str(current_money))
