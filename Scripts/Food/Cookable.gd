@@ -79,8 +79,8 @@ func get_quality() -> float:
 		return 1 - get_burn_amount()
 
 func get_cook_particles() -> GPUParticles3D:
-	if get_parent().has_node("GPUParticles3D"):
-		return get_parent().get_node_or_null("GPUParticles3D")
+	if get_parent().has_node("CookingParticles"):
+		return get_parent().get_node_or_null("CookingParticles")
 	else:
 		return null
 
