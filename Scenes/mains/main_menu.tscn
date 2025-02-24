@@ -10,6 +10,7 @@ script = ExtResource("1_mex12")
 [node name="GameManager" parent="." instance=ExtResource("2_c7t12")]
 
 [node name="XRUI" type="Node3D" parent="."]
+visible = false
 
 [node name="Map" type="Sprite3D" parent="XRUI"]
 
@@ -32,3 +33,14 @@ script = ExtResource("1_obrb5")
 [node name="SubViewport" type="SubViewport" parent="XRUI/Main/SubViewportContainer"]
 handle_input_locally = false
 render_target_update_mode = 4
+
+[node name="DesktopUI" type="Node3D" parent="."]
+
+[node name="Sprite3D" type="Sprite3D" parent="DesktopUI"]
+
+[node name="SubViewportContainer" type="SubViewportContainer" parent="DesktopUI/Sprite3D"]
+offset_right = 40.0
+offset_bottom = 40.0
+script = ExtResource("1_obrb5")
+
+[node name="SubViewport" type="SubViewport" parent="DesktopUI/Sprite3D/SubViewportContainer"]
