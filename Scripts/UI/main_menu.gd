@@ -1,5 +1,5 @@
 extends Node3D
 
 
-#func _ready() -> void:
+func _ready() -> void:
 	
