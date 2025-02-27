@@ -63,6 +63,10 @@ func interact_with(obj: Node) -> void:
 	obj.on_start_interact()
 
 
+func interact_with_ui(obj: Node3D, pos: Vector3):
+	obj.do_interact_at(pos)
+
+
 func drop_selected() -> void:
 	if selected_object.has_method("on_stop_interact"):
 		selected_object.on_stop_interact()
@@ -92,4 +96,5 @@ func do_interact() -> void:
 			pick_up(collider)
 		elif collider.is_in_group("interactable"):
 			interact_with(collider)
-		return
+		elif collider.is_in_group("world-ui"):
+			interact_with_ui(collider, raycast_result.position)

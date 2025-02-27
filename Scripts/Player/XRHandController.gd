@@ -47,10 +47,17 @@ func on_body_exit_hold_area(body: Node3D) -> void:
 		interact_exit(body)
 
 
+func interact_with_ui(obj: Node3D, pos: Vector3):
+	obj.do_interact_at(pos)
+
+
 func interact_enter(body: Node3D):
 	if body.is_in_group("interactable") and not body.is_in_group("holdable"):
 		interacted_objects.append(body)
 		body.on_start_interact()
+	elif body.is_in_group("world-ui"):
+		interact_with_ui(body, global_position)
+	
 
 
 func held_enter(body: Node3D):
@@ -115,14 +122,15 @@ func check_food_shake() -> void:
 		last_shake_velocity = velocity
 
 
-func change_hand_positioning(object: Node3D) -> void:
-	var is_left_hand = name.begins_with("Left") # Checking what hand is being used
-	if visible:
-		if is_left_hand:
-			#object.get_node()
-			pass
-	else:
-		pass
+func change_hand_positioning(_object: Node3D) -> void:
+	#var is_left_hand = name.begins_with("Left") # Checking what hand is being used
+	#if visible:
+		#if is_left_hand:
+			##object.get_node()
+			#pass
+	#else:
+		#pass
+	pass
 	
 
 func _process(delta: float) -> void:

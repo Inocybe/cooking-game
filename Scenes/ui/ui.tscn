@@ -1,47 +1,55 @@
-[gd_scene load_steps=6 format=3 uid="uid://b4k2x0teld7lx"]
+[gd_scene load_steps=7 format=3 uid="uid://b4k2x0teld7lx"]
 
 [ext_resource type="Script" path="res://Scripts/UIController.gd" id="1_fwoal"]
-[ext_resource type="Script" path="res://Scripts/Misc/SubviewportMover.gd" id="2_jewpv"]
 [ext_resource type="PackedScene" uid="uid://dts51sc5121xa" path="res://Scenes/ui/controls/main_control.tscn" id="3_bwahu"]
 [ext_resource type="Script" path="res://Scripts/UI/DebugButton.gd" id="4_5acxt"]
 
-[sub_resource type="ViewportTexture" id="ViewportTexture_oc1vb"]
-viewport_path = NodePath("Sprite3D/SubViewportContainer/SubViewport")
+[sub_resource type="ViewportTexture" id="ViewportTexture_igfvj"]
+viewport_path = NodePath("SubViewportContainer/SubViewport")
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_sajdg"]
+resource_local_to_scene = true
+transparency = 1
+albedo_texture = SubResource("ViewportTexture_igfvj")
+
+[sub_resource type="QuadMesh" id="QuadMesh_stl2b"]
+size = Vector2(10, 7)
 
 [node name="UI3D" type="Node3D"]
 script = ExtResource("1_fwoal")
 
-[node name="Sprite3D" type="Sprite3D" parent="."]
-texture = SubResource("ViewportTexture_oc1vb")
-
-[node name="SubViewportContainer" type="SubViewportContainer" parent="Sprite3D"]
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-offset_bottom = 57.0
+[node name="SubViewportContainer" type="SubViewportContainer" parent="."]
+anchors_preset = -1
+anchor_right = 0.868
+anchor_bottom = 1.08
+offset_right = 0.0639648
+offset_bottom = 0.159973
 grow_horizontal = 2
 grow_vertical = 2
-script = ExtResource("2_jewpv")
 
-[node name="SubViewport" type="SubViewport" parent="Sprite3D/SubViewportContainer"]
+[node name="SubViewport" type="SubViewport" parent="SubViewportContainer"]
 transparent_bg = true
 handle_input_locally = false
-size = Vector2i(1000, 705)
+size = Vector2i(1000, 700)
 render_target_update_mode = 4
 
-[node name="MainControl" parent="Sprite3D/SubViewportContainer/SubViewport" instance=ExtResource("3_bwahu")]
+[node name="MainControl" parent="SubViewportContainer/SubViewport" instance=ExtResource("3_bwahu")]
 unique_name_in_owner = true
 
-[node name="ColorRect" parent="Sprite3D/SubViewportContainer/SubViewport/MainControl/HBoxContainer/Left/GridContainer/Control" index="0" node_paths=PackedStringArray("relative_to")]
+[node name="ColorRect" parent="SubViewportContainer/SubViewport/MainControl/HBoxContainer/Left/GridContainer/Control" index="0" node_paths=PackedStringArray("relative_to")]
 relative_to = NodePath("../../..")
 
-[node name="Button" parent="Sprite3D/SubViewportContainer/SubViewport/MainControl/HBoxContainer/Right/MarginContainer/VBoxContainer" index="0"]
+[node name="Button" parent="SubViewportContainer/SubViewport/MainControl/HBoxContainer/Right/MarginContainer/VBoxContainer" index="0"]
 script = ExtResource("4_5acxt")
 
-[node name="Button2" parent="Sprite3D/SubViewportContainer/SubViewport/MainControl/HBoxContainer/Right/MarginContainer/VBoxContainer" index="1"]
+[node name="Button2" parent="SubViewportContainer/SubViewport/MainControl/HBoxContainer/Right/MarginContainer/VBoxContainer" index="1"]
 script = ExtResource("4_5acxt")
 
-[node name="Button3" parent="Sprite3D/SubViewportContainer/SubViewport/MainControl/HBoxContainer/Right/MarginContainer/VBoxContainer" index="2"]
+[node name="Button3" parent="SubViewportContainer/SubViewport/MainControl/HBoxContainer/Right/MarginContainer/VBoxContainer" index="2"]
 script = ExtResource("4_5acxt")
 
-[editable path="Sprite3D/SubViewportContainer/SubViewport/MainControl"]
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+material_override = SubResource("StandardMaterial3D_sajdg")
+mesh = SubResource("QuadMesh_stl2b")
+
+[editable path="SubViewportContainer/SubViewport/MainControl"]
