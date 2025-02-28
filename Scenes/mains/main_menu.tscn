@@ -1,9 +1,15 @@
-[gd_scene load_steps=5 format=3 uid="uid://cltfmjw0bavf4"]
+[gd_scene load_steps=7 format=3 uid="uid://cltfmjw0bavf4"]
 
 [ext_resource type="Script" path="res://Scripts/UI/MainMenu/main_menu.gd" id="1_mex12"]
 [ext_resource type="PackedScene" uid="uid://jj8yuf0syk57" path="res://Scenes/managers/game_manager.tscn" id="2_c7t12"]
 [ext_resource type="PackedScene" uid="uid://cd7anw3qhpovq" path="res://Scenes/ui/controls/map_control.tscn" id="4_goatg"]
 [ext_resource type="PackedScene" uid="uid://cfx7q0sm4jea5" path="res://Scenes/ui/controls/main_menu_control.tscn" id="5_uyd07"]
+
+[sub_resource type="ViewportTexture" id="ViewportTexture_6owp8"]
+viewport_path = NodePath("XRUI/Map/SubViewportContainer/SubViewport")
+
+[sub_resource type="ViewportTexture" id="ViewportTexture_ndw64"]
+viewport_path = NodePath("XRUI/Main/SubViewportContainer/SubViewport")
 
 [node name="MAIN MENU" type="Node3D"]
 script = ExtResource("1_mex12")
@@ -11,21 +17,26 @@ script = ExtResource("1_mex12")
 [node name="GameManager" parent="." instance=ExtResource("2_c7t12")]
 
 [node name="XRUI" type="Node3D" parent="."]
-visible = false
 
 [node name="Map" type="Sprite3D" parent="XRUI"]
+transform = Transform3D(0.853296, 0, -0.521427, 0, 1, 0, 0.521427, 0, 0.853296, 5.03969, 4.65234, 0)
+texture = SubResource("ViewportTexture_6owp8")
 
 [node name="SubViewportContainer" type="SubViewportContainer" parent="XRUI/Map"]
 offset_right = 40.0
 offset_bottom = 40.0
+metadata/_edit_use_anchors_ = true
 
 [node name="SubViewport" type="SubViewport" parent="XRUI/Map/SubViewportContainer"]
 handle_input_locally = false
+size = Vector2i(1152, 648)
 render_target_update_mode = 4
 
 [node name="MapControl" parent="XRUI/Map/SubViewportContainer/SubViewport" instance=ExtResource("4_goatg")]
 
 [node name="Main" type="Sprite3D" parent="XRUI"]
+transform = Transform3D(0.887253, 0, 0.461284, 0, 1, 0, -0.461284, 0, 0.887253, -5.48924, 4.61799, -0.60686)
+texture = SubResource("ViewportTexture_ndw64")
 
 [node name="SubViewportContainer" type="SubViewportContainer" parent="XRUI/Main"]
 offset_right = 40.0
@@ -33,11 +44,13 @@ offset_bottom = 40.0
 
 [node name="SubViewport" type="SubViewport" parent="XRUI/Main/SubViewportContainer"]
 handle_input_locally = false
+size = Vector2i(1152, 648)
 render_target_update_mode = 4
 
 [node name="MainMenuControl" parent="XRUI/Main/SubViewportContainer/SubViewport" instance=ExtResource("5_uyd07")]
 
 [node name="DesktopUI" type="Node3D" parent="."]
+visible = false
 
 [node name="Sprite3D" type="Sprite3D" parent="DesktopUI"]
 
