@@ -1,17 +1,13 @@
-[gd_scene load_steps=29 format=3 uid="uid://b3ocr5doqonyu"]
+[gd_scene load_steps=25 format=3 uid="uid://b3ocr5doqonyu"]
 
 [ext_resource type="Script" path="res://Scripts/Misc/FoodTruck.gd" id="1_rvaml"]
 [ext_resource type="PackedScene" uid="uid://cv485pktorksn" path="res://Scenes/cookwear/cooktop.tscn" id="2_vnxue"]
 [ext_resource type="PackedScene" uid="uid://caiym4bxd68to" path="res://Scenes/cookwear/table.tscn" id="3_87muv"]
 [ext_resource type="PackedScene" uid="uid://bmfn7nnstf5ve" path="res://Scenes/cookwear/fryer.tscn" id="4_q7klp"]
 [ext_resource type="PackedScene" uid="uid://bnnh4k2t41n0l" path="res://Scenes/cookwear/soda_machine.tscn" id="5_w5osk"]
-[ext_resource type="PackedScene" uid="uid://bvhk5tuyd686e" path="res://Scenes/food/food_spawner.tscn" id="6_0r1ja"]
-[ext_resource type="PackedScene" uid="uid://fkjb8mg8enxf" path="res://Scenes/food/burger.tscn" id="7_wfhy5"]
-[ext_resource type="PackedScene" uid="uid://ca6thqwccusde" path="res://Scenes/food/cup.tscn" id="8_d63o7"]
-[ext_resource type="PackedScene" uid="uid://b3024k6shxqvg" path="res://Scenes/food/bun.tscn" id="9_ib87w"]
-[ext_resource type="PackedScene" uid="uid://cdm4qy124ys6o" path="res://Scenes/food/fries.tscn" id="10_xfg8j"]
 [ext_resource type="PackedScene" uid="uid://b2x5v5mwhvvmy" path="res://Scenes/misc/finished_order_bell.tscn" id="11_na1yo"]
 [ext_resource type="PackedScene" uid="uid://dq04w2oxbyp7f" path="res://Scenes/environment/light.tscn" id="12_o0it0"]
+[ext_resource type="PackedScene" uid="uid://b38ntd24kv4sw" path="res://Scenes/cookwear/cabinet.tscn" id="13_kvgqm"]
 [ext_resource type="Script" path="res://Scripts/Enviornment/OrderHitbox.gd" id="14_n46fa"]
 [ext_resource type="PackedScene" uid="uid://cqfghqikinccl" path="res://Assets/World/food_truck_v3.glb" id="15_4upiy"]
 [ext_resource type="PackedScene" uid="uid://bqqwcdfwo3i5m" path="res://Scenes/environment/tv.tscn" id="16_5lsjn"]
@@ -65,25 +61,6 @@ transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, -0.560
 collision_layer = 0
 collision_mask = 0
 
-[node name="Spawners" type="Node3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.012, 1.51527, 0.250902)
-
-[node name="Burger Spawner" parent="Spawners" instance=ExtResource("6_0r1ja")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.560836, 0.396229, 0)
-food_resource = ExtResource("7_wfhy5")
-
-[node name="Cup Spawner" parent="Spawners" instance=ExtResource("6_0r1ja")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.255501, 0.396229, 0)
-food_resource = ExtResource("8_d63o7")
-
-[node name="Bun Spawner" parent="Spawners" instance=ExtResource("6_0r1ja")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.481131, 0.396229, 0)
-food_resource = ExtResource("9_ib87w")
-
-[node name="Fry Spawner" parent="Spawners" instance=ExtResource("6_0r1ja")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.131985, 0.396229, 0)
-food_resource = ExtResource("10_xfg8j")
-
 [node name="Cookwear" type="Node3D" parent="."]
 
 [node name="Cooktop" parent="Cookwear" instance=ExtResource("2_vnxue")]
@@ -97,6 +74,12 @@ transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 2.4922
 
 [node name="Table" parent="Cookwear" instance=ExtResource("3_87muv")]
 transform = Transform3D(-4.37114e-09, 0, -0.1, 0, 0.1, 0, 0.1, 0, -4.37114e-09, 1.01161, 0.752259, 0.628773)
+
+[node name="Trash Can" parent="Cookwear" instance=ExtResource("16_i5ql0")]
+transform = Transform3D(0.3, 0, 0, 0, 0.3, 0, 0, 0, 0.3, 2.7878, 0.746105, -0.887227)
+
+[node name="Cabinet" parent="Cookwear" instance=ExtResource("13_kvgqm")]
+transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 1.06952, 2.19182, 1.31547)
 
 [node name="Lights" type="Node3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 3.10291, -0.266257)
@@ -205,9 +188,6 @@ shape = SubResource("BoxShape3D_fge8j")
 [node name="RightTopWall" type="CollisionShape3D" parent="TruckCollider"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.920155, 3.41861, -1.3652)
 shape = SubResource("BoxShape3D_m3460")
-
-[node name="Trash Can" parent="." instance=ExtResource("16_i5ql0")]
-transform = Transform3D(0.3, 0, 0, 0, 0.3, 0, 0, 0, 0.3, 2.7878, 0.746105, -0.887227)
 
 [connection signal="timeout" from="New Order Timer" to="." method="maybe_invoke_ordering"]
 

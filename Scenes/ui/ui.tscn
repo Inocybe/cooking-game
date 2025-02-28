@@ -42,10 +42,7 @@ relative_to = NodePath("../../..")
 [node name="Button" parent="SubViewportContainer/SubViewport/MainControl/HBoxContainer/Right/MarginContainer/VBoxContainer" index="0"]
 script = ExtResource("4_5acxt")
 
-[node name="Button2" parent="SubViewportContainer/SubViewport/MainControl/HBoxContainer/Right/MarginContainer/VBoxContainer" index="1"]
-script = ExtResource("4_5acxt")
-
-[node name="Button3" parent="SubViewportContainer/SubViewport/MainControl/HBoxContainer/Right/MarginContainer/VBoxContainer" index="2"]
+[node name="Button3" parent="SubViewportContainer/SubViewport/MainControl/HBoxContainer/Right/MarginContainer/VBoxContainer" index="1"]
 script = ExtResource("4_5acxt")
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="."]
