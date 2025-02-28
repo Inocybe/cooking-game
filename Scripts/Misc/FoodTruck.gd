@@ -25,7 +25,7 @@ func is_dish_position_occupied(pos: Node3D) -> bool:
 		return false
 	if raycast["collider"] == null:
 		return false
-	return raycast["collider"].get_name() != "Truck Body"
+	return raycast["collider"].get_name() != "TreyPositionCollision"
 
  
 func choose_best_dish_spawnpoint() -> Node3D:

@@ -58,10 +58,10 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0296402, -0.0441494, -0.03
 script = ExtResource("1_rvaml")
 dish_spawnpoints = [NodePath("Food Tray Positions/1"), NodePath("Food Tray Positions/2"), NodePath("Food Tray Positions/3"), NodePath("Food Tray Positions/4")]
 
-[node name="food_truck_v3" parent="." instance=ExtResource("15_4upiy")]
+[node name="Food Truck Model" parent="." instance=ExtResource("15_4upiy")]
 transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, -0.560616, 0, 0)
 
-[node name="collision" parent="food_truck_v3" index="2"]
+[node name="collision" parent="Food Truck Model" index="2"]
 collision_layer = 0
 collision_mask = 0
 
@@ -133,16 +133,16 @@ wait_time = 20.0
 autostart = true
 
 [node name="OrderingPosition" type="Node3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.1707, 2.38419e-07, -3.80775)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.1707, 2.38419e-07, -3.16919)
 
 [node name="Areas" type="Node3D" parent="."]
 
 [node name="DoOrderHitbox" type="Area3D" parent="Areas"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.12232, 0, -3.36127)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.12232, 0, -2.88426)
 script = ExtResource("14_n46fa")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Areas/DoOrderHitbox"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.052002, 0.898926, -0.310088)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.899, 0)
 shape = SubResource("BoxShape3D_nb8ur")
 
 [node name="FinishedOrderPosition" type="Area3D" parent="Areas"]
@@ -170,39 +170,39 @@ collision_mask = 7
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.022583, 0.246105, 0.09198)
 shape = SubResource("BoxShape3D_aej1q")
 
-[node name="CollisionShape" type="StaticBody3D" parent="."]
+[node name="TruckCollider" type="StaticBody3D" parent="."]
 collision_layer = 3
 collision_mask = 3
 
-[node name="LeftWall" type="CollisionShape3D" parent="CollisionShape"]
+[node name="LeftWall" type="CollisionShape3D" parent="TruckCollider"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0153809, 1.97379, 1.33694)
 shape = SubResource("BoxShape3D_qimnc")
 
-[node name="FrontWall" type="CollisionShape3D" parent="CollisionShape"]
+[node name="FrontWall" type="CollisionShape3D" parent="TruckCollider"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.91236, 2.03337, -0.109985)
 shape = SubResource("BoxShape3D_megdg")
 
-[node name="BackWall" type="CollisionShape3D" parent="CollisionShape"]
+[node name="BackWall" type="CollisionShape3D" parent="TruckCollider"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.32518, 1.95944, -0.00970461)
 shape = SubResource("BoxShape3D_66uti")
 
-[node name="RightWall" type="CollisionShape3D" parent="CollisionShape"]
+[node name="RightWall" type="CollisionShape3D" parent="TruckCollider"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.31219, 0.856689, -1.41476)
 shape = SubResource("BoxShape3D_ni10u")
 
-[node name="RightFrontWall" type="CollisionShape3D" parent="CollisionShape"]
+[node name="RightFrontWall" type="CollisionShape3D" parent="TruckCollider"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.94713, 1.99155, -1.37536)
 shape = SubResource("BoxShape3D_cy1ld")
 
-[node name="Ceiling" type="CollisionShape3D" parent="CollisionShape"]
+[node name="Ceiling" type="CollisionShape3D" parent="TruckCollider"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.30719, 3.69999, -0.0166016)
 shape = SubResource("BoxShape3D_of7it")
 
-[node name="RightBackWall" type="CollisionShape3D" parent="CollisionShape"]
+[node name="RightBackWall" type="CollisionShape3D" parent="TruckCollider"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.01906, 1.98526, -1.39067)
 shape = SubResource("BoxShape3D_fge8j")
 
-[node name="RightTopWall" type="CollisionShape3D" parent="CollisionShape"]
+[node name="RightTopWall" type="CollisionShape3D" parent="TruckCollider"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.920155, 3.41861, -1.3652)
 shape = SubResource("BoxShape3D_m3460")
 
@@ -211,4 +211,4 @@ transform = Transform3D(0.3, 0, 0, 0, 0.3, 0, 0, 0, 0.3, 2.7878, 0.746105, -0.88
 
 [connection signal="timeout" from="New Order Timer" to="." method="maybe_invoke_ordering"]
 
-[editable path="food_truck_v3"]
+[editable path="Food Truck Model"]
