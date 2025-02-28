@@ -3,7 +3,7 @@ extends XRController3D
 
 @export var remote_touch_distance: float = 5
 
-@export var grip_cutoff: float = 0.5
+@export var grip_cutoff: float = 0.7
 @export var trigger_cutoff: float = 0.5
 
 @export var shake_max_time: float = 0.2
