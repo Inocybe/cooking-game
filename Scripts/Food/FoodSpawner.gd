@@ -16,7 +16,8 @@ func _process(_delta: float) -> void:
 		spawn_food()
 		return
 	
-	if min_respawn_timer.
+	if min_respawn_timer.time_left > 0:
+		return
 	
 	var camera: Node3D = Global.game_manager.get_camera_node()
 	var rel_pos = global_position - camera.global_position

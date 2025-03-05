@@ -4,7 +4,7 @@
 
 [node name="FoodSpawner" type="Node3D"]
 script = ExtResource("1_2kn5b")
-appear_angle = null
 
 [node name="MinRespawnTimer" type="Timer" parent="."]
 wait_time = 5.0
+one_shot = true
