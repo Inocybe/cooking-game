@@ -28,7 +28,7 @@ transform = Transform3D(0.15, 0, 0, 0, -6.55671e-09, 0.15, 0, -0.15, -6.55671e-0
 shape = SubResource("ConcavePolygonShape3D_gibp6")
 
 [node name="Spawners" type="Node3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.00358105, 0.616666, 0.602861)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.00358105, 0.616666, 0.542447)
 
 [node name="Burger Spawner" parent="Spawners" node_paths=PackedStringArray("respawn_bound") instance=ExtResource("2_ut86s")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.45, 0, 0)
