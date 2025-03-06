@@ -6,7 +6,7 @@ extends Node3D
 @export var respawn_bound: Area3D
 
 @export var food_resource: Resource
-@export var appear_angle: float = 0 # PI / 2
+@export var appear_angle: float = PI / 2
 
 var last_food: Node3D = null
 
@@ -25,7 +25,6 @@ func _process(_delta: float) -> void:
 		return
 	
 	if not respawn_bound.overlaps_body(last_food):
-		print(last_food)
 		spawn_food()
 
 
