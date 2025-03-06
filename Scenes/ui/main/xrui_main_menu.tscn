@@ -1,0 +1,40 @@
+[gd_scene load_steps=4 format=3 uid="uid://b1cx2gp0v3dl2"]
+
+[ext_resource type="PackedScene" uid="uid://cd7anw3qhpovq" path="res://Scenes/ui/controls/map_control.tscn" id="1_0nmh7"]
+[ext_resource type="Script" uid="uid://cl8g4o5eqqnp5" path="res://Scripts/UI/UIController.gd" id="1_qxcqj"]
+[ext_resource type="PackedScene" uid="uid://cfx7q0sm4jea5" path="res://Scenes/ui/controls/main_menu_control.tscn" id="2_qxcqj"]
+
+[node name="XRUI" type="Node3D"]
+
+[node name="Map" type="Node3D" parent="."]
+transform = Transform3D(0.853296, 0, -0.521427, 0, 1, 0, 0.521427, 0, 0.853296, 5.03969, 4.65234, 0)
+script = ExtResource("1_qxcqj")
+
+[node name="SubViewportContainer" type="SubViewportContainer" parent="Map"]
+offset_right = 40.0
+offset_bottom = 40.0
+mouse_filter = 2
+metadata/_edit_use_anchors_ = true
+
+[node name="SubViewport" type="SubViewport" parent="Map/SubViewportContainer"]
+handle_input_locally = false
+size = Vector2i(1152, 648)
+render_target_update_mode = 4
+
+[node name="MapControl" parent="Map/SubViewportContainer/SubViewport" instance=ExtResource("1_0nmh7")]
+
+[node name="Main" type="Node3D" parent="."]
+transform = Transform3D(0.887253, 0, 0.461284, 0, 1, 0, -0.461284, 0, 0.887253, -5.48924, 4.61799, -0.316974)
+script = ExtResource("1_qxcqj")
+
+[node name="SubViewportContainer" type="SubViewportContainer" parent="Main"]
+offset_right = 40.0
+offset_bottom = 40.0
+mouse_filter = 2
+
+[node name="SubViewport" type="SubViewport" parent="Main/SubViewportContainer"]
+handle_input_locally = false
+size = Vector2i(1152, 648)
+render_target_update_mode = 4
+
+[node name="MainMenuControl" parent="Main/SubViewportContainer/SubViewport" instance=ExtResource("2_qxcqj")]

@@ -35,7 +35,8 @@ func _ready() -> void:
 
 
 func _process(_delta: float) -> void:
-	call_ui_updates()
+	if food_truck:
+		call_ui_updates()
 
 
 func _input(event: InputEvent) -> void:
