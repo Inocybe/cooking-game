@@ -1,6 +1,6 @@
 [gd_scene load_steps=3 format=3 uid="uid://b1ysbf8y1uwov"]
 
-[ext_resource type="Script" path="res://Scripts/Player/XRHandController.gd" id="1_ty1hw"]
+[ext_resource type="Script" uid="uid://d3o2l5xivt5ne" path="res://Scripts/Player/XRHandController.gd" id="1_ty1hw"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_r8ri3"]
 size = Vector3(0.14146, 0.0841217, 0.141533)

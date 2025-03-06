@@ -1,9 +1,9 @@
 [gd_scene load_steps=7 format=3 uid="uid://5s3oxlpup0wy"]
 
-[ext_resource type="Script" path="res://Scripts/Player/Player.gd" id="1_n5jpm"]
-[ext_resource type="Script" path="res://Scripts/Player/Camera.gd" id="1_onmnn"]
-[ext_resource type="Script" path="res://Scripts/Player/Reticle.gd" id="3_q220s"]
-[ext_resource type="Script" path="res://Scripts/Misc/DebugDisplay.gd" id="4_1ejs7"]
+[ext_resource type="Script" uid="uid://7kxb36mg6gt3" path="res://Scripts/Player/Player.gd" id="1_n5jpm"]
+[ext_resource type="Script" uid="uid://dwuvuqlddr2i6" path="res://Scripts/Player/Camera.gd" id="1_onmnn"]
+[ext_resource type="Script" uid="uid://c72jmh6e3a8vu" path="res://Scripts/Player/Reticle.gd" id="3_q220s"]
+[ext_resource type="Script" uid="uid://bp0ouloksrqsx" path="res://Scripts/Misc/DebugDisplay.gd" id="4_1ejs7"]
 
 [sub_resource type="CapsuleMesh" id="CapsuleMesh_mf15t"]
 

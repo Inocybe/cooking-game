@@ -1,10 +1,10 @@
 [gd_scene load_steps=25 format=3 uid="uid://bnnh4k2t41n0l"]
 
-[ext_resource type="Script" path="res://Scripts/Cookwear/SodaMachine.gd" id="1_480ux"]
-[ext_resource type="Shader" path="res://Scripts/Shaders/BubbleShader.gdshader" id="2_8k15g"]
-[ext_resource type="Script" path="res://Scripts/Misc/SodaMachineButton.gd" id="3_doyl0"]
+[ext_resource type="Script" uid="uid://dwjacryhdmq1p" path="res://Scripts/Cookwear/SodaMachine.gd" id="1_480ux"]
+[ext_resource type="Shader" uid="uid://cfrpfmombooca" path="res://Scripts/Shaders/BubbleShader.gdshader" id="2_8k15g"]
+[ext_resource type="Script" uid="uid://dwi4kxh3v4ytq" path="res://Scripts/Misc/SodaMachineButton.gd" id="3_doyl0"]
 [ext_resource type="ArrayMesh" uid="uid://b3hirogdjwhcs" path="res://Assets/cookwear/soda_machine/Soda Machine.obj" id="4_dxvpm"]
-[ext_resource type="Script" path="res://Scripts/Cookwear/SodaMachineParticles.gd" id="4_vcjki"]
+[ext_resource type="Script" uid="uid://dikdydygre5n" path="res://Scripts/Cookwear/SodaMachineParticles.gd" id="4_vcjki"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_h0ur8"]
 transparency = 1
@@ -29,6 +29,7 @@ noise = SubResource("FastNoiseLite_xc7ke")
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_mr2fa"]
 render_priority = 0
 shader = ExtResource("2_8k15g")
+shader_parameter/noise_texture = SubResource("NoiseTexture3D_imdbm")
 shader_parameter/base_color = Color(0.42, 0.17619, 0.0798, 0.980392)
 shader_parameter/bubble_color = Color(1, 1, 1, 1)
 shader_parameter/time_scale = 0.1
@@ -36,7 +37,6 @@ shader_parameter/bubble_cutoff = 0.7
 shader_parameter/position_scale = 3.0
 shader_parameter/round_amount = 0.03
 shader_parameter/max_bubble_radius = 1.0
-shader_parameter/noise_texture = SubResource("NoiseTexture3D_imdbm")
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_qtgfu"]
 size = Vector3(2, 2, 2)

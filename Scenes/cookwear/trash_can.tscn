@@ -1,7 +1,7 @@
 [gd_scene load_steps=6 format=3 uid="uid://cc6na2w6f2gjp"]
 
 [ext_resource type="PackedScene" uid="uid://bd8xcqqjmv34t" path="res://Assets/cookwear/can/can.blend" id="1_ctfua"]
-[ext_resource type="Script" path="res://Scripts/Cookwear/TrashCan.gd" id="1_qsd77"]
+[ext_resource type="Script" uid="uid://076ecec87dmf" path="res://Scripts/Cookwear/TrashCan.gd" id="1_qsd77"]
 
 [sub_resource type="CylinderMesh" id="CylinderMesh_on8j5"]
 top_radius = 1.1
