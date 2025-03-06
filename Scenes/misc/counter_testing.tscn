@@ -1,8 +1,8 @@
 [gd_scene load_steps=6 format=3 uid="uid://cfwacnry4nf1"]
 
-[ext_resource type="PackedScene" uid="uid://5s3oxlpup0wy" path="res://Scenes/player/player.tscn" id="1_7kdtw"]
+[ext_resource type="PackedScene" uid="uid://5s3oxlpup0wy" path="res://Scenes/misc/player.tscn" id="1_7kdtw"]
 [ext_resource type="PackedScene" uid="uid://lqh5vyeea7f8" path="res://Scenes/cookwear/counter.tscn" id="1_vqj2m"]
-[ext_resource type="PackedScene" uid="uid://ckiyjb0ruqetn" path="res://Scenes/ground.tscn" id="2_cdilm"]
+[ext_resource type="PackedScene" uid="uid://ckiyjb0ruqetn" path="res://Scenes/environment/ground.tscn" id="2_cdilm"]
 
 [sub_resource type="CapsuleMesh" id="CapsuleMesh_2ennv"]
 

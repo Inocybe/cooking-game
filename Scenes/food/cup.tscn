@@ -1,7 +1,7 @@
 [gd_scene load_steps=7 format=3 uid="uid://ca6thqwccusde"]
 
 [ext_resource type="PackedScene" uid="uid://7q370aiw7csi" path="res://Assets/food/cup/cup.blend" id="1_d6bin"]
-[ext_resource type="Script" path="res://Scripts/Food/Cup.gd" id="1_j075t"]
+[ext_resource type="Script" uid="uid://dawxx47p16l67" path="res://Scripts/Food/Cup.gd" id="1_j075t"]
 
 [sub_resource type="CylinderShape3D" id="CylinderShape3D_bwg4b"]
 height = 0.275
@@ -37,7 +37,7 @@ tracks/1/keys = {
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_ry0y6"]
 _data = {
-"Fill": SubResource("Animation_8lrdf")
+&"Fill": SubResource("Animation_8lrdf")
 }
 
 [sub_resource type="CylinderMesh" id="CylinderMesh_qwdt1"]

@@ -1,11 +1,11 @@
 [gd_scene load_steps=19 format=3 uid="uid://bmfn7nnstf5ve"]
 
-[ext_resource type="Script" path="res://Scripts/Cookwear/CookwearBase.gd" id="1_0qara"]
+[ext_resource type="Script" uid="uid://bxwwb60elrjrn" path="res://Scripts/Cookwear/CookwearBase.gd" id="1_0qara"]
 [ext_resource type="PackedScene" uid="uid://hk4tw1ihmdyx" path="res://Assets/cookwear/fryer/fryer.blend" id="1_b3kne"]
-[ext_resource type="Script" path="res://Scripts/Cookwear/FryBasket.gd" id="2_i8vih"]
+[ext_resource type="Script" uid="uid://wjyba0xol8b8" path="res://Scripts/Cookwear/FryBasket.gd" id="2_i8vih"]
 [ext_resource type="ArrayMesh" uid="uid://vmb5c05mvi3m" path="res://Assets/cookwear/fryer/Fry Basket.obj" id="3_avjgy"]
-[ext_resource type="Shader" path="res://Scripts/Shaders/BubbleShader.gdshader" id="3_i8tab"]
-[ext_resource type="Script" path="res://Scripts/Cookwear/Oil.gd" id="4_omym2"]
+[ext_resource type="Shader" uid="uid://cfrpfmombooca" path="res://Scripts/Shaders/BubbleShader.gdshader" id="3_i8tab"]
+[ext_resource type="Script" uid="uid://dfc4ipg83pbqa" path="res://Scripts/Cookwear/Oil.gd" id="4_omym2"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_7uoui"]
 size = Vector3(2, 1, 2)
@@ -32,6 +32,7 @@ noise = SubResource("FastNoiseLite_37xbe")
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_5gi8m"]
 render_priority = 0
 shader = ExtResource("3_i8tab")
+shader_parameter/noise_texture = SubResource("NoiseTexture3D_75qut")
 shader_parameter/base_color = Color(0.831373, 0.486275, 0.207843, 0.815686)
 shader_parameter/bubble_color = Color(1, 1, 1, 1)
 shader_parameter/time_scale = 0.1
@@ -39,7 +40,6 @@ shader_parameter/bubble_cutoff = 0.7
 shader_parameter/position_scale = 3.0
 shader_parameter/round_amount = 0.03
 shader_parameter/max_bubble_radius = 1.0
-shader_parameter/noise_texture = SubResource("NoiseTexture3D_75qut")
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_2s587"]
 size = Vector3(0.7, 0.2, 0.7)

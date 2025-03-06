@@ -1,7 +1,7 @@
 [gd_scene load_steps=5 format=3 uid="uid://cdm4qy124ys6o"]
 
-[ext_resource type="Script" path="res://Scripts/Food/Cookable.gd" id="1_4snbo"]
-[ext_resource type="Script" path="res://Scripts/Food/BasicFood.gd" id="1_i826k"]
+[ext_resource type="Script" uid="uid://h6n0dxh4d6ri" path="res://Scripts/Food/Cookable.gd" id="1_4snbo"]
+[ext_resource type="Script" uid="uid://bhjsmhin0ksi2" path="res://Scripts/Food/BasicFood.gd" id="1_i826k"]
 [ext_resource type="PackedScene" uid="uid://dsrcak3dl0ihe" path="res://Assets/food/fries.blend" id="1_m3d73"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_ejgeh"]

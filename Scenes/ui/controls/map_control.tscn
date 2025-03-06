@@ -1,35 +1,8 @@
 [gd_scene load_steps=7 format=3 uid="uid://cd7anw3qhpovq"]
 
-[ext_resource type="Script" path="res://Scripts/UI/MainMenu/map_control.gd" id="1_5hudg"]
+[ext_resource type="Script" uid="uid://c3h5ekk41jdvq" path="res://Scripts/UI/MainMenu/map_control.gd" id="1_5hudg"]
 [ext_resource type="Texture2D" uid="uid://brswl0f07gyuu" path="res://icon.svg" id="1_urjih"]
-[ext_resource type="Script" path="res://Scripts/UI/MainMenu/map_button.gd" id="2_6fdfh"]
-
-[sub_resource type="Animation" id="Animation_akkhf"]
-resource_name = "display_town_values"
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("TextEdit:modulate")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0, 1),
-"transitions": PackedFloat32Array(1, 1),
-"update": 0,
-"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1)]
-}
-tracks/1/type = "value"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath("TextEdit:position")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/keys = {
-"times": PackedFloat32Array(0, 1),
-"transitions": PackedFloat32Array(1, 1),
-"update": 0,
-"values": [Vector2(0, -19), Vector2(65, -19)]
-}
+[ext_resource type="Script" uid="uid://0lvqxgurg3oj" path="res://Scripts/UI/MainMenu/map_button.gd" id="2_6fdfh"]
 
 [sub_resource type="Animation" id="Animation_d4j1p"]
 length = 0.001
@@ -58,10 +31,37 @@ tracks/1/keys = {
 "values": [Vector2(-54, -19)]
 }
 
+[sub_resource type="Animation" id="Animation_akkhf"]
+resource_name = "display_town_values"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("TextEdit:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("TextEdit:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(0, -19), Vector2(65, -19)]
+}
+
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_n8nar"]
 _data = {
-"RESET": SubResource("Animation_d4j1p"),
-"display_town_values": SubResource("Animation_akkhf")
+&"RESET": SubResource("Animation_d4j1p"),
+&"display_town_values": SubResource("Animation_akkhf")
 }
 
 [node name="MapControl" type="Control" node_paths=PackedStringArray("town_buttons")]

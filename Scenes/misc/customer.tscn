@@ -1,6 +1,6 @@
 [gd_scene load_steps=10 format=3 uid="uid://bkyacjbaq3p"]
 
-[ext_resource type="Script" path="res://Scripts/Customers/Customer.gd" id="1_ds7bf"]
+[ext_resource type="Script" uid="uid://dhr0hr1k83ovb" path="res://Scripts/Customers/Customer.gd" id="1_ds7bf"]
 [ext_resource type="Texture2D" uid="uid://b2ck5m6nl44aj" path="res://Assets/Sprites/2d_food_items.png" id="2_rejie"]
 
 [sub_resource type="CylinderShape3D" id="CylinderShape3D_07yf6"]
@@ -180,9 +180,9 @@ tracks/5/keys = {
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_8vnfi"]
 _data = {
-"RESET": SubResource("Animation_m6tk2"),
-"awaiting_order_taken": SubResource("Animation_vv4xd"),
-"collect_order": SubResource("Animation_db6yr")
+&"RESET": SubResource("Animation_m6tk2"),
+&"awaiting_order_taken": SubResource("Animation_vv4xd"),
+&"collect_order": SubResource("Animation_db6yr")
 }
 
 [node name="Customer" type="AnimatableBody3D" groups=["interactable", "remote-interactable"]]

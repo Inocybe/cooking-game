@@ -1,6 +1,6 @@
 [gd_scene load_steps=7 format=3 uid="uid://bws6s6beiqqk8"]
 
-[ext_resource type="Script" path="res://Scripts/Misc/Spill.gd" id="1_1qtge"]
+[ext_resource type="Script" uid="uid://dwm6uia55immg" path="res://Scripts/Misc/Spill.gd" id="1_1qtge"]
 
 [sub_resource type="CylinderMesh" id="CylinderMesh_itsnd"]
 top_radius = 0.0
@@ -33,8 +33,8 @@ tracks/0/keys = PackedFloat32Array(0, 1, 0, 0, 0, 0.2, 1, 1, 1, 1)
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_eg7co"]
 _data = {
-"RESET": SubResource("Animation_3immn"),
-"grow": SubResource("Animation_nqr52")
+&"RESET": SubResource("Animation_3immn"),
+&"grow": SubResource("Animation_nqr52")
 }
 
 [node name="Spill" type="Area3D"]

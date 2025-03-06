@@ -3,7 +3,7 @@
 [ext_resource type="PackedScene" uid="uid://jj8yuf0syk57" path="res://Scenes/managers/game_manager.tscn" id="1_0s671"]
 [ext_resource type="PackedScene" uid="uid://b3ocr5doqonyu" path="res://Scenes/environment/food_truck.tscn" id="2_3dmfd"]
 [ext_resource type="PackedScene" uid="uid://5s3oxlpup0wy" path="res://Scenes/misc/player.tscn" id="2_rbjev"]
-[ext_resource type="Script" path="res://Scripts/Misc/PointSampler.gd" id="5_xk452"]
+[ext_resource type="Script" uid="uid://14md2o3tq1pe" path="res://Scripts/Misc/PointSampler.gd" id="5_xk452"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_r88qt"]
 
