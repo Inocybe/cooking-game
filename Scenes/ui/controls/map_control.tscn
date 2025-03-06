@@ -105,7 +105,7 @@ script = ExtResource("2_6fdfh")
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="Town"]
 libraries = {
-"": SubResource("AnimationLibrary_n8nar")
+&"": SubResource("AnimationLibrary_n8nar")
 }
 
 [node name="TextEdit" type="TextEdit" parent="Town"]

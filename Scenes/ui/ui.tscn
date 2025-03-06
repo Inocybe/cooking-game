@@ -1,6 +1,6 @@
 [gd_scene load_steps=7 format=3 uid="uid://b4k2x0teld7lx"]
 
-[ext_resource type="Script" uid="uid://cl8g4o5eqqnp5" path="res://Scripts/UIController.gd" id="1_fwoal"]
+[ext_resource type="Script" uid="uid://cl8g4o5eqqnp5" path="res://Scripts/UI/UIController.gd" id="1_fwoal"]
 [ext_resource type="PackedScene" uid="uid://dts51sc5121xa" path="res://Scenes/ui/controls/main_control.tscn" id="3_bwahu"]
 [ext_resource type="Script" uid="uid://dnh71cucei8ce" path="res://Scripts/UI/DebugButton.gd" id="4_5acxt"]
 
