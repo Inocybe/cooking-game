@@ -8,11 +8,14 @@ var desktop_ui: Control
 var xr_ui
 
 func _ready() -> void:
+	Input.mouse_mode = Input.MOUSE_MODE_VISIBLE
+	
 	desktop_ui = DESKOPUI_MAIN_MENU.instantiate()
 	Global.current_scene.add_child(desktop_ui)
 	
 	
 	game_manager.connect("XR_Detected", on_xr_detection)
+	Global.order_manager.queue_free()
 	
 
 func on_xr_detection() -> void:

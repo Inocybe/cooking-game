@@ -25,6 +25,11 @@ func on_XR_detected() -> void:
 	max_speed = vr_max_speed
 	$CollisionShape3D.shape.radius *= vr_radius_multiplier
 
+func _input(event: InputEvent) -> void:
+	if event.is_action_pressed("ui_cancel"):
+		Input.mouse_mode = Input.MOUSE_MODE_VISIBLE
+	if event.is_action_pressed("click"):
+		Input.mouse_mode = Input.MOUSE_MODE_CAPTURED
 
 func _unhandled_input(event: InputEvent) -> void:
 	if event.is_action_pressed("click_right"):

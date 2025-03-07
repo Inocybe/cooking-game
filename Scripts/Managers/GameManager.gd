@@ -39,13 +39,6 @@ func _process(_delta: float) -> void:
 		call_ui_updates()
 
 
-func _input(event: InputEvent) -> void:
-	if event.is_action_pressed("ui_cancel"):
-		Input.mouse_mode = Input.MOUSE_MODE_VISIBLE
-	if event.is_action_pressed("click"):
-		Input.mouse_mode = Input.MOUSE_MODE_CAPTURED
-
-
 func return_player() -> CharacterBody3D:
 	return player
 
