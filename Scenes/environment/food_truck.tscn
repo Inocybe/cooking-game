@@ -1,4 +1,4 @@
-[gd_scene load_steps=25 format=3 uid="uid://b3ocr5doqonyu"]
+[gd_scene load_steps=27 format=3 uid="uid://b3ocr5doqonyu"]
 
 [ext_resource type="Script" uid="uid://vgybkb0n3meq" path="res://Scripts/Misc/FoodTruck.gd" id="1_rvaml"]
 [ext_resource type="PackedScene" uid="uid://cv485pktorksn" path="res://Scenes/cookwear/cooktop.tscn" id="2_vnxue"]
@@ -7,6 +7,7 @@
 [ext_resource type="PackedScene" uid="uid://bnnh4k2t41n0l" path="res://Scenes/cookwear/soda_machine.tscn" id="5_w5osk"]
 [ext_resource type="PackedScene" uid="uid://b2x5v5mwhvvmy" path="res://Scenes/misc/finished_order_bell.tscn" id="11_na1yo"]
 [ext_resource type="PackedScene" uid="uid://dq04w2oxbyp7f" path="res://Scenes/environment/light.tscn" id="12_o0it0"]
+[ext_resource type="Script" uid="uid://nkiw5hes200n" path="res://Scripts/Enviornment/DeathBarrier.gd" id="13_irxj3"]
 [ext_resource type="PackedScene" uid="uid://b38ntd24kv4sw" path="res://Scenes/cookwear/cabinet.tscn" id="13_kvgqm"]
 [ext_resource type="Script" uid="uid://dwvpetnoh6fji" path="res://Scripts/Enviornment/OrderHitbox.gd" id="14_n46fa"]
 [ext_resource type="PackedScene" uid="uid://cqfghqikinccl" path="res://Assets/World/food_truck_v3.glb" id="15_4upiy"]
@@ -48,6 +49,9 @@ size = Vector3(0.913574, 3.53705, 0.164307)
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_m3460"]
 size = Vector3(3.30786, 0.784668, 0.138916)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_eq4wl"]
+size = Vector3(8.06403, 3.82294, 4.13226)
 
 [node name="FoodTruck" type="Node3D" node_paths=PackedStringArray("dish_spawnpoints") groups=["interactable"]]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0296402, -0.0441494, -0.0324593)
@@ -189,6 +193,14 @@ shape = SubResource("BoxShape3D_fge8j")
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.920155, 3.41861, -1.3652)
 shape = SubResource("BoxShape3D_m3460")
 
+[node name="Death Barrier" type="Area3D" parent="."]
+script = ExtResource("13_irxj3")
+
+[node name="Death Barrier Shape" type="CollisionShape3D" parent="Death Barrier"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.563141, 1.94534, -0.497894)
+shape = SubResource("BoxShape3D_eq4wl")
+
 [connection signal="timeout" from="New Order Timer" to="." method="maybe_invoke_ordering"]
+[connection signal="body_exited" from="Death Barrier" to="Death Barrier" method="body_exit"]
 
 [editable path="Food Truck Model"]
