@@ -10,10 +10,7 @@ var current_scene: Node3D = null
 
 
 func _ready():
-	if get_tree().current_scene:
-		current_scene = get_tree().current_scene  # Reference to the current scene
-	else:
-		current_scene = null
+	current_scene = get_tree().current_scene
 	find_managers()
 
 

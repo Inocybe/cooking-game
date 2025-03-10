@@ -12,4 +12,11 @@ func set_oil_active(active: bool) -> void:
 
 
 func on_food_exit_enter(cookwear: CookwearBase) -> void:
-	set_oil_active(cookwear.food_cooking.size() > 0)
+	var is_cooking = cookwear.food_cooking.size() > 0
+	set_oil_active(is_cooking)
+	var frying_audio = $FryingAudioPlayer
+	if is_cooking:
+		if not frying_audio.playing:
+			frying_audio.play()
+	else:
+		frying_audio.stop()

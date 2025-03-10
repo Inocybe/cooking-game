@@ -1,7 +1,0 @@
-[gd_scene load_steps=2 format=3 uid="uid://cbr83104bx5ji"]
-
-[sub_resource type="Resource" id="Resource_dsnhr"]
-metadata/__load_path__ = "res://Scripts/Managers/FoodManager.gd"
-
-[node name="FoodManager" type="Node"]
-script = SubResource("Resource_dsnhr")

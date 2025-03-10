@@ -8,36 +8,36 @@ class_name Cookable extends Node
 @export var burnt_color: Color
 @export var required_cooking_type: CookwearBase.CookingType
 @export var mesh_glob = "*"
+@export var cook_particles: GPUParticles3D
+@export var cook_audio: AudioStreamPlayer3D
 
 var cooked_amount: float = 0
 var cooking: bool = false
 var is_cooked: bool = false
 var is_burnt: bool = false
 var material: Material = StandardMaterial3D.new()
-var cook_particles: GPUParticles3D = null
 
 
 func _ready() -> void:
 	for mesh in get_parent().find_children(mesh_glob, "MeshInstance3D"):
 		if mesh.get_surface_override_material(0) == null:
 			mesh.set_surface_override_material(0, material)
-	
-	cook_particles = get_cook_particles()
 
 
 func on_start_cooking(cooking_type: CookwearBase.CookingType) -> void:
 	if required_cooking_type == cooking_type:
 		cooking = true
 		
-		change_cooking_paticles()
-		
+		set_cooking_paticles(true)
+		set_cooking_audio(true)
 
 
 func on_stop_cooking(cooking_type: CookwearBase.CookingType) -> void:
 	if required_cooking_type == cooking_type:
 		cooking = false
 		
-		change_cooking_paticles()
+		set_cooking_paticles(false)
+		set_cooking_audio(false)
 
 
 func get_burn_amount() -> float:
@@ -78,15 +78,16 @@ func get_quality() -> float:
 	else:
 		return 1 - get_burn_amount()
 
-func get_cook_particles() -> GPUParticles3D:
-	if get_parent().has_node("CookingParticles"):
-		return get_parent().get_node_or_null("CookingParticles")
-	else:
-		return null
 
-func change_cooking_paticles() -> void:
+func set_cooking_paticles(enabled: bool) -> void:
 	if cook_particles:
-		if cook_particles.emitting:
-			cook_particles.emitting = false
+		cook_particles.emitting = enabled
+
+
+func set_cooking_audio(enabled: bool) -> void:
+	if cook_audio:
+		if enabled:
+			if not cook_audio.playing:
+				cook_audio.play()
 		else:
-			cook_particles.emitting = true
+			cook_audio.stop()

@@ -2,7 +2,7 @@
 
 [ext_resource type="Script" uid="uid://bdy70dbh7gj0w" path="res://Scripts/UI/TV.gd" id="1_0kie1"]
 [ext_resource type="ArrayMesh" uid="uid://b3asv7cymggaa" path="res://Assets/FoodTruck/TV.obj" id="1_o13vh"]
-[ext_resource type="PackedScene" uid="uid://b4k2x0teld7lx" path="res://Scenes/ui/ui.tscn" id="1_ons2m"]
+[ext_resource type="PackedScene" uid="uid://b4k2x0teld7lx" path="res://Scenes/ui/main/game_ui.tscn" id="1_ons2m"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_ji6vx"]
 size = Vector3(10.5, 7.5, 0.7)

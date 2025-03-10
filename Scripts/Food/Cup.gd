@@ -41,6 +41,8 @@ func _physics_process(delta: float) -> void:
 func spill_liquid() -> void:
 	$Fill.stop(false)
 	
+	$SpillSoundPlayer.play()
+	
 	var from: Vector3 = global_position
 	var to: Vector3 = from + Vector3.DOWN * max_spill_distance
 	var space = get_world_3d().direct_space_state
