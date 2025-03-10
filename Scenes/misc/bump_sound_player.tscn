@@ -1,0 +1,6 @@
+[gd_scene load_steps=2 format=3 uid="uid://bcaj1x735ohkd"]
+
+[ext_resource type="Script" uid="uid://drn5bbddcyoil" path="res://Scripts/Rigidbodies/BumpSoundPlayer.gd" id="1_2xjhk"]
+
+[node name="BumpSoundPlayer" type="AudioStreamPlayer3D"]
+script = ExtResource("1_2xjhk")
