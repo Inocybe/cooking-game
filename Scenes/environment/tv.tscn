@@ -1,22 +1,47 @@
-[gd_scene load_steps=5 format=3 uid="uid://bqqwcdfwo3i5m"]
+[gd_scene load_steps=8 format=3 uid="uid://bqqwcdfwo3i5m"]
 
-[ext_resource type="Script" uid="uid://bdy70dbh7gj0w" path="res://Scripts/UI/TV.gd" id="1_0kie1"]
 [ext_resource type="ArrayMesh" uid="uid://b3asv7cymggaa" path="res://Assets/FoodTruck/TV.obj" id="1_o13vh"]
-[ext_resource type="PackedScene" uid="uid://b4k2x0teld7lx" path="res://Scenes/ui/main/game_ui.tscn" id="1_ons2m"]
+[ext_resource type="Script" uid="uid://cpkbk1jbggka1" path="res://Scripts/UI/tv.gd" id="1_rid03"]
+[ext_resource type="PackedScene" uid="uid://dts51sc5121xa" path="res://Scenes/ui/controls/tv_control.tscn" id="3_kvmi4"]
+[ext_resource type="Script" uid="uid://dnh71cucei8ce" path="res://Scripts/UI/DebugButton.gd" id="4_07x13"]
 
-[sub_resource type="BoxShape3D" id="BoxShape3D_ji6vx"]
-size = Vector3(10.5, 7.5, 0.7)
+[sub_resource type="ViewportTexture" id="ViewportTexture_rid03"]
+viewport_path = NodePath("SubViewport")
 
-[node name="TV" type="StaticBody3D" groups=["world-ui"]]
-transform = Transform3D(0.1, 0, 0, 0, 0.1, 0, 0, 0, 0.1, 0, 0, 0)
-script = ExtResource("1_0kie1")
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_rid03"]
+resource_local_to_scene = true
+shading_mode = 0
+albedo_texture = SubResource("ViewportTexture_rid03")
 
-[node name="UI3D" parent="." instance=ExtResource("1_ons2m")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0.77361)
+[sub_resource type="PlaneMesh" id="PlaneMesh_rid03"]
+material = SubResource("StandardMaterial3D_rid03")
+size = Vector2(10.2, 7.2)
 
-[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+[node name="TV" type="Node3D" groups=["world-ui"]]
+script = ExtResource("1_rid03")
+
+[node name="TVMesh" type="MeshInstance3D" parent="."]
 mesh = ExtResource("1_o13vh")
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0.35)
-shape = SubResource("BoxShape3D_ji6vx")
+[node name="SubViewport" type="SubViewport" parent="."]
+transparent_bg = true
+handle_input_locally = false
+size = Vector2i(1000, 700)
+
+[node name="MainControl" parent="SubViewport" instance=ExtResource("3_kvmi4")]
+unique_name_in_owner = true
+
+[node name="ColorRect" parent="SubViewport/MainControl/HBoxContainer/Left/GridContainer/Control" index="0" node_paths=PackedStringArray("relative_to")]
+relative_to = NodePath("../../..")
+
+[node name="Button" parent="SubViewport/MainControl/HBoxContainer/Right/MarginContainer/VBoxContainer" index="0"]
+script = ExtResource("4_07x13")
+
+[node name="Button3" parent="SubViewport/MainControl/HBoxContainer/Right/MarginContainer/VBoxContainer" index="1"]
+script = ExtResource("4_07x13")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, -1, 0, 1, -4.37114e-08, 0, 0, 0.729625)
+mesh = SubResource("PlaneMesh_rid03")
+
+[editable path="SubViewport/MainControl"]

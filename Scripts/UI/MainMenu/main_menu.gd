@@ -1,6 +1,6 @@
 extends Node3D
 
-const DESKOPUI_MAIN_MENU = preload("res://Scenes/ui/main/deskopui_main_menu.tscn")
+const DESKTOP_MAIN_MENU = preload("res://Scenes/ui/controls/main_menu_control.tscn")
 const XRUI_MAIN_MENU = preload("res://Scenes/ui/main/xrui_main_menu.tscn")
 @onready var game_manager: GameManager = $GameManager
 
@@ -10,11 +10,11 @@ var xr_ui
 func _ready() -> void:
 	Input.mouse_mode = Input.MOUSE_MODE_VISIBLE
 	
-	desktop_ui = DESKOPUI_MAIN_MENU.instantiate()
+	desktop_ui = DESKTOP_MAIN_MENU.instantiate()
 	Global.current_scene.add_child(desktop_ui)
 	
 	
-	game_manager.connect("XR_Detected", on_xr_detection)
+	game_manager.connect("XR_detected", on_xr_detection)
 	Global.order_manager.queue_free()
 	
 

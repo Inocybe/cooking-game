@@ -1,11 +1,11 @@
-class_name UIController extends Node3D
+class_name UIControllerBase extends Node3D
 
 
 @onready var main_control: Control = %MainControl
 
-@onready var subviewport: SubViewport = $SubViewportContainer/SubViewport
+@onready var subviewport: SubViewport = $SubViewport
 
-@onready var mesh: MeshInstance3D = $MeshInstance3D
+@onready var mesh: MeshInstance3D = $MeshDisplay
 
 @export var press_duration: float = 0.1
 @export var press_button = MOUSE_BUTTON_LEFT
@@ -14,13 +14,6 @@ class_name UIController extends Node3D
 func _ready() -> void:
 	subviewport.reparent.call_deferred(self)
 
-
-func change_money(current_money: float) -> void:
-	main_control.money.set_text(str(current_money))
-
-
-func change_order_complete_count(current_orders_complete: int) -> void:
-	main_control.orders_complete.set_text(str(current_orders_complete))
 
 
 func world_to_local_space(pos: Vector3) -> Vector2:

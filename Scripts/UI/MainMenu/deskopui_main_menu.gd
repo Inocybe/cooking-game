@@ -1,6 +1,6 @@
 extends Control
 
-@onready var button_container: VBoxContainer = $"TextureRect/MarginContainer/VBoxContainer/BUTTON CONTAINER"
+@onready var button_container: VBoxContainer = $"MAIN/MarginContainer/VBoxContainer/BUTTON CONTAINER"
 
 var button_dict: Dictionary[String, Callable]
 
@@ -16,6 +16,7 @@ func button_pressed(button_id: String) -> void:
 
 func start_pressed() -> void:
 	print("start clicked")
+	visible = false
 
 func settings_pressed() -> void:
 	print("settings clicked")

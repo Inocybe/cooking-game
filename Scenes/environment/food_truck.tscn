@@ -54,7 +54,6 @@ size = Vector3(3.30786, 0.784668, 0.138916)
 size = Vector3(8.06403, 3.35954, 6.64328)
 
 [node name="FoodTruck" type="Node3D" node_paths=PackedStringArray("dish_spawnpoints") groups=["interactable"]]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0296402, -0.0441494, -0.0324593)
 script = ExtResource("1_rvaml")
 dish_spawnpoints = [NodePath("Food Tray Positions/1"), NodePath("Food Tray Positions/2"), NodePath("Food Tray Positions/3"), NodePath("Food Tray Positions/4")]
 

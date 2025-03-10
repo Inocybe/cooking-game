@@ -1,9 +1,21 @@
-[gd_scene load_steps=3 format=3 uid="uid://cltfmjw0bavf4"]
+[gd_scene load_steps=6 format=3 uid="uid://cltfmjw0bavf4"]
 
 [ext_resource type="Script" uid="uid://do3ir6xnqv230" path="res://Scripts/UI/MainMenu/main_menu.gd" id="1_mex12"]
 [ext_resource type="PackedScene" uid="uid://jj8yuf0syk57" path="res://Scenes/managers/game_manager.tscn" id="2_c7t12"]
+
+[sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_88yes"]
+
+[sub_resource type="Sky" id="Sky_bmsq5"]
+sky_material = SubResource("ProceduralSkyMaterial_88yes")
+
+[sub_resource type="Environment" id="Environment_nbmfk"]
+background_mode = 1
+sky = SubResource("Sky_bmsq5")
 
 [node name="MAIN MENU" type="Node3D"]
 script = ExtResource("1_mex12")
 
 [node name="GameManager" parent="." instance=ExtResource("2_c7t12")]
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = SubResource("Environment_nbmfk")
