@@ -1,59 +1,43 @@
-[gd_scene load_steps=8 format=3 uid="uid://b1cx2gp0v3dl2"]
+[gd_scene load_steps=7 format=3 uid="uid://b1cx2gp0v3dl2"]
 
-[ext_resource type="PackedScene" uid="uid://cd7anw3qhpovq" path="res://Scenes/ui/controls/map_control.tscn" id="1_0nmh7"]
-[ext_resource type="Script" uid="uid://cl8g4o5eqqnp5" path="res://Scripts/UI/UIController.gd" id="1_qxcqj"]
-[ext_resource type="PackedScene" uid="uid://cfx7q0sm4jea5" path="res://Scenes/ui/controls/main_menu_control.tscn" id="2_qxcqj"]
+[ext_resource type="Script" uid="uid://cl8g4o5eqqnp5" path="res://Scripts/UI/Bases/UIControllerBase.gd" id="1_qxcqj"]
+[ext_resource type="PackedScene" uid="uid://cbco6667n5i38" path="res://Scenes/ui/controls/main_menu_control.tscn" id="2_qxcqj"]
 
-[sub_resource type="ViewportTexture" id="ViewportTexture_qxcqj"]
-viewport_path = NodePath("Map/SubViewport")
+[sub_resource type="ViewportTexture" id="ViewportTexture_0nmh7"]
+viewport_path = NodePath("Main/SubViewport")
 
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_1a4jm"]
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_0nmh7"]
 resource_local_to_scene = true
 shading_mode = 0
-albedo_texture = SubResource("ViewportTexture_qxcqj")
+albedo_texture = SubResource("ViewportTexture_0nmh7")
 
-[sub_resource type="PlaneMesh" id="PlaneMesh_qxcqj"]
-material = SubResource("StandardMaterial3D_1a4jm")
+[sub_resource type="PlaneMesh" id="PlaneMesh_0nmh7"]
+material = SubResource("StandardMaterial3D_0nmh7")
 size = Vector2(144, 81)
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_qxcqj"]
-size = Vector3(1.97449, 0.0611572, 1.96091)
+size = Vector3(144.005, 0.0611572, 81.1151)
 
-[node name="choices_menu" type="Node3D"]
+[node name="XRUIMainMenu" type="Node3D"]
 
-[node name="Map" type="Node3D" parent="."]
+[node name="Main" type="Node3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, -1, 0, 1, -4.37114e-08, 0, 51.8788, -50.3812)
 script = ExtResource("1_qxcqj")
 
-[node name="Display" type="MeshInstance3D" parent="Map"]
+[node name="Display" type="MeshInstance3D" parent="Main"]
 transform = Transform3D(1, 0, 2.98023e-08, 0, 1, 0, -2.98023e-08, 0, 1, 0, 0, 0)
-mesh = SubResource("PlaneMesh_qxcqj")
+mesh = SubResource("PlaneMesh_0nmh7")
 
-[node name="SubViewport" type="SubViewport" parent="Map"]
+[node name="SubViewport" type="SubViewport" parent="Main"]
 handle_input_locally = false
 size = Vector2i(1152, 648)
 render_target_update_mode = 4
 
-[node name="MapControl" parent="Map/SubViewport" instance=ExtResource("1_0nmh7")]
+[node name="DesktopUI" parent="Main/SubViewport" instance=ExtResource("2_qxcqj")]
 
-[node name="Area3D" type="Area3D" parent="Map"]
+[node name="Area3D" type="Area3D" parent="Main"]
 transform = Transform3D(1, 0, 2.98023e-08, 0, 1, 0, -2.98023e-08, 0, 1, 0, 0, 0)
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="Map/Area3D"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0010376, -0.0375366, -0.00883484)
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Main/Area3D"]
+transform = Transform3D(1, 0, -5.69428e-23, 0, 1, 0, -5.69428e-23, 0, 1, 0.02742, -0.0375366, 0.0075531)
 shape = SubResource("BoxShape3D_qxcqj")
-
-[node name="Food" type="Node3D" parent="."]
-transform = Transform3D(0.887253, 0, 0.461284, 0, 1, 0, -0.461284, 0, 0.887253, -5.48924, 4.61799, -0.316974)
-script = ExtResource("1_qxcqj")
-
-[node name="SubViewportContainer" type="SubViewportContainer" parent="Food"]
-offset_right = 40.0
-offset_bottom = 40.0
-mouse_filter = 2
-
-[node name="SubViewport" type="SubViewport" parent="Food/SubViewportContainer"]
-handle_input_locally = false
-size = Vector2i(1152, 648)
-render_target_update_mode = 4
-
-[node name="MainMenuControl" parent="Food/SubViewportContainer/SubViewport" instance=ExtResource("2_qxcqj")]
