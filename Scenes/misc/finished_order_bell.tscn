@@ -1,6 +1,7 @@
-[gd_scene load_steps=5 format=3 uid="uid://b2x5v5mwhvvmy"]
+[gd_scene load_steps=6 format=3 uid="uid://b2x5v5mwhvvmy"]
 
 [ext_resource type="Script" uid="uid://dt28wqqx1o362" path="res://Scripts/Misc/FinishedOrderBell.gd" id="1_mnf1m"]
+[ext_resource type="AudioStream" uid="uid://b78o4ryvog4no" path="res://Audio/SFX/Bell Sound.mp3" id="2_0cltc"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_usvhu"]
 albedo_color = Color(1, 1, 0, 1)
@@ -23,3 +24,7 @@ mesh = SubResource("BoxMesh_fi05a")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="." groups=["interactable"]]
 shape = SubResource("BoxShape3D_x2fgk")
+
+[node name="BellSoundPlayer" type="AudioStreamPlayer3D" parent="."]
+stream = ExtResource("2_0cltc")
+volume_db = -17.5
