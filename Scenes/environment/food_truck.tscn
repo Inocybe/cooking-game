@@ -51,7 +51,7 @@ size = Vector3(0.913574, 3.53705, 0.164307)
 size = Vector3(3.30786, 0.784668, 0.138916)
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_eq4wl"]
-size = Vector3(8.06403, 3.82294, 4.13226)
+size = Vector3(8.06403, 3.35954, 6.64328)
 
 [node name="FoodTruck" type="Node3D" node_paths=PackedStringArray("dish_spawnpoints") groups=["interactable"]]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0296402, -0.0441494, -0.0324593)
@@ -197,7 +197,7 @@ shape = SubResource("BoxShape3D_m3460")
 script = ExtResource("13_irxj3")
 
 [node name="Death Barrier Shape" type="CollisionShape3D" parent="Death Barrier"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.563141, 1.94534, -0.497894)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.563141, 2.17704, -1.7534)
 shape = SubResource("BoxShape3D_eq4wl")
 
 [connection signal="timeout" from="New Order Timer" to="." method="maybe_invoke_ordering"]
