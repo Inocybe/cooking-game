@@ -1,3 +1,0 @@
-* remove the gap before the Bell Sound starts
-* remove the gap before Frying starts
-* the spill seems to consist of two seperate "parts", we should cut it down to one
