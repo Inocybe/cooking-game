@@ -1,0 +1,9 @@
+[gd_scene load_steps=2 format=3 uid="uid://empwj5mtoe6f"]
+
+[ext_resource type="PackedScene" uid="uid://dts51sc5121xa" path="res://Scenes/ui/controls/tv_control.tscn" id="1_37kl0"]
+
+[node name="test" type="Node3D"]
+
+[node name="SubViewport" type="SubViewport" parent="."]
+
+[node name="TVControl" parent="SubViewport" instance=ExtResource("1_37kl0")]
