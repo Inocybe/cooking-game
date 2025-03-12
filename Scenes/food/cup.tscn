@@ -1,9 +1,11 @@
-[gd_scene load_steps=9 format=3 uid="uid://ca6thqwccusde"]
+[gd_scene load_steps=11 format=3 uid="uid://ca6thqwccusde"]
 
 [ext_resource type="PackedScene" uid="uid://7q370aiw7csi" path="res://Assets/food/cup/cup.blend" id="1_d6bin"]
 [ext_resource type="Script" uid="uid://dawxx47p16l67" path="res://Scripts/Food/Cup.gd" id="1_j075t"]
 [ext_resource type="AudioStream" uid="uid://bwh3axtl4njb2" path="res://Audio/SFX/Spill.mp3" id="3_b5slg"]
 [ext_resource type="AudioStream" uid="uid://nsufstn2qo4q" path="res://Audio/SFX/Fill3.mp3" id="4_s3hox"]
+[ext_resource type="PackedScene" uid="uid://bcaj1x735ohkd" path="res://Scenes/misc/bump_sound_player.tscn" id="5_47b53"]
+[ext_resource type="AudioStream" uid="uid://ds7vk835h3wm2" path="res://Audio/SFX/BumpC.mp3" id="6_pfwyw"]
 
 [sub_resource type="CylinderShape3D" id="CylinderShape3D_bwg4b"]
 height = 0.275
@@ -72,3 +74,6 @@ stream = ExtResource("3_b5slg")
 
 [node name="FillSoundPlayer" type="AudioStreamPlayer3D" parent="."]
 stream = ExtResource("4_s3hox")
+
+[node name="BumpSoundPlayer" parent="." instance=ExtResource("5_47b53")]
+stream = ExtResource("6_pfwyw")
