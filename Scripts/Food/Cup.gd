@@ -23,6 +23,8 @@ func do_fill(material: Material) -> void:
 	$Fill.stop(false)
 	$Fill.play("Fill")
 	
+	$FillSoundPlayer.play()
+	
 	filled_with = material
 
 
