@@ -6,8 +6,7 @@ class_name FoodTruck extends Node3D
 
 @onready var ordering_position: Node3D = $"OrderingPosition"
 @onready var finished_order_position: Area3D = $Areas/FinishedOrderPosition
-@onready var ui_3d: Node3D = $TV/UI3D
-
+@onready var ui_3d: Node3D = $TV
 
 func _ready() -> void:
 	Customer.spawn_customers()
