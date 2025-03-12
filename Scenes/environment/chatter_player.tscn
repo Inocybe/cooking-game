@@ -1,0 +1,30 @@
+[gd_scene load_steps=11 format=3 uid="uid://dhgtt8fwfi87"]
+
+[ext_resource type="AudioStream" uid="uid://m63w13q84j0q" path="res://Audio/SFX/Break 5.mp3" id="1_b3tcj"]
+[ext_resource type="AudioStream" uid="uid://b0103hu6m7fbe" path="res://Audio/SFX/Chatter 1.mp3" id="2_pfpjd"]
+[ext_resource type="AudioStream" uid="uid://dqe1yj8eqe4s2" path="res://Audio/SFX/Chatter 2.mp3" id="3_3dq3o"]
+[ext_resource type="AudioStream" uid="uid://cmnroio5meqq7" path="res://Audio/SFX/Chatter 3.mp3" id="4_io5hl"]
+[ext_resource type="AudioStream" uid="uid://bep12thr0lxrd" path="res://Audio/SFX/Chatter 4.mp3" id="5_ab21w"]
+[ext_resource type="AudioStream" uid="uid://gklraxiu3gfr" path="res://Audio/SFX/Chatter 5.mp3" id="6_uqy3w"]
+[ext_resource type="AudioStream" uid="uid://p7ek0oyajjio" path="res://Audio/SFX/Chatter 6.mp3" id="7_qdrjq"]
+[ext_resource type="AudioStream" uid="uid://cy7i7xi7nigpm" path="res://Audio/SFX/Chatter 7.mp3" id="8_bnt63"]
+[ext_resource type="AudioStream" uid="uid://vx2exiwlp8oa" path="res://Audio/SFX/Break60.mp3" id="9_pfpjd"]
+
+[sub_resource type="AudioStreamPlaylist" id="AudioStreamPlaylist_tgt1a"]
+shuffle = true
+stream_count = 9
+stream_0 = ExtResource("1_b3tcj")
+stream_1 = ExtResource("2_pfpjd")
+stream_2 = ExtResource("3_3dq3o")
+stream_3 = ExtResource("4_io5hl")
+stream_4 = ExtResource("5_ab21w")
+stream_5 = ExtResource("6_uqy3w")
+stream_6 = ExtResource("7_qdrjq")
+stream_7 = ExtResource("8_bnt63")
+stream_8 = ExtResource("9_pfpjd")
+
+[node name="ChatterPlayer" type="AudioStreamPlayer"]
+stream = SubResource("AudioStreamPlaylist_tgt1a")
+volume_db = -12.5
+pitch_scale = 10.0
+autoplay = true
