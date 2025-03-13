@@ -1,4 +1,4 @@
-[gd_scene load_steps=20 format=3 uid="uid://bmfn7nnstf5ve"]
+[gd_scene load_steps=21 format=3 uid="uid://bmfn7nnstf5ve"]
 
 [ext_resource type="Script" uid="uid://bxwwb60elrjrn" path="res://Scripts/Cookwear/CookwearBase.gd" id="1_0qara"]
 [ext_resource type="PackedScene" uid="uid://hk4tw1ihmdyx" path="res://Assets/cookwear/fryer/fryer.blend" id="1_b3kne"]
@@ -6,6 +6,7 @@
 [ext_resource type="ArrayMesh" uid="uid://vmb5c05mvi3m" path="res://Assets/cookwear/fryer/Fry Basket.obj" id="3_avjgy"]
 [ext_resource type="Shader" uid="uid://cfrpfmombooca" path="res://Scripts/Shaders/BubbleShader.gdshader" id="3_i8tab"]
 [ext_resource type="Script" uid="uid://dfc4ipg83pbqa" path="res://Scripts/Cookwear/Oil.gd" id="4_omym2"]
+[ext_resource type="PackedScene" uid="uid://b5m6iqwc8owc3" path="res://Scenes/misc/fading_audio_stream_player_3d.tscn" id="5_mm1oq"]
 [ext_resource type="AudioStream" uid="uid://c543fs5dchsk1" path="res://Audio/SFX/DeepFry.mp3" id="5_wv5ul"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_7uoui"]
@@ -99,8 +100,9 @@ mesh = SubResource("PlaneMesh_ur8hw")
 surface_material_override/0 = SubResource("ShaderMaterial_5gi8m")
 script = ExtResource("4_omym2")
 
-[node name="FryingAudioPlayer" type="AudioStreamPlayer3D" parent="Fryer Base/Oil"]
+[node name="FryingAudioPlayer" parent="Fryer Base/Oil" instance=ExtResource("5_mm1oq")]
 stream = ExtResource("5_wv5ul")
+fade_in_time = 0.1
 
 [node name="Frying Area" type="Area3D" parent="Fryer Base"]
 unique_name_in_owner = true

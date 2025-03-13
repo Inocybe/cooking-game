@@ -1,6 +1,6 @@
 [gd_scene load_steps=27 format=3 uid="uid://b3ocr5doqonyu"]
 
-[ext_resource type="Script" uid="uid://vgybkb0n3meq" path="res://Scripts/Misc/FoodTruck.gd" id="1_rvaml"]
+[ext_resource type="Script" uid="uid://vgybkb0n3meq" path="res://Scripts/Enviornment/FoodTruck.gd" id="1_rvaml"]
 [ext_resource type="PackedScene" uid="uid://cv485pktorksn" path="res://Scenes/cookwear/cooktop.tscn" id="2_vnxue"]
 [ext_resource type="PackedScene" uid="uid://caiym4bxd68to" path="res://Scenes/cookwear/table.tscn" id="3_87muv"]
 [ext_resource type="PackedScene" uid="uid://bmfn7nnstf5ve" path="res://Scenes/cookwear/fryer.tscn" id="4_q7klp"]

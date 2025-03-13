@@ -1,7 +1,7 @@
 [gd_scene load_steps=6 format=3 uid="uid://dq04w2oxbyp7f"]
 
 [ext_resource type="Shader" uid="uid://44xb6nfsn8qm" path="res://Scripts/Shaders/BulbShader.gdshader" id="1_8feot"]
-[ext_resource type="Script" uid="uid://c2xivkwymlvht" path="res://Scripts/Misc/LightDisabler.gd" id="1_dw0yd"]
+[ext_resource type="Script" uid="uid://c2xivkwymlvht" path="res://Scripts/Enviornment/LightDisabler.gd" id="1_dw0yd"]
 
 [sub_resource type="SphereMesh" id="SphereMesh_em4pt"]
 radius = 1.0
