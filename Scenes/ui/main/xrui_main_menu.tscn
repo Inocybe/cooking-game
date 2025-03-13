@@ -3,6 +3,9 @@
 [ext_resource type="Script" uid="uid://cl8g4o5eqqnp5" path="res://Scripts/UI/Bases/UIControllerBase.gd" id="1_qxcqj"]
 [ext_resource type="PackedScene" uid="uid://cbco6667n5i38" path="res://Scenes/ui/controls/main_menu_control.tscn" id="2_qxcqj"]
 
+[sub_resource type="PlaneMesh" id="PlaneMesh_0nmh7"]
+size = Vector2(9, 5.063)
+
 [sub_resource type="ViewportTexture" id="ViewportTexture_0nmh7"]
 viewport_path = NodePath("Main/SubViewport")
 
@@ -11,22 +14,26 @@ resource_local_to_scene = true
 shading_mode = 0
 albedo_texture = SubResource("ViewportTexture_0nmh7")
 
-[sub_resource type="PlaneMesh" id="PlaneMesh_0nmh7"]
-material = SubResource("StandardMaterial3D_0nmh7")
-size = Vector2(144, 81)
-
 [sub_resource type="BoxShape3D" id="BoxShape3D_qxcqj"]
-size = Vector3(144.005, 0.0611572, 81.1151)
+size = Vector3(9.02538, 0.0611572, 5.10917)
 
 [node name="XRUIMainMenu" type="Node3D"]
 
 [node name="Main" type="Node3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, -4.37114e-08, -1, 0, 1, -4.37114e-08, 0, 51.8788, -50.3812)
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, -1, 0, 1, -4.37114e-08, 0, 2.09431, -3.02191)
 script = ExtResource("1_qxcqj")
 
 [node name="Display" type="MeshInstance3D" parent="Main"]
 transform = Transform3D(1, 0, 2.98023e-08, 0, 1, 0, -2.98023e-08, 0, 1, 0, 0, 0)
 mesh = SubResource("PlaneMesh_0nmh7")
+surface_material_override/0 = SubResource("StandardMaterial3D_0nmh7")
+
+[node name="Area3D" type="Area3D" parent="Main"]
+transform = Transform3D(1, 0, 2.98023e-08, 0, 1, 0, -2.98023e-08, 0, 1, 0, 0, 0)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Main/Area3D"]
+transform = Transform3D(1, 0, -5.69428e-23, 0, 1, 0, -5.69428e-23, 0, 1, 0.00485853, -0.0375366, 0.00573516)
+shape = SubResource("BoxShape3D_qxcqj")
 
 [node name="SubViewport" type="SubViewport" parent="Main"]
 handle_input_locally = false
@@ -34,10 +41,3 @@ size = Vector2i(1152, 648)
 render_target_update_mode = 4
 
 [node name="DesktopUI" parent="Main/SubViewport" instance=ExtResource("2_qxcqj")]
-
-[node name="Area3D" type="Area3D" parent="Main"]
-transform = Transform3D(1, 0, 2.98023e-08, 0, 1, 0, -2.98023e-08, 0, 1, 0, 0, 0)
-
-[node name="CollisionShape3D" type="CollisionShape3D" parent="Main/Area3D"]
-transform = Transform3D(1, 0, -5.69428e-23, 0, 1, 0, -5.69428e-23, 0, 1, 0.02742, -0.0375366, 0.0075531)
-shape = SubResource("BoxShape3D_qxcqj")
