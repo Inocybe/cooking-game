@@ -96,8 +96,8 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.444499, 0.465, 0)
 [node name="Light 3" parent="Lights" instance=ExtResource("12_o0it0")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.63205, 0.465, 0)
 
-[node name="Finished Order" parent="." instance=ExtResource("11_na1yo")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.6109, 1.6345, -1.41185)
+[node name="Finished Order Bell" parent="." instance=ExtResource("11_na1yo")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.525573, 1.85102, -1.38077)
 
 [node name="Food Tray Positions" type="Node3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.965504, 1.68007, -1.69716)
