@@ -43,7 +43,7 @@ shader_parameter/round_amount = 0.03
 shader_parameter/max_bubble_radius = 1.0
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_2s587"]
-size = Vector3(0.7, 0.2, 0.7)
+size = Vector3(0.7, 0.137598, 0.7)
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_or8tv"]
 size = Vector3(0.677917, 0.0187073, 0.763245)
@@ -107,6 +107,7 @@ unique_name_in_owner = true
 transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, 0, 0.560527, 0)
 
 [node name="Frying Area Collision" type="CollisionShape3D" parent="Fryer Base/Frying Area"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.0312012, 0)
 shape = SubResource("BoxShape3D_2s587")
 
 [node name="Fry Basket" type="RigidBody3D" parent="." groups=["holdable", "interactable"]]

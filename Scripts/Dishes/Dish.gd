@@ -31,9 +31,6 @@ func _process(delta: float) -> void:
 
 
 func make_item_ghost(obj: Node3D) -> void:
-	for body in [obj]+obj.find_children("*", "CollisionObject3D", true, false):
-		body.collision_layer = 0
-		body.collision_mask = 0
 	var ghost_order_controller = GHOST_ORDER_CONTROLLER.instantiate()
 	obj.add_child(ghost_order_controller)
 
