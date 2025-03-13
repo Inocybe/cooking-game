@@ -15,6 +15,5 @@ func _ready() -> void:
 			child.set_surface_override_material(i, shader_material)
  
 	for child in [parent]+parent.find_children("*", "CollisionObject3D", true, false):
-		print(child)
 		child.collision_layer = 0
 		child.collision_mask = 0
