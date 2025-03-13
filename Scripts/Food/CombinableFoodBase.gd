@@ -10,7 +10,7 @@ func is_compatible_with(other: Node):
 		return false
 	if not other.has_method("get_food_component_type"):
 		return false
-	var compatible_with: Array[Menu.FoodComponent] = Menu.compatible_components(food_component_type)
+	var compatible_with = Menu.compatible_components(food_component_type)
 	if other.get_food_component_type() not in compatible_with:
 		return false
 	return true
