@@ -9,7 +9,7 @@ class_name Cookable extends Node
 @export var required_cooking_type: CookwearBase.CookingType
 @export var mesh_glob = "*"
 @export var cook_particles: GPUParticles3D
-@export var cook_audio: AudioStreamPlayer3D
+@export var cook_audio: AudioFader3D
 
 var cooked_amount: float = 0
 var cooking: bool = false
@@ -87,7 +87,6 @@ func set_cooking_paticles(enabled: bool) -> void:
 func set_cooking_audio(enabled: bool) -> void:
 	if cook_audio:
 		if enabled:
-			if not cook_audio.playing:
-				cook_audio.play()
+			cook_audio.fade_in()
 		else:
-			cook_audio.stop()
+			cook_audio.fade_out()

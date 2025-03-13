@@ -1,10 +1,11 @@
-[gd_scene load_steps=25 format=3 uid="uid://bnnh4k2t41n0l"]
+[gd_scene load_steps=26 format=3 uid="uid://bnnh4k2t41n0l"]
 
 [ext_resource type="Script" uid="uid://dwjacryhdmq1p" path="res://Scripts/Cookwear/SodaMachine.gd" id="1_480ux"]
 [ext_resource type="Shader" uid="uid://cfrpfmombooca" path="res://Scripts/Shaders/BubbleShader.gdshader" id="2_8k15g"]
-[ext_resource type="Script" uid="uid://dwi4kxh3v4ytq" path="res://Scripts/Misc/SodaMachineButton.gd" id="3_doyl0"]
+[ext_resource type="Script" uid="uid://dwi4kxh3v4ytq" path="res://Scripts/Cookwear/SodaMachineButton.gd" id="3_doyl0"]
 [ext_resource type="ArrayMesh" uid="uid://b3hirogdjwhcs" path="res://Assets/cookwear/soda_machine/Soda Machine.obj" id="4_dxvpm"]
 [ext_resource type="Script" uid="uid://dikdydygre5n" path="res://Scripts/Cookwear/SodaMachineParticles.gd" id="4_vcjki"]
+[ext_resource type="AudioStream" uid="uid://lq0vj0oqydt" path="res://Audio/SFX/Pour.mp3" id="6_16lnt"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_h0ur8"]
 transparency = 1
@@ -197,3 +198,6 @@ spread = 15.0
 gravity = Vector3(0, -2, 0)
 initial_velocity_min = 0.25
 initial_velocity_max = 0.25
+
+[node name="PourAudioPlayer" type="AudioStreamPlayer3D" parent="."]
+stream = ExtResource("6_16lnt")
