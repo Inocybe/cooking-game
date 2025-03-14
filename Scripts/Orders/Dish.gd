@@ -14,6 +14,10 @@ var customer_who_gave_me: Node3D = null
 
 func _ready() -> void:
 	super()
+	add_ghosts.call_deferred()
+
+
+func add_ghosts() -> void:
 	for i in range(order.size()):
 		ghosts.append(null)
 		add_ghost_to_slot(i)

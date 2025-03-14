@@ -65,9 +65,7 @@ func interact_enter(body: Node3D):
 func held_enter(body: Node3D):
 	if held_object == null and body.is_in_group("holdable") and not body.freeze:
 		held_object = body
-		var body_transform: Transform3D = body.global_transform
 		Global.set_dependance(self, body, true)
-		body.global_transform = body_transform
 		
 		change_hand_positioning(body)
 
@@ -130,20 +128,33 @@ func change_hand_positioning(_object: Node3D) -> void:
 	#var is_left_hand = name.begins_with("Left") # Checking what hand is being used
 	#if visible:
 		#if is_left_hand:
-			##object.get_node()
+			#object.get_node()
 			#pass
 	#else:
 		#pass
 	pass
-	
+
+
+func remove_invalid_boundaried() -> void:
+	var new_boundaried: Array[Node3D] = []
+	for boundaried_object in boundaried_objects:
+		if (is_instance_valid(boundaried_object)
+			and not boundaried_object.get_parent() is CombinableBase):
+			new_boundaried.append(boundaried_object)
+	boundaried_objects = new_boundaried
+
+
+func remove_invalid_held() -> void:
+	if not is_instance_valid(held_object):
+		held_object = null
+
 
 func _process(delta: float) -> void:
 	velocity = (global_position - last_position) / delta
 	last_position = global_position
 	
-	for boundaried_object in boundaried_objects:
-		if boundaried_object == null or boundaried_object.get_parent() is CombinableBase:
-			boundaried_objects.erase(boundaried_object)
+	remove_invalid_boundaried()
+	remove_invalid_held()
 	
 	var is_trigger: bool = is_trigger_down()
 	if is_trigger and not was_trigger:

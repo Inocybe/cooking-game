@@ -33,10 +33,11 @@ func _on_body_entered(body: Node) -> void:
 
 func unparent_child(child: Node3D) -> void:
 	children.erase(child)
-	Global.set_dependance.call_deferred(self, child, false)
 	children_being_removed.append(child)
 	await get_tree().process_frame
+	Global.set_dependance(self, child, false)
 	handle_child_removal(child)
+	await get_tree().process_frame
 	children_being_removed.erase(child)
 	removed_children.append(child)
 
@@ -72,8 +73,7 @@ func choose_child_slot(_child: Node3D) -> int:
 
 
 func move_to_slot(child: Node3D, slot: int) -> void:
-	Global.set_dependance.call_deferred(self, child, true)
-	
+	Global.set_dependance(self, child, true)
 	set_child_position.call_deferred(child, slot)
 
 
@@ -95,5 +95,5 @@ func get_slot_occupant(slot: int) -> Node3D:
 
 
 func _on_body_exited(body: Node) -> void:
-	# Remove the body from the recently removed list if it's no longer in range
+	# Remove the body from the recently removed list if it's no longer in range0
 	removed_children.erase(body)
