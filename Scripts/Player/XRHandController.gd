@@ -137,6 +137,10 @@ func _process(delta: float) -> void:
 	velocity = (global_position - last_position) / delta
 	last_position = global_position
 	
+	for boundaried_object in boundaried_objects:
+		if boundaried_object == null or boundaried_object.get_parent() is CombinableBase:
+			boundaried_objects.erase(boundaried_object)
+	
 	var is_trigger: bool = is_trigger_down()
 	if is_trigger and not was_trigger:
 		for object: Node3D in boundaried_objects:
@@ -158,9 +162,5 @@ func _process(delta: float) -> void:
 	
 	if held_object != null and held_object.get_parent() != self:
 		held_object = null
-	
-	for boundaried_object in boundaried_objects:
-		if boundaried_object.get_parent() is CombinableBase:
-			boundaried_objects.erase(boundaried_object)
 	
 	check_food_shake()

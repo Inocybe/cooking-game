@@ -6,6 +6,9 @@ class_name Cookable extends Node
 @export var uncooked_color: Color
 @export var cooked_color: Color
 @export var burnt_color: Color
+@export var raw_temperature: float = 30
+@export var cooked_temperature: float = 70
+@export var overcooked_temperature: float = 100
 @export var required_cooking_type: CookwearBase.CookingType
 @export var mesh_glob = "*"
 @export var cook_particles: GPUParticles3D
@@ -77,6 +80,13 @@ func get_quality() -> float:
 		return cooked_amount
 	else:
 		return 1 - get_burn_amount()
+
+
+func get_temperature() -> float:
+	if cooked_amount < 1:
+		return raw_temperature + (cooked_temperature - raw_temperature) * cooked_amount
+	else:
+		return cooked_temperature + (overcooked_temperature - cooked_temperature) * get_burn_amount()
 
 
 func set_cooking_paticles(enabled: bool) -> void:
