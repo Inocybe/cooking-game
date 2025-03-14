@@ -36,7 +36,7 @@ func clear_orders() -> void:
 
 
 func remove_order(dish: Dish) -> void:
-	dish.get_parent().remove_child(dish)
+	dish.get_parent().remove_child.call_deferred(dish)
 	active_orders.erase(dish)
 
 ############
