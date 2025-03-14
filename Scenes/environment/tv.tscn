@@ -1,7 +1,7 @@
 [gd_scene load_steps=8 format=3 uid="uid://bqqwcdfwo3i5m"]
 
 [ext_resource type="ArrayMesh" uid="uid://b3asv7cymggaa" path="res://Assets/FoodTruck/TV.obj" id="1_o13vh"]
-[ext_resource type="Script" uid="uid://cpkbk1jbggka1" path="res://Scripts/UI/tv.gd" id="1_rid03"]
+[ext_resource type="Script" uid="uid://cpkbk1jbggka1" path="res://Scripts/UI/TV.gd" id="1_rid03"]
 [ext_resource type="PackedScene" uid="uid://dts51sc5121xa" path="res://Scenes/ui/controls/tv_control.tscn" id="3_kvmi4"]
 [ext_resource type="Script" uid="uid://dnh71cucei8ce" path="res://Scripts/UI/DebugButton.gd" id="4_07x13"]
 

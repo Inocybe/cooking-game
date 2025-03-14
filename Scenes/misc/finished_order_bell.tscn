@@ -60,7 +60,7 @@ shape = SubResource("ConvexPolygonShape3D_ly7lf")
 [node name="BellSoundPlayer" type="AudioStreamPlayer3D" parent="Bell Object"]
 transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, 0, -0.0229234, 0)
 stream = ExtResource("2_0cltc")
-volume_db = -17.5
+volume_db = -20.0
 
 [node name="BellSwingAnimation" type="AnimationPlayer" parent="Bell Object"]
 root_node = NodePath("../..")

@@ -1,0 +1,89 @@
+[gd_scene load_steps=10 format=3 uid="uid://drk1thu8w54yx"]
+
+[ext_resource type="Script" uid="uid://ccdk27ndbjiqv" path="res://Scripts/Tools/MeatThermometer.gd" id="1_sebmd"]
+[ext_resource type="PackedScene" uid="uid://oy7vae4fs1f4" path="res://Assets/cookwear/meat_thermometer/meat_thermometer.blend" id="2_sebmd"]
+[ext_resource type="Texture2D" uid="uid://vii8bennmtsd" path="res://Assets/cookwear/meat_thermometer/dial.png" id="3_sebmd"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_mik4m"]
+bg_color = Color(1, 1, 1, 1)
+corner_radius_top_left = 1000
+corner_radius_top_right = 1000
+corner_radius_bottom_right = 1000
+corner_radius_bottom_left = 1000
+
+[sub_resource type="PlaneMesh" id="PlaneMesh_fq0fv"]
+size = Vector2(0.15, 0.15)
+
+[sub_resource type="ViewportTexture" id="ViewportTexture_fq0fv"]
+viewport_path = NodePath("SubViewport")
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_428qd"]
+resource_local_to_scene = true
+transparency = 1
+albedo_color = Color(0.68101, 0.68101, 0.68101, 1)
+albedo_texture = SubResource("ViewportTexture_fq0fv")
+metallic_specular = 0.0
+
+[sub_resource type="CylinderShape3D" id="CylinderShape3D_428qd"]
+height = 1.48242
+radius = 2.66357
+
+[sub_resource type="CylinderShape3D" id="CylinderShape3D_mik4m"]
+height = 10.7249
+radius = 0.304688
+
+[node name="MeatThermometer" type="RigidBody3D" groups=["holdable", "interactable"]]
+script = ExtResource("1_sebmd")
+min_temperature = 50.0
+min_rotation = -55.0
+max_temperature = 100.0
+max_rotation = 105.0
+
+[node name="SubViewport" type="SubViewport" parent="."]
+transparent_bg = true
+
+[node name="Panel" type="Panel" parent="SubViewport"]
+custom_minimum_size = Vector2(512, 512)
+offset_right = 512.0
+offset_bottom = 512.0
+rotation = 0.00491497
+size_flags_horizontal = 0
+size_flags_vertical = 0
+theme_override_styles/panel = SubResource("StyleBoxFlat_mik4m")
+
+[node name="Dial" type="Sprite2D" parent="SubViewport/Panel"]
+position = Vector2(282.343, 272.616)
+scale = Vector2(0.406369, 0.406369)
+texture = ExtResource("3_sebmd")
+
+[node name="NeedleRotationPoint" type="Node2D" parent="SubViewport/Panel"]
+unique_name_in_owner = true
+position = Vector2(256, 256)
+
+[node name="Polygon2D" type="Polygon2D" parent="SubViewport/Panel/NeedleRotationPoint"]
+color = Color(1, 0.19, 0.19, 1)
+polygon = PackedVector2Array(-20, -15, 130, -7, 180, 0, 130, 7, -20, 15)
+
+[node name="Display" type="MeshInstance3D" parent="."]
+transform = Transform3D(1.19249e-08, -0.422618, -0.906308, 0, 0.906308, -0.422618, 1, 5.03967e-09, 1.08076e-08, -0.00800811, 0.0171734, 0)
+mesh = SubResource("PlaneMesh_fq0fv")
+surface_material_override/0 = SubResource("StandardMaterial3D_428qd")
+
+[node name="rotator" type="Node3D" parent="."]
+transform = Transform3D(1, -3.27826e-07, 0, 3.27826e-07, 1, 0, 0, 0, 1, 0, 0, 0)
+
+[node name="meat_thermometer" parent="." instance=ExtResource("2_sebmd")]
+transform = Transform3D(0.0271892, -0.0126785, 0, 0.0126785, 0.0271892, 0, 0, 0, 0.03, 0, 0, 0)
+
+[node name="TopCollisionShape" type="CollisionShape3D" parent="."]
+transform = Transform3D(0.0271892, -0.0126785, 0, 0.0126785, 0.0271892, 0, 0, 0, 0.03, -0.00277343, 0.00594764, -1.16415e-10)
+shape = SubResource("CylinderShape3D_428qd")
+
+[node name="ProbeArea" type="Area3D" parent="."]
+transform = Transform3D(0.0271892, -0.0126785, 0, 0.0126785, 0.0271892, 0, 0, 0, 0.03, 0, 0, 0)
+
+[node name="BottomCollision" type="CollisionShape3D" parent="ProbeArea"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -5.88388, 0)
+shape = SubResource("CylinderShape3D_mik4m")
+
+[node name="TempUIHolder" type="Node" parent="."]
