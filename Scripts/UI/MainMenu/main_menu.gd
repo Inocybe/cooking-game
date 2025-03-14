@@ -27,6 +27,9 @@ func on_xr_detection() -> void:
 	desktop_ui.free()
 	xr_ui = XRUI_MAIN_MENU.instantiate()
 	Global.current_scene.add_child(xr_ui)
+	#game_manager.XR_system.left_hand.is_in_menu = true
+	#game_manager.XR_system.right_hand.is_in_menu = true
+
 
 
 
@@ -42,7 +45,7 @@ func check_xr() -> void:
 	
 	#visibility_change_children(xrui, false)
 	#visibility_change_children(desktop_ui, true)
-#
+
 #
 #func visibility_change_children(parent: Node3D, see: bool) -> void:
 	#var children: Array[Node] = parent.get_children()
