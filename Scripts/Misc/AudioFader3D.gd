@@ -1,7 +1,7 @@
 class_name AudioFader3D extends AudioStreamPlayer3D
 
 
-@export var fade_in_time: float = 0.1	
+@export var fade_in_time: float = 0.1
 @export var fade_out_time: float = 0.4
 
 var is_audible: bool = false

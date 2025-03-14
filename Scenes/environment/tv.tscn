@@ -1,4 +1,4 @@
-[gd_scene load_steps=8 format=3 uid="uid://bqqwcdfwo3i5m"]
+[gd_scene load_steps=9 format=3 uid="uid://bqqwcdfwo3i5m"]
 
 [ext_resource type="ArrayMesh" uid="uid://b3asv7cymggaa" path="res://Assets/FoodTruck/TV.obj" id="1_o13vh"]
 [ext_resource type="Script" uid="uid://cpkbk1jbggka1" path="res://Scripts/UI/TV.gd" id="1_rid03"]
@@ -15,7 +15,10 @@ viewport_path = NodePath("SubViewport")
 resource_local_to_scene = true
 albedo_texture = SubResource("ViewportTexture_07x13")
 
-[node name="TV" type="Node3D" groups=["world-ui"]]
+[sub_resource type="BoxShape3D" id="BoxShape3D_rid03"]
+size = Vector3(10.5229, 7.52026, 0.487549)
+
+[node name="TV" type="StaticBody3D" groups=["world-ui"]]
 script = ExtResource("1_rid03")
 
 [node name="TVMesh" type="MeshInstance3D" parent="."]
@@ -43,5 +46,9 @@ script = ExtResource("4_07x13")
 
 [node name="Button3" parent="SubViewport/MainControl/HBoxContainer/Right/MarginContainer/VBoxContainer" index="1"]
 script = ExtResource("4_07x13")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0.545)
+shape = SubResource("BoxShape3D_rid03")
 
 [editable path="SubViewport/MainControl"]
