@@ -76,3 +76,5 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.192615, 0, 0)
 [node name="CookingAudio" parent="." instance=ExtResource("5_i26ua")]
 stream = ExtResource("5_2sovv")
 volume_db = -25.0
+fade_in_time = 0.4
+fade_out_time = 1.0
