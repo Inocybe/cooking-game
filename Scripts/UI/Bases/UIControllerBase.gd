@@ -1,7 +1,7 @@
 class_name UIControllerBase extends Node3D
 
 
-@onready var main_control: Control = %MainControl
+@onready var main_control: Control = %DesktopUI
 
 @onready var subviewport: SubViewport = $SubViewport
 

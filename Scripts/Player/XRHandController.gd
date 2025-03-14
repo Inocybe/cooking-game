@@ -2,6 +2,8 @@ extends XRController3D
 
 
 @export var remote_touch_distance: float = 5
+@export var remote_touch_distance_far: float = 40
+var is_in_menu: bool = false
 
 @export var grip_cutoff: float = 0.7
 @export var trigger_cutoff: float = 0.5
@@ -96,8 +98,10 @@ func forward_vector() -> Vector3:
 
 
 func try_remote_interact() -> void:
+	var dist = remote_touch_distance_far if is_in_menu else remote_touch_distance
+	
 	var from: Vector3 = global_position
-	var to: Vector3 = from + forward_vector() * remote_touch_distance
+	var to: Vector3 = from + forward_vector() * dist
 	var space = get_world_3d().direct_space_state
 	var ray_query = PhysicsRayQueryParameters3D.create(from, to)
 	var raycast_result: Dictionary = space.intersect_ray(ray_query)

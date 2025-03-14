@@ -1,9 +1,74 @@
-[gd_scene load_steps=2 format=3 uid="uid://empwj5mtoe6f"]
+[gd_scene load_steps=14 format=3 uid="uid://empwj5mtoe6f"]
 
-[ext_resource type="PackedScene" uid="uid://dts51sc5121xa" path="res://Scenes/ui/controls/tv_control.tscn" id="1_37kl0"]
+[ext_resource type="PackedScene" uid="uid://jj8yuf0syk57" path="res://Scenes/managers/game_manager.tscn" id="1_8uh7m"]
+[ext_resource type="PackedScene" uid="uid://5s3oxlpup0wy" path="res://Scenes/misc/player.tscn" id="2_6uqi0"]
+[ext_resource type="PackedScene" uid="uid://clujaf3u776a3" path="res://addons/godot-xr-tools/objects/viewport_2d_in_3d.tscn" id="3_ppyta"]
+[ext_resource type="PackedScene" uid="uid://cbco6667n5i38" path="res://Scenes/ui/controls/main_menu_control.tscn" id="4_ykrsh"]
+[ext_resource type="Script" uid="uid://cl8g4o5eqqnp5" path="res://Scripts/UI/Bases/UIControllerBase.gd" id="5_ykrsh"]
+
+[sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_ppyta"]
+
+[sub_resource type="Sky" id="Sky_ykrsh"]
+sky_material = SubResource("ProceduralSkyMaterial_ppyta")
+
+[sub_resource type="Environment" id="Environment_g14j6"]
+background_mode = 2
+sky = SubResource("Sky_ykrsh")
+
+[sub_resource type="WorldBoundaryShape3D" id="WorldBoundaryShape3D_8uh7m"]
+
+[sub_resource type="PlaneMesh" id="PlaneMesh_ppyta"]
+size = Vector2(1.44, 0.81)
+
+[sub_resource type="ViewportTexture" id="ViewportTexture_ykrsh"]
+viewport_path = NodePath("STYFF/SubViewport")
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_g14j6"]
+resource_local_to_scene = true
+shading_mode = 0
+albedo_texture = SubResource("ViewportTexture_ykrsh")
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_ppyta"]
+size = Vector3(1.42065, 0.0620117, 0.81781)
 
 [node name="test" type="Node3D"]
 
-[node name="SubViewport" type="SubViewport" parent="."]
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = SubResource("Environment_g14j6")
 
-[node name="TVControl" parent="SubViewport" instance=ExtResource("1_37kl0")]
+[node name="GameManager" parent="." instance=ExtResource("1_8uh7m")]
+
+[node name="Player" parent="." instance=ExtResource("2_6uqi0")]
+
+[node name="StaticBody3D" type="StaticBody3D" parent="."]
+collision_layer = 3
+collision_mask = 3
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="StaticBody3D"]
+shape = SubResource("WorldBoundaryShape3D_8uh7m")
+
+[node name="Viewport2Din3D" parent="." groups=["menu-ui"] instance=ExtResource("3_ppyta")]
+transform = Transform3D(1, 0, 0, 0, 0.99969, -0.0249033, 0, 0.0249033, 0.99969, 0, 1.88977, -2.41718)
+scene = ExtResource("4_ykrsh")
+viewport_size = Vector2(1152, 648)
+scene_properties_keys = PackedStringArray("deskopui_main_menu.gd")
+
+[node name="STYFF" type="Node3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, -0.0966102, -0.995322, 0, 0.995322, -0.0966102, 0, 1.76258, -2.31726)
+script = ExtResource("5_ykrsh")
+
+[node name="MeshDisplay" type="MeshInstance3D" parent="STYFF"]
+mesh = SubResource("PlaneMesh_ppyta")
+surface_material_override/0 = SubResource("StandardMaterial3D_g14j6")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="STYFF"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="STYFF/StaticBody3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.000854492, -0.0305176, 0.00698853)
+shape = SubResource("BoxShape3D_ppyta")
+
+[node name="SubViewport" type="SubViewport" parent="STYFF"]
+size = Vector2i(1152, 648)
+
+[node name="DesktopUI" parent="STYFF/SubViewport" instance=ExtResource("4_ykrsh")]
+unique_name_in_owner = true
