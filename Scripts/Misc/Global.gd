@@ -52,13 +52,11 @@ func set_dependance(parent: Node3D, child: RigidBody3D, dependance: bool) -> voi
 	if dependance:
 		if parent is CollisionObject3D:
 			child.add_collision_exception_with(parent)
-		var layer = child.collision_layer
 		var transform = child.global_transform
 		if child.get_parent():
 			child.get_parent().remove_child(child)
 		parent.add_child(child)
 		child.global_transform = transform
-		print("done")
 	else:
 		if parent is CollisionObject3D:
 			child.remove_collision_exception_with(parent)
