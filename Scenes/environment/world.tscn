@@ -1,11 +1,10 @@
-[gd_scene load_steps=12 format=3 uid="uid://bmw48ei0dff0i"]
+[gd_scene load_steps=11 format=3 uid="uid://bmw48ei0dff0i"]
 
 [ext_resource type="PackedScene" uid="uid://jj8yuf0syk57" path="res://Scenes/managers/game_manager.tscn" id="1_0s671"]
 [ext_resource type="PackedScene" uid="uid://b3ocr5doqonyu" path="res://Scenes/environment/food_truck.tscn" id="2_3dmfd"]
 [ext_resource type="PackedScene" uid="uid://5s3oxlpup0wy" path="res://Scenes/misc/player.tscn" id="2_rbjev"]
 [ext_resource type="PackedScene" uid="uid://dhgtt8fwfi87" path="res://Scenes/environment/chatter_player.tscn" id="5_xatkk"]
-[ext_resource type="Script" uid="uid://14md2o3tq1pe" path="res://Scripts/Misc/PointSampler.gd" id="5_xk452"]
-[ext_resource type="PackedScene" uid="uid://drk1thu8w54yx" path="res://Scenes/tools/meat_thermometer.tscn" id="6_dthte"]
+[ext_resource type="Script" uid="uid://14md2o3tq1pe" path="res://Scripts/Managers/CustomerManager.gd" id="5_xk452"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_r88qt"]
 
@@ -50,13 +49,10 @@ shape = SubResource("WorldBoundaryShape3D_wlqu1")
 [node name="MeshInstance3D" type="MeshInstance3D" parent="Ground"]
 mesh = SubResource("PlaneMesh_o37bp")
 
-[node name="CustomerWalkArea" type="Node3D" parent="."]
+[node name="CustomerManager" type="Node3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 14.8349, 0, 18.1658)
 script = ExtResource("5_xk452")
 
 [node name="ChatterPlayer" parent="." instance=ExtResource("5_xatkk")]
-
-[node name="MeatThermometer" parent="." instance=ExtResource("6_dthte")]
-transform = Transform3D(-0.642787, 0, 0.766044, 0, 1, 0, -0.766044, 0, -0.642787, -1.59949, 1.74013, 0.726825)
 
 [editable path="GameManager"]

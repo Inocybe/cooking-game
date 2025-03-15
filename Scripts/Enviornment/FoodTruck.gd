@@ -4,12 +4,9 @@ class_name FoodTruck extends Node3D
 @export var dish_spawnpoints: Array[Node3D] = []
 @export var dish_check_height: float = 1
 
-@onready var ordering_position: Node3D = $"OrderingPosition"
-@onready var finished_order_position: Area3D = $Areas/FinishedOrderPosition
-@onready var ui_3d: Node3D = $TV
-
-func _ready() -> void:
-	Customer.spawn_customers()
+@onready var ordering_position: Node3D = %OrderingPosition
+@onready var finished_order_position: Area3D = %FinishedOrderPosition
+@onready var ui_3d: Node3D = %TV
 
 
 func is_dish_position_occupied(pos: Node3D) -> bool:
@@ -34,7 +31,6 @@ func choose_best_dish_spawnpoint() -> Node3D:
 	return dish_spawnpoints.pick_random()
 
 
-# Raycasts down to make sure the dish is in the area, and if it is then returns true
 func check_dish_in_area(dish: Node3D) -> bool:
 	return finished_order_position.overlaps_body(dish)
 

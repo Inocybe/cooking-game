@@ -8,7 +8,7 @@ var player: Player
 
 
 func _ready() -> void:
-	player = Global.game_manager.return_player()
+	player = Global.game_manager.player
 	xr_origin = get_parent()
 
 
