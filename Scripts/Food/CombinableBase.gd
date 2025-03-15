@@ -95,5 +95,5 @@ func get_slot_occupant(slot: int) -> Node3D:
 
 
 func _on_body_exited(body: Node) -> void:
-	# Remove the body from the recently removed list if it's no longer in range0
+	# Remove the body from the recently removed list if it's no longer in range
 	removed_children.erase(body)
