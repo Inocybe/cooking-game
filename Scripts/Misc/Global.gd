@@ -4,24 +4,15 @@ extends Node
 var player_input_enabled = true
 
 var game_manager: GameManager = null
-var order_manager: OrderManager = null
-
-var current_scene: Node3D = null
 
 
 func _ready():
-	current_scene = get_tree().current_scene
-	find_managers()
-
-
-# This function looks for managers when a new scene is loaded or in the current scene
-func find_managers():
+	var current_scene = get_tree().current_scene
+	
 	if not current_scene:
 		return
 	
 	game_manager = current_scene.get_node_or_null("GameManager")
-	if game_manager:
-		order_manager = game_manager.get_node_or_null("OrderManager")
 
 
 func pause_game() -> void:

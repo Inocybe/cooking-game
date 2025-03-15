@@ -1,0 +1,54 @@
+[gd_scene load_steps=9 format=3 uid="uid://bqqwcdfwo3i5m"]
+
+[ext_resource type="ArrayMesh" uid="uid://b3asv7cymggaa" path="res://Assets/interior/TV/TV.obj" id="1_o13vh"]
+[ext_resource type="Script" uid="uid://cpkbk1jbggka1" path="res://Scripts/UI/TV.gd" id="1_rid03"]
+[ext_resource type="PackedScene" uid="uid://dts51sc5121xa" path="res://Scenes/ui/controls/tv_control.tscn" id="3_kvmi4"]
+[ext_resource type="Script" uid="uid://dnh71cucei8ce" path="res://Scripts/UI/DebugButton.gd" id="4_07x13"]
+
+[sub_resource type="PlaneMesh" id="PlaneMesh_07x13"]
+size = Vector2(10.2, 7.2)
+
+[sub_resource type="ViewportTexture" id="ViewportTexture_07x13"]
+viewport_path = NodePath("SubViewport")
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_07x13"]
+resource_local_to_scene = true
+albedo_texture = SubResource("ViewportTexture_07x13")
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_rid03"]
+size = Vector3(10.5229, 7.52026, 0.487549)
+
+[node name="TV" type="StaticBody3D" groups=["world-ui"]]
+script = ExtResource("1_rid03")
+
+[node name="TVMesh" type="MeshInstance3D" parent="."]
+mesh = ExtResource("1_o13vh")
+
+[node name="MeshDisplay" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, -1, 0, 1, -4.37114e-08, 0, 0, 0.729625)
+mesh = SubResource("PlaneMesh_07x13")
+surface_material_override/0 = SubResource("StandardMaterial3D_07x13")
+
+[node name="SubViewport" type="SubViewport" parent="."]
+transparent_bg = true
+handle_input_locally = false
+size = Vector2i(1000, 700)
+render_target_update_mode = 4
+
+[node name="MainControl" parent="SubViewport" instance=ExtResource("3_kvmi4")]
+unique_name_in_owner = true
+
+[node name="ColorRect" parent="SubViewport/MainControl/HBoxContainer/Left/GridContainer/Control" index="0" node_paths=PackedStringArray("relative_to")]
+relative_to = NodePath("../../..")
+
+[node name="Button" parent="SubViewport/MainControl/HBoxContainer/Right/MarginContainer/VBoxContainer" index="0"]
+script = ExtResource("4_07x13")
+
+[node name="Button3" parent="SubViewport/MainControl/HBoxContainer/Right/MarginContainer/VBoxContainer" index="1"]
+script = ExtResource("4_07x13")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0.545)
+shape = SubResource("BoxShape3D_rid03")
+
+[editable path="SubViewport/MainControl"]

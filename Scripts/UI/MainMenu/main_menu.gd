@@ -15,7 +15,7 @@ func _ready() -> void:
 	Input.mouse_mode = Input.MOUSE_MODE_VISIBLE
 	
 	desktop_ui = DESKTOP_MAIN_MENU.instantiate()
-	Global.current_scene.add_child(desktop_ui)
+	get_tree().current_scene.add_child(desktop_ui)
 	
 	
 	#game_manager.connect("XR_detected", on_xr_detection)
@@ -26,7 +26,7 @@ func _ready() -> void:
 func on_xr_detection() -> void:
 	desktop_ui.free()
 	xr_ui = XRUI_MAIN_MENU.instantiate()
-	Global.current_scene.add_child(xr_ui)
+	get_tree().current_scene.add_child(xr_ui)
 	#game_manager.XR_system.left_hand.is_in_menu = true
 	#game_manager.XR_system.right_hand.is_in_menu = true
 

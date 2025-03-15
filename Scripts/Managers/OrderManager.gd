@@ -36,7 +36,7 @@ func clear_orders() -> void:
 
 
 func remove_order(dish: Dish) -> void:
-	dish.get_parent().remove_child.call_deferred(dish)
+	dish.queue_free()
 	active_orders.erase(dish)
 
 ############
@@ -61,7 +61,7 @@ func request_order_from(customer: Customer):
 	#customer.finished_ordering()
 
 
-func call_customers_with_completed_orders() -> void:
+func call_customers_back() -> void:
 	for order in active_orders:
 		# Checking if order complete, then goes to food truck and calls the check dish in 
 		if order.is_order_complete():
@@ -69,14 +69,15 @@ func call_customers_with_completed_orders() -> void:
 
 
 func make_customer_order() -> void:
-	var customer: Node3D = Global.game_manager.customers.pick_random()
+	var customer_manager = Global.game_manager.customer_manager
+	var customer: Node3D = customer_manager.customers.pick_random()
 	if customer.state in [Customer.CustomerState.IDLING, Customer.CustomerState.RANDOM_MOVING]:
 		customer.move_to_foodcart()
 
 ##########################
 
 #TODO implement this shit to do right thing
-func increase_variables_based_off_food_completed(dish: Node3D) -> void:
+func register_completed_dish(dish: Node3D) -> void:
 	var base_worth: float = calculate_worth(dish)
 	var worth: float = base_worth * dish.get_order_quality()
 	

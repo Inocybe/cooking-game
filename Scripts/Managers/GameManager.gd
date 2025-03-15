@@ -6,8 +6,8 @@ const XR_system = preload("res://Scenes/vr/xr_system.tscn")
 
 var player: Player = null
 var food_truck: FoodTruck = null
-var customer_walk_area: PointSampler = null
-var customers: Array[Node3D] = []
+@onready var order_manager: OrderManager = $OrderManager
+var customer_manager: CustomerManager = null
 
 var money: float = 0
 var orders_complete: int = 0
@@ -27,9 +27,10 @@ func _ready() -> void:
 	Input.mouse_mode = Input.MOUSE_MODE_CAPTURED
 	set_process_input(true)
 	
-	player = Global.current_scene.get_node_or_null("Player")
-	food_truck = Global.current_scene.get_node_or_null("FoodTruck")
-	customer_walk_area = Global.current_scene.get_node_or_null("CustomerWalkArea")
+	var current_scene = get_tree().current_scene
+	player = current_scene.get_node_or_null("Player")
+	food_truck = current_scene.get_node_or_null("FoodTruck")
+	customer_manager = current_scene.get_node_or_null("CustomerManager")
 	
 	check_XR()
 
@@ -39,15 +40,8 @@ func _process(_delta: float) -> void:
 		call_ui_updates()
 
 
-func return_player() -> CharacterBody3D:
-	return player
-
-
-func return_food_truck() -> Node3D:
-	return food_truck
-
-
 func call_ui_updates() -> void:
+	return
 	food_truck.ui_3d.change_order_complete_count(orders_complete)
 	food_truck.ui_3d.change_money(money)
 

@@ -27,5 +27,5 @@ func _ready():
 	xr_interface.xr_play_area_mode = XRInterface.XR_PLAY_AREA_ROOMSCALE
 	
 	if Global.game_manager:
-		if Global.game_manager.return_player():
+		if Global.game_manager.player:
 			global_transform = Global.game_manager.player.feet.global_transform

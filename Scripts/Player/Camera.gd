@@ -2,7 +2,7 @@ class_name Camera extends Camera3D
 
 
 @export var arm_length: float = 5
-@export var min_hold_dist: float = 0.75
+@export var min_hold_dist: float = 0.5
 @export var hold_dist_sensitivity: float = 0.4
 
 var should_raycast: bool = false

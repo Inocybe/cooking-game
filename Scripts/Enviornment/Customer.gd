@@ -1,10 +1,6 @@
 class_name Customer extends AnimatableBody3D
 
 
-const STARTING_CUSTOMER_COUNT: int = 20
-
-const CUSTOMER = preload("res://Scenes/misc/customer.tscn")
-
 @onready var animation_player: AnimationPlayer = $AnimationPlayer
 
 @export var min_move_speed: float = 1
@@ -25,6 +21,8 @@ enum CustomerState {
 	ANIMATING_PICKUP
 }
 
+var manager: CustomerManager
+
 var move_speed: float
 var target: Vector3
 var velocity: Vector3 = Vector3.ZERO
@@ -37,7 +35,6 @@ var dish_ordered: Node3D = null
 func _ready() -> void:
 	move_speed = randf() * (max_move_speed - min_move_speed) + min_move_speed
 	choose_random_target()
-	Global.game_manager.customers.append(self)
 
 
 func move_to_foodcart() -> void:
@@ -62,7 +59,7 @@ func finish_idling() -> void:
 
 
 func choose_random_target() -> void:
-	target = Global.game_manager.customer_walk_area.sample_point()
+	target = manager.choose_walk_point()
 	state = CustomerState.RANDOM_MOVING
 
 
@@ -109,7 +106,7 @@ func _process(delta: float) -> void:
 
 func finish_ordering() -> void:
 	if not dish_ordered:
-		Global.order_manager.request_order_from(self)
+		Global.game_manager.order_manager.request_order_from(self)
 		choose_random_target()
 		animation_player.play_backwards("awaiting_order_taken")
 
@@ -128,10 +125,11 @@ func collect_order() -> void:
 	if (Global.game_manager.food_truck.check_dish_in_area(dish_ordered)
 		and not dish_ordered.held and dish_ordered.is_order_complete()):
 		
-		call_calculations()
+		var order_manager = Global.game_manager.order_manager
 		
 		animation_player.play("collect_order")
-		Global.order_manager.remove_order(dish_ordered)
+		order_manager.register_completed_dish(dish_ordered)
+		order_manager.remove_order(dish_ordered)
 		state = CustomerState.ANIMATING_PICKUP
 		animation_player.animation_finished.connect(
 			finished_collecting, ConnectFlags.CONNECT_ONE_SHOT)
@@ -142,14 +140,3 @@ func collect_order() -> void:
 
 func finished_collecting(_animation: String) -> void:
 	choose_random_target()
-
-func call_calculations() -> void:
-	Global.order_manager.increase_variables_based_off_food_completed(dish_ordered)
-
-
-static func spawn_customers() -> void:
-	var customer_walk_area = Global.game_manager.customer_walk_area
-	for i in range(STARTING_CUSTOMER_COUNT):
-		var customer = CUSTOMER.instantiate()
-		customer.position = customer_walk_area.sample_point() + Vector3(0, 1, 0)
-		Global.current_scene.add_child.call_deferred(customer)
