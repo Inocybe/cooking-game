@@ -1,8 +1,7 @@
 class_name GameManager extends Node
 
 
-const XR_system = preload("res://Scenes/vr/xr_system.tscn")
-
+const XR_SYSTEM = preload("res://Scenes/player/vr/xr_system.tscn")
 
 var player: Player = null
 var food_truck: FoodTruck = null
@@ -50,7 +49,7 @@ func check_XR() -> void:
 	var xr_interface = XRServer.find_interface("OpenXR")
 	if xr_interface and xr_interface.is_initialized():
 		print("OpenXR initialized successfully")
-		xr_manager = XR_system.instantiate()
+		xr_manager = XR_SYSTEM.instantiate()
 		xr_manager.xr_interface = xr_interface
 		get_tree().get_root().add_child.call_deferred(xr_manager)
 		XR_detected.emit.call_deferred()
