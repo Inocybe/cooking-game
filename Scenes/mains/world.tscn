@@ -1,0 +1,58 @@
+[gd_scene load_steps=11 format=3 uid="uid://bmw48ei0dff0i"]
+
+[ext_resource type="PackedScene" uid="uid://jj8yuf0syk57" path="res://Scenes/managers/game_manager.tscn" id="1_0s671"]
+[ext_resource type="PackedScene" uid="uid://b3ocr5doqonyu" path="res://Scenes/foodtruck/food_truck.tscn" id="2_3dmfd"]
+[ext_resource type="PackedScene" uid="uid://5s3oxlpup0wy" path="res://Scenes/player/player.tscn" id="2_rbjev"]
+[ext_resource type="PackedScene" uid="uid://dhgtt8fwfi87" path="res://Scenes/environment/chatter_player.tscn" id="5_xatkk"]
+[ext_resource type="Script" uid="uid://14md2o3tq1pe" path="res://Scripts/Managers/CustomerManager.gd" id="5_xk452"]
+
+[sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_r88qt"]
+
+[sub_resource type="Sky" id="Sky_wvisd"]
+sky_material = SubResource("ProceduralSkyMaterial_r88qt")
+
+[sub_resource type="Environment" id="Environment_ge0im"]
+background_mode = 2
+sky = SubResource("Sky_wvisd")
+tonemap_mode = 2
+tonemap_exposure = 0.6
+tonemap_white = 0.7
+ssao_intensity = 6.0
+glow_enabled = true
+volumetric_fog_enabled = true
+
+[sub_resource type="WorldBoundaryShape3D" id="WorldBoundaryShape3D_wlqu1"]
+
+[sub_resource type="PlaneMesh" id="PlaneMesh_o37bp"]
+size = Vector2(100, 100)
+
+[node name="World" type="Node3D"]
+
+[node name="GameManager" parent="." instance=ExtResource("1_0s671")]
+
+[node name="Player" parent="." instance=ExtResource("2_rbjev")]
+transform = Transform3D(-0.76628, 0, -0.642507, 0, 1, 0, 0.642507, 0, -0.76628, -0.404418, 1.64574, 1.46279)
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = SubResource("Environment_ge0im")
+
+[node name="FoodTruck" parent="." instance=ExtResource("2_3dmfd")]
+transform = Transform3D(-0.761335, 0, -0.648359, 0, 1, 0, 0.648359, 0, -0.761335, -0.0296402, -0.0441494, -0.0324593)
+
+[node name="Ground" type="StaticBody3D" parent="."]
+collision_layer = 7
+collision_mask = 7
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Ground"]
+shape = SubResource("WorldBoundaryShape3D_wlqu1")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Ground"]
+mesh = SubResource("PlaneMesh_o37bp")
+
+[node name="CustomerManager" type="Node3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 14.8349, 0, 18.1658)
+script = ExtResource("5_xk452")
+
+[node name="ChatterPlayer" parent="." instance=ExtResource("5_xatkk")]
+
+[editable path="GameManager"]

@@ -1,0 +1,10 @@
+[gd_scene load_steps=2 format=3 uid="uid://bvhk5tuyd686e"]
+
+[ext_resource type="Script" uid="uid://b3ojg8uacqdbr" path="res://Scripts/Orders/Food/FoodSpawner.gd" id="1_2kn5b"]
+
+[node name="FoodSpawner" type="Node3D"]
+script = ExtResource("1_2kn5b")
+
+[node name="MinRespawnTimer" type="Timer" parent="."]
+wait_time = 5.0
+one_shot = true

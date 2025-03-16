@@ -1,0 +1,80 @@
+[gd_scene load_steps=13 format=3 uid="uid://fkjb8mg8enxf"]
+
+[ext_resource type="Script" uid="uid://bhjsmhin0ksi2" path="res://Scripts/Orders/Food/_Base/BasicFood.gd" id="1_6u6t7"]
+[ext_resource type="Script" uid="uid://h6n0dxh4d6ri" path="res://Scripts/Orders/Food/_Base/Cookable.gd" id="1_a1o7p"]
+[ext_resource type="PackedScene" uid="uid://bl7462b3hiqlv" path="res://Assets/food/burger.blend" id="2_t8afi"]
+[ext_resource type="PackedScene" uid="uid://c25yxb0vt53vc" path="res://addons/godot-xr-tools/objects/grab_points/grab_point_hand_left.tscn" id="4_48vdx"]
+[ext_resource type="AudioStream" uid="uid://4cns4ixn4ptm" path="res://Audio/SFX/Frying.mp3" id="5_2sovv"]
+[ext_resource type="PackedScene" uid="uid://b5m6iqwc8owc3" path="res://Scenes/misc/fading_audio_stream_player_3d.tscn" id="5_i26ua"]
+
+[sub_resource type="CylinderShape3D" id="CylinderShape3D_mawmg"]
+height = 0.139772
+radius = 0.13
+
+[sub_resource type="Curve" id="Curve_akcw3"]
+_data = [Vector2(0, 1), 0.0, 0.0, 0, 0, Vector2(0.356115, 0.00400007), 0.0, 0.0, 0, 0]
+point_count = 2
+
+[sub_resource type="CurveTexture" id="CurveTexture_3a70t"]
+curve = SubResource("Curve_akcw3")
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_muqaf"]
+emission_shape_scale = Vector3(0.15, 0.1, 0.15)
+emission_shape = 6
+emission_ring_axis = Vector3(0, 0, 1)
+emission_ring_height = 1.0
+emission_ring_radius = 1.0
+emission_ring_inner_radius = 0.0
+emission_ring_cone_angle = 90.0
+angle_min = 1.07288e-05
+angle_max = 1.07288e-05
+direction = Vector3(0, 1, 0)
+spread = 180.0
+initial_velocity_min = 0.4
+initial_velocity_max = 0.5
+gravity = Vector3(0, 0, 0)
+scale_curve = SubResource("CurveTexture_3a70t")
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_82vlf"]
+shading_mode = 0
+albedo_color = Color(0.00392157, 0.00392157, 0.00392157, 1)
+
+[sub_resource type="SphereMesh" id="SphereMesh_h5b4l"]
+material = SubResource("StandardMaterial3D_82vlf")
+radius = 0.01
+height = 0.02
+
+[node name="Burger" type="RigidBody3D" groups=["food", "holdable", "interactable"]]
+script = ExtResource("1_6u6t7")
+food_component_type = 1
+
+[node name="Model" parent="." instance=ExtResource("2_t8afi")]
+transform = Transform3D(0.05, 0, 0, 0, 0.05, 0, 0, 0, 0.05, 0, 0, 0)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+shape = SubResource("CylinderShape3D_mawmg")
+
+[node name="Cookable" type="Node" parent="." node_paths=PackedStringArray("cook_particles", "cook_audio")]
+script = ExtResource("1_a1o7p")
+cook_time = 30.0
+uncooked_color = Color(0.69, 0.25208, 0.2208, 1)
+cooked_color = Color(0.49, 0.169867, 0.147, 1)
+burnt_color = Color(0.219608, 0.133333, 0.0823529, 1)
+cook_particles = NodePath("../CookingParticles")
+cook_audio = NodePath("../CookingAudio")
+
+[node name="CookingParticles" type="GPUParticles3D" parent="."]
+emitting = false
+amount = 30
+randomness = 0.5
+process_material = SubResource("ParticleProcessMaterial_muqaf")
+draw_pass_1 = SubResource("SphereMesh_h5b4l")
+
+[node name="GrabPointHandLeft" parent="." instance=ExtResource("4_48vdx")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.192615, 0, 0)
+
+[node name="CookingAudio" parent="." instance=ExtResource("5_i26ua")]
+stream = ExtResource("5_2sovv")
+volume_db = -25.0
+fade_in_time = 0.4
+fade_out_time = 1.0
