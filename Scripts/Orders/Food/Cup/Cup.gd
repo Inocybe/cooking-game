@@ -1,7 +1,7 @@
 extends BasicFood
 
 
-var spill_scene = preload("res://Scenes/environment/spill.tscn")
+const SPILL_SCENE = preload("res://Scenes/orders/food/cup/spill.tscn")
 
 @export var spill_angle: float = PI / 3
 
@@ -60,7 +60,7 @@ func spill_liquid() -> void:
 
 
 func generate_spill(base_position: Vector3) -> void:
-	var spill: Node3D = spill_scene.instantiate()
+	var spill: Node3D = SPILL_SCENE.instantiate()
 	spill.position = base_position
 	spill.set_material(filled_with)
 	get_tree().current_scene.add_child(spill)
