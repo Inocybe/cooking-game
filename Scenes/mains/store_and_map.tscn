@@ -1,0 +1,6 @@
+[gd_scene load_steps=2 format=3 uid="uid://bw36k3ukcwx6v"]
+
+[ext_resource type="Script" uid="uid://cwjeyrycu42wp" path="res://Scripts/UI/Map/store_and_map.gd" id="1_sm8pa"]
+
+[node name="StoreAndMap" type="Node3D"]
+script = ExtResource("1_sm8pa")
