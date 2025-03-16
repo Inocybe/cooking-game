@@ -1,4 +1,4 @@
-[gd_scene load_steps=29 format=3 uid="uid://b3ocr5doqonyu"]
+[gd_scene load_steps=30 format=3 uid="uid://b3ocr5doqonyu"]
 
 [ext_resource type="Script" uid="uid://vgybkb0n3meq" path="res://Scripts/Foodtruck/FoodTruck.gd" id="1_rvaml"]
 [ext_resource type="PackedScene" uid="uid://cv485pktorksn" path="res://Scenes/foodtruck/cookwear/cooktop.tscn" id="2_vnxue"]
@@ -13,8 +13,9 @@
 [ext_resource type="PackedScene" uid="uid://tvxop5d67ap0" path="res://Scenes/foodtruck/interior/shelf.tscn" id="14_jugau"]
 [ext_resource type="Script" uid="uid://dwvpetnoh6fji" path="res://Scripts/Foodtruck/Areas/OrderHitbox.gd" id="14_n46fa"]
 [ext_resource type="PackedScene" uid="uid://cqfghqikinccl" path="res://Assets/food_truck/food_truck_v3.glb" id="15_4upiy"]
-[ext_resource type="PackedScene" uid="uid://bqqwcdfwo3i5m" path="res://Scenes/foodtruck/interior/tv.tscn" id="16_5lsjn"]
-[ext_resource type="PackedScene" uid="uid://cc6na2w6f2gjp" path="res://Scenes/foodtruck/interior/trash_can.tscn" id="16_i5ql0"]
+[ext_resource type="PackedScene" uid="uid://ddyyiqy7ve87x" path="res://Scenes/tools/mop.tscn" id="16_1bg51"]
+[ext_resource type="PackedScene" uid="uid://bqqwcdfwo3i5m" path="res://Scenes/interior/tv.tscn" id="16_5lsjn"]
+[ext_resource type="PackedScene" uid="uid://cc6na2w6f2gjp" path="res://Scenes/interior/trash_can.tscn" id="16_i5ql0"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_nb8ur"]
 size = Vector3(3.80371, 1.61621, 1.65154)
@@ -35,7 +36,7 @@ size = Vector3(6.29565, 1, 3.86462)
 size = Vector3(6.93994, 3.53406, 0.20752)
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_megdg"]
-size = Vector3(1, 3.52615, 2.42944)
+size = Vector3(0.794128, 3.52615, 2.72693)
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_66uti"]
 size = Vector3(0.297031, 3.55664, 2.99329)
@@ -61,10 +62,6 @@ dish_spawnpoints = [NodePath("Food Tray Positions/1"), NodePath("Food Tray Posit
 
 [node name="Food Truck Model" parent="." instance=ExtResource("15_4upiy")]
 transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, -0.560616, 0, 0)
-
-[node name="collision" parent="Food Truck Model" index="2"]
-collision_layer = 0
-collision_mask = 0
 
 [node name="Interior" type="Node3D" parent="."]
 
@@ -110,6 +107,9 @@ transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -1.616
 
 [node name="MeatThermometer" parent="Interior" instance=ExtResource("13_fvj1u")]
 transform = Transform3D(-0.422618, 0.906308, 8.74227e-08, 0.906307, 0.422618, 0, -3.69464e-08, 7.92319e-08, -0.999999, -1.30569, 2.11233, -1.09728)
+
+[node name="Mop" parent="Interior" instance=ExtResource("16_1bg51")]
+transform = Transform3D(-0.766044, -0.642788, 8.74228e-08, -0.642788, 0.766044, 0, -6.69697e-08, -5.61943e-08, -1, -1.4322, 1.22687, -1.11286)
 
 [node name="Food Tray Positions" type="Node3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.965504, 1.68007, -1.69716)
@@ -181,8 +181,9 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0153809, 1.97379, 1.33694)
 shape = SubResource("BoxShape3D_qimnc")
 
 [node name="FrontWall" type="CollisionShape3D" parent="TruckCollider"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.91236, 2.03337, -0.109985)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.0153, 2.03337, 0.0234994)
 shape = SubResource("BoxShape3D_megdg")
+debug_color = Color(0, 0.595, 0.7, 1)
 
 [node name="BackWall" type="CollisionShape3D" parent="TruckCollider"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.27445, 1.95944, -0.00970461)
