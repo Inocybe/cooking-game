@@ -1,0 +1,31 @@
+[gd_scene load_steps=6 format=3 uid="uid://mh2gdb0rnfvp"]
+
+[ext_resource type="PackedScene" uid="uid://c5tfvsidfrypo" path="res://Scenes/player/vr/left_hand.tscn" id="1_6kpy8"]
+[ext_resource type="Script" uid="uid://ba840fmlegg52" path="res://Scripts/Player/VR/XRManager.gd" id="1_xgbwq"]
+[ext_resource type="PackedScene" uid="uid://cb16sqj18iuk" path="res://Scenes/player/vr/right_hand.tscn" id="2_upyin"]
+[ext_resource type="PackedScene" uid="uid://cqhw276realc" path="res://addons/godot-xr-tools/functions/function_pointer.tscn" id="3_upyin"]
+[ext_resource type="Script" uid="uid://daxh1u0fig80r" path="res://addons/godot-xr-tools/player/player_body.gd" id="3_xgbwq"]
+
+[node name="XrMenuSystem" type="XROrigin3D"]
+script = ExtResource("1_xgbwq")
+
+[node name="XRCamera3D" type="XRCamera3D" parent="."]
+
+[node name="Left Hand" parent="." instance=ExtResource("1_6kpy8")]
+
+[node name="FunctionPointer" parent="Left Hand" instance=ExtResource("3_upyin")]
+show_laser = 2
+laser_length = 1
+collision_mask = 5242881
+
+[node name="Right Hand" parent="." instance=ExtResource("2_upyin")]
+
+[node name="FunctionPointer" parent="Right Hand" instance=ExtResource("3_upyin")]
+show_laser = 2
+laser_length = 1
+collision_mask = 5242881
+
+[node name="XRToolsPlayerBody" type="CharacterBody3D" parent="."]
+top_level = true
+script = ExtResource("3_xgbwq")
+metadata/_custom_type_script = "uid://daxh1u0fig80r"

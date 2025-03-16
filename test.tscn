@@ -1,7 +1,7 @@
 [gd_scene load_steps=14 format=3 uid="uid://empwj5mtoe6f"]
 
 [ext_resource type="PackedScene" uid="uid://jj8yuf0syk57" path="res://Scenes/managers/game_manager.tscn" id="1_8uh7m"]
-[ext_resource type="PackedScene" uid="uid://5s3oxlpup0wy" path="res://Scenes/misc/player.tscn" id="2_6uqi0"]
+[ext_resource type="PackedScene" uid="uid://5s3oxlpup0wy" path="res://Scenes/player/player.tscn" id="2_6uqi0"]
 [ext_resource type="PackedScene" uid="uid://clujaf3u776a3" path="res://addons/godot-xr-tools/objects/viewport_2d_in_3d.tscn" id="3_ppyta"]
 [ext_resource type="PackedScene" uid="uid://cbco6667n5i38" path="res://Scenes/ui/controls/main_menu_control.tscn" id="4_ykrsh"]
 [ext_resource type="Script" uid="uid://cl8g4o5eqqnp5" path="res://Scripts/UI/Bases/UIControllerBase.gd" id="5_ykrsh"]
