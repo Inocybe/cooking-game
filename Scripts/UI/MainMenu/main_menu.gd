@@ -1,8 +1,8 @@
 extends Node3D
 
 const DESKTOP_MAIN_MENU = preload("res://Scenes/ui/controls/main_menu_control.tscn")
-const XRUI_MAIN_MENU = preload("res://Scenes/ui/main/xrui_main_menu.tscn")
-const XR_MENU_SYSTEM = preload("res://Scenes/vr/xr_menu_system.tscn")
+const XRUI_MAIN_MENU = preload("res://Scenes/ui/3d/xrui_main_menu.tscn")
+const XR_MENU_SYSTEM = preload("res://Scenes/player/vr/xr_menu_system.tscn")
 
 @onready var game_manager: GameManager = $GameManager
 

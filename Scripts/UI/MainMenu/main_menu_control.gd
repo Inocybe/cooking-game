@@ -1,5 +1,7 @@
 extends Control
 
+const STORE_AND_MAP: String = ("res://Scenes/mains/store_and_map.tscn")
+
 @onready var button_container: VBoxContainer = $"MAIN/MarginContainer/VBoxContainer/BUTTON CONTAINER"
 
 var button_dict: Dictionary[String, Callable]
@@ -16,7 +18,7 @@ func button_pressed(button_id: String) -> void:
 
 func start_pressed() -> void:
 	print("start clicked")
-	visible = false
+	get_tree().change_scene_to_file(STORE_AND_MAP)
 
 func settings_pressed() -> void:
 	print("settings clicked")
