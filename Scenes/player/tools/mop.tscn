@@ -1,0 +1,76 @@
+[gd_scene load_steps=12 format=3 uid="uid://ddyyiqy7ve87x"]
+
+[ext_resource type="Script" uid="uid://iaxxksuvxj6m" path="res://Scripts/Rigidbodies/Holdable.gd" id="1_l2tuy"]
+[ext_resource type="Script" uid="uid://bxmtc4j4eepb1" path="res://Scenes/tools/MopBrush.gd" id="2_4gj1t"]
+
+[sub_resource type="CylinderShape3D" id="CylinderShape3D_u6h0b"]
+height = 0.3
+radius = 0.015
+
+[sub_resource type="CylinderMesh" id="CylinderMesh_l2tuy"]
+top_radius = 0.02
+bottom_radius = 0.02
+height = 1.0
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_l2tuy"]
+metallic = 1.0
+roughness = 0.4
+
+[sub_resource type="CylinderShape3D" id="CylinderShape3D_4gj1t"]
+height = 1.0249
+radius = 0.04
+
+[sub_resource type="BoxMesh" id="BoxMesh_4gj1t"]
+size = Vector3(0.1, 0.01, 0.4)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_4gj1t"]
+
+[sub_resource type="BoxMesh" id="BoxMesh_u6h0b"]
+size = Vector3(0.11, 0.01, 0.41)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_kk37c"]
+albedo_color = Color(0.0840117, 0.380036, 0.614827, 1)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_4gj1t"]
+size = Vector3(0.17, 0.05, 0.47)
+
+[node name="Mop" type="RigidBody3D" groups=["holdable", "interactable"]]
+script = ExtResource("1_l2tuy")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+transform = Transform3D(1, 8.88178e-16, 2.98023e-08, 2.98023e-08, -4.37114e-08, -1, 0, 1, -4.37114e-08, 0.17101, -0.469846, 0)
+shape = SubResource("CylinderShape3D_u6h0b")
+
+[node name="PoleMesh" type="MeshInstance3D" parent="."]
+unique_name_in_owner = true
+transform = Transform3D(0.939693, -0.34202, 0, 0.34202, 0.939693, 0, 0, 0, 1, 0, 0, 0)
+mesh = SubResource("CylinderMesh_l2tuy")
+skeleton = NodePath("")
+surface_material_override/0 = SubResource("StandardMaterial3D_l2tuy")
+
+[node name="PoleCollision" type="CollisionShape3D" parent="."]
+transform = Transform3D(0.939693, -0.34202, 0, 0.34202, 0.939693, 0, 0, 0, 1, 0.00425855, -0.0117003, 0)
+shape = SubResource("CylinderShape3D_4gj1t")
+
+[node name="Brush" type="Node3D" parent="."]
+transform = Transform3D(0.939693, -0.34202, 0, 0.34202, 0.939693, 0, 0, 0, 1, 0.17101, -0.469846, 0)
+script = ExtResource("2_4gj1t")
+
+[node name="BrushTop" type="MeshInstance3D" parent="Brush"]
+mesh = SubResource("BoxMesh_4gj1t")
+skeleton = NodePath("../..")
+surface_material_override/0 = SubResource("StandardMaterial3D_4gj1t")
+
+[node name="BrushBottom" type="MeshInstance3D" parent="Brush"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.01, 0)
+mesh = SubResource("BoxMesh_u6h0b")
+skeleton = NodePath("../..")
+surface_material_override/0 = SubResource("StandardMaterial3D_kk37c")
+
+[node name="CleanArea" type="Area3D" parent="Brush"]
+
+[node name="CleanAreaCollision" type="CollisionShape3D" parent="Brush/CleanArea"]
+transform = Transform3D(0.999999, -3.27826e-07, 0, 3.27826e-07, 0.999999, 0, 0, 0, 1, 0, -0.017125, 0)
+shape = SubResource("BoxShape3D_4gj1t")
+
+[connection signal="area_entered" from="Brush/CleanArea" to="Brush" method="on_area_entered"]

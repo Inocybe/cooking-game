@@ -62,7 +62,7 @@ func spill_liquid() -> void:
 func generate_spill(base_position: Vector3) -> void:
 	var spill: Node3D = SPILL_SCENE.instantiate()
 	spill.position = base_position
-	spill.set_material(filled_with)
+	spill.material = filled_with
 	get_tree().current_scene.add_child(spill)
 
 

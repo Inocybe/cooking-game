@@ -41,5 +41,5 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.01, 0)
 
 [node name="BumpSoundPlayer" parent="." instance=ExtResource("3_xd2hr")]
 stream = ExtResource("4_oy2wj")
-bump_base_db = -35.0
-bump_highest_db = -5.0
+bump_base_db = -20.0
+bump_highest_db = 5.0
