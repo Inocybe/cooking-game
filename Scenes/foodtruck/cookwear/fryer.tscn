@@ -1,0 +1,149 @@
+[gd_scene load_steps=21 format=3 uid="uid://bmfn7nnstf5ve"]
+
+[ext_resource type="Script" uid="uid://bxwwb60elrjrn" path="res://Scripts/Foodtruck/Interior/Cookwear/_Base/CookwearBase.gd" id="1_0qara"]
+[ext_resource type="PackedScene" uid="uid://hk4tw1ihmdyx" path="res://Assets/cookwear/fryer/fryer.blend" id="1_b3kne"]
+[ext_resource type="Script" uid="uid://wjyba0xol8b8" path="res://Scripts/Foodtruck/Interior/Cookwear/Fryer/FryBasket.gd" id="2_i8vih"]
+[ext_resource type="ArrayMesh" uid="uid://vmb5c05mvi3m" path="res://Assets/cookwear/fryer/Fry Basket.obj" id="3_avjgy"]
+[ext_resource type="Shader" uid="uid://cfrpfmombooca" path="res://Scripts/Shaders/BubbleShader.gdshader" id="3_i8tab"]
+[ext_resource type="Script" uid="uid://dfc4ipg83pbqa" path="res://Scripts/Foodtruck/Interior/Cookwear/Fryer/Oil.gd" id="4_omym2"]
+[ext_resource type="PackedScene" uid="uid://b5m6iqwc8owc3" path="res://Scenes/misc/fading_audio_stream_player_3d.tscn" id="5_mm1oq"]
+[ext_resource type="AudioStream" uid="uid://c543fs5dchsk1" path="res://Audio/SFX/DeepFry.mp3" id="5_wv5ul"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_7uoui"]
+size = Vector3(2, 1, 2)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_owx0e"]
+size = Vector3(0.181, 0.3, 2.001)
+
+[sub_resource type="PlaneMesh" id="PlaneMesh_ur8hw"]
+size = Vector2(1.9, 1.9)
+
+[sub_resource type="Gradient" id="Gradient_oiynj"]
+
+[sub_resource type="FastNoiseLite" id="FastNoiseLite_37xbe"]
+noise_type = 5
+frequency = 0.076
+
+[sub_resource type="NoiseTexture3D" id="NoiseTexture3D_75qut"]
+width = 256
+height = 256
+depth = 256
+color_ramp = SubResource("Gradient_oiynj")
+noise = SubResource("FastNoiseLite_37xbe")
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_5gi8m"]
+render_priority = 0
+shader = ExtResource("3_i8tab")
+shader_parameter/noise_texture = SubResource("NoiseTexture3D_75qut")
+shader_parameter/base_color = Color(0.831373, 0.486275, 0.207843, 0.815686)
+shader_parameter/bubble_color = Color(1, 1, 1, 1)
+shader_parameter/time_scale = 0.1
+shader_parameter/bubble_cutoff = 0.7
+shader_parameter/position_scale = 3.0
+shader_parameter/round_amount = 0.03
+shader_parameter/max_bubble_radius = 1.0
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_2s587"]
+size = Vector3(0.7, 0.137598, 0.7)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_or8tv"]
+size = Vector3(0.677917, 0.0187073, 0.763245)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_3qglo"]
+size = Vector3(0.681396, 0.335724, 0.0157471)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_17qm3"]
+size = Vector3(0.0688171, 0.0670776, 0.4245)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_xelrx"]
+size = Vector3(0.0168457, 0.3396, 0.767822)
+
+[node name="Fryer" type="Node3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.4, 0)
+
+[node name="Fryer Base" type="StaticBody3D" parent="." node_paths=PackedStringArray("cooking_area")]
+unique_name_in_owner = true
+transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, 0, 0, 0)
+collision_layer = 3
+collision_mask = 3
+input_ray_pickable = false
+script = ExtResource("1_0qara")
+cooking_area = NodePath("Frying Area")
+cooking_type = 1
+
+[node name="Fryer Model" parent="Fryer Base" instance=ExtResource("1_b3kne")]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 0.8, 0, 1, 0, -4.37114e-08, 0, 0, 0)
+
+[node name="Fryer Base Collision" type="CollisionShape3D" parent="Fryer Base"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.3, 0)
+shape = SubResource("BoxShape3D_7uoui")
+
+[node name="Fryer Wall 1 Collision" type="CollisionShape3D" parent="Fryer Base"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.900043, 0.7, -0.000305176)
+shape = SubResource("BoxShape3D_owx0e")
+
+[node name="Fryer Wall 2 Collision" type="CollisionShape3D" parent="Fryer Base"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.9, 0.7, 0)
+shape = SubResource("BoxShape3D_owx0e")
+
+[node name="Fryer Wall 3 Collision" type="CollisionShape3D" parent="Fryer Base"]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 0.000174304, 0.7, 0.899869)
+shape = SubResource("BoxShape3D_owx0e")
+
+[node name="Fryer Wall 4 Collision" type="CollisionShape3D" parent="Fryer Base"]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, -0.000130793, 0.7, -0.900174)
+shape = SubResource("BoxShape3D_owx0e")
+
+[node name="Oil" type="MeshInstance3D" parent="Fryer Base"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.642484, 0)
+mesh = SubResource("PlaneMesh_ur8hw")
+surface_material_override/0 = SubResource("ShaderMaterial_5gi8m")
+script = ExtResource("4_omym2")
+
+[node name="FryingAudioPlayer" parent="Fryer Base/Oil" instance=ExtResource("5_mm1oq")]
+stream = ExtResource("5_wv5ul")
+
+[node name="Frying Area" type="Area3D" parent="Fryer Base"]
+unique_name_in_owner = true
+transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, 0, 0.560527, 0)
+
+[node name="Frying Area Collision" type="CollisionShape3D" parent="Fryer Base/Frying Area"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.0312012, 0)
+shape = SubResource("BoxShape3D_2s587")
+
+[node name="Fry Basket" type="RigidBody3D" parent="." groups=["holdable", "interactable"]]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.4, 0)
+axis_lock_linear_x = true
+axis_lock_linear_z = true
+axis_lock_angular_x = true
+axis_lock_angular_y = true
+axis_lock_angular_z = true
+script = ExtResource("2_i8vih")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Fry Basket"]
+transform = Transform3D(0.17, 0, 0, 0, 0.17, 0, 0, 0, 0.17, 0, 0, 0)
+mesh = ExtResource("3_avjgy")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Fry Basket"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.000762939, -0.176163, -0.00942993)
+shape = SubResource("BoxShape3D_or8tv")
+
+[node name="CollisionShape3D2" type="CollisionShape3D" parent="Fry Basket"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.000610352, -0.0204647, -0.382874)
+shape = SubResource("BoxShape3D_3qglo")
+
+[node name="CollisionShape3D3" type="CollisionShape3D" parent="Fry Basket"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.000610352, -0.0204647, 0.365909)
+shape = SubResource("BoxShape3D_3qglo")
+
+[node name="CollisionShape3D4" type="CollisionShape3D" parent="Fry Basket"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.000167846, 0.100861, 0.586151)
+shape = SubResource("BoxShape3D_17qm3")
+
+[node name="CollisionShape3D5" type="CollisionShape3D" parent="Fry Basket"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.332153, -0.0172119, -0.00842285)
+shape = SubResource("BoxShape3D_xelrx")
+
+[node name="CollisionShape3D6" type="CollisionShape3D" parent="Fry Basket"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.331591, -0.0172119, -0.00842285)
+shape = SubResource("BoxShape3D_xelrx")
