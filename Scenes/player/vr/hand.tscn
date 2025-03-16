@@ -1,0 +1,18 @@
+[gd_scene load_steps=3 format=3 uid="uid://b1ysbf8y1uwov"]
+
+[ext_resource type="Script" uid="uid://d3o2l5xivt5ne" path="res://Scripts/Player/VR/XRHandController.gd" id="1_ty1hw"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_r8ri3"]
+size = Vector3(0.14146, 0.0841217, 0.141533)
+
+[node name="Hand" type="XRController3D"]
+script = ExtResource("1_ty1hw")
+
+[node name="HoldArea" type="Area3D" parent="."]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="HoldArea"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.050354, -0.0430603, 0.052124)
+shape = SubResource("BoxShape3D_r8ri3")
+
+[connection signal="body_entered" from="HoldArea" to="." method="on_body_enter_hold_area"]
+[connection signal="body_exited" from="HoldArea" to="." method="on_body_exit_hold_area"]

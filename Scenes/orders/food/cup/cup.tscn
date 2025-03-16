@@ -1,0 +1,81 @@
+[gd_scene load_steps=11 format=3 uid="uid://ca6thqwccusde"]
+
+[ext_resource type="PackedScene" uid="uid://7q370aiw7csi" path="res://Assets/food/cup/cup.blend" id="1_d6bin"]
+[ext_resource type="Script" uid="uid://dawxx47p16l67" path="res://Scripts/Orders/Food/Cup/Cup.gd" id="1_j075t"]
+[ext_resource type="AudioStream" uid="uid://vcn4qyjfg765" path="res://Audio/SFX/Spill.mp3" id="3_b5slg"]
+[ext_resource type="AudioStream" uid="uid://by7eby4v50pqe" path="res://Audio/SFX/Fill2.5.mp3" id="4_47b53"]
+[ext_resource type="PackedScene" uid="uid://bcaj1x735ohkd" path="res://Scenes/misc/bump_sound_player.tscn" id="5_47b53"]
+[ext_resource type="AudioStream" uid="uid://ds7vk835h3wm2" path="res://Audio/SFX/BumpC.mp3" id="6_pfwyw"]
+
+[sub_resource type="CylinderShape3D" id="CylinderShape3D_bwg4b"]
+height = 0.275
+radius = 0.11
+
+[sub_resource type="Animation" id="Animation_8lrdf"]
+resource_name = "Fill"
+length = 2.0
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Liquid:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 2),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector3(0, -0.11, 0), Vector3(0, 0.11, 0)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Liquid:scale")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 2),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector3(1, 1, 1), Vector3(1.25, 1.25, 1.25)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_ry0y6"]
+_data = {
+&"Fill": SubResource("Animation_8lrdf")
+}
+
+[sub_resource type="CylinderMesh" id="CylinderMesh_qwdt1"]
+top_radius = 0.075
+bottom_radius = 0.075
+height = 0.03
+
+[node name="Cup" type="RigidBody3D" groups=["food", "holdable", "interactable"]]
+script = ExtResource("1_j075t")
+from_item = 2
+food_component_type = 3
+
+[node name="Model" parent="." instance=ExtResource("1_d6bin")]
+transform = Transform3D(0.075, 0, 0, 0, 0.075, 0, 0, 0, 0.075, 0, 0, 0)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+shape = SubResource("CylinderShape3D_bwg4b")
+
+[node name="Fill" type="AnimationPlayer" parent="."]
+libraries = {
+&"": SubResource("AnimationLibrary_ry0y6")
+}
+
+[node name="Liquid" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.11, 0)
+mesh = SubResource("CylinderMesh_qwdt1")
+
+[node name="SpillSoundPlayer" type="AudioStreamPlayer3D" parent="."]
+stream = ExtResource("3_b5slg")
+
+[node name="FillSoundPlayer" type="AudioStreamPlayer3D" parent="."]
+stream = ExtResource("4_47b53")
+volume_db = 15.0
+max_db = 6.0
+
+[node name="BumpSoundPlayer" parent="." instance=ExtResource("5_47b53")]
+stream = ExtResource("6_pfwyw")

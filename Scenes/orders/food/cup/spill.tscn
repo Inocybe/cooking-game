@@ -1,0 +1,55 @@
+[gd_scene load_steps=7 format=3 uid="uid://bws6s6beiqqk8"]
+
+[ext_resource type="Script" uid="uid://dwm6uia55immg" path="res://Scripts/Orders/Food/Cup/Spill.gd" id="1_1qtge"]
+
+[sub_resource type="CylinderMesh" id="CylinderMesh_itsnd"]
+top_radius = 0.0
+height = 0.02
+
+[sub_resource type="CylinderShape3D" id="CylinderShape3D_dbmlw"]
+height = 0.02
+
+[sub_resource type="Animation" id="Animation_3immn"]
+length = 0.001
+tracks/0/type = "scale_3d"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("MeshInstance3D")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = PackedFloat32Array(0, 1, 1, 1, 1)
+
+[sub_resource type="Animation" id="Animation_nqr52"]
+resource_name = "grow"
+length = 0.2
+step = 0.2
+tracks/0/type = "scale_3d"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("MeshInstance3D")
+tracks/0/interp = 2
+tracks/0/loop_wrap = true
+tracks/0/keys = PackedFloat32Array(0, 1, 0, 0, 0, 0.2, 1, 1, 1, 1)
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_eg7co"]
+_data = {
+&"RESET": SubResource("Animation_3immn"),
+&"grow": SubResource("Animation_nqr52")
+}
+
+[node name="Spill" type="Area3D"]
+script = ExtResource("1_1qtge")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.01, 0)
+mesh = SubResource("CylinderMesh_itsnd")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.01, 0)
+shape = SubResource("CylinderShape3D_dbmlw")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_eg7co")
+}
+autoplay = "grow"
