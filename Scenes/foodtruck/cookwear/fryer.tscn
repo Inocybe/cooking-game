@@ -1,6 +1,6 @@
 [gd_scene load_steps=21 format=3 uid="uid://bmfn7nnstf5ve"]
 
-[ext_resource type="Script" uid="uid://bxwwb60elrjrn" path="res://Scripts/Foodtruck/Interior/Cookwear/_Base/CookwearBase.gd" id="1_0qara"]
+[ext_resource type="Script" uid="uid://bxwwb60elrjrn" path="res://Scripts/Foodtruck/Interior/Cookwear/CookwearBase.gd" id="1_0qara"]
 [ext_resource type="PackedScene" uid="uid://hk4tw1ihmdyx" path="res://Assets/cookwear/fryer/fryer.blend" id="1_b3kne"]
 [ext_resource type="Script" uid="uid://wjyba0xol8b8" path="res://Scripts/Foodtruck/Interior/Cookwear/Fryer/FryBasket.gd" id="2_i8vih"]
 [ext_resource type="ArrayMesh" uid="uid://vmb5c05mvi3m" path="res://Assets/cookwear/fryer/Fry Basket.obj" id="3_avjgy"]
