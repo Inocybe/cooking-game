@@ -1,8 +1,8 @@
 [gd_scene load_steps=7 format=3 uid="uid://cd7anw3qhpovq"]
 
-[ext_resource type="Script" uid="uid://c3h5ekk41jdvq" path="res://Scripts/UI/Map/map_control.gd" id="1_5hudg"]
-[ext_resource type="Texture2D" uid="uid://brswl0f07gyuu" path="res://icon.svg" id="1_urjih"]
-[ext_resource type="Script" uid="uid://0lvqxgurg3oj" path="res://Scripts/UI/Map/map_button.gd" id="2_6fdfh"]
+[ext_resource type="Script" uid="uid://c3h5ekk41jdvq" path="res://Scripts/UI/Map/map_control.gd" id="1_cpcl8"]
+[ext_resource type="Texture2D" uid="uid://brswl0f07gyuu" path="res://icon.svg" id="2_p5u53"]
+[ext_resource type="Script" uid="uid://0lvqxgurg3oj" path="res://Scripts/UI/Map/map_button.gd" id="3_r10et"]
 
 [sub_resource type="Animation" id="Animation_d4j1p"]
 length = 0.001
@@ -73,7 +73,7 @@ grow_horizontal = 2
 grow_vertical = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
-script = ExtResource("1_5hudg")
+script = ExtResource("1_cpcl8")
 town_buttons = [NodePath("Town")]
 
 [node name="Map Image" type="TextureRect" parent="."]
@@ -90,7 +90,7 @@ offset_bottom = 64.0
 grow_horizontal = 2
 grow_vertical = 2
 size_flags_horizontal = 3
-texture = ExtResource("1_urjih")
+texture = ExtResource("2_p5u53")
 stretch_mode = 2
 
 [node name="Town" type="Button" parent="."]
@@ -101,7 +101,7 @@ offset_top = 105.0
 offset_right = 565.0
 offset_bottom = 155.0
 text = "TOWN"
-script = ExtResource("2_6fdfh")
+script = ExtResource("3_r10et")
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="Town"]
 libraries = {

@@ -9,23 +9,16 @@ var xr_ui: Node3D = null
 
 
 func _ready() -> void:
-
-	
 	check_xr()
 
 
-
 func free_desktop_ui() -> void:
-	pass
-
-func free_xr_ui() -> void:
-	pass
-
-
+	desktop_ui.free()
 
 
 func on_xr_detection() -> void:
 	free_desktop_ui()
+	xr_ui = XR_MENU_SYSTEM.instantiate()
 
 
 func check_xr() -> void:
