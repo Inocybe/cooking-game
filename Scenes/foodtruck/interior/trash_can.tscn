@@ -1,7 +1,8 @@
-[gd_scene load_steps=6 format=3 uid="uid://cc6na2w6f2gjp"]
+[gd_scene load_steps=7 format=3 uid="uid://cc6na2w6f2gjp"]
 
 [ext_resource type="PackedScene" uid="uid://bd8xcqqjmv34t" path="res://Assets/interior/can/can.blend" id="1_ctfua"]
 [ext_resource type="Script" uid="uid://076ecec87dmf" path="res://Scripts/Foodtruck/Interior/Cookwear/Trashcan/TrashCan.gd" id="1_qsd77"]
+[ext_resource type="AudioStream" uid="uid://cqprppc8qlvmy" path="res://Audio/SFX/Trash1.mp3" id="3_jjh1e"]
 
 [sub_resource type="CylinderMesh" id="CylinderMesh_on8j5"]
 top_radius = 1.1
@@ -32,3 +33,6 @@ surface_material_override/0 = SubResource("StandardMaterial3D_3cms0")
 [node name="CollisionShape3D" type="CollisionShape3D" parent="DeleteArea"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.08652, 0)
 shape = SubResource("CylinderShape3D_6msuq")
+
+[node name="TrashSound" type="AudioStreamPlayer3D" parent="."]
+stream = ExtResource("3_jjh1e")
