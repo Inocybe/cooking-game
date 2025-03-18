@@ -1,6 +1,18 @@
-[gd_scene load_steps=2 format=3 uid="uid://bw36k3ukcwx6v"]
+[gd_scene load_steps=5 format=3 uid="uid://bw36k3ukcwx6v"]
 
 [ext_resource type="Script" uid="uid://cwjeyrycu42wp" path="res://Scripts/UI/Map/store_and_map.gd" id="1_sm8pa"]
 
+[sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_sm8pa"]
+
+[sub_resource type="Sky" id="Sky_h0qom"]
+sky_material = SubResource("ProceduralSkyMaterial_sm8pa")
+
+[sub_resource type="Environment" id="Environment_maho0"]
+background_mode = 2
+sky = SubResource("Sky_h0qom")
+
 [node name="StoreAndMap" type="Node3D"]
 script = ExtResource("1_sm8pa")
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = SubResource("Environment_maho0")
