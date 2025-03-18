@@ -1,6 +1,6 @@
 [gd_scene load_steps=7 format=3 uid="uid://b3024k6shxqvg"]
 
-[ext_resource type="Script" uid="uid://cfj66lccqcgwo" path="res://Scripts/Orders/Food/_Base/CombinableFoodBase.gd" id="1_gg8ru"]
+[ext_resource type="Script" uid="uid://cfj66lccqcgwo" path="res://Scripts/Orders/Food/CombinableFoodBase.gd" id="1_gg8ru"]
 [ext_resource type="PackedScene" uid="uid://brvkqgrf7civs" path="res://Assets/food/bun.blend" id="2_b0hcx"]
 [ext_resource type="PackedScene" uid="uid://bcaj1x735ohkd" path="res://Scenes/misc/bump_sound_player.tscn" id="3_xd2hr"]
 [ext_resource type="AudioStream" uid="uid://jlq8ldtafnqy" path="res://Audio/SFX/BumpB.mp3" id="4_oy2wj"]
