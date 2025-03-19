@@ -1,8 +1,10 @@
-[gd_scene load_steps=5 format=3 uid="uid://cdm4qy124ys6o"]
+[gd_scene load_steps=7 format=3 uid="uid://cdm4qy124ys6o"]
 
 [ext_resource type="Script" uid="uid://h6n0dxh4d6ri" path="res://Scripts/Orders/Food/Cookable.gd" id="1_4snbo"]
 [ext_resource type="Script" uid="uid://bhjsmhin0ksi2" path="res://Scripts/Orders/Food/BasicFood.gd" id="1_i826k"]
 [ext_resource type="PackedScene" uid="uid://dsrcak3dl0ihe" path="res://Assets/food/fries.blend" id="1_m3d73"]
+[ext_resource type="PackedScene" uid="uid://bcaj1x735ohkd" path="res://Scenes/misc/bump_sound_player.tscn" id="4_dsnb1"]
+[ext_resource type="AudioStream" uid="uid://cf0stdwi4mtd0" path="res://Audio/SFX/BumpF.mp3" id="5_0vm8e"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_ejgeh"]
 size = Vector3(0.227, 0.264, 0.388)
@@ -27,3 +29,6 @@ cooked_color = Color(1, 0.597, 0.07, 1)
 burnt_color = Color(0.201861, 0.102017, 1.20327e-08, 1)
 required_cooking_type = 1
 mesh_glob = "Fry*"
+
+[node name="BumpSoundPlayer" parent="." instance=ExtResource("4_dsnb1")]
+stream = ExtResource("5_0vm8e")
