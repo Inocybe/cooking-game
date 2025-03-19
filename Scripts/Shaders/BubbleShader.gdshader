@@ -21,7 +21,7 @@ void fragment() {
 	vec2 surface_pos = vec2(world_vertex.x, world_vertex.z);
 	vec2 rounded_surface_pos = round(surface_pos / round_amount) * round_amount;
 	vec2 sample_pos = rounded_surface_pos * position_scale + 0.5;
-	vec3 sample_xyz = mod(vec3(sample_pos, TIME * time_scale), vec3(textureSize(noise_texture, 0)));
+	vec3 sample_xyz = vec3(sample_pos, TIME * time_scale);
 	float raw_noise_value = texture(noise_texture, sample_xyz).r;
 	float noise_value = max(raw_noise_value - bubble_cutoff, 0) / (1.0 - bubble_cutoff);
 	float bubble_radius = noise_value * max_bubble_radius * round_amount / 2.0;
