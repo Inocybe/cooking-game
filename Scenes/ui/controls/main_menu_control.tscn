@@ -1,6 +1,6 @@
 [gd_scene load_steps=3 format=3 uid="uid://cbco6667n5i38"]
 
-[ext_resource type="Script" uid="uid://cacqbhe4x15a6" path="res://Scripts/UI/MainMenu/main_menu_control.gd" id="1_dji0b"]
+[ext_resource type="Script" uid="uid://cacqbhe4x15a6" path="res://Scripts/MainMenu/main_menu_control.gd" id="1_dji0b"]
 [ext_resource type="Texture2D" uid="uid://brswl0f07gyuu" path="res://icon.svg" id="1_ms3ow"]
 
 [node name="DesktopUI" type="Control"]

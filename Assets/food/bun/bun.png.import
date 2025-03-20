@@ -3,8 +3,8 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://d0etkqmo5ugxv"
-path.s3tc="res://.godot/imported/bun.png-2a1e74edf394dbc3f5e566a7be09da79.s3tc.ctex"
-path.etc2="res://.godot/imported/bun.png-2a1e74edf394dbc3f5e566a7be09da79.etc2.ctex"
+path.s3tc="res://.godot/imported/bun.png-248a8782af1482d7bb1b20afde573552.s3tc.ctex"
+path.etc2="res://.godot/imported/bun.png-248a8782af1482d7bb1b20afde573552.etc2.ctex"
 metadata={
 "imported_formats": ["s3tc_bptc", "etc2_astc"],
 "vram_texture": true
@@ -12,8 +12,8 @@ metadata={
 
 [deps]
 
-source_file="res://Assets/food/bun.png"
-dest_files=["res://.godot/imported/bun.png-2a1e74edf394dbc3f5e566a7be09da79.s3tc.ctex", "res://.godot/imported/bun.png-2a1e74edf394dbc3f5e566a7be09da79.etc2.ctex"]
+source_file="res://Assets/food/bun/bun.png"
+dest_files=["res://.godot/imported/bun.png-248a8782af1482d7bb1b20afde573552.s3tc.ctex", "res://.godot/imported/bun.png-248a8782af1482d7bb1b20afde573552.etc2.ctex"]
 
 [params]
 
