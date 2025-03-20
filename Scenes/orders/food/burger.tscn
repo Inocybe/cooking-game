@@ -1,9 +1,10 @@
-[gd_scene load_steps=15 format=3 uid="uid://bk567htcs0xj"]
+[gd_scene load_steps=16 format=3 uid="uid://bk567htcs0xj"]
 
 [ext_resource type="Script" uid="uid://bhjsmhin0ksi2" path="res://Scripts/Orders/Food/BasicFood.gd" id="1_6u6t7"]
 [ext_resource type="Script" uid="uid://h6n0dxh4d6ri" path="res://Scripts/Orders/Food/Cookable.gd" id="1_a1o7p"]
-[ext_resource type="PackedScene" uid="uid://bl7462b3hiqlv" path="res://Assets/food/burger.blend" id="2_t8afi"]
+[ext_resource type="PackedScene" uid="uid://bl7462b3hiqlv" path="res://Assets/food/burger/burger.blend" id="2_t8afi"]
 [ext_resource type="PackedScene" uid="uid://c25yxb0vt53vc" path="res://addons/godot-xr-tools/objects/grab_points/grab_point_hand_left.tscn" id="4_48vdx"]
+[ext_resource type="Shader" uid="uid://dfp66sck4kv3s" path="res://Scripts/Shaders/BurgerShader.gdshader" id="4_uw865"]
 [ext_resource type="AudioStream" uid="uid://4cns4ixn4ptm" path="res://Audio/SFX/Frying.mp3" id="5_2sovv"]
 [ext_resource type="PackedScene" uid="uid://b5m6iqwc8owc3" path="res://Scenes/misc/fading_audio_stream_player_3d.tscn" id="5_i26ua"]
 [ext_resource type="PackedScene" uid="uid://bcaj1x735ohkd" path="res://Scenes/misc/bump_sound_player.tscn" id="7_e0eit"]
@@ -64,6 +65,7 @@ cooked_color = Color(0.49, 0.169867, 0.147, 1)
 burnt_color = Color(0.219608, 0.133333, 0.0823529, 1)
 cook_particles = NodePath("../CookingParticles")
 cook_audio = NodePath("../CookingAudio")
+shader = ExtResource("4_uw865")
 
 [node name="CookingParticles" type="GPUParticles3D" parent="."]
 emitting = false
