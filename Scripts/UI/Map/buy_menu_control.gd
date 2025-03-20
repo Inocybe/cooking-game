@@ -6,6 +6,7 @@ var stock_children: Array[Node]
 
 func _ready() -> void:
 	stock_children = food_stock.get_children()
+	update_stock_children()
 
 
 func update_stock_children() -> void:
