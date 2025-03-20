@@ -2,7 +2,7 @@
 
 [ext_resource type="ArrayMesh" uid="uid://d3vbiu4pqys0m" path="res://Assets/interior/cabinet/Cabinet.obj" id="1_t3kqy"]
 [ext_resource type="PackedScene" uid="uid://bvhk5tuyd686e" path="res://Scenes/orders/food/food_spawner.tscn" id="2_tjlfj"]
-[ext_resource type="PackedScene" uid="uid://fkjb8mg8enxf" path="res://Scenes/orders/food/burger.tscn" id="3_5mlj5"]
+[ext_resource type="PackedScene" uid="uid://bk567htcs0xj" path="res://Scenes/orders/food/burger.tscn" id="3_5mlj5"]
 [ext_resource type="PackedScene" uid="uid://ca6thqwccusde" path="res://Scenes/orders/food/cup/cup.tscn" id="4_ikxja"]
 [ext_resource type="PackedScene" uid="uid://cdm4qy124ys6o" path="res://Scenes/orders/food/fries.tscn" id="5_6nmoq"]
 [ext_resource type="PackedScene" uid="uid://b3024k6shxqvg" path="res://Scenes/orders/food/bun.tscn" id="6_qc358"]
@@ -18,6 +18,8 @@ data = PackedVector3Array(4.8999, -4.9259, 9.5999, -4.9001, -4.9259, 9.5999, -4.
 size = Vector3(1.47028, 1.40833, 0.882202)
 
 [node name="Cabinet" type="StaticBody3D"]
+collision_layer = 3
+collision_mask = 3
 
 [node name="Cabinet Model" type="MeshInstance3D" parent="."]
 transform = Transform3D(0.15, 0, 0, 0, -6.55671e-09, 0.15, 0, -0.15, -6.55671e-09, 0, 0, 0)
