@@ -46,3 +46,4 @@ func do_interact_at(pos: Vector3) -> void:
 	event_up.button_index = press_button
 	event_up.position = local_pos
 	subviewport.push_input(event_up)
+	

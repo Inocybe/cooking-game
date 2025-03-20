@@ -1,4 +1,4 @@
-extends TextureRect
+extends HBoxContainer
 
 @onready var chart: ColorRect = $Chart
 @onready var label: Label = $FoodLable/Label
@@ -14,7 +14,7 @@ func set_chart_length_and_text(amount: int) -> void:
 	set_chart_length(amount)
 
 func set_chart_label_text(amount: int) -> void:
-	chart.get_child(0).text = amount
+	chart.get_child(0).text = str(amount)
 
 func set_chart_length(amount: int) -> void:
 	chart.custom_minimum_size.x = amount * CHART_SCALE_MULTIPLIER
