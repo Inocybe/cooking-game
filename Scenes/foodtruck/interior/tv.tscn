@@ -1,9 +1,12 @@
-[gd_scene load_steps=9 format=3 uid="uid://bqqwcdfwo3i5m"]
+[gd_scene load_steps=10 format=3 uid="uid://bqqwcdfwo3i5m"]
 
 [ext_resource type="ArrayMesh" uid="uid://b3asv7cymggaa" path="res://Assets/interior/TV/TV.obj" id="1_o13vh"]
 [ext_resource type="Script" uid="uid://cpkbk1jbggka1" path="res://Scripts/UI/tv.gd" id="1_rid03"]
 [ext_resource type="PackedScene" uid="uid://dts51sc5121xa" path="res://Scenes/ui/controls/tv_control.tscn" id="3_kvmi4"]
 [ext_resource type="Script" uid="uid://dnh71cucei8ce" path="res://Scripts/UI/DebugButton.gd" id="4_07x13"]
+
+[sub_resource type="ViewportTexture" id="ViewportTexture_5ju41"]
+viewport_path = NodePath("SubViewport")
 
 [sub_resource type="PlaneMesh" id="PlaneMesh_07x13"]
 size = Vector2(10.2, 7.2)
@@ -24,8 +27,13 @@ script = ExtResource("1_rid03")
 [node name="TVMesh" type="MeshInstance3D" parent="."]
 mesh = ExtResource("1_o13vh")
 
+[node name="Sprite3D" type="Sprite3D" parent="."]
+transform = Transform3D(1.03, 0, 0, 0, 1.03, 0, 0, 0, 1.03, 0, 0, 0.703976)
+texture = SubResource("ViewportTexture_5ju41")
+
 [node name="MeshDisplay" type="MeshInstance3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, -4.37114e-08, -1, 0, 1, -4.37114e-08, 0, 0, 0.796634)
+visible = false
 mesh = SubResource("PlaneMesh_07x13")
 surface_material_override/0 = SubResource("StandardMaterial3D_07x13")
 
@@ -48,7 +56,7 @@ script = ExtResource("4_07x13")
 script = ExtResource("4_07x13")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0.545)
+transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 0, 0, 0.56556)
 shape = SubResource("BoxShape3D_rid03")
 
 [editable path="SubViewport/MainControl"]

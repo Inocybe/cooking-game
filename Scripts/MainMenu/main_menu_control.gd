@@ -18,7 +18,7 @@ func button_pressed(button_id: String) -> void:
 
 func start_pressed() -> void:
 	print("start clicked")
-	get_tree().change_scene_to_file(STORE_AND_MAP)
+	Global.switch_scenes(STORE_AND_MAP)
 
 func settings_pressed() -> void:
 	print("settings clicked")

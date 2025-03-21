@@ -1,0 +1,6 @@
+[gd_scene load_steps=2 format=3 uid="uid://bloti3yoljxbf"]
+
+[ext_resource type="Script" uid="uid://cypmpyvjlky0h" path="res://Scripts/Rigidbodies/SeperateOnShake.gd" id="1_75dtc"]
+
+[node name="SeperateOnShake" type="Node3D"]
+script = ExtResource("1_75dtc")

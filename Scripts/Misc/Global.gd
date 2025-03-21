@@ -14,6 +14,10 @@ func _ready():
 	
 	game_manager = current_scene.get_node_or_null("GameManager")
 
+func _process(delta: float) -> void:
+	if get_tree().current_scene:
+		game_manager = get_tree().current_scene.get_node_or_null("GameManager")
+
 
 func pause_game() -> void:
 	get_tree().paused = true
@@ -21,6 +25,9 @@ func pause_game() -> void:
 	
 func resume_game() -> void:
 	get_tree().paused = false
+
+func switch_scenes(scene_path: String) -> void:
+	get_tree().change_scene_to_file(scene_path)
 
 
 func debug_ray(from: Vector3, diff: Vector3, color: Color = Color.CHARTREUSE, width: float = 3):
