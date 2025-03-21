@@ -4,7 +4,7 @@
 [ext_resource type="Script" uid="uid://bjm46dy7r54ne" path="res://Scripts/UI/Map/food_graph.gd" id="1_i6ieq"]
 [ext_resource type="Texture2D" uid="uid://brswl0f07gyuu" path="res://icon.svg" id="1_w7f3d"]
 
-[node name="BuyMenuControl" type="Control"]
+[node name="StoreMenuControl" type="Control"]
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0

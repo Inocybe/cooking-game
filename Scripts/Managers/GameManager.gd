@@ -31,6 +31,8 @@ func _ready() -> void:
 	food_truck = current_scene.get_node_or_null("FoodTruck")
 	customer_manager = current_scene.get_node_or_null("CustomerManager")
 	
+	Global.game_manager = self
+	
 	check_XR()
 
 

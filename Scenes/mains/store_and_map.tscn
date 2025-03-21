@@ -1,6 +1,11 @@
-[gd_scene load_steps=5 format=3 uid="uid://bw36k3ukcwx6v"]
+[gd_scene load_steps=15 format=3 uid="uid://bw36k3ukcwx6v"]
 
 [ext_resource type="Script" uid="uid://cwjeyrycu42wp" path="res://Scripts/UI/Map/store_and_map.gd" id="1_sm8pa"]
+[ext_resource type="PackedScene" uid="uid://jj8yuf0syk57" path="res://Scenes/managers/game_manager.tscn" id="2_h0qom"]
+[ext_resource type="PackedScene" uid="uid://5s3oxlpup0wy" path="res://Scenes/player/player.tscn" id="3_maho0"]
+[ext_resource type="PackedScene" uid="uid://cd7anw3qhpovq" path="res://Scenes/ui/controls/map_menu_control.tscn" id="4_0qhvs"]
+[ext_resource type="PackedScene" uid="uid://ddg2hu51lb6u0" path="res://Scenes/ui/controls/store_menu_control.tscn" id="5_joso6"]
+[ext_resource type="Script" uid="uid://cl8g4o5eqqnp5" path="res://Scripts/UI/Bases/UIControllerBase.gd" id="6_joso6"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_sm8pa"]
 
@@ -11,8 +16,67 @@ sky_material = SubResource("ProceduralSkyMaterial_sm8pa")
 background_mode = 2
 sky = SubResource("Sky_h0qom")
 
+[sub_resource type="WorldBoundaryShape3D" id="WorldBoundaryShape3D_0ste2"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_joso6"]
+size = Vector3(11.5209, 6.49133, 0.168091)
+
+[sub_resource type="ViewportTexture" id="ViewportTexture_0qhvs"]
+viewport_path = NodePath("StaticBody3D/SubViewport")
+
+[sub_resource type="ViewportTexture" id="ViewportTexture_joso6"]
+viewport_path = NodePath("Store/SubViewport")
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_fl5ie"]
+
 [node name="StoreAndMap" type="Node3D"]
 script = ExtResource("1_sm8pa")
 
+[node name="GameManager" parent="." instance=ExtResource("2_h0qom")]
+
+[node name="Player" parent="." instance=ExtResource("3_maho0")]
+
 [node name="WorldEnvironment" type="WorldEnvironment" parent="."]
 environment = SubResource("Environment_maho0")
+
+[node name="Ground" type="StaticBody3D" parent="."]
+collision_layer = 3
+collision_mask = 3
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Ground"]
+shape = SubResource("WorldBoundaryShape3D_0ste2")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -5.66331)
+script = ExtResource("6_joso6")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="StaticBody3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.00689697, 0.00152588, -0.0606079)
+shape = SubResource("BoxShape3D_joso6")
+
+[node name="Sprite3D" type="Sprite3D" parent="StaticBody3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0)
+texture = SubResource("ViewportTexture_0qhvs")
+
+[node name="SubViewport" type="SubViewport" parent="StaticBody3D"]
+size = Vector2i(1152, 648)
+
+[node name="MainControl" parent="StaticBody3D/SubViewport" instance=ExtResource("4_0qhvs")]
+
+[node name="Store" type="Node3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 5.54935)
+script = ExtResource("6_joso6")
+
+[node name="Sprite3D" type="Sprite3D" parent="Store"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0)
+texture = SubResource("ViewportTexture_joso6")
+
+[node name="SubViewport" type="SubViewport" parent="Store"]
+size = Vector2i(1152, 648)
+
+[node name="MainControl" parent="Store/SubViewport" instance=ExtResource("5_joso6")]
+
+[node name="Area3D" type="Area3D" parent="Store"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Store/Area3D"]
+shape = SubResource("BoxShape3D_fl5ie")

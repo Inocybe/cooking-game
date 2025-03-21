@@ -4,12 +4,12 @@ importer="scene"
 importer_version=1
 type="PackedScene"
 uid="uid://dsrcak3dl0ihe"
-path="res://.godot/imported/fries.blend-b65b86ee401c7ba6d7f7d8c510611b26.scn"
+path="res://.godot/imported/fries.blend-892a1565a36b9c77aa0939ea2ce577f1.scn"
 
 [deps]
 
-source_file="res://Assets/food/fries.blend"
-dest_files=["res://.godot/imported/fries.blend-b65b86ee401c7ba6d7f7d8c510611b26.scn"]
+source_file="res://Assets/food/fries/fries.blend"
+dest_files=["res://.godot/imported/fries.blend-892a1565a36b9c77aa0939ea2ce577f1.scn"]
 
 [params]
 

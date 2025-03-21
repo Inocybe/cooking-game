@@ -25,11 +25,6 @@ func _unhandled_input(event: InputEvent) -> void:
 		and timer.is_stopped()):
 		drop_if_selected()
 	
-	
-	if event.is_action_pressed("remove_children") and selected_object != null:
-		if selected_object.has_method("unparent_all_children"):
-			selected_object.unparent_all_children()
-	
 	var scroll: float = Input.get_axis("scroll_down", "scroll_up")
 	held_distance += hold_dist_sensitivity * scroll
 	held_distance = clamp(held_distance, min_hold_dist, arm_length)

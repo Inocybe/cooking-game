@@ -16,6 +16,9 @@ func _ready() -> void:
 
 
 func _process(_delta: float) -> void:
+	if rigid_body.freeze:
+		return
+	
 	var state: PhysicsDirectBodyState3D = rigid_body.body_state
 	
 	if not state:
