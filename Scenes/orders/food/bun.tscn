@@ -1,4 +1,4 @@
-[gd_scene load_steps=17 format=3 uid="uid://b3024k6shxqvg"]
+[gd_scene load_steps=18 format=3 uid="uid://b3024k6shxqvg"]
 
 [ext_resource type="Script" uid="uid://cfj66lccqcgwo" path="res://Scripts/Orders/Food/CombinableFoodBase.gd" id="1_gg8ru"]
 [ext_resource type="ArrayMesh" uid="uid://48nlnybujpbi" path="res://Assets/food/bun/bun.obj" id="2_e5ulh"]
@@ -6,6 +6,7 @@
 [ext_resource type="PackedScene" uid="uid://bcaj1x735ohkd" path="res://Scenes/misc/bump_sound_player.tscn" id="3_xd2hr"]
 [ext_resource type="Texture2D" uid="uid://d0etkqmo5ugxv" path="res://Assets/food/bun/bun.png" id="4_dbl1o"]
 [ext_resource type="AudioStream" uid="uid://jlq8ldtafnqy" path="res://Audio/SFX/BumpB.mp3" id="4_oy2wj"]
+[ext_resource type="PackedScene" uid="uid://bloti3yoljxbf" path="res://Scenes/misc/SeperateOnShake.tscn" id="7_vfln8"]
 
 [sub_resource type="Gradient" id="Gradient_vfln8"]
 colors = PackedColorArray(0, 0, 0, 1, 0.133333, 0.133333, 0.133333, 1)
@@ -86,3 +87,5 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.01, 0)
 stream = ExtResource("4_oy2wj")
 bump_base_db = -20.0
 bump_highest_db = 5.0
+
+[node name="SeperateOnShake" parent="." instance=ExtResource("7_vfln8")]
