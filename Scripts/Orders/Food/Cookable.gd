@@ -13,17 +13,22 @@ class_name Cookable extends Node
 @export var mesh_glob = "*"
 @export var cook_particles: GPUParticles3D
 @export var cook_audio: AudioFader3D
-@export var shader: Shader
+@export var material_template: ShaderMaterial
 
 var cooked_amount: float = 0
 var cooking: bool = false
 var is_cooked: bool = false
 var is_burnt: bool = false
-var material: Material = ShaderMaterial.new()
+var material: ShaderMaterial = ShaderMaterial.new()
 
 
 func _ready() -> void:
-	material.shader = shader
+	material.shader = material_template.shader
+	for prop in material.shader.get_shader_uniform_list():
+		var name = prop["name"]
+		var val = material_template.get_shader_parameter(name)
+		material.set_shader_parameter(name, val)
+	
 	for mesh in get_parent().find_children(mesh_glob, "MeshInstance3D"):
 		if mesh.get_surface_override_material(0) == null:
 			mesh.set_surface_override_material(0, material)
@@ -67,6 +72,7 @@ func _process(delta: float) -> void:
 		new_color = cooked_color.lerp(burnt_color, get_burn_amount())
 	
 	material.set_shader_parameter("base_color", new_color)
+	material.set_shader_parameter("cooked_amount", cooked_amount)
 
 
 func get_is_cooked() -> bool:
