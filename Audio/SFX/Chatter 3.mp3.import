@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://cbum52jucq8w3"
+path="res://.godot/imported/Chatter 3.mp3-d02b749794758f021f3d09337e491241.mp3str"
+
+[deps]
+
+source_file="res://Audio/SFX/Chatter 3.mp3"
+dest_files=["res://.godot/imported/Chatter 3.mp3-d02b749794758f021f3d09337e491241.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4
