@@ -7,7 +7,7 @@
 [ext_resource type="Shader" uid="uid://cfrpfmombooca" path="res://Scripts/Shaders/BubbleShader.gdshader" id="3_i8tab"]
 [ext_resource type="Script" uid="uid://dfc4ipg83pbqa" path="res://Scripts/Foodtruck/Interior/Cookwear/Fryer/Oil.gd" id="4_omym2"]
 [ext_resource type="PackedScene" uid="uid://b5m6iqwc8owc3" path="res://Scenes/misc/fading_audio_stream_player_3d.tscn" id="5_mm1oq"]
-[ext_resource type="AudioStream" uid="uid://c543fs5dchsk1" path="res://Audio/SFX/DeepFry.mp3" id="5_wv5ul"]
+[ext_resource type="AudioStream" uid="uid://bf4tjj3pr5318" path="res://Audio/SFX/DeepFry.mp3" id="5_wv5ul"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_7uoui"]
 size = Vector3(2, 1, 2)
