@@ -1,8 +1,10 @@
-[gd_scene load_steps=10 format=3 uid="uid://drk1thu8w54yx"]
+[gd_scene load_steps=13 format=3 uid="uid://drk1thu8w54yx"]
 
 [ext_resource type="Script" uid="uid://ccdk27ndbjiqv" path="res://Scripts/Player/Tools/MeatThermometer.gd" id="1_sebmd"]
 [ext_resource type="PackedScene" uid="uid://oy7vae4fs1f4" path="res://Assets/cookwear/meat_thermometer/meat_thermometer.blend" id="2_sebmd"]
 [ext_resource type="Texture2D" uid="uid://vii8bennmtsd" path="res://Assets/cookwear/meat_thermometer/dial.png" id="3_sebmd"]
+[ext_resource type="PackedScene" uid="uid://bcaj1x735ohkd" path="res://Scenes/misc/bump_sound_player.tscn" id="4_c668t"]
+[ext_resource type="AudioStream" uid="uid://br45tkyqqmc3h" path="res://Audio/SFX/Metal2.mp3" id="5_h0fmw"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_mik4m"]
 bg_color = Color(1, 1, 1, 1)
@@ -31,6 +33,12 @@ radius = 2.66357
 [sub_resource type="CylinderShape3D" id="CylinderShape3D_mik4m"]
 height = 10.7249
 radius = 0.304688
+
+[sub_resource type="AudioStreamRandomizer" id="AudioStreamRandomizer_c668t"]
+random_pitch = 1.5
+random_volume_offset_db = 3.0
+streams_count = 1
+stream_0/stream = ExtResource("5_h0fmw")
 
 [node name="MeatThermometer" type="RigidBody3D" groups=["holdable", "interactable"]]
 script = ExtResource("1_sebmd")
@@ -87,3 +95,6 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -5.88388, 0)
 shape = SubResource("CylinderShape3D_mik4m")
 
 [node name="TempUIHolder" type="Node" parent="."]
+
+[node name="BumpSoundPlayer" parent="." instance=ExtResource("4_c668t")]
+stream = SubResource("AudioStreamRandomizer_c668t")

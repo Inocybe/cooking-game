@@ -1,11 +1,11 @@
-[gd_scene load_steps=18 format=3 uid="uid://b3024k6shxqvg"]
+[gd_scene load_steps=19 format=3 uid="uid://b3024k6shxqvg"]
 
 [ext_resource type="Script" uid="uid://cfj66lccqcgwo" path="res://Scripts/Orders/Food/CombinableFoodBase.gd" id="1_gg8ru"]
 [ext_resource type="ArrayMesh" uid="uid://48nlnybujpbi" path="res://Assets/food/bun/bun.obj" id="2_e5ulh"]
 [ext_resource type="Shader" uid="uid://c83d0usfjxbvq" path="res://Scripts/Shaders/BunShader.gdshader" id="3_dbl1o"]
 [ext_resource type="PackedScene" uid="uid://bcaj1x735ohkd" path="res://Scenes/misc/bump_sound_player.tscn" id="3_xd2hr"]
 [ext_resource type="Texture2D" uid="uid://d0etkqmo5ugxv" path="res://Assets/food/bun/bun.png" id="4_dbl1o"]
-[ext_resource type="AudioStream" uid="uid://jlq8ldtafnqy" path="res://Audio/SFX/BumpB.mp3" id="4_oy2wj"]
+[ext_resource type="AudioStream" uid="uid://dgusaxastbis0" path="res://Audio/SFX/BumpB.mp3" id="4_oy2wj"]
 [ext_resource type="PackedScene" uid="uid://bloti3yoljxbf" path="res://Scenes/misc/SeperateOnShake.tscn" id="7_vfln8"]
 
 [sub_resource type="Gradient" id="Gradient_vfln8"]
@@ -54,6 +54,12 @@ radius = 0.15
 height = 0.0671664
 radius = 0.18001
 
+[sub_resource type="AudioStreamRandomizer" id="AudioStreamRandomizer_any8b"]
+random_pitch = 1.5
+random_volume_offset_db = 3.0
+streams_count = 1
+stream_0/stream = ExtResource("4_oy2wj")
+
 [node name="Bun" type="RigidBody3D" node_paths=PackedStringArray("combine_range", "hold_positions") groups=["food", "holdable", "interactable"]]
 script = ExtResource("1_gg8ru")
 combine_range = NodePath("Combine Range")
@@ -84,7 +90,7 @@ shape = SubResource("CylinderShape3D_lhrvu")
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.01, 0)
 
 [node name="BumpSoundPlayer" parent="." instance=ExtResource("3_xd2hr")]
-stream = ExtResource("4_oy2wj")
+stream = SubResource("AudioStreamRandomizer_any8b")
 bump_base_db = -20.0
 bump_highest_db = 5.0
 
