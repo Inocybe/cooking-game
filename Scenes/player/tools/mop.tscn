@@ -1,7 +1,9 @@
-[gd_scene load_steps=12 format=3 uid="uid://ddyyiqy7ve87x"]
+[gd_scene load_steps=15 format=3 uid="uid://ddyyiqy7ve87x"]
 
 [ext_resource type="Script" uid="uid://iaxxksuvxj6m" path="res://Scripts/Rigidbodies/Holdable.gd" id="1_l2tuy"]
-[ext_resource type="Script" uid="uid://bxmtc4j4eepb1" path="res://Scenes/tools/MopBrush.gd" id="2_4gj1t"]
+[ext_resource type="Script" uid="uid://bxmtc4j4eepb1" path="res://Scenes/player/tools/MopBrush.gd" id="2_4gj1t"]
+[ext_resource type="AudioStream" uid="uid://bgkro42wo70pb" path="res://Audio/SFX/Swish1-1.mp3" id="3_rqjo2"]
+[ext_resource type="AudioStream" uid="uid://bfsc06m3cb211" path="res://Audio/SFX/Swish1-2.mp3" id="4_fhleh"]
 
 [sub_resource type="CylinderShape3D" id="CylinderShape3D_u6h0b"]
 height = 0.3
@@ -33,6 +35,14 @@ albedo_color = Color(0.0840117, 0.380036, 0.614827, 1)
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_4gj1t"]
 size = Vector3(0.17, 0.05, 0.47)
+
+[sub_resource type="AudioStreamRandomizer" id="AudioStreamRandomizer_1yahp"]
+playback_mode = 1
+random_pitch = 1.5
+random_volume_offset_db = 3.0
+streams_count = 2
+stream_0/stream = ExtResource("3_rqjo2")
+stream_1/stream = ExtResource("4_fhleh")
 
 [node name="Mop" type="RigidBody3D" groups=["holdable", "interactable"]]
 script = ExtResource("1_l2tuy")
@@ -72,5 +82,8 @@ surface_material_override/0 = SubResource("StandardMaterial3D_kk37c")
 [node name="CleanAreaCollision" type="CollisionShape3D" parent="Brush/CleanArea"]
 transform = Transform3D(0.999999, -3.27826e-07, 0, 3.27826e-07, 0.999999, 0, 0, 0, 1, 0, -0.017125, 0)
 shape = SubResource("BoxShape3D_4gj1t")
+
+[node name="SwishSoundPlayer" type="AudioStreamPlayer3D" parent="Brush"]
+stream = SubResource("AudioStreamRandomizer_1yahp")
 
 [connection signal="area_entered" from="Brush/CleanArea" to="Brush" method="on_area_entered"]
