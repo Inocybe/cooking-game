@@ -2,10 +2,10 @@
 
 [ext_resource type="PackedScene" uid="uid://7q370aiw7csi" path="res://Assets/food/cup/cup.blend" id="1_d6bin"]
 [ext_resource type="Script" uid="uid://dawxx47p16l67" path="res://Scripts/Orders/Food/Cup.gd" id="1_j075t"]
-[ext_resource type="AudioStream" uid="uid://vcn4qyjfg765" path="res://Audio/SFX/Spill.mp3" id="3_b5slg"]
-[ext_resource type="AudioStream" uid="uid://by7eby4v50pqe" path="res://Audio/SFX/Fill2.5.mp3" id="4_47b53"]
+[ext_resource type="AudioStream" uid="uid://nmx73sg0i3ku" path="res://Audio/SFX/Spill.mp3" id="3_b5slg"]
+[ext_resource type="AudioStream" uid="uid://c6rkofs4ioqqv" path="res://Audio/SFX/Fill2.5.mp3" id="4_47b53"]
 [ext_resource type="PackedScene" uid="uid://bcaj1x735ohkd" path="res://Scenes/misc/bump_sound_player.tscn" id="5_47b53"]
-[ext_resource type="AudioStream" uid="uid://ds7vk835h3wm2" path="res://Audio/SFX/BumpC.mp3" id="6_pfwyw"]
+[ext_resource type="AudioStream" uid="uid://2ues1ntb552r" path="res://Audio/SFX/BumpC.mp3" id="6_pfwyw"]
 
 [sub_resource type="CylinderShape3D" id="CylinderShape3D_bwg4b"]
 height = 0.275

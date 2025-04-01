@@ -1,14 +1,14 @@
-[gd_scene load_steps=23 format=3 uid="uid://bk567htcs0xj"]
+[gd_scene load_steps=24 format=3 uid="uid://bk567htcs0xj"]
 
 [ext_resource type="Script" uid="uid://bhjsmhin0ksi2" path="res://Scripts/Orders/Food/BasicFood.gd" id="1_6u6t7"]
 [ext_resource type="Script" uid="uid://h6n0dxh4d6ri" path="res://Scripts/Orders/Food/Cookable.gd" id="1_a1o7p"]
 [ext_resource type="PackedScene" uid="uid://bl7462b3hiqlv" path="res://Assets/food/burger/burger.blend" id="2_t8afi"]
 [ext_resource type="PackedScene" uid="uid://c25yxb0vt53vc" path="res://addons/godot-xr-tools/objects/grab_points/grab_point_hand_left.tscn" id="4_48vdx"]
 [ext_resource type="Shader" uid="uid://dfp66sck4kv3s" path="res://Scripts/Shaders/BurgerShader.gdshader" id="4_uw865"]
-[ext_resource type="AudioStream" uid="uid://4cns4ixn4ptm" path="res://Audio/SFX/Frying.mp3" id="5_2sovv"]
+[ext_resource type="AudioStream" uid="uid://s0vw7paosrxj" path="res://Audio/SFX/Frying.mp3" id="5_2sovv"]
 [ext_resource type="PackedScene" uid="uid://b5m6iqwc8owc3" path="res://Scenes/misc/fading_audio_stream_player_3d.tscn" id="5_i26ua"]
 [ext_resource type="PackedScene" uid="uid://bcaj1x735ohkd" path="res://Scenes/misc/bump_sound_player.tscn" id="7_e0eit"]
-[ext_resource type="AudioStream" uid="uid://c5adqd0ucejpp" path="res://Audio/SFX/BumpP.mp3" id="8_e0eit"]
+[ext_resource type="AudioStream" uid="uid://bkkbsi7vfdoq3" path="res://Audio/SFX/BumpP.mp3" id="8_e0eit"]
 
 [sub_resource type="CylinderShape3D" id="CylinderShape3D_mawmg"]
 height = 0.139772
@@ -79,6 +79,12 @@ material = SubResource("StandardMaterial3D_82vlf")
 radius = 0.01
 height = 0.02
 
+[sub_resource type="AudioStreamRandomizer" id="AudioStreamRandomizer_uw865"]
+random_pitch = 1.5
+random_volume_offset_db = 3.0
+streams_count = 1
+stream_0/stream = ExtResource("8_e0eit")
+
 [node name="Burger" type="RigidBody3D" groups=["food", "holdable", "interactable"]]
 script = ExtResource("1_6u6t7")
 food_component_type = 1
@@ -116,5 +122,5 @@ fade_in_time = 0.4
 fade_out_time = 1.0
 
 [node name="BumpSoundPlayer" parent="." instance=ExtResource("7_e0eit")]
-stream = ExtResource("8_e0eit")
+stream = SubResource("AudioStreamRandomizer_uw865")
 bump_min_impulse = 1.0
