@@ -13,9 +13,9 @@
 [ext_resource type="PackedScene" uid="uid://tvxop5d67ap0" path="res://Scenes/foodtruck/interior/shelf.tscn" id="14_jugau"]
 [ext_resource type="Script" uid="uid://dwvpetnoh6fji" path="res://Scripts/Foodtruck/Areas/OrderHitbox.gd" id="14_n46fa"]
 [ext_resource type="PackedScene" uid="uid://cqfghqikinccl" path="res://Assets/food_truck/food_truck_v3.glb" id="15_4upiy"]
-[ext_resource type="PackedScene" uid="uid://ddyyiqy7ve87x" path="res://Scenes/tools/mop.tscn" id="16_1bg51"]
-[ext_resource type="PackedScene" uid="uid://bqqwcdfwo3i5m" path="res://Scenes/interior/tv.tscn" id="16_5lsjn"]
-[ext_resource type="PackedScene" uid="uid://cc6na2w6f2gjp" path="res://Scenes/interior/trash_can.tscn" id="16_i5ql0"]
+[ext_resource type="PackedScene" uid="uid://ddyyiqy7ve87x" path="res://Scenes/player/tools/mop.tscn" id="16_1bg51"]
+[ext_resource type="PackedScene" uid="uid://bqqwcdfwo3i5m" path="res://Scenes/foodtruck/interior/tv.tscn" id="16_5lsjn"]
+[ext_resource type="PackedScene" uid="uid://cc6na2w6f2gjp" path="res://Scenes/foodtruck/interior/trash_can.tscn" id="16_i5ql0"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_nb8ur"]
 size = Vector3(3.80371, 1.61621, 1.65154)

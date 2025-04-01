@@ -1,11 +1,10 @@
 class_name UIControllerBase extends Node3D
 
 
-@onready var main_control: Control = %MainControl
 
 @onready var subviewport: SubViewport = $SubViewport
 
-@onready var mesh: MeshInstance3D = $MeshDisplay
+@onready var main_control: Control = $SubViewport/MainControl
 
 @onready var sprite_3d: Sprite3D = $Sprite3D
 
