@@ -7,7 +7,6 @@ class_name Player extends CharacterBody3D
 @export_range(0, 1) var AIR_CONTROL = 0.4
 @export var JUMP_VELOCITY = 3.5
 @export var sensitivity = 0.005
-@export var vr_radius_multiplier = 0.4
 
 @onready var head: Node3D = %Head
 @onready var camera: Camera3D = %Camera3D
@@ -20,10 +19,8 @@ var is_right_mouse_down := false
 func _ready() -> void:
 	Global.game_manager.XR_detected.connect(on_XR_detected)
 
-
 func on_XR_detected() -> void:
 	max_speed = vr_max_speed
-	$CollisionShape3D.shape.radius *= vr_radius_multiplier
 
 func _input(event: InputEvent) -> void:
 	if event.is_action_pressed("ui_cancel"):

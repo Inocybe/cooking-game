@@ -4,11 +4,12 @@ importer="scene"
 importer_version=1
 type="PackedScene"
 uid="uid://cfnwnfqq6fotj"
-valid=false
+path="res://.godot/imported/town1.blend-9821344422879ef71c7e293f3654f70b.scn"
 
 [deps]
 
 source_file="res://Assets/World/town1.blend"
+dest_files=["res://.godot/imported/town1.blend-9821344422879ef71c7e293f3654f70b.scn"]
 
 [params]
 
