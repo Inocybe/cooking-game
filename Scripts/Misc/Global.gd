@@ -14,7 +14,7 @@ func _ready():
 	
 	game_manager = current_scene.get_node_or_null("GameManager")
 
-func _process(delta: float) -> void:
+func _process(_delta: float) -> void:
 	if get_tree().current_scene:
 		game_manager = get_tree().current_scene.get_node_or_null("GameManager")
 

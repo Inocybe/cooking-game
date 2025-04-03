@@ -24,4 +24,4 @@ func reduce_size(amount: float):
 	size -= amount
 	scale = Vector3(size, size, size)
 	if size < disappear_threshold:
-		queue_free()
+			queue_free()
