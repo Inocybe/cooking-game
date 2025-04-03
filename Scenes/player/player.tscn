@@ -8,6 +8,7 @@
 [sub_resource type="CapsuleMesh" id="CapsuleMesh_mf15t"]
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_db71p"]
+radius = 0.2
 
 [node name="Player" type="CharacterBody3D"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
