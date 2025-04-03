@@ -1,7 +1,7 @@
 [gd_scene load_steps=8 format=3 uid="uid://cc6na2w6f2gjp"]
 
 [ext_resource type="PackedScene" uid="uid://bd8xcqqjmv34t" path="res://Assets/interior/can/can.blend" id="1_ctfua"]
-[ext_resource type="Script" uid="uid://076ecec87dmf" path="res://Scripts/Foodtruck/Interior/Cookwear/Trashcan/TrashCan.gd" id="1_qsd77"]
+[ext_resource type="Script" uid="uid://076ecec87dmf" path="res://Scripts/Foodtruck/Interior/TrashCan.gd" id="1_qsd77"]
 [ext_resource type="AudioStream" uid="uid://c3j7qhjytdyfo" path="res://Audio/SFX/Trash1.mp3" id="3_jjh1e"]
 
 [sub_resource type="CylinderMesh" id="CylinderMesh_on8j5"]

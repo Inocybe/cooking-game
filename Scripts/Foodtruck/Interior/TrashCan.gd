@@ -6,7 +6,7 @@ func _ready() -> void:
 
 
 func body_entered_can(body: Node3D) -> void:
-	if body.is_in_group("holdable") and not body.freeze:
+	if body.is_in_group("holdable") and not body.freeze and body is not Dish:
 		body.get_parent().remove_child(body)
 		if not $TrashSound.playing:
 			$TrashSound.play()
