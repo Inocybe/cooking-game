@@ -6,7 +6,7 @@
 [ext_resource type="PackedScene" uid="uid://bcaj1x735ohkd" path="res://Scenes/misc/bump_sound_player.tscn" id="3_xd2hr"]
 [ext_resource type="Texture2D" uid="uid://d0etkqmo5ugxv" path="res://Assets/food/bun/bun.png" id="4_dbl1o"]
 [ext_resource type="AudioStream" uid="uid://dgusaxastbis0" path="res://Audio/SFX/BumpB.mp3" id="4_oy2wj"]
-[ext_resource type="PackedScene" uid="uid://bloti3yoljxbf" path="res://Scenes/misc/SeperateOnShake.tscn" id="7_vfln8"]
+[ext_resource type="PackedScene" uid="uid://bloti3yoljxbf" path="res://Scenes/misc/SeparateOnShake.tscn" id="7_vfln8"]
 
 [sub_resource type="Gradient" id="Gradient_vfln8"]
 colors = PackedColorArray(0, 0, 0, 1, 0.133333, 0.133333, 0.133333, 1)
