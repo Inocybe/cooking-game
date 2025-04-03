@@ -16,6 +16,7 @@ albedo_texture = SubResource("ViewportTexture_igfvj")
 size = Vector2(10, 7)
 
 [node name="UI3D" type="Node3D"]
+process_mode = 3
 script = ExtResource("1_fwoal")
 
 [node name="SubViewportContainer" type="SubViewportContainer" parent="."]
@@ -38,9 +39,6 @@ unique_name_in_owner = true
 
 [node name="ColorRect" parent="SubViewportContainer/SubViewport/MainControl/HBoxContainer/Left/GridContainer/Control" index="0" node_paths=PackedStringArray("relative_to")]
 relative_to = NodePath("../../..")
-
-[node name="Button" parent="SubViewportContainer/SubViewport/MainControl/HBoxContainer/Right/MarginContainer/VBoxContainer" index="0"]
-script = ExtResource("4_5acxt")
 
 [node name="Button3" parent="SubViewportContainer/SubViewport/MainControl/HBoxContainer/Right/MarginContainer/VBoxContainer" index="1"]
 script = ExtResource("4_5acxt")
