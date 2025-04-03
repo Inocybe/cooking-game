@@ -1,0 +1,52 @@
+[gd_scene load_steps=13 format=3 uid="uid://ruvemr4few6r"]
+
+[ext_resource type="Shader" uid="uid://rgbrm8dn0dp7" path="res://Scripts/Shaders/CloudShader.gdshader" id="1_n14vs"]
+
+[sub_resource type="PlaneMesh" id="PlaneMesh_n14vs"]
+size = Vector2(100, 100)
+subdivide_width = 100
+subdivide_depth = 100
+
+[sub_resource type="Gradient" id="Gradient_n14vs"]
+
+[sub_resource type="FastNoiseLite" id="FastNoiseLite_2lklo"]
+noise_type = 3
+
+[sub_resource type="NoiseTexture2D" id="NoiseTexture2D_2bv16"]
+color_ramp = SubResource("Gradient_n14vs")
+noise = SubResource("FastNoiseLite_2lklo")
+
+[sub_resource type="Gradient" id="Gradient_po20r"]
+
+[sub_resource type="FastNoiseLite" id="FastNoiseLite_jqnsx"]
+noise_type = 3
+
+[sub_resource type="NoiseTexture2D" id="NoiseTexture2D_hbki2"]
+color_ramp = SubResource("Gradient_po20r")
+noise = SubResource("FastNoiseLite_jqnsx")
+
+[sub_resource type="Gradient" id="Gradient_2lklo"]
+colors = PackedColorArray(0.283018, 0.283018, 0.283018, 1, 0.800491, 0.800491, 0.800491, 1)
+
+[sub_resource type="FastNoiseLite" id="FastNoiseLite_2bv16"]
+
+[sub_resource type="NoiseTexture2D" id="NoiseTexture2D_po20r"]
+seamless = true
+color_ramp = SubResource("Gradient_2lklo")
+noise = SubResource("FastNoiseLite_2bv16")
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_2lklo"]
+render_priority = 0
+shader = ExtResource("1_n14vs")
+shader_parameter/color_noise = SubResource("NoiseTexture2D_po20r")
+shader_parameter/color_noise_scale = 2.42
+shader_parameter/bump_size = 12.0
+shader_parameter/bump_high_noise = SubResource("NoiseTexture2D_2bv16")
+shader_parameter/bump_low_noise = SubResource("NoiseTexture2D_hbki2")
+shader_parameter/transparent_cutoff = 0.3
+shader_parameter/max_thickness_damp = 0.9
+
+[node name="Clouds" type="MeshInstance3D"]
+transform = Transform3D(1, 0, 0, 0, -1, 8.74228e-08, 0, -8.74228e-08, -1, 0, 0, 0)
+mesh = SubResource("PlaneMesh_n14vs")
+surface_material_override/0 = SubResource("ShaderMaterial_2lklo")

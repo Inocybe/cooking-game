@@ -61,7 +61,7 @@ func interact_with(obj: Node) -> void:
 func interact_with_ui(obj: Node3D, pos: Vector3):
 	obj.do_interact_at(pos)
 
-func interact_with_menu_ui(obj: Node3D, pos: Vector3) -> void:
+func interact_with_menu_ui(_obj: Node3D, _pos: Vector3) -> void:
 	pass
 	
 func drop_selected() -> void:
