@@ -4,7 +4,7 @@
 [ext_resource type="PackedScene" uid="uid://dib15fcwy22fq" path="res://Assets/food_tray.blend" id="2_8cj47"]
 [ext_resource type="PackedScene" uid="uid://bcaj1x735ohkd" path="res://Scenes/misc/bump_sound_player.tscn" id="3_1ofif"]
 [ext_resource type="AudioStream" uid="uid://bbuupfp2kpkok" path="res://Audio/SFX/BumpT3.mp3" id="4_1ofif"]
-[ext_resource type="PackedScene" uid="uid://bloti3yoljxbf" path="res://Scenes/misc/SeperateOnShake.tscn" id="5_gf2c0"]
+[ext_resource type="PackedScene" uid="uid://bloti3yoljxbf" path="res://Scenes/misc/SeparateOnShake.tscn" id="5_gf2c0"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_7dxny"]
 size = Vector3(0.4, 0.05, 0.8)

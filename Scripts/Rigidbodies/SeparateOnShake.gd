@@ -1,4 +1,4 @@
-extends Node3D
+class_name SeparateOnShake extends Node3D
 
 
 @export var shake_max_time: float = 0.2
