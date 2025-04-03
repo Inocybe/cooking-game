@@ -24,7 +24,9 @@ func world_to_local_space(pos: Vector3) -> Vector2:
 		#print("event not on ui plane")
 		#return Vector2.ZERO
 	
-	var texture_position: Vector2 = Vector2(local_3d_pos.x, -local_3d_pos.y) / sprite_3d.pixel_size - sprite_3d.get_item_rect().position  # Assuming uniform scaling
+	var texture_position: Vector2 = Vector2(
+		local_3d_pos.x, -local_3d_pos.y
+	) / sprite_3d.pixel_size - sprite_3d.get_item_rect().position  # Assuming uniform scaling
 	
 	return texture_position
 
