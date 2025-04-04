@@ -5,6 +5,7 @@
 [ext_resource type="PackedScene" uid="uid://dnpv3i87jyyr7" path="res://Scenes/managers/music_manager.tscn" id="3_8cbiu"]
 
 [node name="GameManager" type="Node"]
+process_mode = 3
 script = ExtResource("1_ll06w")
 
 [node name="OrderManager" parent="." instance=ExtResource("2_mk4je")]

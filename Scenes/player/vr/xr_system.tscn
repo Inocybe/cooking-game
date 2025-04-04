@@ -6,6 +6,7 @@
 [ext_resource type="PackedScene" uid="uid://cb16sqj18iuk" path="res://Scenes/player/vr/right_hand.tscn" id="4_a5g18"]
 
 [node name="XROrigin3D" type="XROrigin3D"]
+process_mode = 3
 current = true
 script = ExtResource("1_h3yyi")
 
