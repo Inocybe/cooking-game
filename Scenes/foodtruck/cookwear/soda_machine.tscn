@@ -111,7 +111,7 @@ transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, 0, 1.23536, 0.325)
 shape = SubResource("BoxShape3D_dr1gd")
 
 [node name="WaterButton" type="StaticBody3D" parent="." groups=["interactable"]]
-transform = Transform3D(0.1, 0, 0, 0, -4.37114e-09, -0.1, 0, 0.1, -4.37114e-09, -0.299873, 1.95743, 0.120159)
+transform = Transform3D(0.1, 0, 0, 0, -4.37114e-09, -0.1, 0, 0.1, -4.37114e-09, -0.299873, 1.70263, 0.301087)
 script = ExtResource("3_doyl0")
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="WaterButton"]
@@ -122,7 +122,7 @@ mesh = SubResource("CylinderMesh_ll3af")
 shape = SubResource("CylinderShape3D_1r5b1")
 
 [node name="LeanButton" type="StaticBody3D" parent="." groups=["interactable"]]
-transform = Transform3D(0.1, 0, 0, 0, -4.37114e-09, -0.1, 0, 0.1, -4.37114e-09, -0.00298464, 1.95743, 0.120159)
+transform = Transform3D(0.1, 0, 0, 0, -4.37114e-09, -0.1, 0, 0.1, -4.37114e-09, -0.00298464, 1.70263, 0.301087)
 script = ExtResource("3_doyl0")
 liquid = 1
 
@@ -135,7 +135,7 @@ transform = Transform3D(1, 0, 0, 0, 1, -1.77636e-14, 0, 1.77636e-14, 1, 0, 0, 0)
 shape = SubResource("CylinderShape3D_1r5b1")
 
 [node name="ColaButton" type="StaticBody3D" parent="." groups=["interactable"]]
-transform = Transform3D(0.1, 0, 0, 0, -4.37114e-09, -0.1, 0, 0.1, -4.37114e-09, 0.302542, 1.95743, 0.120159)
+transform = Transform3D(0.1, 0, 0, 0, -4.37114e-09, -0.1, 0, 0.1, -4.37114e-09, 0.302542, 1.70263, 0.301087)
 script = ExtResource("3_doyl0")
 liquid = 2
 
