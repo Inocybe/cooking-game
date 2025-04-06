@@ -38,7 +38,7 @@ transform = Transform3D(-0.76628, 0, -0.642507, 0, 1, 0, 0.642507, 0, -0.76628, 
 environment = SubResource("Environment_ge0im")
 
 [node name="FoodTruck" parent="." instance=ExtResource("2_3dmfd")]
-transform = Transform3D(-0.761335, 0, -0.648359, 0, 1, 0, 0.648359, 0, -0.761335, -0.0296402, -0.0441494, -0.0324593)
+transform = Transform3D(-0.707107, 0, -0.707107, 0, 1, 0, 0.707107, 0, -0.707107, -0.0296402, -0.0441494, -0.0324593)
 
 [node name="Ground" type="StaticBody3D" parent="."]
 collision_layer = 7
@@ -57,6 +57,6 @@ script = ExtResource("5_xk452")
 [node name="ChatterPlayer" parent="." instance=ExtResource("5_xatkk")]
 
 [node name="Clouds" parent="." instance=ExtResource("6_12l6w")]
-transform = Transform3D(0.707107, -6.18172e-08, 0.707107, -8.74228e-08, -1, 0, 0.707107, -6.18172e-08, -0.707107, 39.6171, 33.8658, 44.6878)
+transform = Transform3D(-0.707107, -6.18172e-08, 0.707107, 8.74228e-08, -1, 0, 0.707107, 6.18172e-08, 0.707107, 70, 40, 70)
 
 [editable path="GameManager"]

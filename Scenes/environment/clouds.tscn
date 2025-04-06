@@ -1,11 +1,11 @@
-[gd_scene load_steps=13 format=3 uid="uid://ruvemr4few6r"]
+[gd_scene load_steps=21 format=3 uid="uid://ruvemr4few6r"]
 
 [ext_resource type="Shader" uid="uid://rgbrm8dn0dp7" path="res://Scripts/Shaders/CloudShader.gdshader" id="1_n14vs"]
 
-[sub_resource type="PlaneMesh" id="PlaneMesh_n14vs"]
-size = Vector2(100, 100)
-subdivide_width = 100
-subdivide_depth = 100
+[sub_resource type="PlaneMesh" id="PlaneMesh_2lklo"]
+size = Vector2(200, 200)
+subdivide_width = 45
+subdivide_depth = 45
 
 [sub_resource type="Gradient" id="Gradient_n14vs"]
 
@@ -13,6 +13,7 @@ subdivide_depth = 100
 noise_type = 3
 
 [sub_resource type="NoiseTexture2D" id="NoiseTexture2D_2bv16"]
+seamless = true
 color_ramp = SubResource("Gradient_n14vs")
 noise = SubResource("FastNoiseLite_2lklo")
 
@@ -22,6 +23,7 @@ noise = SubResource("FastNoiseLite_2lklo")
 noise_type = 3
 
 [sub_resource type="NoiseTexture2D" id="NoiseTexture2D_hbki2"]
+seamless = true
 color_ramp = SubResource("Gradient_po20r")
 noise = SubResource("FastNoiseLite_jqnsx")
 
@@ -38,15 +40,152 @@ noise = SubResource("FastNoiseLite_2bv16")
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_2lklo"]
 render_priority = 0
 shader = ExtResource("1_n14vs")
+shader_parameter/UV_offset = Vector2(0, 0)
+shader_parameter/curvature_factor = 20.0
+shader_parameter/curvature_center = Vector2(0.5, 0.5)
 shader_parameter/color_noise = SubResource("NoiseTexture2D_po20r")
 shader_parameter/color_noise_scale = 2.42
 shader_parameter/bump_size = 12.0
+shader_parameter/high_noise_weight = 1.0
+shader_parameter/high_noise_scale = 1.0
+shader_parameter/high_noise_velocity = Vector2(0.01, 0)
 shader_parameter/bump_high_noise = SubResource("NoiseTexture2D_2bv16")
+shader_parameter/low_noise_weight = 1.0
+shader_parameter/low_noise_scale = 0.5
+shader_parameter/low_noise_velocity = Vector2(0.01, 0.01)
 shader_parameter/bump_low_noise = SubResource("NoiseTexture2D_hbki2")
 shader_parameter/transparent_cutoff = 0.3
-shader_parameter/max_thickness_damp = 0.9
+shader_parameter/max_thickness_damp = 0.6
 
-[node name="Clouds" type="MeshInstance3D"]
-transform = Transform3D(1, 0, 0, 0, -1, 8.74228e-08, 0, -8.74228e-08, -1, 0, 0, 0)
-mesh = SubResource("PlaneMesh_n14vs")
+[sub_resource type="PlaneMesh" id="PlaneMesh_2bv16"]
+size = Vector2(200, 200)
+subdivide_width = 15
+subdivide_depth = 15
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_po20r"]
+render_priority = 0
+shader = ExtResource("1_n14vs")
+shader_parameter/UV_offset = Vector2(1, 0)
+shader_parameter/curvature_factor = 20.0
+shader_parameter/curvature_center = Vector2(0.5, 0.5)
+shader_parameter/color_noise = SubResource("NoiseTexture2D_po20r")
+shader_parameter/color_noise_scale = 2.42
+shader_parameter/bump_size = 12.0
+shader_parameter/high_noise_weight = 1.0
+shader_parameter/high_noise_scale = 1.0
+shader_parameter/high_noise_velocity = Vector2(0.01, 0)
+shader_parameter/bump_high_noise = SubResource("NoiseTexture2D_2bv16")
+shader_parameter/low_noise_weight = 1.0
+shader_parameter/low_noise_scale = 0.5
+shader_parameter/low_noise_velocity = Vector2(0.01, 0.01)
+shader_parameter/bump_low_noise = SubResource("NoiseTexture2D_hbki2")
+shader_parameter/transparent_cutoff = 0.3
+shader_parameter/max_thickness_damp = 0.6
+
+[sub_resource type="PlaneMesh" id="PlaneMesh_n14vs"]
+size = Vector2(200, 200)
+subdivide_width = 15
+subdivide_depth = 15
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_jqnsx"]
+render_priority = 0
+shader = ExtResource("1_n14vs")
+shader_parameter/UV_offset = Vector2(-1, 0)
+shader_parameter/curvature_factor = 20.0
+shader_parameter/curvature_center = Vector2(0.5, 0.5)
+shader_parameter/color_noise = SubResource("NoiseTexture2D_po20r")
+shader_parameter/color_noise_scale = 2.42
+shader_parameter/bump_size = 12.0
+shader_parameter/high_noise_weight = 1.0
+shader_parameter/high_noise_scale = 1.0
+shader_parameter/high_noise_velocity = Vector2(0.01, 0)
+shader_parameter/bump_high_noise = SubResource("NoiseTexture2D_2bv16")
+shader_parameter/low_noise_weight = 1.0
+shader_parameter/low_noise_scale = 0.5
+shader_parameter/low_noise_velocity = Vector2(0.01, 0.01)
+shader_parameter/bump_low_noise = SubResource("NoiseTexture2D_hbki2")
+shader_parameter/transparent_cutoff = 0.3
+shader_parameter/max_thickness_damp = 0.6
+
+[sub_resource type="PlaneMesh" id="PlaneMesh_po20r"]
+size = Vector2(200, 200)
+subdivide_width = 15
+subdivide_depth = 15
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_hbki2"]
+render_priority = 0
+shader = ExtResource("1_n14vs")
+shader_parameter/UV_offset = Vector2(-0.5, 1)
+shader_parameter/curvature_factor = 20.0
+shader_parameter/curvature_center = Vector2(0.5, 0.5)
+shader_parameter/color_noise = SubResource("NoiseTexture2D_po20r")
+shader_parameter/color_noise_scale = 2.42
+shader_parameter/bump_size = 12.0
+shader_parameter/high_noise_weight = 1.0
+shader_parameter/high_noise_scale = 1.0
+shader_parameter/high_noise_velocity = Vector2(0.01, 0)
+shader_parameter/bump_high_noise = SubResource("NoiseTexture2D_2bv16")
+shader_parameter/low_noise_weight = 1.0
+shader_parameter/low_noise_scale = 0.5
+shader_parameter/low_noise_velocity = Vector2(0.01, 0.01)
+shader_parameter/bump_low_noise = SubResource("NoiseTexture2D_hbki2")
+shader_parameter/transparent_cutoff = 0.3
+shader_parameter/max_thickness_damp = 0.6
+
+[sub_resource type="PlaneMesh" id="PlaneMesh_h08xv"]
+size = Vector2(200, 200)
+subdivide_width = 15
+subdivide_depth = 15
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_pxg3d"]
+render_priority = 0
+shader = ExtResource("1_n14vs")
+shader_parameter/UV_offset = Vector2(0.5, 1)
+shader_parameter/curvature_factor = 20.0
+shader_parameter/curvature_center = Vector2(0.5, 0.5)
+shader_parameter/color_noise = SubResource("NoiseTexture2D_po20r")
+shader_parameter/color_noise_scale = 2.42
+shader_parameter/bump_size = 12.0
+shader_parameter/high_noise_weight = 1.0
+shader_parameter/high_noise_scale = 1.0
+shader_parameter/high_noise_velocity = Vector2(0.01, 0)
+shader_parameter/bump_high_noise = SubResource("NoiseTexture2D_2bv16")
+shader_parameter/low_noise_weight = 1.0
+shader_parameter/low_noise_scale = 0.5
+shader_parameter/low_noise_velocity = Vector2(0.01, 0.01)
+shader_parameter/bump_low_noise = SubResource("NoiseTexture2D_hbki2")
+shader_parameter/transparent_cutoff = 0.3
+shader_parameter/max_thickness_damp = 0.6
+
+[node name="Clouds" type="Node3D"]
+transform = Transform3D(1, 0, 0, 0, -1, -8.74228e-08, 0, 8.74228e-08, -1, 0, 0, 0)
+
+[node name="Clouds 1" type="MeshInstance3D" parent="."]
+extra_cull_margin = 100.0
+mesh = SubResource("PlaneMesh_2lklo")
 surface_material_override/0 = SubResource("ShaderMaterial_2lklo")
+
+[node name="Clouds 2" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 200, 0, 0)
+extra_cull_margin = 100.0
+mesh = SubResource("PlaneMesh_2bv16")
+skeleton = NodePath("../Clouds 1")
+surface_material_override/0 = SubResource("ShaderMaterial_po20r")
+
+[node name="Clouds 3" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -200, 0, 0)
+extra_cull_margin = 100.0
+mesh = SubResource("PlaneMesh_n14vs")
+surface_material_override/0 = SubResource("ShaderMaterial_jqnsx")
+
+[node name="Clouds 4" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -100, 0, 200)
+extra_cull_margin = 100.0
+mesh = SubResource("PlaneMesh_po20r")
+surface_material_override/0 = SubResource("ShaderMaterial_hbki2")
+
+[node name="Clouds 5" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 100, 0, 200)
+extra_cull_margin = 100.0
+mesh = SubResource("PlaneMesh_h08xv")
+surface_material_override/0 = SubResource("ShaderMaterial_pxg3d")
