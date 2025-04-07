@@ -1,4 +1,4 @@
-extends Node3D
+class_name Clouds extends Node3D
 
 
 @export var clear_empty_cutoff: float = 0.8

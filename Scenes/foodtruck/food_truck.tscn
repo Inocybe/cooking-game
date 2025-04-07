@@ -209,6 +209,16 @@ shape = SubResource("BoxShape3D_fge8j")
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.920155, 3.41861, -1.3652)
 shape = SubResource("BoxShape3D_m3460")
 
+[node name="GPUParticleColliders" type="Node3D" parent="."]
+
+[node name="RightTopWall" type="GPUParticlesCollisionBox3D" parent="GPUParticleColliders"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 3.453, -1.357)
+size = Vector3(6.68274, 0.699684, 0.242462)
+
+[node name="Ceiling" type="GPUParticlesCollisionBox3D" parent="GPUParticleColliders"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 4.06883, 0)
+size = Vector3(6.68274, 0.866755, 2.87323)
+
 [connection signal="timeout" from="New Order Timer" to="." method="maybe_invoke_ordering"]
 [connection signal="body_exited" from="Death Barrier" to="Death Barrier" method="body_exit"]
 

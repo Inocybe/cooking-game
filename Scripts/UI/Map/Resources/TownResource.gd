@@ -1,13 +1,6 @@
 class_name TownResource extends Resource
 
 
-enum WeatherType {
-	Sunny,
-	Overcast,
-	Rainy,
-	Stormy
-}
-
 const temp_min: float = -10.0
 const temp_max: float = 46.0
 
@@ -17,7 +10,7 @@ const pop_max: int = 500
 
 @export_range(temp_min, temp_max, 0.5) var temperature: float
 @export_range(pop_min, pop_max, 1) var population: int
-@export var weather: WeatherType
+@export var weather: WeatherManager.WeatherType
 
 func random_everything() -> void:
 	random_temperature()
@@ -32,7 +25,4 @@ func random_population() -> void:
 
 func random_weather_off_temp() -> void:
 	# NOT IMPLEMENTED OFF TEMP YET
-	weather = WeatherType.values().pick_random()
-
-func get_weather_name() -> String:
-	return WeatherType.find_key(weather).to_lower()
+	weather = WeatherManager.WeatherType.values().pick_random()
