@@ -1,9 +1,15 @@
 extends UIControllerBase
 
 
-func change_money(current_money: float) -> void:
-	main_control.money.set_text(str(current_money))
+func _process(_delta: float) -> void:
+	main_control.orders_complete.set_text(
+		str(Global.game_manager.orders_complete)
+	)
+	
+	main_control.money.set_text(
+		format_money(Global.game_manager.money)
+	)
 
 
-func change_order_complete_count(current_orders_complete: int) -> void:
-	main_control.orders_complete.set_text(str(current_orders_complete))
+func format_money(money: float) -> String:
+	return "$%.2f" % money
