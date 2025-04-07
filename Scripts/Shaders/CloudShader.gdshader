@@ -21,9 +21,9 @@ uniform float low_noise_scale = 0.5;
 uniform vec2 low_noise_velocity;
 uniform sampler2D bump_low_noise;
 
-uniform float transparent_cutoff;
+uniform float empty_cutoff;
 
-uniform float max_thickness_damp;
+uniform float max_depth_damp;
 
 varying float bump;
 
@@ -48,12 +48,12 @@ void vertex() {
 
 void fragment() {
 	vec2 shifted_UV = UV_offset + UV;
-	float brightness_damp = 1.0 - bump * max_thickness_damp;
+	float brightness_damp = 1.0 - bump * max_depth_damp;
 	vec2 high_offset = high_noise_velocity * TIME;
 	vec2 color_pos = (shifted_UV + high_offset) * color_noise_scale;
 	vec3 color_value = texture(color_noise, color_pos).rgb;
 
 	ALBEDO = color_value * brightness_damp;
-	ALPHA = bump > transparent_cutoff ? 255.0 : 0.0;
+	ALPHA = bump > empty_cutoff ? 255.0 : 0.0;
 	ALPHA_SCISSOR_THRESHOLD = 1.0;
 }
