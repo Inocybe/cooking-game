@@ -9,9 +9,23 @@ enum WeatherType {
 }
 
 
+var clouds: Clouds = null
+var rain_area: RainArea = null
+
+
+func _ready() -> void:
+	var current_scene = get_tree().current_scene
+	clouds = current_scene.get_node_or_null("Clouds")
+	rain_area = current_scene.get_node_or_null("RainArea")
+
+
 func set_from_town(town: TownResource) -> void:
-	Global.game_manager.clouds.set_starting_storminess(
+	clouds.set_starting_storminess(
 		get_weather_storminess(town.weather)
+	)
+	
+	rain_area.set_raininess(
+		get_weather_raininess(town.weather)
 	)
 
 

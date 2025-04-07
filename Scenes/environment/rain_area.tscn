@@ -1,6 +1,7 @@
-[gd_scene load_steps=8 format=4 uid="uid://cy0f52g70vccr"]
+[gd_scene load_steps=9 format=4 uid="uid://cy0f52g70vccr"]
 
 [ext_resource type="Shader" uid="uid://co7gu8i7xwujr" path="res://Scripts/Shaders/DropShader.gdshader" id="1_e4bu4"]
+[ext_resource type="Script" uid="uid://duh57yn6vw7w0" path="res://Scripts/Enviornment/RainArea.gd" id="1_vp7ah"]
 
 [sub_resource type="Gradient" id="Gradient_e4bu4"]
 offsets = PackedFloat32Array(0, 0.913636, 1)
@@ -66,6 +67,7 @@ blend_shape_mode = 0
 shadow_mesh = SubResource("ArrayMesh_6wnn6")
 
 [node name="RainArea" type="Node3D"]
+script = ExtResource("1_vp7ah")
 
 [node name="GPUParticlesCollisionBox3D" type="GPUParticlesCollisionBox3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.25, 0)
@@ -74,7 +76,7 @@ size = Vector3(30, 0.5, 15)
 [node name="GPUParticles3D" type="GPUParticles3D" parent="."]
 process_mode = 3
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 14.9, 0)
-amount = 1500
+amount = 3000
 lifetime = 1.65
 randomness = 0.8
 visibility_aabb = AABB(-15, -15, -7.5, 30, 15, 15)
