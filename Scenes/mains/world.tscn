@@ -58,5 +58,3 @@ script = ExtResource("5_xk452")
 
 [node name="Clouds" parent="." instance=ExtResource("6_12l6w")]
 transform = Transform3D(-0.707107, -6.18172e-08, 0.707107, 8.74228e-08, -1, 0, 0.707107, 6.18172e-08, 0.707107, 70, 40, 70)
-
-[editable path="GameManager"]

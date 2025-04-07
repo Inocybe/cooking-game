@@ -13,6 +13,12 @@ var current_storminess: float = 0
 var target_storminess: float = 1
 
 
+func set_starting_storminess(storminess: float) -> void:
+	current_storminess = storminess
+	target_storminess = storminess
+	show_storminess(storminess)
+
+
 func _process(delta: float) -> void:
 	if current_storminess == target_storminess:
 		return

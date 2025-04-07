@@ -47,7 +47,7 @@ collision_mask = 3
 shape = SubResource("WorldBoundaryShape3D_0ste2")
 
 [node name="Map" type="StaticBody3D" parent="." groups=["world-ui"]]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -5.66331)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -5)
 script = ExtResource("6_joso6")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Map"]
@@ -61,6 +61,11 @@ texture = SubResource("ViewportTexture_0qhvs")
 size = Vector2i(1152, 648)
 
 [node name="MainControl" parent="Map/SubViewport" instance=ExtResource("4_0qhvs")]
+
+[node name="TextEdit" parent="Map/SubViewport/MainControl/Town" index="1"]
+text = "Weather:
+Temperature:
+Population:"
 
 [node name="Store" type="Node3D" parent="." groups=["world-ui"]]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 5.54935)
