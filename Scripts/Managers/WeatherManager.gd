@@ -48,4 +48,9 @@ static func get_weather_raininess(weather_type: WeatherType) -> float:
 
 
 static func get_weather_name(weather_type: WeatherType) -> String:
-	return WeatherManager.WeatherType.find_key(weather_type).to_lower()
+	return {
+		WeatherType.Sunny: "sunny",
+		WeatherType.Overcast: "overcast",
+		WeatherType.Rainy: "rainy",
+		WeatherType.Stormy: "stormy"
+	}[weather_type]
