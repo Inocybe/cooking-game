@@ -1,0 +1,81 @@
+[gd_scene load_steps=12 format=3 uid="uid://bdv5aja13gvnq"]
+
+[ext_resource type="PackedScene" uid="uid://dq75ibv8ghdd2" path="res://Assets/LowPoly_Environnment/Terrain_2.fbx" id="1_1rdd8"]
+[ext_resource type="PackedScene" uid="uid://beqd4f2q0elks" path="res://Assets/LowPoly_Environnment/Tree_1.fbx" id="2_782xa"]
+[ext_resource type="PackedScene" uid="uid://dnph710752nms" path="res://Assets/LowPoly_Environnment/Rock_6.fbx" id="3_87jby"]
+[ext_resource type="PackedScene" uid="uid://cpvhfmfvvctc3" path="res://Assets/LowPoly_Environnment/Rock_5.fbx" id="4_jjyt1"]
+[ext_resource type="PackedScene" uid="uid://c3d63hs2o46yh" path="res://Assets/LowPoly_Environnment/Tree_2.fbx" id="5_q7q2k"]
+[ext_resource type="PackedScene" uid="uid://b8hsw5s7ryeor" path="res://Assets/LowPoly_Environnment/Tree_3.fbx" id="6_u758l"]
+[ext_resource type="PackedScene" uid="uid://c21qlhtxxq0cf" path="res://Assets/LowPoly_Environnment/Bush_3.fbx" id="7_ukn5u"]
+[ext_resource type="PackedScene" uid="uid://c3q2wdab2cuhn" path="res://Assets/LowPoly_Environnment/Bush_2.fbx" id="8_2yid5"]
+
+[sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_ciy6r"]
+
+[sub_resource type="Sky" id="Sky_1rdd8"]
+sky_material = SubResource("ProceduralSkyMaterial_ciy6r")
+
+[sub_resource type="Environment" id="Environment_yyady"]
+background_mode = 2
+sky = SubResource("Sky_1rdd8")
+
+[node name="Town1" type="Node3D"]
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = SubResource("Environment_yyady")
+
+[node name="Terrain_2" parent="." instance=ExtResource("1_1rdd8")]
+transform = Transform3D(5, 0, 0, 0, 5, 0, 0, 0, 5, -4, 0, 9)
+
+[node name="Tree_1" parent="." instance=ExtResource("2_782xa")]
+transform = Transform3D(1, 0, 0, 0, 0.997835, -0.0657689, 0, 0.0657689, 0.997835, -19, 3, 12)
+
+[node name="Rock_6" parent="." instance=ExtResource("3_87jby")]
+transform = Transform3D(0.998286, 0.0585223, 0, -0.0585223, 0.998286, 0, 0, 0, 1, -13, 0, 18)
+
+[node name="Rock_5" parent="." instance=ExtResource("4_jjyt1")]
+transform = Transform3D(0.866025, -0.5, 0, 0.5, 0.866025, 0, 0, 0, 1, -3, 6, 34)
+
+[node name="Tree_2" parent="." instance=ExtResource("5_q7q2k")]
+transform = Transform3D(0.983559, -0.180588, 0, 0.180588, 0.983559, 0, 0, 0, 1, 6, 3, -4)
+
+[node name="Tree_3" parent="." instance=ExtResource("6_u758l")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -23, 2, -18)
+
+[node name="Tree_4" parent="." instance=ExtResource("5_q7q2k")]
+transform = Transform3D(1, 0, 0, 0, 0.992023, 0.12606, 0, -0.12606, 0.992023, 4, 2, -23)
+
+[node name="Tree_5" parent="." instance=ExtResource("6_u758l")]
+transform = Transform3D(0.999182, 0.0404457, 0, -0.0404457, 0.999182, 0, 0, 0, 1, -15, 2, -10)
+
+[node name="Bush_3" parent="." instance=ExtResource("7_ukn5u")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 36, -1, -4)
+
+[node name="Bush_2" parent="." instance=ExtResource("8_2yid5")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 24, 3, 2)
+
+[node name="Tree_6" parent="." instance=ExtResource("5_q7q2k")]
+transform = Transform3D(1, 0, 0, 0, 0.998496, -0.0548282, 0, 0.0548282, 0.998496, -3, 3, 42)
+
+[node name="Tree_7" parent="." instance=ExtResource("2_782xa")]
+transform = Transform3D(1, 0, 0, 0, 0.987669, 0.156555, 0, -0.156555, 0.987669, 15, 5, 27)
+
+[node name="Tree_8" parent="." instance=ExtResource("6_u758l")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 24, 8.2578, 20)
+
+[node name="Rock_7" parent="." instance=ExtResource("3_87jby")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 10, 0, 14)
+
+[node name="Rock_8" parent="." instance=ExtResource("4_jjyt1")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 21, 4, 7)
+
+[node name="Tree_9" parent="." instance=ExtResource("6_u758l")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 29, 2, -12)
+
+[node name="Tree_10" parent="." instance=ExtResource("5_q7q2k")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 14, 3, -26)
+
+[node name="Tree_11" parent="." instance=ExtResource("6_u758l")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 11, 4, -12)
+
+[node name="Tree_12" parent="." instance=ExtResource("2_782xa")]
+transform = Transform3D(1, 0, 0, 0, 0.995219, -0.0976698, 0, 0.0976698, 0.995219, -1, 0, -36)

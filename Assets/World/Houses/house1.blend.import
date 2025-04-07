@@ -3,13 +3,13 @@
 importer="scene"
 importer_version=1
 type="PackedScene"
-uid="uid://dib15fcwy22fq"
-path="res://.godot/imported/food_tray.blend-10039960b5b6e3acc34bdc6921f8fdba.scn"
+uid="uid://drvhvf5hfbalr"
+path="res://.godot/imported/house1.blend-3a4a4b156e40d9d30e879fa41c1cc6d8.scn"
 
 [deps]
 
-source_file="res://Assets/food_tray.blend"
-dest_files=["res://.godot/imported/food_tray.blend-10039960b5b6e3acc34bdc6921f8fdba.scn"]
+source_file="res://Assets/World/Houses/house1.blend"
+dest_files=["res://.godot/imported/house1.blend-3a4a4b156e40d9d30e879fa41c1cc6d8.scn"]
 
 [params]
 

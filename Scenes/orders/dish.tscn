@@ -1,7 +1,7 @@
 [gd_scene load_steps=8 format=3 uid="uid://rsgvt2xake4j"]
 
 [ext_resource type="Script" uid="uid://co85bj45xfr4x" path="res://Scripts/Orders/Dish.gd" id="1_t4su6"]
-[ext_resource type="PackedScene" uid="uid://dib15fcwy22fq" path="res://Assets/food_tray.blend" id="2_8cj47"]
+[ext_resource type="PackedScene" uid="uid://dib15fcwy22fq" path="res://Assets/LowPoly_Environnment/food_tray.blend" id="2_8cj47"]
 [ext_resource type="PackedScene" uid="uid://bcaj1x735ohkd" path="res://Scenes/misc/bump_sound_player.tscn" id="3_1ofif"]
 [ext_resource type="AudioStream" uid="uid://bbuupfp2kpkok" path="res://Audio/SFX/BumpT3.mp3" id="4_1ofif"]
 [ext_resource type="PackedScene" uid="uid://bloti3yoljxbf" path="res://Scenes/misc/SeparateOnShake.tscn" id="5_gf2c0"]
