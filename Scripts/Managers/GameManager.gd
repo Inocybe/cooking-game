@@ -3,10 +3,13 @@ class_name GameManager extends Node
 
 const XR_SYSTEM = preload("res://Scenes/player/vr/xr_system.tscn")
 
+@onready var order_manager: OrderManager = $OrderManager
+@onready var weather_manager: WeatherManager = $WeatherManager
+
 var player: Player = null
 var food_truck: FoodTruck = null
-@onready var order_manager: OrderManager = $OrderManager
 var customer_manager: CustomerManager = null
+var clouds: Clouds = null
 
 var money: float = 0
 var orders_complete: int = 0
@@ -30,6 +33,7 @@ func _ready() -> void:
 	player = current_scene.get_node_or_null("Player")
 	food_truck = current_scene.get_node_or_null("FoodTruck")
 	customer_manager = current_scene.get_node_or_null("CustomerManager")
+	clouds = current_scene.get_node_or_null("Clouds")
 	
 	Global.game_manager = self
 	

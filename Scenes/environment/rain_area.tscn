@@ -1,0 +1,48 @@
+[gd_scene load_steps=4 format=4 uid="uid://cy0f52g70vccr"]
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_ldhcw"]
+emission_shape = 3
+emission_box_extents = Vector3(15, 0, 7.5)
+direction = Vector3(0, -1, 0)
+spread = 5.0
+initial_velocity_min = 9.0
+initial_velocity_max = 11.0
+gravity = Vector3(0, 0, 0)
+collision_mode = 2
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_ldhcw"]
+transparency = 1
+shading_mode = 0
+albedo_color = Color(0.5395, 0.718642, 0.83, 1)
+
+[sub_resource type="ArrayMesh" id="ArrayMesh_e4bu4"]
+_surfaces = [{
+"aabb": AABB(-0.038339, 0, -0.038339, 0.076678, 0.758971, 0.076678),
+"attribute_data": PackedByteArray("AAAAAAAAAAAAAIA/AAAAAAAAgD8AAAAAAACAPwAAgD8AAAAAAACAPwAAAAAAAIA/AACAPwAAAAAAAIA/AACAPwAAgD8AAIA/AAAAAAAAgD8AAAAAAAAAAAAAAAAAAAAA"),
+"format": 34359742487,
+"index_count": 12,
+"index_data": PackedByteArray("AAABAAIAAwAEAAUABgAHAAgACQAKAAsA"),
+"material": SubResource("StandardMaterial3D_ldhcw"),
+"name": "Plane",
+"primitive": 3,
+"uv_scale": Vector4(0, 0, 0, 0),
+"vertex_count": 12,
+"vertex_data": PackedByteArray("WwkdvQAAAABbCR29WwkdPQAAAABbCR29AAAAAOxLQj8AAAAAWwkdPQAAAABbCR09WwkdvQAAAABbCR09AAAAAOxLQj8AAAAAWwkdPQAAAABbCR29WwkdPQAAAABbCR09AAAAAOxLQj8AAAAAWwkdvQAAAABbCR09WwkdvQAAAABbCR29AAAAAOxLQj8AAAAA1fn//////7/V+f//////v9X5//////+//38ohv///z//fyiG////P/9/KIb///8/1fkohv///7/V+SiG////v9X5KIb///+/KQYohv///78pBiiG////vykGKIb///+/")
+}]
+blend_shape_mode = 0
+
+[node name="RainArea" type="Node3D"]
+
+[node name="GPUParticlesCollisionBox3D" type="GPUParticlesCollisionBox3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.25, 0)
+size = Vector3(30, 0.5, 15)
+
+[node name="GPUParticles3D" type="GPUParticles3D" parent="."]
+process_mode = 3
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 14.9, 0)
+amount = 1000
+lifetime = 2.0
+randomness = 0.8
+visibility_aabb = AABB(-15, -15, -7.5, 30, 15, 15)
+process_material = SubResource("ParticleProcessMaterial_ldhcw")
+draw_pass_1 = SubResource("ArrayMesh_e4bu4")
