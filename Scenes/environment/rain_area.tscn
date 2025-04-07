@@ -1,37 +1,73 @@
-[gd_scene load_steps=4 format=4 uid="uid://cy0f52g70vccr"]
+[gd_scene load_steps=9 format=4 uid="uid://cy0f52g70vccr"]
+
+[ext_resource type="Shader" uid="uid://co7gu8i7xwujr" path="res://Scripts/Shaders/DropShader.gdshader" id="1_e4bu4"]
+[ext_resource type="Script" uid="uid://duh57yn6vw7w0" path="res://Scripts/Enviornment/RainArea.gd" id="1_vp7ah"]
+
+[sub_resource type="Gradient" id="Gradient_e4bu4"]
+offsets = PackedFloat32Array(0, 0.913636, 1)
+colors = PackedColorArray(1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 0)
+
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_vp7ah"]
+gradient = SubResource("Gradient_e4bu4")
 
 [sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_ldhcw"]
+particle_flag_rotate_y = true
 emission_shape = 3
 emission_box_extents = Vector3(15, 0, 7.5)
+angle_min = 1.07288e-05
+angle_max = 360.0
 direction = Vector3(0, -1, 0)
 spread = 5.0
 initial_velocity_min = 9.0
 initial_velocity_max = 11.0
 gravity = Vector3(0, 0, 0)
-collision_mode = 2
+color_ramp = SubResource("GradientTexture1D_vp7ah")
+collision_mode = 1
+collision_friction = 1.0
+collision_bounce = 0.0
 
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_ldhcw"]
-transparency = 1
-shading_mode = 0
-albedo_color = Color(0.5395, 0.718642, 0.83, 1)
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_e4bu4"]
+render_priority = 0
+shader = ExtResource("1_e4bu4")
+shader_parameter/color = Color(0.541176, 0.717647, 0.831373, 1)
+shader_parameter/squish_height = 2.0
+shader_parameter/floor_y = 0.1
+shader_parameter/max_squish = 0.85
+shader_parameter/x_squash = 4.0
 
-[sub_resource type="ArrayMesh" id="ArrayMesh_e4bu4"]
+[sub_resource type="ArrayMesh" id="ArrayMesh_6wnn6"]
 _surfaces = [{
-"aabb": AABB(-0.038339, 0, -0.038339, 0.076678, 0.758971, 0.076678),
+"aabb": AABB(-0.011502, 0, -0.011502, 0.023004, 0.227691, 0.023004),
+"format": 34359742465,
+"index_count": 12,
+"index_data": PackedByteArray("AAABAAIAAQADAAIABAAAAAIAAwAEAAIA"),
+"name": "Plane",
+"primitive": 3,
+"uv_scale": Vector4(0, 0, 0, 0),
+"vertex_count": 5,
+"vertex_data": PackedByteArray("4nI8vAAAAADicjy84nI8PAAAAADicjy8AAAAANQnaT4AAAAA4nI8PAAAAADicjw84nI8vAAAAADicjw8")
+}]
+blend_shape_mode = 0
+
+[sub_resource type="ArrayMesh" id="ArrayMesh_vp7ah"]
+_surfaces = [{
+"aabb": AABB(-0.011502, 0, -0.011502, 0.023004, 0.227691, 0.023004),
 "attribute_data": PackedByteArray("AAAAAAAAAAAAAIA/AAAAAAAAgD8AAAAAAACAPwAAgD8AAAAAAACAPwAAAAAAAIA/AACAPwAAAAAAAIA/AACAPwAAgD8AAIA/AAAAAAAAgD8AAAAAAAAAAAAAAAAAAAAA"),
 "format": 34359742487,
 "index_count": 12,
 "index_data": PackedByteArray("AAABAAIAAwAEAAUABgAHAAgACQAKAAsA"),
-"material": SubResource("StandardMaterial3D_ldhcw"),
+"material": SubResource("ShaderMaterial_e4bu4"),
 "name": "Plane",
 "primitive": 3,
 "uv_scale": Vector4(0, 0, 0, 0),
 "vertex_count": 12,
-"vertex_data": PackedByteArray("WwkdvQAAAABbCR29WwkdPQAAAABbCR29AAAAAOxLQj8AAAAAWwkdPQAAAABbCR09WwkdvQAAAABbCR09AAAAAOxLQj8AAAAAWwkdPQAAAABbCR29WwkdPQAAAABbCR09AAAAAOxLQj8AAAAAWwkdvQAAAABbCR09WwkdvQAAAABbCR29AAAAAOxLQj8AAAAA1fn//////7/V+f//////v9X5//////+//38ohv///z//fyiG////P/9/KIb///8/1fkohv///7/V+SiG////v9X5KIb///+/KQYohv///78pBiiG////vykGKIb///+/")
+"vertex_data": PackedByteArray("4nI8vAAAAADicjy84nI8PAAAAADicjy8AAAAANQnaT4AAAAA4nI8PAAAAADicjw84nI8vAAAAADicjw8AAAAANQnaT4AAAAA4nI8PAAAAADicjy84nI8PAAAAADicjw8AAAAANQnaT4AAAAA4nI8vAAAAADicjw84nI8vAAAAADicjy8AAAAANQnaT4AAAAA1fn//////7/V+f//////v9X5//////+//38ohv///z//fyiG////P/9/KIb///8/1fkohv///7/V+SiG////v9X5KIb///+/KQYohv///78pBiiG////vykGKIb///+/")
 }]
 blend_shape_mode = 0
+shadow_mesh = SubResource("ArrayMesh_6wnn6")
 
 [node name="RainArea" type="Node3D"]
+script = ExtResource("1_vp7ah")
 
 [node name="GPUParticlesCollisionBox3D" type="GPUParticlesCollisionBox3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.25, 0)
@@ -40,9 +76,9 @@ size = Vector3(30, 0.5, 15)
 [node name="GPUParticles3D" type="GPUParticles3D" parent="."]
 process_mode = 3
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 14.9, 0)
-amount = 1000
-lifetime = 2.0
+amount = 3000
+lifetime = 1.65
 randomness = 0.8
 visibility_aabb = AABB(-15, -15, -7.5, 30, 15, 15)
 process_material = SubResource("ParticleProcessMaterial_ldhcw")
-draw_pass_1 = SubResource("ArrayMesh_e4bu4")
+draw_pass_1 = SubResource("ArrayMesh_vp7ah")
