@@ -1,14 +1,14 @@
 [gd_scene load_steps=11 format=3 uid="uid://dhgtt8fwfi87"]
 
-[ext_resource type="AudioStream" uid="uid://nbnli2p0pbr8" path="res://Audio/SFX/Break 5.mp3" id="1_b3tcj"]
-[ext_resource type="AudioStream" uid="uid://bkchlkos07t3p" path="res://Audio/SFX/Chatter 1.mp3" id="2_pfpjd"]
-[ext_resource type="AudioStream" uid="uid://3faxg8tntkwu" path="res://Audio/SFX/Chatter 2.mp3" id="3_3dq3o"]
-[ext_resource type="AudioStream" uid="uid://b6tnob1e3l7iv" path="res://Audio/SFX/Chatter 3.mp3" id="4_io5hl"]
-[ext_resource type="AudioStream" uid="uid://csx6g24084yc6" path="res://Audio/SFX/Chatter 4.mp3" id="5_ab21w"]
-[ext_resource type="AudioStream" uid="uid://pvx0e5v5wusc" path="res://Audio/SFX/Chatter 5.mp3" id="6_uqy3w"]
-[ext_resource type="AudioStream" uid="uid://drk7woecrxb3b" path="res://Audio/SFX/Chatter 6.mp3" id="7_qdrjq"]
-[ext_resource type="AudioStream" uid="uid://d37llq76laoxy" path="res://Audio/SFX/Chatter 7.mp3" id="8_bnt63"]
-[ext_resource type="AudioStream" uid="uid://vx2exiwlp8oa" path="res://Audio/SFX/Break60.mp3" id="9_pfpjd"]
+[ext_resource type="AudioStream" uid="uid://chcdyk2yjpnwx" path="res://Audio/SFX/Break 5.mp3" id="1_b3tcj"]
+[ext_resource type="AudioStream" uid="uid://jtpaa0f7hqjj" path="res://Audio/SFX/Chatter 1.mp3" id="2_pfpjd"]
+[ext_resource type="AudioStream" uid="uid://ghapdpdb7wox" path="res://Audio/SFX/Chatter 2.mp3" id="3_3dq3o"]
+[ext_resource type="AudioStream" uid="uid://cbum52jucq8w3" path="res://Audio/SFX/Chatter 3.mp3" id="4_io5hl"]
+[ext_resource type="AudioStream" uid="uid://bbj8y3q5pbd82" path="res://Audio/SFX/Chatter 4.mp3" id="5_ab21w"]
+[ext_resource type="AudioStream" uid="uid://b23lieoibtp1d" path="res://Audio/SFX/Chatter 5.mp3" id="6_uqy3w"]
+[ext_resource type="AudioStream" uid="uid://ctebmgwt47gaw" path="res://Audio/SFX/Chatter 6.mp3" id="7_qdrjq"]
+[ext_resource type="AudioStream" uid="uid://dwrakiflwuym5" path="res://Audio/SFX/Chatter 7.mp3" id="8_bnt63"]
+[ext_resource type="AudioStream" uid="uid://dqt0elsvoq782" path="res://Audio/SFX/Break60.mp3" id="9_pfpjd"]
 
 [sub_resource type="AudioStreamPlaylist" id="AudioStreamPlaylist_tgt1a"]
 shuffle = true

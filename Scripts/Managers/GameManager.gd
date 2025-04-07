@@ -38,17 +38,6 @@ func _ready() -> void:
 	check_XR()
 
 
-func _process(_delta: float) -> void:
-	if food_truck:
-		call_ui_updates()
-
-
-func call_ui_updates() -> void:
-	return
-	food_truck.ui_3d.change_order_complete_count(orders_complete)
-	food_truck.ui_3d.change_money(money)
-
-
 func check_XR() -> void:
 	var xr_interface = XRServer.find_interface("OpenXR")
 	if xr_interface and xr_interface.is_initialized():
