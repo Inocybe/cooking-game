@@ -1,19 +1,38 @@
-[gd_scene load_steps=4 format=4 uid="uid://cy0f52g70vccr"]
+[gd_scene load_steps=7 format=4 uid="uid://cy0f52g70vccr"]
+
+[ext_resource type="Shader" uid="uid://co7gu8i7xwujr" path="res://Scripts/Shaders/DropShader.gdshader" id="1_e4bu4"]
+
+[sub_resource type="Gradient" id="Gradient_e4bu4"]
+offsets = PackedFloat32Array(0, 0.913636, 1)
+colors = PackedColorArray(1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 0)
+
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_vp7ah"]
+gradient = SubResource("Gradient_e4bu4")
 
 [sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_ldhcw"]
+particle_flag_rotate_y = true
 emission_shape = 3
 emission_box_extents = Vector3(15, 0, 7.5)
+angle_min = 1.07288e-05
+angle_max = 360.0
 direction = Vector3(0, -1, 0)
 spread = 5.0
 initial_velocity_min = 9.0
 initial_velocity_max = 11.0
 gravity = Vector3(0, 0, 0)
-collision_mode = 2
+color_ramp = SubResource("GradientTexture1D_vp7ah")
+collision_mode = 1
+collision_friction = 1.0
+collision_bounce = 0.0
 
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_ldhcw"]
-transparency = 1
-shading_mode = 0
-albedo_color = Color(0.5395, 0.718642, 0.83, 1)
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_xb7ai"]
+render_priority = 0
+shader = ExtResource("1_e4bu4")
+shader_parameter/color = Color(0.541176, 0.717647, 0.831373, 1)
+shader_parameter/squish_height = 2.0
+shader_parameter/floor_y = 0.1
+shader_parameter/max_squish = 0.85
+shader_parameter/x_squash = 4.0
 
 [sub_resource type="ArrayMesh" id="ArrayMesh_e4bu4"]
 _surfaces = [{
@@ -22,7 +41,7 @@ _surfaces = [{
 "format": 34359742487,
 "index_count": 12,
 "index_data": PackedByteArray("AAABAAIAAwAEAAUABgAHAAgACQAKAAsA"),
-"material": SubResource("StandardMaterial3D_ldhcw"),
+"material": SubResource("ShaderMaterial_xb7ai"),
 "name": "Plane",
 "primitive": 3,
 "uv_scale": Vector4(0, 0, 0, 0),
@@ -41,7 +60,7 @@ size = Vector3(30, 0.5, 15)
 process_mode = 3
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 14.9, 0)
 amount = 1000
-lifetime = 2.0
+lifetime = 1.75
 randomness = 0.8
 visibility_aabb = AABB(-15, -15, -7.5, 30, 15, 15)
 process_material = SubResource("ParticleProcessMaterial_ldhcw")
