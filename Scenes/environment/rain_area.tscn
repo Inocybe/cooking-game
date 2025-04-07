@@ -1,4 +1,4 @@
-[gd_scene load_steps=7 format=4 uid="uid://cy0f52g70vccr"]
+[gd_scene load_steps=8 format=4 uid="uid://cy0f52g70vccr"]
 
 [ext_resource type="Shader" uid="uid://co7gu8i7xwujr" path="res://Scripts/Shaders/DropShader.gdshader" id="1_e4bu4"]
 
@@ -25,7 +25,7 @@ collision_mode = 1
 collision_friction = 1.0
 collision_bounce = 0.0
 
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_xb7ai"]
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_e4bu4"]
 render_priority = 0
 shader = ExtResource("1_e4bu4")
 shader_parameter/color = Color(0.541176, 0.717647, 0.831373, 1)
@@ -34,21 +34,36 @@ shader_parameter/floor_y = 0.1
 shader_parameter/max_squish = 0.85
 shader_parameter/x_squash = 4.0
 
-[sub_resource type="ArrayMesh" id="ArrayMesh_e4bu4"]
+[sub_resource type="ArrayMesh" id="ArrayMesh_6wnn6"]
 _surfaces = [{
-"aabb": AABB(-0.038339, 0, -0.038339, 0.076678, 0.758971, 0.076678),
+"aabb": AABB(-0.011502, 0, -0.011502, 0.023004, 0.227691, 0.023004),
+"format": 34359742465,
+"index_count": 12,
+"index_data": PackedByteArray("AAABAAIAAQADAAIABAAAAAIAAwAEAAIA"),
+"name": "Plane",
+"primitive": 3,
+"uv_scale": Vector4(0, 0, 0, 0),
+"vertex_count": 5,
+"vertex_data": PackedByteArray("4nI8vAAAAADicjy84nI8PAAAAADicjy8AAAAANQnaT4AAAAA4nI8PAAAAADicjw84nI8vAAAAADicjw8")
+}]
+blend_shape_mode = 0
+
+[sub_resource type="ArrayMesh" id="ArrayMesh_vp7ah"]
+_surfaces = [{
+"aabb": AABB(-0.011502, 0, -0.011502, 0.023004, 0.227691, 0.023004),
 "attribute_data": PackedByteArray("AAAAAAAAAAAAAIA/AAAAAAAAgD8AAAAAAACAPwAAgD8AAAAAAACAPwAAAAAAAIA/AACAPwAAAAAAAIA/AACAPwAAgD8AAIA/AAAAAAAAgD8AAAAAAAAAAAAAAAAAAAAA"),
 "format": 34359742487,
 "index_count": 12,
 "index_data": PackedByteArray("AAABAAIAAwAEAAUABgAHAAgACQAKAAsA"),
-"material": SubResource("ShaderMaterial_xb7ai"),
+"material": SubResource("ShaderMaterial_e4bu4"),
 "name": "Plane",
 "primitive": 3,
 "uv_scale": Vector4(0, 0, 0, 0),
 "vertex_count": 12,
-"vertex_data": PackedByteArray("WwkdvQAAAABbCR29WwkdPQAAAABbCR29AAAAAOxLQj8AAAAAWwkdPQAAAABbCR09WwkdvQAAAABbCR09AAAAAOxLQj8AAAAAWwkdPQAAAABbCR29WwkdPQAAAABbCR09AAAAAOxLQj8AAAAAWwkdvQAAAABbCR09WwkdvQAAAABbCR29AAAAAOxLQj8AAAAA1fn//////7/V+f//////v9X5//////+//38ohv///z//fyiG////P/9/KIb///8/1fkohv///7/V+SiG////v9X5KIb///+/KQYohv///78pBiiG////vykGKIb///+/")
+"vertex_data": PackedByteArray("4nI8vAAAAADicjy84nI8PAAAAADicjy8AAAAANQnaT4AAAAA4nI8PAAAAADicjw84nI8vAAAAADicjw8AAAAANQnaT4AAAAA4nI8PAAAAADicjy84nI8PAAAAADicjw8AAAAANQnaT4AAAAA4nI8vAAAAADicjw84nI8vAAAAADicjy8AAAAANQnaT4AAAAA1fn//////7/V+f//////v9X5//////+//38ohv///z//fyiG////P/9/KIb///8/1fkohv///7/V+SiG////v9X5KIb///+/KQYohv///78pBiiG////vykGKIb///+/")
 }]
 blend_shape_mode = 0
+shadow_mesh = SubResource("ArrayMesh_6wnn6")
 
 [node name="RainArea" type="Node3D"]
 
@@ -59,9 +74,9 @@ size = Vector3(30, 0.5, 15)
 [node name="GPUParticles3D" type="GPUParticles3D" parent="."]
 process_mode = 3
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 14.9, 0)
-amount = 1000
-lifetime = 1.75
+amount = 1500
+lifetime = 1.65
 randomness = 0.8
 visibility_aabb = AABB(-15, -15, -7.5, 30, 15, 15)
 process_material = SubResource("ParticleProcessMaterial_ldhcw")
-draw_pass_1 = SubResource("ArrayMesh_e4bu4")
+draw_pass_1 = SubResource("ArrayMesh_vp7ah")
