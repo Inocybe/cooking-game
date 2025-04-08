@@ -1,7 +1,10 @@
-[gd_scene load_steps=9 format=4 uid="uid://cy0f52g70vccr"]
+[gd_scene load_steps=12 format=4 uid="uid://cy0f52g70vccr"]
 
 [ext_resource type="Shader" uid="uid://co7gu8i7xwujr" path="res://Scripts/Shaders/DropShader.gdshader" id="1_e4bu4"]
 [ext_resource type="Script" uid="uid://duh57yn6vw7w0" path="res://Scripts/Enviornment/RainArea.gd" id="1_vp7ah"]
+[ext_resource type="AudioStream" uid="uid://djyjlbkqe0o4i" path="res://Audio/SFX/RainHeavy.mp3" id="3_scn1p"]
+[ext_resource type="Script" uid="uid://b4664votngiop" path="res://Scripts/Misc/AudioFader3D.gd" id="3_xb7ai"]
+[ext_resource type="AudioStream" uid="uid://kfek81vrhvn5" path="res://Audio/SFX/RainMedium.mp3" id="5_wr3y8"]
 
 [sub_resource type="Gradient" id="Gradient_e4bu4"]
 offsets = PackedFloat32Array(0, 0.913636, 1)
@@ -82,3 +85,23 @@ randomness = 0.8
 visibility_aabb = AABB(-15, -15, -7.5, 30, 15, 15)
 process_material = SubResource("ParticleProcessMaterial_ldhcw")
 draw_pass_1 = SubResource("ArrayMesh_vp7ah")
+
+[node name="HeavyRainSoundFader" type="AudioStreamPlayer3D" parent="."]
+stream = ExtResource("3_scn1p")
+volume_db = -5.0
+autoplay = true
+panning_strength = 0.25
+script = ExtResource("3_xb7ai")
+fade_in_time = 3.0
+fade_out_time = 3.0
+metadata/_custom_type_script = "uid://b4664votngiop"
+
+[node name="MediumRainSoundFader" type="AudioStreamPlayer3D" parent="."]
+stream = ExtResource("5_wr3y8")
+volume_db = 5.0
+autoplay = true
+panning_strength = 0.25
+script = ExtResource("3_xb7ai")
+fade_in_time = 3.0
+fade_out_time = 3.0
+metadata/_custom_type_script = "uid://b4664votngiop"

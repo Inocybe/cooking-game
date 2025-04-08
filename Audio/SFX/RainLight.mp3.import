@@ -12,8 +12,8 @@ dest_files=["res://.godot/imported/RainLight.mp3-19c476045597f3b8a43e1d442274f90
 
 [params]
 
-loop=false
-loop_offset=0
-bpm=0
+loop=true
+loop_offset=0.0
+bpm=0.0
 beat_count=0
 bar_beats=4
