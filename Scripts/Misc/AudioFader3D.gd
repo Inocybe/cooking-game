@@ -14,6 +14,8 @@ func _ready() -> void:
 
 
 func fade_in() -> void:
+	if is_audible:
+		return
 	if not get_tree():
 		return
 	var tween = get_tree().create_tween()
@@ -22,6 +24,8 @@ func fade_in() -> void:
 
 
 func fade_out() -> void:
+	if not is_audible:
+		return
 	if not get_tree():
 		return
 	var tween = get_tree().create_tween()
