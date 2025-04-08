@@ -221,5 +221,3 @@ size = Vector3(6.68274, 0.866755, 2.87323)
 
 [connection signal="timeout" from="New Order Timer" to="." method="maybe_invoke_ordering"]
 [connection signal="body_exited" from="Death Barrier" to="Death Barrier" method="body_exit"]
-
-[editable path="Food Truck Model"]
