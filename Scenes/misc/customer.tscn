@@ -16,7 +16,7 @@ length = 0.001
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
-tracks/0/path = NodePath("ExclimatioPoint:visible")
+tracks/0/path = NodePath("ExclamationPoint:visible")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
@@ -98,7 +98,7 @@ length = 0.2
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
-tracks/0/path = NodePath("ExclimatioPoint:visible")
+tracks/0/path = NodePath("ExclamationPoint:visible")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
@@ -206,18 +206,19 @@ mesh = SubResource("CapsuleMesh_kkdac")
 [node name="IdleTimer" type="Timer" parent="."]
 
 [node name="AngryOrderNotTakenTimer" type="Timer" parent="."]
-wait_time = 5.0
+wait_time = 60.0
+one_shot = true
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 libraries = {
-"": SubResource("AnimationLibrary_8vnfi")
+&"": SubResource("AnimationLibrary_8vnfi")
 }
 
-[node name="ExclimatioPoint" type="Sprite3D" parent="."]
+[node name="ExclamationPoint" type="Sprite3D" parent="."]
 transform = Transform3D(0.25, 0, 0, 0, 0.25, 0, 0, 0, 0.25, 0, 1.65982, 0)
 visible = false
 billboard = 2
 texture = ExtResource("2_rejie")
 
 [connection signal="timeout" from="IdleTimer" to="." method="finish_idling"]
-[connection signal="timeout" from="AngryOrderNotTakenTimer" to="." method="finished_ordering"]
+[connection signal="timeout" from="AngryOrderNotTakenTimer" to="." method="done_ordering"]

@@ -107,8 +107,12 @@ func _process(delta: float) -> void:
 func finish_ordering() -> void:
 	if not dish_ordered:
 		Global.game_manager.order_manager.request_order_from(self)
-		choose_random_target()
-		animation_player.play_backwards("awaiting_order_taken")
+		done_ordering()
+
+
+func done_ordering() -> void:
+	choose_random_target()
+	animation_player.play_backwards("awaiting_order_taken")
 
 
 func on_start_interact() -> void:
@@ -119,6 +123,7 @@ func on_start_interact() -> void:
 func await_order_taken() -> void:
 	state = CustomerState.WANTS_TO_ORDER
 	animation_player.play("awaiting_order_taken")
+	$AngryOrderNotTakenTimer.start()
 
 
 func collect_order() -> void:

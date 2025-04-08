@@ -10,7 +10,7 @@ var should_raycast: bool = false
 var selected_object: Node3D = null
 var held_distance: float
 
-@onready var timer: Timer = %"Hold Mode Timer"
+@onready var timer: Timer = %HoldModeTimer
 
 
 func forward_vector() -> Vector3:

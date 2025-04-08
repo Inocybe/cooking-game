@@ -37,7 +37,7 @@ unique_name_in_owner = true
 current = true
 script = ExtResource("1_onmnn")
 
-[node name="Hold Mode Timer" type="Timer" parent="Head"]
+[node name="HoldModeTimer" type="Timer" parent="Head"]
 unique_name_in_owner = true
 wait_time = 0.15
 one_shot = true
