@@ -6,6 +6,7 @@ class_name FoodTruck extends Node3D
 @export var ordering_positions: Array[Node3D] = []
 
 @onready var finished_order_position: Area3D = %FinishedOrderPosition
+@onready var egress_checkpoint: Node3D = %EgressCheckpoint
 @onready var pickup_position: Node3D = %PickupPosition
 @onready var ui_3d: Node3D = %TV
 
@@ -44,6 +45,10 @@ func get_line_back_pos() -> Vector3:
 
 func get_pickup_pos() -> Vector3:
 	return pickup_position.global_position
+
+
+func get_egress_pos() -> Vector3:
+	return egress_checkpoint.global_position
 
 
 func update_customer_line_positions() -> void:

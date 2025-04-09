@@ -71,7 +71,8 @@ func call_customers_back() -> void:
 func make_customer_order() -> void:
 	var customer_manager = Global.game_manager.customer_manager
 	var customer: Node3D = customer_manager.customers.pick_random()
-	if customer.state in [Customer.CustomerState.IDLING, Customer.CustomerState.RANDOM_MOVING]:
+	if (customer.state in [Customer.CustomerState.IDLING, Customer.CustomerState.RANDOM_MOVING]
+		and customer.dish_ordered == null):
 		customer.go_to_order()
 
 ##########################
