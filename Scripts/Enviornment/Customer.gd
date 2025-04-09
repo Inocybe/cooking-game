@@ -37,12 +37,14 @@ func _ready() -> void:
 	choose_random_target()
 
 
-func move_to_foodcart() -> void:
-	if dish_ordered == null:
-		state = CustomerState.GOING_TO_ORDER
-	else:
-		state = CustomerState.PICKING_UP_DISH
-	target = Global.game_manager.food_truck.get_order_position()
+func go_to_order() -> void:
+	state = CustomerState.GOING_TO_ORDER
+	target = Global.game_manager.food_truck.get_line_back_pos()
+
+
+func move_to_pickup() -> void:
+	state = CustomerState.PICKING_UP_DISH
+	target = Global.game_manager.food_truck.get_pickup_pos()
 
 
 func get_target_offset() -> Vector2:
@@ -76,11 +78,10 @@ func get_current_move_speed() -> float:
 
 
 func _process(delta: float) -> void:
-	if is_at_target() and state == CustomerState.RANDOM_MOVING:
-		start_idle()
-	
-	if is_in_order_hitbox:
-		if state == Customer.CustomerState.GOING_TO_ORDER:
+	if is_at_target():
+		if state == CustomerState.RANDOM_MOVING:
+			start_idle()
+		elif state == Customer.CustomerState.GOING_TO_ORDER:
 			await_order_taken()
 		elif state == Customer.CustomerState.PICKING_UP_DISH:
 			collect_order()
@@ -111,6 +112,7 @@ func finish_ordering() -> void:
 
 
 func done_ordering() -> void:
+	Global.game_manager.food_truck.exit_line(self)
 	choose_random_target()
 	animation_player.play_backwards("awaiting_order_taken")
 
@@ -121,9 +123,18 @@ func on_start_interact() -> void:
 
 
 func await_order_taken() -> void:
-	state = CustomerState.WANTS_TO_ORDER
-	animation_player.play("awaiting_order_taken")
-	$AngryOrderNotTakenTimer.start()
+	if Global.game_manager.food_truck.enter_line(self):
+		state = CustomerState.WANTS_TO_ORDER
+		animation_player.play("awaiting_order_taken")
+		$AngryOrderNotTakenTimer.start()
+	else:
+		choose_random_target()
+
+
+func set_line_pos(pos: Vector3) -> void:
+	if (state == CustomerState.WANTS_TO_ORDER 
+		or state == CustomerState.GOING_TO_ORDER):
+		target = pos
 
 
 func collect_order() -> void:

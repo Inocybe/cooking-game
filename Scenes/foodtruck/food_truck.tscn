@@ -56,9 +56,10 @@ size = Vector3(0.913574, 3.53705, 0.164307)
 [sub_resource type="BoxShape3D" id="BoxShape3D_m3460"]
 size = Vector3(3.30786, 0.784668, 0.138916)
 
-[node name="FoodTruck" type="Node3D" node_paths=PackedStringArray("dish_spawnpoints") groups=["interactable"]]
+[node name="FoodTruck" type="Node3D" node_paths=PackedStringArray("dish_spawnpoints", "ordering_positions") groups=["interactable"]]
 script = ExtResource("1_rvaml")
 dish_spawnpoints = [NodePath("Food Tray Positions/1"), NodePath("Food Tray Positions/2"), NodePath("Food Tray Positions/3"), NodePath("Food Tray Positions/4")]
+ordering_positions = [NodePath("OrderingPositions/1"), NodePath("OrderingPositions/2"), NodePath("OrderingPositions/3"), NodePath("OrderingPositions/4")]
 
 [node name="Food Truck Model" parent="." instance=ExtResource("15_4upiy")]
 transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, -0.560616, 0, 0)
@@ -130,9 +131,24 @@ transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -1.251
 wait_time = 20.0
 autostart = true
 
-[node name="OrderingPosition" type="Node3D" parent="."]
+[node name="OrderingPositions" type="Node3D" parent="."]
 unique_name_in_owner = true
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.1707, 2.38419e-07, -3.16919)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.56818, 2.38419e-07, -3.16919)
+
+[node name="1" type="Node3D" parent="OrderingPositions"]
+
+[node name="2" type="Node3D" parent="OrderingPositions"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -1.5)
+
+[node name="3" type="Node3D" parent="OrderingPositions"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -3)
+
+[node name="4" type="Node3D" parent="OrderingPositions"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -4.5)
+
+[node name="PickupPosition" type="Node3D" parent="."]
+unique_name_in_owner = true
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0684755, 0, -3.169)
 
 [node name="DoOrderHitbox" type="Area3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.12232, 0, -2.88426)

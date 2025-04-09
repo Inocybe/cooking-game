@@ -3,10 +3,13 @@ class_name FoodTruck extends Node3D
 
 @export var dish_spawnpoints: Array[Node3D] = []
 @export var dish_check_height: float = 1
+@export var ordering_positions: Array[Node3D] = []
 
-@onready var ordering_position: Node3D = %OrderingPosition
 @onready var finished_order_position: Area3D = %FinishedOrderPosition
+@onready var pickup_position: Node3D = %PickupPosition
 @onready var ui_3d: Node3D = %TV
+
+var customers_in_line: Array[Customer] = []
 
 
 func is_dish_position_occupied(pos: Node3D) -> bool:
@@ -35,5 +38,28 @@ func check_dish_in_area(dish: Node3D) -> bool:
 	return finished_order_position.overlaps_body(dish)
 
 
-func get_order_position() -> Vector3:
-	return ordering_position.global_position
+func get_line_back_pos() -> Vector3:
+	return ordering_positions[-1].global_position
+
+
+func get_pickup_pos() -> Vector3:
+	return pickup_position.global_position
+
+
+func update_customer_line_positions() -> void:
+	for i in range(len(customers_in_line)):
+		var ordering_position = ordering_positions[i].global_position
+		customers_in_line[i].set_line_pos(ordering_position)
+
+
+func enter_line(customer: Customer) -> bool:
+	if len(customers_in_line) == len(ordering_positions):
+		return false
+	customers_in_line.append(customer)
+	update_customer_line_positions()
+	return true
+
+
+func exit_line(customer: Customer) -> void:
+	customers_in_line.erase(customer)
+	update_customer_line_positions()
