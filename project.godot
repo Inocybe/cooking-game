@@ -29,6 +29,11 @@ movie_writer/movie_file="//wsl.localhost/Ubuntu/home/martin/cooking-game/Assets/
 
 enabled=PackedStringArray("res://addons/godot-xr-tools/plugin.cfg")
 
+[filesystem]
+
+import/fbx2gltf/enabled.android=true
+import/fbx2gltf/enabled.web=true
+
 [global_group]
 
 interactable=""

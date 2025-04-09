@@ -1,0 +1,25 @@
+[remap]
+
+importer="wavefront_obj"
+importer_version=1
+type="Mesh"
+uid="uid://bns2tea5t30j3"
+path="res://.godot/imported/House2.obj-4f900bf5c53750977e3071641a9d0026.mesh"
+
+[deps]
+
+files=["res://.godot/imported/House2.obj-4f900bf5c53750977e3071641a9d0026.mesh"]
+
+source_file="res://Assets/Buildings pack - Aug 2017/OBJ/House2.obj"
+dest_files=["res://.godot/imported/House2.obj-4f900bf5c53750977e3071641a9d0026.mesh", "res://.godot/imported/House2.obj-4f900bf5c53750977e3071641a9d0026.mesh"]
+
+[params]
+
+generate_tangents=true
+generate_lods=true
+generate_shadow_mesh=true
+generate_lightmap_uv2=false
+generate_lightmap_uv2_texel_size=0.2
+scale_mesh=Vector3(1, 1, 1)
+offset_mesh=Vector3(0, 0, 0)
+force_disable_mesh_compression=false
