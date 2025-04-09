@@ -69,6 +69,12 @@ func start_idle() -> void:
 	state = CustomerState.IDLING
 
 
+func can_order() -> bool:
+	if dish_ordered != null:
+		return false
+	return state in [Customer.CustomerState.IDLING, Customer.CustomerState.RANDOM_MOVING]
+
+
 func get_current_move_speed() -> float:
 	if state == CustomerState.PICKING_UP_DISH:
 		return move_speed * order_collect_speed_multiplier
@@ -113,9 +119,10 @@ func finish_ordering() -> void:
 
 
 func done_ordering() -> void:
-	Global.game_manager.food_truck.exit_line(self)
-	egress_cart()
-	animation_player.play_backwards("awaiting_order_taken")
+	if state == CustomerState.WANTS_TO_ORDER:
+		Global.game_manager.food_truck.exit_line(self)
+		egress_cart()
+		animation_player.play_backwards("awaiting_order_taken")
 
 
 func on_start_interact() -> void:
