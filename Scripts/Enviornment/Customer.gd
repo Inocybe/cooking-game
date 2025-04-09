@@ -27,8 +27,6 @@ var move_speed: float
 var target: Vector3
 var velocity: Vector3 = Vector3.ZERO
 var state: CustomerState
-
-var is_in_order_hitbox: bool = false
 var dish_ordered: Node3D = null
 
 
