@@ -1,6 +1,7 @@
-[gd_scene load_steps=14 format=3 uid="uid://bmw48ei0dff0i"]
+[gd_scene load_steps=15 format=3 uid="uid://bmw48ei0dff0i"]
 
 [ext_resource type="PackedScene" uid="uid://jj8yuf0syk57" path="res://Scenes/managers/game_manager.tscn" id="1_0s671"]
+[ext_resource type="Script" uid="uid://hi480lpnxug" path="res://Scripts/Enviornment/SunManager.gd" id="1_jd6j6"]
 [ext_resource type="PackedScene" uid="uid://b3ocr5doqonyu" path="res://Scenes/foodtruck/food_truck.tscn" id="2_3dmfd"]
 [ext_resource type="PackedScene" uid="uid://5s3oxlpup0wy" path="res://Scenes/player/player.tscn" id="2_rbjev"]
 [ext_resource type="Script" uid="uid://bomqxx6mxqq83" path="res://Scripts/Enviornment/EnvironmentManager.gd" id="3_b0aln"]
@@ -22,7 +23,6 @@ tonemap_exposure = 0.6
 tonemap_white = 0.7
 ssao_intensity = 6.0
 glow_enabled = true
-fog_enabled = true
 
 [sub_resource type="WorldBoundaryShape3D" id="WorldBoundaryShape3D_wlqu1"]
 
@@ -31,14 +31,18 @@ size = Vector2(100, 100)
 
 [node name="World" type="Node3D"]
 
-[node name="GameManager" parent="." instance=ExtResource("1_0s671")]
-
-[node name="Player" parent="." instance=ExtResource("2_rbjev")]
-transform = Transform3D(-0.76628, 0, -0.642507, 0, 1, 0, 0.642507, 0, -0.76628, -0.404418, 1.64574, 1.46279)
+[node name="Sun" type="DirectionalLight3D" parent="."]
+transform = Transform3D(0.410614, -0.492217, 0.767541, 0.176997, 0.868793, 0.462461, -0.894465, -0.0540407, 0.44386, 0, 0, 0)
+script = ExtResource("1_jd6j6")
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="."]
 environment = SubResource("Environment_ge0im")
 script = ExtResource("3_b0aln")
+
+[node name="GameManager" parent="." instance=ExtResource("1_0s671")]
+
+[node name="Player" parent="." instance=ExtResource("2_rbjev")]
+transform = Transform3D(-0.76628, 0, -0.642507, 0, 1, 0, 0.642507, 0, -0.76628, -0.404418, 1.64574, 1.46279)
 
 [node name="FoodTruck" parent="." instance=ExtResource("2_3dmfd")]
 transform = Transform3D(-0.707107, 0, -0.707107, 0, 1, 0, 0.707107, 0, -0.707107, -0.0296402, -0.0441494, -0.0324593)
