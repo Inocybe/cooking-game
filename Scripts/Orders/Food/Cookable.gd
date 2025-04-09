@@ -19,15 +19,11 @@ var cooked_amount: float = 0
 var cooking: bool = false
 var is_cooked: bool = false
 var is_burnt: bool = false
-var material: ShaderMaterial = ShaderMaterial.new()
+var material: ShaderMaterial
 
 
 func _ready() -> void:
-	material.shader = material_template.shader
-	for prop in material.shader.get_shader_uniform_list():
-		var prop_name = prop["name"]
-		var val = material_template.get_shader_parameter(prop_name)
-		material.set_shader_parameter(prop_name, val)
+	material = material_template.duplicate(true)
 	
 	for mesh in get_parent().find_children(mesh_glob, "MeshInstance3D"):
 		if mesh.get_surface_override_material(0) == null:
