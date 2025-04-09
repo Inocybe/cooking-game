@@ -65,14 +65,14 @@ func call_customers_back() -> void:
 	for order in active_orders:
 		# Checking if order complete, then goes to food truck and calls the check dish in 
 		if order.is_order_complete():
-			order.customer_who_gave_me.move_to_foodcart()
+			order.customer_who_gave_me.move_to_pickup()
 
 
 func make_customer_order() -> void:
 	var customer_manager = Global.game_manager.customer_manager
 	var customer: Node3D = customer_manager.customers.pick_random()
 	if customer.state in [Customer.CustomerState.IDLING, Customer.CustomerState.RANDOM_MOVING]:
-		customer.move_to_foodcart()
+		customer.go_to_order()
 
 ##########################
 
