@@ -1,0 +1,43 @@
+[gd_scene load_steps=11 format=3 uid="uid://blwpctwpa23a6"]
+
+[ext_resource type="Shader" uid="uid://ekih04etq4cy" path="res://Scripts/Shaders/LightningShader.gdshader" id="1_jfjsu"]
+[ext_resource type="Script" uid="uid://b1qom4u11sbbc" path="res://Scripts/Enviornment/LightningBolt.gd" id="2_tlka2"]
+
+[sub_resource type="QuadMesh" id="QuadMesh_yc5rf"]
+size = Vector2(1, 40)
+subdivide_depth = 40
+
+[sub_resource type="Gradient" id="Gradient_jfjsu"]
+
+[sub_resource type="FastNoiseLite" id="FastNoiseLite_tlka2"]
+frequency = 0.005
+
+[sub_resource type="NoiseTexture2D" id="NoiseTexture2D_6s6vs"]
+height = 1
+color_ramp = SubResource("Gradient_jfjsu")
+noise = SubResource("FastNoiseLite_tlka2")
+
+[sub_resource type="Gradient" id="Gradient_5ilbg"]
+
+[sub_resource type="FastNoiseLite" id="FastNoiseLite_n8twa"]
+seed = 1
+frequency = 0.005
+
+[sub_resource type="NoiseTexture2D" id="NoiseTexture2D_qdqhh"]
+height = 1
+color_ramp = SubResource("Gradient_5ilbg")
+noise = SubResource("FastNoiseLite_n8twa")
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_tlka2"]
+render_priority = 0
+shader = ExtResource("1_jfjsu")
+shader_parameter/color = Color(0.951178, 0.950409, 0.215751, 1)
+shader_parameter/bloom = 10.0
+shader_parameter/noise_x = SubResource("NoiseTexture2D_6s6vs")
+shader_parameter/noise_y = SubResource("NoiseTexture2D_qdqhh")
+shader_parameter/offset_scale = 4.0
+
+[node name="LightningBolt" type="MeshInstance3D"]
+mesh = SubResource("QuadMesh_yc5rf")
+surface_material_override/0 = SubResource("ShaderMaterial_tlka2")
+script = ExtResource("2_tlka2")
