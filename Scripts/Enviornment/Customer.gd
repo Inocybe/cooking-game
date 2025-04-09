@@ -17,6 +17,7 @@ enum CustomerState {
 	RANDOM_MOVING,
 	GOING_TO_ORDER,
 	WANTS_TO_ORDER,
+	EGRESSING,
 	PICKING_UP_DISH,
 	ANIMATING_PICKUP
 }
@@ -79,9 +80,11 @@ func _process(delta: float) -> void:
 	if is_at_target():
 		if state == CustomerState.RANDOM_MOVING:
 			start_idle()
-		elif state == Customer.CustomerState.GOING_TO_ORDER:
+		elif state == CustomerState.GOING_TO_ORDER:
 			await_order_taken()
-		elif state == Customer.CustomerState.PICKING_UP_DISH:
+		elif state == CustomerState.EGRESSING:
+			choose_random_target()
+		elif state == CustomerState.PICKING_UP_DISH:
 			collect_order()
 	
 	var speed: float = velocity.length()
@@ -111,7 +114,7 @@ func finish_ordering() -> void:
 
 func done_ordering() -> void:
 	Global.game_manager.food_truck.exit_line(self)
-	choose_random_target()
+	egress_cart()
 	animation_player.play_backwards("awaiting_order_taken")
 
 
@@ -126,7 +129,12 @@ func await_order_taken() -> void:
 		animation_player.play("awaiting_order_taken")
 		$AngryOrderNotTakenTimer.start()
 	else:
-		choose_random_target()
+		egress_cart()
+
+
+func egress_cart() -> void:
+	target = Global.game_manager.food_truck.get_egress_pos()
+	state = CustomerState.EGRESSING
 
 
 func set_line_pos(pos: Vector3) -> void:
@@ -149,8 +157,8 @@ func collect_order() -> void:
 			finished_collecting, ConnectFlags.CONNECT_ONE_SHOT)
 		
 	else:
-		choose_random_target()
+		egress_cart()
 
 
 func finished_collecting(_animation: String) -> void:
-	choose_random_target()
+	egress_cart()
