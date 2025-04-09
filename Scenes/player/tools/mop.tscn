@@ -1,7 +1,9 @@
-[gd_scene load_steps=15 format=3 uid="uid://ddyyiqy7ve87x"]
+[gd_scene load_steps=17 format=3 uid="uid://ddyyiqy7ve87x"]
 
 [ext_resource type="Script" uid="uid://iaxxksuvxj6m" path="res://Scripts/Rigidbodies/Holdable.gd" id="1_l2tuy"]
+[ext_resource type="PackedScene" uid="uid://bcaj1x735ohkd" path="res://Scenes/misc/bump_sound_player.tscn" id="2_1yahp"]
 [ext_resource type="Script" uid="uid://bxmtc4j4eepb1" path="res://Scenes/player/tools/MopBrush.gd" id="2_4gj1t"]
+[ext_resource type="AudioStream" uid="uid://cmpw5q0s5qkmp" path="res://Audio/SFX/Metal8.mp3" id="3_cnmyu"]
 [ext_resource type="AudioStream" uid="uid://bgkro42wo70pb" path="res://Audio/SFX/Swish1-1.mp3" id="3_rqjo2"]
 [ext_resource type="AudioStream" uid="uid://bfsc06m3cb211" path="res://Audio/SFX/Swish1-2.mp3" id="4_fhleh"]
 
@@ -61,6 +63,9 @@ surface_material_override/0 = SubResource("StandardMaterial3D_l2tuy")
 [node name="PoleCollision" type="CollisionShape3D" parent="."]
 transform = Transform3D(0.939693, -0.34202, 0, 0.34202, 0.939693, 0, 0, 0, 1, 0.00425855, -0.0117003, 0)
 shape = SubResource("CylinderShape3D_4gj1t")
+
+[node name="BumpSoundPlayer" parent="." instance=ExtResource("2_1yahp")]
+stream = ExtResource("3_cnmyu")
 
 [node name="Brush" type="Node3D" parent="."]
 transform = Transform3D(0.939693, -0.34202, 0, 0.34202, 0.939693, 0, 0, 0, 1, 0.17101, -0.469846, 0)
