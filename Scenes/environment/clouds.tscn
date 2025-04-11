@@ -163,12 +163,14 @@ transform = Transform3D(1, 0, 0, 0, -1, -8.74228e-08, 0, 8.74228e-08, -1, 0, 0, 
 script = ExtResource("1_2lklo")
 
 [node name="Clouds 1" type="MeshInstance3D" parent="."]
+cast_shadow = 0
 extra_cull_margin = 100.0
 mesh = SubResource("PlaneMesh_2lklo")
 surface_material_override/0 = SubResource("ShaderMaterial_2lklo")
 
 [node name="Clouds 2" type="MeshInstance3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 200, 0, 0)
+cast_shadow = 0
 extra_cull_margin = 100.0
 mesh = SubResource("PlaneMesh_2bv16")
 skeleton = NodePath("../Clouds 1")
@@ -176,18 +178,21 @@ surface_material_override/0 = SubResource("ShaderMaterial_po20r")
 
 [node name="Clouds 3" type="MeshInstance3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -200, 0, 0)
+cast_shadow = 0
 extra_cull_margin = 100.0
 mesh = SubResource("PlaneMesh_n14vs")
 surface_material_override/0 = SubResource("ShaderMaterial_jqnsx")
 
 [node name="Clouds 4" type="MeshInstance3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -100, 0, 200)
+cast_shadow = 0
 extra_cull_margin = 100.0
 mesh = SubResource("PlaneMesh_po20r")
 surface_material_override/0 = SubResource("ShaderMaterial_hbki2")
 
 [node name="Clouds 5" type="MeshInstance3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 100, 0, 200)
+cast_shadow = 0
 extra_cull_margin = 100.0
 mesh = SubResource("PlaneMesh_h08xv")
 surface_material_override/0 = SubResource("ShaderMaterial_pxg3d")

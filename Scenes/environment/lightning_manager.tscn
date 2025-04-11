@@ -5,7 +5,6 @@
 [node name="LightningManager" type="Node3D"]
 script = ExtResource("1_mnqsm")
 spawn_range = Rect2(-10, -10, 20, 20)
-spawn_chance = 0.1
 
 [node name="MaybeSpawnLightningTimer" type="Timer" parent="."]
 autostart = true
