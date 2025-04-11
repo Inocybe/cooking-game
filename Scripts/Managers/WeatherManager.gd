@@ -5,7 +5,8 @@ enum WeatherType {
 	Sunny,
 	Overcast,
 	Rainy,
-	Stormy
+	Stormy,
+	Snowy
 }
 
 
@@ -39,7 +40,8 @@ static func get_weather_storminess(weather_type: WeatherType) -> float:
 		WeatherType.Sunny: 0,
 		WeatherType.Overcast: 1,
 		WeatherType.Rainy: 0.8,
-		WeatherType.Stormy: 1
+		WeatherType.Stormy: 1,
+		WeatherType.Snowy: 0.2
 	}[weather_type]
 
 
@@ -48,7 +50,8 @@ static func get_weather_raininess(weather_type: WeatherType) -> float:
 		WeatherType.Sunny: 0,
 		WeatherType.Overcast: 0,
 		WeatherType.Rainy: 0.5,
-		WeatherType.Stormy: 1
+		WeatherType.Stormy: 1,
+		WeatherType.Snowy: 0
 	}[weather_type]
 
 
@@ -57,7 +60,8 @@ static func get_weather_lightning_chance(weather_type: WeatherType) -> float:
 		WeatherType.Sunny: 0,
 		WeatherType.Overcast: 0,
 		WeatherType.Rainy: 0,
-		WeatherType.Stormy: 0.05
+		WeatherType.Stormy: 0.05,
+		WeatherType.Snowy: 0
 	}[weather_type]
 
 
@@ -66,5 +70,6 @@ static func get_weather_name(weather_type: WeatherType) -> String:
 		WeatherType.Sunny: "sunny",
 		WeatherType.Overcast: "overcast",
 		WeatherType.Rainy: "rainy",
-		WeatherType.Stormy: "stormy"
+		WeatherType.Stormy: "stormy",
+		WeatherType.Snowy: "snowy"
 	}[weather_type]
