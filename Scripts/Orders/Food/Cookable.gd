@@ -1,15 +1,20 @@
 class_name Cookable extends Node
 
 
+@export_group("Cook Settings")
+@export var required_cooking_type: CookwearBase.CookingType
 @export var cook_time: float = 0.2
-@export var burn_multiple: float = 2
-@export var uncooked_color: Color
-@export var cooked_color: Color
-@export var burnt_color: Color
+@export var burn_time_multiple: float = 2
 @export var raw_temperature: float = 30
 @export var cooked_temperature: float = 70
 @export var overcooked_temperature: float = 100
-@export var required_cooking_type: CookwearBase.CookingType
+
+@export_group("Color")
+@export var uncooked_color: Color
+@export var cooked_color: Color
+@export var burnt_color: Color
+
+@export_group("Resources")
 @export var mesh_glob = "*"
 @export var cook_particles: GPUParticles3D
 @export var cook_audio: AudioFader3D
@@ -23,7 +28,7 @@ var material: ShaderMaterial
 
 
 func _ready() -> void:
-	material = material_template.duplicate(true)
+	material = material_template.duplicate()
 	
 	for mesh in get_parent().find_children(mesh_glob, "MeshInstance3D"):
 		if mesh.get_surface_override_material(0) == null:
@@ -47,7 +52,7 @@ func on_stop_cooking(cooking_type: CookwearBase.CookingType) -> void:
 
 
 func get_burn_amount() -> float:
-	return (cooked_amount - 1) / (burn_multiple - 1)
+	return (cooked_amount - 1) / (burn_time_multiple - 1)
 
 
 func _process(delta: float) -> void:
@@ -57,8 +62,8 @@ func _process(delta: float) -> void:
 	if cooked_amount > 1:
 		is_cooked = true
 	
-	if cooked_amount > burn_multiple:
-		cooked_amount = burn_multiple
+	if cooked_amount > burn_time_multiple:
+		cooked_amount = burn_time_multiple
 	
 	var new_color: Color
 	
