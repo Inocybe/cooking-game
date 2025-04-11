@@ -14,7 +14,7 @@ class_name Clouds extends Node3D
 
 @export var storminess_change_speed: float = 0.02
 
-var current_storminess: float = 0
+var current_storminess: float = 1
 var target_storminess: float = 1
 
 

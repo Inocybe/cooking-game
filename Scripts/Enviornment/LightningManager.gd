@@ -1,10 +1,9 @@
-extends Node
+class_name LightningManager extends Node
 
 
 @export var spawn_range: Rect2
 
-@export var spawn_chance: float
-
+var spawn_chance: float = 0
 
 const BOLT = preload("res://Scenes/environment/lightning_bolt.tscn")
 
@@ -22,3 +21,7 @@ func maybe_spawn_lightning() -> void:
 	)
 	
 	add_child(bolt)
+
+
+func set_lightning_chance(chance: float) -> void:
+	spawn_chance = chance
