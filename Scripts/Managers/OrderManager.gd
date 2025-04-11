@@ -5,19 +5,27 @@ const DISH = preload("res://Scenes/orders/dish.tscn")
 
 var active_orders: Array[Dish] = []
 
-const MAX_ORDER_SIZE: int = 3
-const MIN_ORDER_SIZE: int = 1
-
 #############
 
 
 func create_random_order() -> Array[Menu.Item]:
+	# TODO: make this depend on the real weather
+	var weather_type: WeatherManager.WeatherType = WeatherManager.WeatherType.Sunny
+
+	var order_size: int = randi_range(
+		WeatherManager.get_weather_min_order_size(weather_type), 
+		WeatherManager.get_weather_max_order_size(weather_type)
+	)
+
 	var items: Array[Menu.Item] = []
-	var order_size = randi_range(MIN_ORDER_SIZE, MAX_ORDER_SIZE)
 	while items.size() < order_size:
-		var item: Menu.Item = Menu.Item.values().pick_random()
+		var item: Menu.Item = Global.weighted_random_val(
+			WeatherManager.get_weather_item_weighting(weather_type)
+		)
+		
 		if not items.has(item):
 			items.append(item)
+	
 	return items
 
 

@@ -14,6 +14,7 @@ func _ready():
 	
 	game_manager = current_scene.get_node_or_null("GameManager")
 
+
 func _process(_delta: float) -> void:
 	if get_tree().current_scene:
 		game_manager = get_tree().current_scene.get_node_or_null("GameManager")
@@ -25,6 +26,7 @@ func pause_game() -> void:
 	
 func resume_game() -> void:
 	get_tree().paused = false
+
 
 func switch_scenes(scene_path: String) -> void:
 	get_tree().change_scene_to_file(scene_path)
@@ -59,3 +61,20 @@ func set_dependance(parent: Node3D, child: RigidBody3D, dependance: bool) -> voi
 		if parent is CollisionObject3D:
 			child.remove_collision_exception_with(parent)
 		child.reparent(get_tree().current_scene)
+
+
+func weighted_random_int(weights: Array[float]) -> int:
+	var total_weight: float = 0
+	for weight in weights;
+		total_weight += weight
+	var value: float = randf() * total_weight
+	var range_min = 0
+	for i in range(len(options)):
+		var range_max = range_min + weights[i]
+		if value < range_max:
+			return i
+		range_min = range_max
+
+
+func weighted_random_val(values: Dictionary[Variant, float]) -> Variant:
+	return values.keys()[weighted_random_int(values.values())]
