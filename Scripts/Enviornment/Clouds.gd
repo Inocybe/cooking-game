@@ -1,15 +1,20 @@
 class_name Clouds extends Node3D
 
 
+@export var sun_light: DirectionalLight3D
+
 @export var clear_empty_cutoff: float = 0.8
 @export var storm_empty_cutoff: float = 0.3
 
 @export var clear_max_depth_damp: float = 0
 @export var storm_max_depth_damp: float = 0.6
 
+@export var clear_sun_energy: float = 1
+@export var storm_sun_energy: float = 0
+
 @export var storminess_change_speed: float = 0.02
 
-var current_storminess: float = 0
+var current_storminess: float = 1
 var target_storminess: float = 1
 
 
@@ -41,3 +46,6 @@ func show_storminess(storminess: float) -> void:
 	set_shader_values("empty_cutoff", empty_cutoff)
 	var max_depth_damp = lerpf(clear_max_depth_damp, storm_max_depth_damp, storminess)
 	set_shader_values("max_depth_damp", max_depth_damp)
+	var sun_energy = lerpf(clear_sun_energy, storm_sun_energy, storminess)
+	if sun_light != null:
+		sun_light.light_energy = sun_energy

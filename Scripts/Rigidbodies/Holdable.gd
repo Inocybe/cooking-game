@@ -1,6 +1,8 @@
 class_name Holdable extends RigidBodyBase
 
 
+@export_group("Holdable")
+
 @export var standard_angular_damp: float = 1
 @export var held_angular_damp: float = 2
 @export var move_line_acceleration: float = 30

@@ -1,4 +1,4 @@
-extends OmniLight3D
+extends Light3D
 
 
 func _ready() -> void:

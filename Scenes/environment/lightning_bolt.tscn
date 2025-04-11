@@ -1,7 +1,8 @@
-[gd_scene load_steps=11 format=3 uid="uid://blwpctwpa23a6"]
+[gd_scene load_steps=12 format=3 uid="uid://blwpctwpa23a6"]
 
 [ext_resource type="Shader" uid="uid://ekih04etq4cy" path="res://Scripts/Shaders/LightningShader.gdshader" id="1_jfjsu"]
 [ext_resource type="Script" uid="uid://b1qom4u11sbbc" path="res://Scripts/Enviornment/LightningBolt.gd" id="2_tlka2"]
+[ext_resource type="AudioStream" uid="uid://dc3n1c8hn64jg" path="res://Audio/SFX/Thunder.mp3" id="3_6s6vs"]
 
 [sub_resource type="QuadMesh" id="QuadMesh_yc5rf"]
 size = Vector2(1, 40)
@@ -36,8 +37,20 @@ shader_parameter/bloom = 10.0
 shader_parameter/noise_x = SubResource("NoiseTexture2D_6s6vs")
 shader_parameter/noise_y = SubResource("NoiseTexture2D_qdqhh")
 shader_parameter/offset_scale = 4.0
+shader_parameter/base_alpha = 0.25
+shader_parameter/age_frac = 0.5
 
 [node name="LightningBolt" type="MeshInstance3D"]
 mesh = SubResource("QuadMesh_yc5rf")
 surface_material_override/0 = SubResource("ShaderMaterial_tlka2")
 script = ExtResource("2_tlka2")
+lifetime = 0.25
+
+[node name="ThunderPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("3_6s6vs")
+
+[node name="SoundDelayTimer" type="Timer" parent="."]
+one_shot = true
+
+[connection signal="finished" from="ThunderPlayer" to="." method="audio_finished"]
+[connection signal="timeout" from="SoundDelayTimer" to="." method="start_audio"]

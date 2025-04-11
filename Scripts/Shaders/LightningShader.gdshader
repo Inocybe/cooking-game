@@ -9,6 +9,10 @@ uniform sampler2D noise_y;
 
 uniform float offset_scale;
 
+uniform float base_alpha;
+
+uniform float age_frac: hint_range(0, 1);
+
 void vertex() {
 	float height = VERTEX.y;
 	float x_offset = texture(noise_x, vec2(height)).r;
@@ -18,4 +22,6 @@ void vertex() {
 
 void fragment() {
 	ALBEDO = color * bloom;
+	float show_frac = sin(age_frac * PI);
+	ALPHA = base_alpha + show_frac * (1.0 - base_alpha);
 }
