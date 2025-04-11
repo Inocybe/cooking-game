@@ -10,6 +10,7 @@ const MIN_ORDER_SIZE: int = 1
 
 #############
 
+
 func create_random_order() -> Array[Menu.Item]:
 	var items: Array[Menu.Item] = []
 	var order_size = randi_range(MIN_ORDER_SIZE, MAX_ORDER_SIZE)
