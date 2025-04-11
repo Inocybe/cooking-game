@@ -87,3 +87,53 @@ static func get_weather_name(weather_type: WeatherType) -> String:
 		WeatherType.Stormy: "stormy",
 		WeatherType.Snowy: "snowy"
 	}[weather_type]
+
+
+static func get_weather_min_order_size(weather_type: WeatherType) -> int:
+	return {
+		WeatherType.Sunny: 1,
+		WeatherType.Overcast: 2,
+		WeatherType.Rainy: 1,
+		WeatherType.Stormy: 1,
+		WeatherType.Snowy: 1
+	}[weather_type]
+
+
+static func get_weather_max_order_size(weather_type: WeatherType) -> int:
+	return {
+		WeatherType.Sunny: 3,
+		WeatherType.Overcast: 3,
+		WeatherType.Rainy: 2,
+		WeatherType.Stormy: 2,
+		WeatherType.Snowy: 2
+	}[weather_type]
+
+
+static func get_weather_item_weighting(weather_type: WeatherManager) -> Dictionary[Menu.Item, float]:
+	return {
+		WeatherType.Sunny: {
+			Menu.Item.HamBurger: 1,
+			Menu.Item.Fries: 1,
+			Menu.Item.Soda: 2.5
+		},
+		WeatherType.Overcast: {
+			Menu.Item.HamBurger: 1.5,
+			Menu.Item.Fries: 1,
+			Menu.Item.Soda: 0.8
+		},
+		WeatherType.Rainy: {
+			Menu.Item.HamBurger: 1,
+			Menu.Item.Fries: 1,
+			Menu.Item.Soda: 0.8
+		},
+		WeatherType.Stormy: {
+			Menu.Item.HamBurger: 1,
+			Menu.Item.Fries: 2,
+			Menu.Item.Soda: 0.5
+		},
+		WeatherType.Snowy: {
+			Menu.Item.HamBurger: 1,
+			Menu.Item.Fries: 1,
+			Menu.Item.Soda: 0.2
+		}
+	}[weather_type]
