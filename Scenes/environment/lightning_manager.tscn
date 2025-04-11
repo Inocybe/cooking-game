@@ -1,0 +1,13 @@
+[gd_scene load_steps=2 format=3 uid="uid://ckcd8iqf1lith"]
+
+[ext_resource type="Script" uid="uid://bcp8ec8oonsnk" path="res://Scripts/Enviornment/LightningManager.gd" id="1_mnqsm"]
+
+[node name="LightningManager" type="Node3D"]
+script = ExtResource("1_mnqsm")
+spawn_range = Rect2(-10, -10, 20, 20)
+spawn_chance = 0.1
+
+[node name="MaybeSpawnLightningTimer" type="Timer" parent="."]
+autostart = true
+
+[connection signal="timeout" from="MaybeSpawnLightningTimer" to="." method="maybe_spawn_lightning"]
