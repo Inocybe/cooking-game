@@ -55,7 +55,7 @@ offset_bottom = 100.0
 grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("2_3snea")
-relative_to = NodePath("../..")
+relative_to = NodePath("../../..")
 apply_to_y = true
 
 [node name="Money Display" type="Label" parent="HBoxContainer/Left/GridContainer"]

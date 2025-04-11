@@ -28,7 +28,7 @@ var material: ShaderMaterial
 
 
 func _ready() -> void:
-	material = material_template.duplicate(true)
+	material = material_template.duplicate()
 	
 	for mesh in get_parent().find_children(mesh_glob, "MeshInstance3D"):
 		if mesh.get_surface_override_material(0) == null:
