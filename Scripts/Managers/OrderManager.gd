@@ -13,14 +13,14 @@ func create_random_order() -> Array[Menu.Item]:
 	var weather_type: WeatherManager.WeatherType = WeatherManager.WeatherType.Sunny
 
 	var order_size: int = randi_range(
-		WeatherManager.get_weather_min_order_size(weather_type), 
-		WeatherManager.get_weather_max_order_size(weather_type)
+		WeatherManager.get_min_order_size(weather_type), 
+		WeatherManager.get_max_order_size(weather_type)
 	)
 
 	var items: Array[Menu.Item] = []
 	while items.size() < order_size:
 		var item: Menu.Item = Global.weighted_random_val(
-			WeatherManager.get_weather_item_weighting(weather_type)
+			WeatherManager.get_item_weighting(weather_type)
 		)
 		
 		if not items.has(item):
