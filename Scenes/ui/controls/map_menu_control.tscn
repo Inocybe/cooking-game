@@ -1,8 +1,8 @@
 [gd_scene load_steps=7 format=3 uid="uid://cd7anw3qhpovq"]
 
-[ext_resource type="Script" uid="uid://c3h5ekk41jdvq" path="res://Scripts/UI/Map/map_control.gd" id="1_cpcl8"]
+[ext_resource type="Script" uid="uid://c3h5ekk41jdvq" path="res://Scripts/UI/Map/MapControl.gd" id="1_cpcl8"]
 [ext_resource type="Texture2D" uid="uid://brswl0f07gyuu" path="res://icon.svg" id="2_p5u53"]
-[ext_resource type="Script" uid="uid://0lvqxgurg3oj" path="res://Scripts/UI/Map/map_button.gd" id="3_r10et"]
+[ext_resource type="Script" uid="uid://0lvqxgurg3oj" path="res://Scripts/UI/Map/MapButton.gd" id="3_r10et"]
 
 [sub_resource type="Animation" id="Animation_d4j1p"]
 length = 0.001
