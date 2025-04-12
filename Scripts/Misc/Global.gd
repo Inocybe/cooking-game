@@ -65,15 +65,16 @@ func set_dependance(parent: Node3D, child: RigidBody3D, dependance: bool) -> voi
 
 func weighted_random_int(weights: Array[float]) -> int:
 	var total_weight: float = 0
-	for weight in weights;
+	for weight in weights:
 		total_weight += weight
 	var value: float = randf() * total_weight
 	var range_min = 0
-	for i in range(len(options)):
+	for i in range(len(weights)):
 		var range_max = range_min + weights[i]
 		if value < range_max:
 			return i
 		range_min = range_max
+	return -1 # unreachable
 
 
 func weighted_random_val(values: Dictionary[Variant, float]) -> Variant:

@@ -79,7 +79,7 @@ static func get_lightning_chance(weather_type: WeatherType) -> float:
 	}[weather_type]
 
 
-static func get_name(weather_type: WeatherType) -> String:
+static func get_weather_name(weather_type: WeatherType) -> String:
 	return {
 		WeatherType.Sunny: "sunny",
 		WeatherType.Overcast: "overcast",
@@ -109,7 +109,7 @@ static func get_max_order_size(weather_type: WeatherType) -> int:
 	}[weather_type]
 
 
-static func get_item_weighting(weather_type: WeatherManager) -> Dictionary[Menu.Item, float]:
+static func get_item_weighting(weather_type: WeatherType) -> Dictionary[Menu.Item, float]:
 	return {
 		WeatherType.Sunny: {
 			Menu.Item.HamBurger: 1,
@@ -146,4 +146,4 @@ static func get_customer_patience(weather_type: WeatherManager) -> float:
 		WeatherType.Rainy: 30,
 		WeatherType.Stormy: 20,
 		WeatherType.Snowy: 45
-	}
+	}[weather_type]
