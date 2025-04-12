@@ -120,15 +120,15 @@ func finish_ordering() -> void:
 
 
 func angry_done_waiting() -> void:
-	$AngrySoundPlayer.play()
-	done_ordering()
+	if state == CustomerState.WANTS_TO_ORDER:
+		$AngrySoundPlayer.play()
+		done_ordering()
 
 
 func done_ordering() -> void:
-	if state == CustomerState.WANTS_TO_ORDER:
-		Global.game_manager.food_truck.exit_line(self)
-		egress_cart()
-		animation_player.play_backwards("awaiting_order_taken")
+	Global.game_manager.food_truck.exit_line(self)
+	egress_cart()
+	animation_player.play_backwards("awaiting_order_taken")
 
 
 func on_start_interact() -> void:

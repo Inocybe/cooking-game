@@ -8,8 +8,8 @@
 [ext_resource type="AudioStream" uid="uid://djtb2mtkymaap" path="res://Audio/SFX/BumpF1.mp3" id="6_0vm8e"]
 [ext_resource type="AudioStream" uid="uid://crgshq48e4wnd" path="res://Audio/SFX/BumpF2.mp3" id="7_mytyk"]
 
-[sub_resource type="BoxShape3D" id="BoxShape3D_ejgeh"]
-size = Vector3(0.227, 0.264, 0.388)
+[sub_resource type="ConvexPolygonShape3D" id="ConvexPolygonShape3D_mytyk"]
+points = PackedVector3Array(-0.11463, 0.190424, -3.8e-05, -0.11243, 0.190424, -0.03824, -0.10002, -0.032693, -3.8e-05, -0.11243, 0.190424, 0.038202, -0.105923, 0.190424, -0.074985, -0.092413, -0.032693, -0.065434, -0.098091, -0.032693, -0.033369, -0.098091, -0.032693, 0.033331, -0.092413, -0.032693, 0.065396, -0.105923, 0.190424, 0.074946, -0.09533, 0.190424, -0.108853, -0.083167, -0.032693, -0.094968, -0.083167, -0.032693, 0.09493, -0.09533, 0.190424, 0.108814, -0.081058, 0.190424, -0.13854, -0.070735, -0.032693, -0.120896, -0.070735, -0.032693, 0.120819, -0.081058, 0.190424, 0.138501, -0.063688, 0.190424, -0.162934, -0.055564, -0.032693, -0.142145, -0.055564, -0.032693, 0.142107, -0.063688, 0.190424, 0.162895, -0.043873, 0.190424, -0.181037, -0.038285, -0.032693, -0.157948, -0.038285, -0.032693, 0.157871, -0.043873, 0.190424, 0.180999, -0.022374, 0.190424, -0.19216, -0.019524, -0.032693, -0.167651, -0.019524, -0.032693, 0.167613, -0.022374, 0.190424, 0.192122, -2.2e-05, 0.190424, -0.19592, -2.2e-05, -0.032693, -0.170949, -2.2e-05, -0.032693, 0.170912, -2.2e-05, 0.190424, 0.19592, 0, 0.190424, -0.19592, 0, -0.032693, -0.170949, 0, -0.032693, 0.170912, 0, 0.190424, 0.19592, 0.022351, 0.190424, -0.19216, 0.019501, -0.032693, -0.167651, 0.019501, -0.032693, 0.167613, 0.022351, 0.190424, 0.192122, 0.04385, 0.190424, -0.181037, 0.038262, -0.032693, -0.157948, 0.038262, -0.032693, 0.157871, 0.04385, 0.190424, 0.180999, 0.063666, 0.190424, -0.162934, 0.055542, -0.032693, -0.142145, 0.055542, -0.032693, 0.142107, 0.063666, 0.190424, 0.162895, 0.081035, 0.190424, -0.13854, 0.07069, -0.032693, -0.120896, 0.07069, -0.032693, 0.120819, 0.081035, 0.190424, 0.138501, 0.095308, 0.190424, -0.108853, 0.083145, -0.032693, -0.094968, 0.083145, -0.032693, 0.09493, 0.095308, 0.190424, 0.108814, 0.1059, 0.190424, -0.074985, 0.092368, -0.032693, -0.065434, 0.092368, -0.032693, 0.065396, 0.1059, 0.190424, 0.074946, 0.112408, 0.190424, -0.03824, 0.098068, -0.032693, -0.033369, 0.098068, -0.032693, 0.033331, 0.112408, 0.190424, 0.038202, 0.11463, 0.190424, -3.8e-05, 0.099998, -0.032693, -3.8e-05)
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_0vm8e"]
 render_priority = 0
@@ -29,20 +29,19 @@ script = ExtResource("1_i826k")
 from_item = 1
 food_component_type = 2
 
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+shape = SubResource("ConvexPolygonShape3D_mytyk")
+
 [node name="Model" parent="." instance=ExtResource("1_m3d73")]
 transform = Transform3D(0.1, 0, 0, 0, 0.1, 0, 0, 0, 0.1, 0, 0, 0)
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.00257234, 0.0991977, 0.0150459)
-shape = SubResource("BoxShape3D_ejgeh")
-
 [node name="Cookable" type="Node" parent="." node_paths=PackedStringArray("cook_particles")]
 script = ExtResource("1_4snbo")
+required_cooking_type = 1
 cook_time = 10.0
 uncooked_color = Color(0.83, 0.731368, 0.6391, 1)
 cooked_color = Color(1, 0.597, 0.07, 1)
 burnt_color = Color(0.201861, 0.102017, 1.20327e-08, 1)
-required_cooking_type = 1
 mesh_glob = "Fry*"
 cook_particles = NodePath("../CookingParticles")
 material_template = SubResource("ShaderMaterial_0vm8e")
@@ -51,3 +50,5 @@ material_template = SubResource("ShaderMaterial_0vm8e")
 stream = SubResource("AudioStreamRandomizer_mytyk")
 
 [node name="CookingParticles" type="GPUParticles3D" parent="."]
+
+[editable path="Model"]

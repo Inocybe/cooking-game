@@ -63,7 +63,7 @@ func set_dependance(parent: Node3D, child: RigidBody3D, dependance: bool) -> voi
 		child.reparent(get_tree().current_scene)
 
 
-func weighted_random_int(weights: Array[float]) -> int:
+func weighted_random_int(weights: Array) -> int:
 	var total_weight: float = 0
 	for weight in weights:
 		total_weight += weight
@@ -77,5 +77,5 @@ func weighted_random_int(weights: Array[float]) -> int:
 	return -1 # unreachable
 
 
-func weighted_random_val(values: Dictionary[Variant, float]) -> Variant:
+func weighted_random_val(values: Dictionary) -> Variant:
 	return values.keys()[weighted_random_int(values.values())]

@@ -109,37 +109,37 @@ static func get_max_order_size(weather_type: WeatherType) -> int:
 	}[weather_type]
 
 
-static func get_item_weighting(weather_type: WeatherType) -> Dictionary[Menu.Item, float]:
+static func get_item_weighting(weather_type: WeatherType) -> Dictionary:
 	return {
 		WeatherType.Sunny: {
-			Menu.Item.HamBurger: 1,
-			Menu.Item.Fries: 1,
+			Menu.Item.HamBurger: 1.0,
+			Menu.Item.Fries: 1.0,
 			Menu.Item.Soda: 2.5
 		},
 		WeatherType.Overcast: {
 			Menu.Item.HamBurger: 1.5,
-			Menu.Item.Fries: 1,
+			Menu.Item.Fries: 1.0,
 			Menu.Item.Soda: 0.8
 		},
 		WeatherType.Rainy: {
-			Menu.Item.HamBurger: 1,
-			Menu.Item.Fries: 1,
+			Menu.Item.HamBurger: 1.0,
+			Menu.Item.Fries: 1.0,
 			Menu.Item.Soda: 0.8
 		},
 		WeatherType.Stormy: {
-			Menu.Item.HamBurger: 1,
-			Menu.Item.Fries: 2,
+			Menu.Item.HamBurger: 1.0,
+			Menu.Item.Fries: 2.0,
 			Menu.Item.Soda: 0.5
 		},
 		WeatherType.Snowy: {
-			Menu.Item.HamBurger: 1,
-			Menu.Item.Fries: 1,
+			Menu.Item.HamBurger: 1.0,
+			Menu.Item.Fries: 1.0,
 			Menu.Item.Soda: 0.2
 		}
 	}[weather_type]
 
 
-static func get_customer_patience(weather_type: WeatherManager) -> float:
+static func get_customer_patience(weather_type: WeatherType) -> float:
 	return {
 		WeatherType.Sunny: 60,
 		WeatherType.Overcast: 90,
