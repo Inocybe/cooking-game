@@ -25,7 +25,7 @@ func _on_pressed() -> void:
 
 
 func set_town_values() -> void:
-	var weather_name = WeatherManager.get_name(resource.weather)
+	var weather_name = WeatherManager.get_weather_name(resource.weather)
 	label.set_line(0, "Weather: " + weather_name)
 	label.set_line(1, "Temperature: " + str(resource.temperature) + "°C")
 	label.set_line(2, "Population: " + str(resource.population))
