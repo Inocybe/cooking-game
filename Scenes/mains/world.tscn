@@ -1,7 +1,7 @@
 [gd_scene load_steps=16 format=3 uid="uid://bmw48ei0dff0i"]
 
 [ext_resource type="PackedScene" uid="uid://jj8yuf0syk57" path="res://Scenes/managers/game_manager.tscn" id="1_0s671"]
-[ext_resource type="Script" uid="uid://c2xivkwymlvht" path="res://Scripts/Foodtruck/Interior/LightDisabler.gd" id="1_jd6j6"]
+[ext_resource type="Script" uid="uid://c2xivkwymlvht" path="res://Scripts/Misc/VRToggler.gd" id="1_jd6j6"]
 [ext_resource type="PackedScene" uid="uid://b3ocr5doqonyu" path="res://Scenes/foodtruck/food_truck.tscn" id="2_3dmfd"]
 [ext_resource type="PackedScene" uid="uid://5s3oxlpup0wy" path="res://Scenes/player/player.tscn" id="2_rbjev"]
 [ext_resource type="Script" uid="uid://bomqxx6mxqq83" path="res://Scripts/Enviornment/EnvironmentManager.gd" id="3_b0aln"]
@@ -67,10 +67,10 @@ transform = Transform3D(-0.707107, -6.18172e-08, 0.707107, 8.74228e-08, -1, 0, 0
 sun_light = NodePath("../LightSun")
 
 [node name="RainArea" parent="." instance=ExtResource("7_5erac")]
-transform = Transform3D(0.707107, 0, 0.707107, 0, 1, 0, -0.707107, 0, 0.707107, 6.4, 0.5, 6.4)
+transform = Transform3D(0.707107, 0, 0.707107, 0, 1, 0, -0.707107, 0, 0.707107, 6.4, 0.2, 6.4)
 
 [node name="SnowArea" parent="." instance=ExtResource("10_pvt8g")]
-transform = Transform3D(0.707107, 0, 0.707107, 0, 1, 0, -0.707107, 0, 0.707107, 6.4, 0.5, 6.4)
+transform = Transform3D(0.707107, 0, 0.707107, 0, 1, 0, -0.707107, 0, 0.707107, 6.4, 0.2, 6.4)
 
 [node name="LightningManager" parent="." instance=ExtResource("10_l18rm")]
 transform = Transform3D(-0.707107, 0, -0.707107, 0, 1, 0, 0.707107, 0, -0.707107, 78.1132, 20, 69.9238)
