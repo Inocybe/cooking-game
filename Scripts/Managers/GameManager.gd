@@ -21,7 +21,7 @@ enum VRMoveMode {
 
 var vr_move_mode: VRMoveMode = VRMoveMode.CHAIR
 
-signal XR_detected()
+signal has_XR_detected(has_XR: bool)
 
 
 func _ready() -> void:
@@ -45,7 +45,9 @@ func check_XR() -> void:
 		xr_manager = XR_SYSTEM.instantiate()
 		xr_manager.xr_interface = xr_interface
 		get_tree().get_root().add_child.call_deferred(xr_manager)
-		XR_detected.emit.call_deferred()
+		has_XR_detected.emit.call_deferred(true)
+	else:
+		has_XR_detected.emit.call_deferred(false)
 
 
 func is_vr_avaliable() -> bool:
