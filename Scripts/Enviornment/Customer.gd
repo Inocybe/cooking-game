@@ -140,7 +140,11 @@ func await_order_taken() -> void:
 	if Global.game_manager.food_truck.enter_line(self):
 		state = CustomerState.WANTS_TO_ORDER
 		animation_player.play("awaiting_order_taken")
-		$AngryOrderNotTakenTimer.start()
+		
+		# TODO: make this depend on the real weather
+		var weather_type = WeatherManager.WeatherType.Sunny
+		var max_wait_time = WeatherManager.get_customer_patience(weather_type)
+		$AngryOrderNotTakenTimer.start(max_wait_time)
 	else:
 		egress_cart()
 
