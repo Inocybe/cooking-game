@@ -1,4 +1,4 @@
-extends Node3D
+extends Node
 
 
 enum VRToggleMode {
@@ -10,7 +10,7 @@ enum VRToggleMode {
 
 
 func _ready() -> void:
-	Global.game_manager.has_XR_detected.connect(on_has_XR_detected)
+	Global.has_XR_detected.connect(on_has_XR_detected)
 
 
 func on_has_XR_detected(has_XR: bool) -> void:

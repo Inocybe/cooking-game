@@ -1,9 +1,16 @@
 extends Node
 
 
+const XR_SYSTEM = preload("res://Scenes/player/vr/xr_system.tscn")
+
 var player_input_enabled = true
 
 var game_manager: GameManager = null
+
+var xr_manager: XRManager = null
+
+
+signal has_XR_detected(has_XR: bool)
 
 
 func _ready():
@@ -13,6 +20,23 @@ func _ready():
 		return
 	
 	game_manager = current_scene.get_node_or_null("GameManager")
+	
+	check_XR()
+
+
+func check_XR() -> void:
+	var xr_interface = XRServer.find_interface("OpenXR")
+	if xr_interface and xr_interface.is_initialized():
+		xr_manager = XR_SYSTEM.instantiate()
+		xr_manager.xr_interface = xr_interface
+		get_tree().get_root().add_child.call_deferred(xr_manager)
+		has_XR_detected.emit.call_deferred(true)
+	else:
+		has_XR_detected.emit.call_deferred(false)
+
+
+func is_vr_avaliable() -> bool:
+	return xr_manager != null and xr_manager.is_avaliable
 
 
 func _process(_delta: float) -> void:
