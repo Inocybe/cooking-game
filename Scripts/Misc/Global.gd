@@ -1,6 +1,12 @@
 extends Node
 
 
+enum GameState {
+	WORLD,
+	MENU
+}
+
+
 const XR_SYSTEM = preload("res://Scenes/player/vr/xr_system.tscn")
 
 var player_input_enabled = true
@@ -9,8 +15,12 @@ var game_manager: GameManager = null
 
 var xr_manager: XRManager = null
 
+var game_state: GameState = GameState.MENU
+
 
 signal has_XR_detected(has_XR: bool)
+
+signal game_state_set()
 
 
 func _ready():
@@ -40,8 +50,13 @@ func is_vr_avaliable() -> bool:
 
 
 func _process(_delta: float) -> void:
-	if get_tree().current_scene:
+	if get_tree().current_scene and game_manager == null:
 		game_manager = get_tree().current_scene.get_node_or_null("GameManager")
+
+
+func set_game_state(state: GameState):
+	game_state = state
+	game_state_set.emit()
 
 
 func pause_game() -> void:

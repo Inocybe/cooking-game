@@ -60,9 +60,9 @@ texture = SubResource("ViewportTexture_0qhvs")
 [node name="SubViewport" type="SubViewport" parent="Map"]
 size = Vector2i(1152, 648)
 
-[node name="MainControl" parent="Map/SubViewport" instance=ExtResource("4_0qhvs")]
+[node name="MapControl" parent="Map/SubViewport" instance=ExtResource("4_0qhvs")]
 
-[node name="TextEdit" parent="Map/SubViewport/MainControl/Town" index="1"]
+[node name="TextEdit" parent="Map/SubViewport/MapControl/Town" index="1"]
 text = "Weather:
 Temperature:
 Population:"
@@ -77,11 +77,11 @@ texture = SubResource("ViewportTexture_joso6")
 [node name="SubViewport" type="SubViewport" parent="Store"]
 size = Vector2i(1152, 648)
 
-[node name="MainControl" parent="Store/SubViewport" instance=ExtResource("5_joso6")]
+[node name="StoreMenuControl" parent="Store/SubViewport" instance=ExtResource("5_joso6")]
 
 [node name="Area3D" type="Area3D" parent="Store"]
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Store/Area3D"]
 shape = SubResource("BoxShape3D_fl5ie")
 
-[editable path="Map/SubViewport/MainControl"]
+[editable path="Map/SubViewport/MapControl"]

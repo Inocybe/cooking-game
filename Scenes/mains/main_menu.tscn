@@ -1,6 +1,10 @@
-[gd_scene load_steps=6 format=3 uid="uid://cltfmjw0bavf4"]
+[gd_scene load_steps=11 format=3 uid="uid://cltfmjw0bavf4"]
 
 [ext_resource type="Script" uid="uid://do3ir6xnqv230" path="res://Scripts/MainMenu/MainMenu.gd" id="1_mex12"]
+[ext_resource type="Script" uid="uid://bux018fpi666x" path="res://Scripts/Misc/SetGameState.gd" id="2_ie3he"]
+[ext_resource type="Script" uid="uid://c2xivkwymlvht" path="res://Scripts/Misc/VRToggler.gd" id="2_nbmfk"]
+[ext_resource type="PackedScene" uid="uid://cbco6667n5i38" path="res://Scenes/ui/controls/main_menu_control.tscn" id="3_ie3he"]
+[ext_resource type="Script" uid="uid://cl8g4o5eqqnp5" path="res://Scripts/UI/Bases/UIControllerBase.gd" id="3_nbmfk"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_88yes"]
 
@@ -13,15 +17,44 @@ sky = SubResource("Sky_bmsq5")
 ambient_light_source = 2
 ambient_light_color = Color(1, 1, 1, 1)
 
-[sub_resource type="WorldBoundaryShape3D" id="WorldBoundaryShape3D_sxg5g"]
+[sub_resource type="ViewportTexture" id="ViewportTexture_ie3he"]
+viewport_path = NodePath("SubViewportContainer/SubViewport")
 
-[node name="MAIN MENU" type="Node3D"]
+[sub_resource type="BoxShape3D" id="BoxShape3D_1l465"]
+size = Vector3(11.5, 6.5, 1)
+
+[node name="MainMenu" type="Node3D"]
 script = ExtResource("1_mex12")
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="."]
 environment = SubResource("Environment_nbmfk")
 
-[node name="StaticBody3D" type="StaticBody3D" parent="."]
+[node name="VRMode" type="Node" parent="."]
+script = ExtResource("2_nbmfk")
+mode = 0
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="StaticBody3D"]
-shape = SubResource("WorldBoundaryShape3D_sxg5g")
+[node name="XRMenu" type="StaticBody3D" parent="VRMode" node_paths=PackedStringArray("subviewport") groups=["remote-interactable", "world-ui"]]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -6.234)
+script = ExtResource("3_nbmfk")
+subviewport = NodePath("../../SubViewportContainer/SubViewport")
+
+[node name="Sprite3D" type="Sprite3D" parent="VRMode/XRMenu"]
+texture = SubResource("ViewportTexture_ie3he")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="VRMode/XRMenu"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -0.5)
+shape = SubResource("BoxShape3D_1l465")
+
+[node name="SubViewportContainer" type="SubViewportContainer" parent="."]
+
+[node name="SubViewport" type="SubViewport" parent="SubViewportContainer"]
+unique_name_in_owner = true
+handle_input_locally = false
+size = Vector2i(1152, 648)
+render_target_update_mode = 4
+
+[node name="DesktopUI" parent="SubViewportContainer/SubViewport" instance=ExtResource("3_ie3he")]
+
+[node name="MenuGameState" type="Node" parent="."]
+script = ExtResource("2_ie3he")
+game_state = 1
