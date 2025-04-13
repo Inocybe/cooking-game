@@ -1,5 +1,6 @@
-[gd_scene load_steps=4 format=3 uid="uid://b63qhctnjuprt"]
+[gd_scene load_steps=5 format=3 uid="uid://b63qhctnjuprt"]
 
+[ext_resource type="Script" uid="uid://dqnwas2qwdak3" path="res://Scripts/UI/ExitSettings.gd" id="1_2w27d"]
 [ext_resource type="Script" uid="uid://cy78ks14ged5q" path="res://Scripts/UI/SettingControl.gd" id="1_iyjrv"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_f0a0s"]
@@ -50,6 +51,7 @@ size_flags_horizontal = 3
 [node name="Exit" type="Button" parent="VBoxContainer/Top/MarginContainer/HBoxContainer"]
 layout_mode = 2
 text = " Done "
+script = ExtResource("1_2w27d")
 
 [node name="Bottom" type="PanelContainer" parent="VBoxContainer"]
 layout_mode = 2
@@ -87,9 +89,10 @@ size_flags_horizontal = 3
 custom_minimum_size = Vector2(700, 0)
 layout_mode = 2
 size_flags_vertical = 4
+max_value = 1.0
+step = 0.01
 script = ExtResource("1_iyjrv")
 prop_name = "value"
-signal_name = "changed"
 setting_name = "overall_volume"
 
 [node name="MusicVolumeRow" type="HBoxContainer" parent="VBoxContainer/Bottom/MarginContainer/ScrollContainer/VBoxContainer"]
@@ -112,5 +115,8 @@ max_value = 1.0
 step = 0.01
 script = ExtResource("1_iyjrv")
 prop_name = "value"
-signal_name = "changed"
 setting_name = "music_volume"
+
+[connection signal="pressed" from="VBoxContainer/Top/MarginContainer/HBoxContainer/Exit" to="VBoxContainer/Top/MarginContainer/HBoxContainer/Exit" method="exit_settings"]
+[connection signal="value_changed" from="VBoxContainer/Bottom/MarginContainer/ScrollContainer/VBoxContainer/VolumeRow/HSlider" to="VBoxContainer/Bottom/MarginContainer/ScrollContainer/VBoxContainer/VolumeRow/HSlider" method="change_setting"]
+[connection signal="value_changed" from="VBoxContainer/Bottom/MarginContainer/ScrollContainer/VBoxContainer/MusicVolumeRow/HSlider" to="VBoxContainer/Bottom/MarginContainer/ScrollContainer/VBoxContainer/MusicVolumeRow/HSlider" method="change_setting"]
