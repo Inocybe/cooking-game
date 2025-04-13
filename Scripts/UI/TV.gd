@@ -1,6 +1,9 @@
 extends UIControllerBase
 
 
+@onready var main_control: MainControl = %MainControl
+
+
 func _process(_delta: float) -> void:
 	main_control.orders_complete.set_text(
 		str(Global.game_manager.orders_complete)

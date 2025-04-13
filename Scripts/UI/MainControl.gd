@@ -1,5 +1,5 @@
-extends Control
+class_name MainControl extends Control
 
 
-@onready var money: Label = $"HBoxContainer/Left/GridContainer/Money Display"
-@onready var orders_complete: Label = $"HBoxContainer/Left/GridContainer/Orders Complete Display"
+@onready var money: Label = %MoneyDisplay
+@onready var orders_complete: Label = %OrdersCompleteDisplay

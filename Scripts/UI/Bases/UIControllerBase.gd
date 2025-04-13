@@ -1,10 +1,7 @@
 class_name UIControllerBase extends Node3D
 
 
-
 @onready var subviewport: SubViewport = $SubViewport
-
-@onready var main_control: Control = $SubViewport/MainControl
 
 @onready var sprite_3d: Sprite3D = $Sprite3D
 
@@ -14,7 +11,6 @@ class_name UIControllerBase extends Node3D
 
 func _ready() -> void:
 	subviewport.reparent.call_deferred(self)
-
 
 
 func world_to_local_space(pos: Vector3) -> Vector2:

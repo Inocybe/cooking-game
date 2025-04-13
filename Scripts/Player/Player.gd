@@ -17,17 +17,20 @@ var is_right_mouse_down := false
 
 
 func _ready() -> void:
-	Global.game_manager.has_XR_detected.connect(on_has_XR_detected)
+	Global.has_XR_detected.connect(on_has_XR_detected)
+
 
 func on_has_XR_detected(has_XR: bool) -> void:
 	if has_XR:
 		max_speed = vr_max_speed
+
 
 func _input(event: InputEvent) -> void:
 	if event.is_action_pressed("ui_cancel"):
 		Input.mouse_mode = Input.MOUSE_MODE_VISIBLE
 	if event.is_action_pressed("click"):
 		Input.mouse_mode = Input.MOUSE_MODE_CAPTURED
+
 
 func _unhandled_input(event: InputEvent) -> void:
 	if event.is_action_pressed("click_right"):
