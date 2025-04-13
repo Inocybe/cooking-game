@@ -1,6 +1,6 @@
 [gd_scene load_steps=6 format=3 uid="uid://cltfmjw0bavf4"]
 
-[ext_resource type="Script" uid="uid://do3ir6xnqv230" path="res://Scripts/MainMenu/main_menu.gd" id="1_mex12"]
+[ext_resource type="Script" uid="uid://do3ir6xnqv230" path="res://Scripts/MainMenu/MainMenu.gd" id="1_mex12"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_88yes"]
 

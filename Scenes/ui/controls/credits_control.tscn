@@ -1,0 +1,104 @@
+[gd_scene load_steps=3 format=3 uid="uid://d1kvbv3fi1tks"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_w3del"]
+bg_color = Color(0.84, 0.84, 0.84, 0.85098)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_2tqal"]
+bg_color = Color(1, 1, 1, 1)
+
+[node name="CreditsControl" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Top" type="PanelContainer" parent="VBoxContainer"]
+layout_mode = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_w3del")
+
+[node name="MarginContainer" type="MarginContainer" parent="VBoxContainer/Top"]
+layout_mode = 2
+theme_override_constants/margin_left = 10
+theme_override_constants/margin_top = 5
+theme_override_constants/margin_right = 5
+theme_override_constants/margin_bottom = 5
+
+[node name="HBoxContainer" type="HBoxContainer" parent="VBoxContainer/Top/MarginContainer"]
+layout_mode = 2
+
+[node name="CreditsLabel" type="Label" parent="VBoxContainer/Top/MarginContainer/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+text = "Credits"
+
+[node name="Spacer" type="Control" parent="VBoxContainer/Top/MarginContainer/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="Exit" type="Button" parent="VBoxContainer/Top/MarginContainer/HBoxContainer"]
+layout_mode = 2
+text = " Exit "
+
+[node name="Bottom" type="PanelContainer" parent="VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_styles/panel = SubResource("StyleBoxFlat_2tqal")
+
+[node name="MarginContainer" type="MarginContainer" parent="VBoxContainer/Bottom"]
+layout_mode = 2
+theme_override_constants/margin_left = 20
+theme_override_constants/margin_top = 5
+theme_override_constants/margin_right = 20
+theme_override_constants/margin_bottom = 5
+
+[node name="ScrollContainer" type="ScrollContainer" parent="VBoxContainer/Bottom/MarginContainer"]
+layout_mode = 2
+
+[node name="RichTextLabel" type="RichTextLabel" parent="VBoxContainer/Bottom/MarginContainer/ScrollContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+theme_override_colors/default_color = Color(0, 0, 0, 1)
+bbcode_enabled = true
+text = "This is text!
+	this is more text
+
+[b]Bold![/b]
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+so much text"
+
+[connection signal="pressed" from="VBoxContainer/Top/MarginContainer/HBoxContainer/Exit" to="." method="set_visible" binds= [false]]

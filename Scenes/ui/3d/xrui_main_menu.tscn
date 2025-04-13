@@ -48,4 +48,4 @@ render_target_update_mode = 4
 transform = Transform3D(1, 0, 0, 0, 0.99969, -0.0249033, 0, 0.0249033, 0.99969, 0, 1.0444, -1.814)
 scene = ExtResource("2_qxcqj")
 viewport_size = Vector2(1152, 648)
-scene_properties_keys = PackedStringArray("main_menu_control.gd")
+scene_properties_keys = PackedStringArray("MainMenuControl.gd")
