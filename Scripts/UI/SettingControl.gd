@@ -1,4 +1,4 @@
-extends Control
+class_name SettingControl extends Node
 
 
 @export var prop_name: String
