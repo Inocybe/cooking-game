@@ -23,3 +23,4 @@ stream_5 = ExtResource("5_manp2")
 stream = SubResource("AudioStreamPlaylist_4kamx")
 volume_db = -6.0
 autoplay = true
+bus = &"Music"
