@@ -20,8 +20,9 @@ albedo_texture = SubResource("ViewportTexture_07x13")
 [sub_resource type="BoxShape3D" id="BoxShape3D_rid03"]
 size = Vector3(10.5229, 7.52026, 0.487549)
 
-[node name="TV" type="StaticBody3D" groups=["world-ui"]]
+[node name="TV" type="StaticBody3D" node_paths=PackedStringArray("subviewport") groups=["world-ui"]]
 script = ExtResource("1_rid03")
+subviewport = NodePath("SubViewport")
 
 [node name="TVMesh" type="MeshInstance3D" parent="."]
 mesh = ExtResource("1_o13vh")
@@ -37,6 +38,7 @@ mesh = SubResource("PlaneMesh_07x13")
 surface_material_override/0 = SubResource("StandardMaterial3D_07x13")
 
 [node name="SubViewport" type="SubViewport" parent="."]
+unique_name_in_owner = true
 transparent_bg = true
 handle_input_locally = false
 size = Vector2i(1000, 700)

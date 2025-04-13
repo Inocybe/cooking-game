@@ -7,6 +7,6 @@
 tracker = &"left_hand"
 
 [node name="CollisionShape3D" parent="HoldArea" index="0"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0259266, -0.0268783, 0.0554084)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.027, 0.055)
 
 [node name="Left Hand Model" parent="." index="1" instance=ExtResource("2_wsu3u")]

@@ -1,7 +1,7 @@
 class_name UIControllerBase extends Node3D
 
 
-@onready var subviewport: SubViewport = $SubViewport
+@export var subviewport: SubViewport
 
 @onready var sprite_3d: Sprite3D = $Sprite3D
 
