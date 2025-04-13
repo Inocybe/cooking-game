@@ -1,7 +1,8 @@
-[gd_scene load_steps=3 format=3 uid="uid://cbco6667n5i38"]
+[gd_scene load_steps=4 format=3 uid="uid://cbco6667n5i38"]
 
 [ext_resource type="Script" uid="uid://cacqbhe4x15a6" path="res://Scripts/MainMenu/main_menu_control.gd" id="1_dji0b"]
 [ext_resource type="Texture2D" uid="uid://brswl0f07gyuu" path="res://icon.svg" id="1_ms3ow"]
+[ext_resource type="PackedScene" uid="uid://b63qhctnjuprt" path="res://Scenes/ui/controls/settings_control.tscn" id="3_anusf"]
 
 [node name="DesktopUI" type="Control"]
 layout_mode = 3
@@ -68,3 +69,9 @@ text = "SETTINGS"
 [node name="QUIT" type="Button" parent="MAIN/MarginContainer/VBoxContainer/BUTTON CONTAINER"]
 layout_mode = 2
 text = "QUIT"
+
+[node name="SettingsControl" parent="." instance=ExtResource("3_anusf")]
+visible = false
+layout_mode = 1
+
+[connection signal="pressed" from="MAIN/MarginContainer/VBoxContainer/BUTTON CONTAINER/SETTINGS" to="SettingsControl" method="set_visible" binds= [true]]
