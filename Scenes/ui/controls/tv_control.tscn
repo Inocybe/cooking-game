@@ -1,8 +1,9 @@
-[gd_scene load_steps=4 format=3 uid="uid://dts51sc5121xa"]
+[gd_scene load_steps=5 format=3 uid="uid://dts51sc5121xa"]
 
 [ext_resource type="Script" uid="uid://2pes0nvg65su" path="res://Scripts/UI/MainControl.gd" id="1_dxuk2"]
 [ext_resource type="Script" uid="uid://cf043oqdpedvq" path="res://Scripts/UI/Maximizer.gd" id="2_3snea"]
 [ext_resource type="Script" uid="uid://ow5sv4ia1ah3" path="res://Scripts/UI/PauseButton.gd" id="3_oxpqp"]
+[ext_resource type="PackedScene" uid="uid://b63qhctnjuprt" path="res://Scenes/ui/controls/settings_control.tscn" id="4_6sim7"]
 
 [node name="TVControl" type="Control"]
 process_mode = 3
@@ -18,7 +19,7 @@ mouse_filter = 2
 script = ExtResource("1_dxuk2")
 metadata/_edit_use_anchors_ = true
 
-[node name="HBoxContainer" type="HBoxContainer" parent="."]
+[node name="TVMenu" type="HBoxContainer" parent="."]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -26,29 +27,29 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="Left" type="ColorRect" parent="HBoxContainer"]
+[node name="Left" type="ColorRect" parent="TVMenu"]
 layout_mode = 2
 size_flags_horizontal = 3
 color = Color(1, 1, 1, 0.509804)
 
-[node name="GridContainer" type="GridContainer" parent="HBoxContainer/Left"]
+[node name="GridContainer" type="GridContainer" parent="TVMenu/Left"]
 layout_mode = 2
 offset_left = 378.0
 offset_right = 520.0
 offset_bottom = 648.0
 columns = 3
 
-[node name="Money Label" type="Label" parent="HBoxContainer/Left/GridContainer"]
+[node name="Money Label" type="Label" parent="TVMenu/Left/GridContainer"]
 layout_mode = 2
 text = "Money:"
 horizontal_alignment = 2
 
-[node name="Control" type="Control" parent="HBoxContainer/Left/GridContainer"]
+[node name="Control" type="Control" parent="TVMenu/Left/GridContainer"]
 custom_minimum_size = Vector2(5, 0)
 layout_mode = 2
 size_flags_horizontal = 4
 
-[node name="ColorRect" type="ColorRect" parent="HBoxContainer/Left/GridContainer/Control" node_paths=PackedStringArray("relative_to")]
+[node name="ColorRect" type="ColorRect" parent="TVMenu/Left/GridContainer/Control" node_paths=PackedStringArray("relative_to")]
 layout_mode = 2
 offset_right = 5.0
 offset_bottom = 100.0
@@ -58,27 +59,29 @@ script = ExtResource("2_3snea")
 relative_to = NodePath("../../..")
 apply_to_y = true
 
-[node name="Money Display" type="Label" parent="HBoxContainer/Left/GridContainer"]
+[node name="MoneyDisplay" type="Label" parent="TVMenu/Left/GridContainer"]
+unique_name_in_owner = true
 layout_mode = 2
 text = "10 coins"
 
-[node name="Orders Complete Label" type="Label" parent="HBoxContainer/Left/GridContainer"]
+[node name="Orders Complete Label" type="Label" parent="TVMenu/Left/GridContainer"]
 layout_mode = 2
 text = "Orders Complete:"
 horizontal_alignment = 2
 
-[node name="Control2" type="Control" parent="HBoxContainer/Left/GridContainer"]
+[node name="Spacer" type="Control" parent="TVMenu/Left/GridContainer"]
 layout_mode = 2
 
-[node name="Orders Complete Display" type="Label" parent="HBoxContainer/Left/GridContainer"]
+[node name="OrdersCompleteDisplay" type="Label" parent="TVMenu/Left/GridContainer"]
+unique_name_in_owner = true
 layout_mode = 2
 text = "10 orders"
 
-[node name="Right" type="ColorRect" parent="HBoxContainer"]
+[node name="Right" type="ColorRect" parent="TVMenu"]
 custom_minimum_size = Vector2(250, 0)
 layout_mode = 2
 
-[node name="MarginContainer" type="MarginContainer" parent="HBoxContainer/Right"]
+[node name="MarginContainer" type="MarginContainer" parent="TVMenu/Right"]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -90,19 +93,25 @@ theme_override_constants/margin_top = 5
 theme_override_constants/margin_right = 5
 theme_override_constants/margin_bottom = 5
 
-[node name="VBoxContainer" type="VBoxContainer" parent="HBoxContainer/Right/MarginContainer"]
+[node name="VBoxContainer" type="VBoxContainer" parent="TVMenu/Right/MarginContainer"]
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 0
 theme_override_constants/separation = 5
 
-[node name="PauseButton" type="Button" parent="HBoxContainer/Right/MarginContainer/VBoxContainer"]
+[node name="PauseButton" type="Button" parent="TVMenu/Right/MarginContainer/VBoxContainer"]
 layout_mode = 2
 mouse_filter = 1
 text = "Pause"
 script = ExtResource("3_oxpqp")
 
-[node name="Button3" type="Button" parent="HBoxContainer/Right/MarginContainer/VBoxContainer"]
+[node name="SettingsButton" type="Button" parent="TVMenu/Right/MarginContainer/VBoxContainer"]
 layout_mode = 2
 size_flags_vertical = 3
 text = "Settings"
+
+[node name="SettingsControl" parent="." instance=ExtResource("4_6sim7")]
+visible = false
+layout_mode = 1
+
+[connection signal="pressed" from="TVMenu/Right/MarginContainer/VBoxContainer/SettingsButton" to="SettingsControl" method="set_visible" binds= [true]]

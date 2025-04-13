@@ -7,7 +7,7 @@
 [ext_resource type="Script" uid="uid://c2rrnshh68u56" path="res://Scripts/UI/ButtonGroupSetting.gd" id="5_nxibr"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_f0a0s"]
-bg_color = Color(1, 1, 1, 0.509804)
+bg_color = Color(0.84, 0.84, 0.84, 0.85098)
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_iyjrv"]
 bg_color = Color(1, 1, 1, 1)
@@ -72,7 +72,7 @@ corner_radius_top_right = 3
 corner_radius_bottom_right = 3
 corner_detail = 5
 
-[node name="Control" type="Control"]
+[node name="SettingsControl" type="Control"]
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
@@ -94,7 +94,7 @@ theme_override_styles/panel = SubResource("StyleBoxFlat_f0a0s")
 
 [node name="MarginContainer" type="MarginContainer" parent="VBoxContainer/Top"]
 layout_mode = 2
-theme_override_constants/margin_left = 5
+theme_override_constants/margin_left = 10
 theme_override_constants/margin_top = 5
 theme_override_constants/margin_right = 5
 theme_override_constants/margin_bottom = 5
@@ -105,16 +105,18 @@ layout_mode = 2
 [node name="SettingsLabel" type="Label" parent="VBoxContainer/Top/MarginContainer/HBoxContainer"]
 layout_mode = 2
 size_flags_horizontal = 4
+theme_override_colors/font_color = Color(0, 0, 0, 1)
 text = "Settings"
 
 [node name="Spacer" type="Control" parent="VBoxContainer/Top/MarginContainer/HBoxContainer"]
 layout_mode = 2
 size_flags_horizontal = 3
 
-[node name="Exit" type="Button" parent="VBoxContainer/Top/MarginContainer/HBoxContainer"]
+[node name="Exit" type="Button" parent="VBoxContainer/Top/MarginContainer/HBoxContainer" node_paths=PackedStringArray("settings_root")]
 layout_mode = 2
 text = " Done "
 script = ExtResource("1_2w27d")
+settings_root = NodePath("../../../../..")
 
 [node name="Bottom" type="PanelContainer" parent="VBoxContainer"]
 layout_mode = 2
@@ -123,9 +125,9 @@ theme_override_styles/panel = SubResource("StyleBoxFlat_iyjrv")
 
 [node name="MarginContainer" type="MarginContainer" parent="VBoxContainer/Bottom"]
 layout_mode = 2
-theme_override_constants/margin_left = 5
+theme_override_constants/margin_left = 20
 theme_override_constants/margin_top = 5
-theme_override_constants/margin_right = 5
+theme_override_constants/margin_right = 20
 theme_override_constants/margin_bottom = 5
 
 [node name="ScrollContainer" type="ScrollContainer" parent="VBoxContainer/Bottom/MarginContainer"]
@@ -199,7 +201,7 @@ text = "Movement Mode"
 layout_mode = 2
 size_flags_horizontal = 3
 
-[node name="SittingMode" type="Button" parent="VBoxContainer/Bottom/MarginContainer/ScrollContainer/VBoxContainer/VRModeRow"]
+[node name="StationaryMode" type="Button" parent="VBoxContainer/Bottom/MarginContainer/ScrollContainer/VBoxContainer/VRModeRow"]
 layout_mode = 2
 size_flags_vertical = 4
 theme_override_styles/hover = SubResource("StyleBoxFlat_fc6kx")
@@ -208,7 +210,7 @@ theme_override_styles/normal = SubResource("StyleBoxFlat_xqjff")
 toggle_mode = true
 button_pressed = true
 button_group = ExtResource("3_638ql")
-text = " Sitting"
+text = " Stationary"
 
 [node name="RoomscaleMode" type="Button" parent="VBoxContainer/Bottom/MarginContainer/ScrollContainer/VBoxContainer/VRModeRow"]
 layout_mode = 2
@@ -224,7 +226,7 @@ text = "Roomscale "
 script = ExtResource("5_nxibr")
 button_group = ExtResource("3_638ql")
 button_values = {
-NodePath("../SittingMode"): 0,
+NodePath("../StationaryMode"): 0,
 NodePath("../RoomscaleMode"): 1
 }
 setting_name = "vr_move_mode"
