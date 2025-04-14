@@ -141,8 +141,7 @@ func await_order_taken() -> void:
 		state = CustomerState.WANTS_TO_ORDER
 		animation_player.play("awaiting_order_taken")
 		
-		# TODO: make this depend on the real weather
-		var weather_type = WeatherManager.WeatherType.Sunny
+		var weather_type = Global.game_manager.weather_manager.weather_type
 		var max_wait_time = WeatherManager.get_customer_patience(weather_type)
 		$AngryOrderNotTakenTimer.start(max_wait_time)
 	else:

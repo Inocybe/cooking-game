@@ -9,8 +9,7 @@ var active_orders: Array[Dish] = []
 
 
 func create_random_order() -> Array[Menu.Item]:
-	# TODO: make this depend on the real weather
-	var weather_type: WeatherManager.WeatherType = WeatherManager.WeatherType.Sunny
+	var weather_type = Global.game_manager.weather_manager.weather_type
 
 	var order_size: int = randi_range(
 		WeatherManager.get_min_order_size(weather_type), 
