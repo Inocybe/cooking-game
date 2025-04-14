@@ -56,6 +56,8 @@ func _process(_delta: float) -> void:
 
 func set_game_state(state: GameState):
 	game_state = state
+	if state == GameState.MENU:
+		Input.mouse_mode = Input.MOUSE_MODE_VISIBLE
 	game_state_set.emit()
 
 

@@ -8,9 +8,15 @@ var player: Player = null
 
 
 func _ready() -> void:
+	xr_origin = get_parent()
+	Global.game_state_set.connect(on_game_state_set)
+
+
+func on_game_state_set() -> void:
 	if Global.game_manager:
 		player = Global.game_manager.player
-	xr_origin = get_parent()
+	else:
+		player = null
 
 
 func forward_vector() -> Vector3:
