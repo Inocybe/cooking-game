@@ -17,6 +17,9 @@ var xr_manager: XRManager = null
 
 var game_state: GameState = GameState.MENU
 
+var has_XR_known: bool = false
+var has_XR: bool
+
 
 signal has_XR_detected(has_XR: bool)
 
@@ -34,6 +37,13 @@ func _ready():
 	check_XR()
 
 
+func notify_has_XR(function: Callable) -> void:
+	if has_XR_known:
+		function.call(Global.has_XR)
+	else:
+		has_XR_detected.connect(function)
+
+
 func check_XR() -> void:
 	var xr_interface = XRServer.find_interface("OpenXR")
 	if xr_interface and xr_interface.is_initialized():
@@ -41,8 +51,11 @@ func check_XR() -> void:
 		xr_manager.xr_interface = xr_interface
 		get_tree().get_root().add_child.call_deferred(xr_manager)
 		has_XR_detected.emit.call_deferred(true)
+		has_XR = true
 	else:
 		has_XR_detected.emit.call_deferred(false)
+		has_XR = false
+	has_XR_known = true
 
 
 func is_vr_avaliable() -> bool:

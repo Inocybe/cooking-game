@@ -17,7 +17,7 @@ var is_right_mouse_down := false
 
 
 func _ready() -> void:
-	Global.has_XR_detected.connect(on_has_XR_detected)
+	Global.notify_has_XR(on_has_XR_detected)
 
 
 func on_has_XR_detected(has_XR: bool) -> void:

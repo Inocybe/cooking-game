@@ -16,6 +16,9 @@ var snow_area: SnowArea = null
 var enviornment: EnvironmentManager = null
 var lightning_manager: LightningManager = null
 
+var weather_type: WeatherType = WeatherType.Sunny
+var temperature: float = 0
+
 
 func _ready() -> void:
 	var current_scene = get_tree().current_scene
@@ -27,10 +30,13 @@ func _ready() -> void:
 
 
 func set_from_town(town: TownResource) -> void:
-	var storminess = get_storminess(town.weather)
-	var raininess = get_raininess(town.weather)
-	var snowiness = get_snowiness(town.weather)
-	var lightning_chance = get_lightning_chance(town.weather)
+	weather_type = town.weather
+	temperature = town.temperature
+	
+	var storminess = get_storminess(weather_type)
+	var raininess = get_raininess(weather_type)
+	var snowiness = get_snowiness(weather_type)
+	var lightning_chance = get_lightning_chance(weather_type)
 	
 	clouds.set_starting_storminess(storminess)
 	rain_area.set_raininess(raininess)

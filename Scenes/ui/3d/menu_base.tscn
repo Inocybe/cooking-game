@@ -1,7 +1,8 @@
-[gd_scene load_steps=9 format=3 uid="uid://bg140mjfbjdcp"]
+[gd_scene load_steps=10 format=3 uid="uid://bg140mjfbjdcp"]
 
 [ext_resource type="Script" uid="uid://c2xivkwymlvht" path="res://Scripts/Misc/VRToggler.gd" id="1_urmen"]
 [ext_resource type="Script" uid="uid://cl8g4o5eqqnp5" path="res://Scripts/UI/Bases/UIControllerBase.gd" id="2_1yvy4"]
+[ext_resource type="Script" uid="uid://co7l711gsn0tj" path="res://Scenes/ui/controls/VRSubViewportMover.gd" id="3_1yvy4"]
 [ext_resource type="Script" uid="uid://bux018fpi666x" path="res://Scripts/Misc/SetGameState.gd" id="3_akg3o"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_107eu"]
@@ -49,6 +50,7 @@ unique_name_in_owner = true
 handle_input_locally = false
 size = Vector2i(1152, 648)
 render_target_update_mode = 4
+script = ExtResource("3_1yvy4")
 
 [node name="MenuGameState" type="Node" parent="."]
 script = ExtResource("3_akg3o")
