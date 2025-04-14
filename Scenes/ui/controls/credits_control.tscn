@@ -1,4 +1,6 @@
-[gd_scene load_steps=3 format=3 uid="uid://d1kvbv3fi1tks"]
+[gd_scene load_steps=4 format=3 uid="uid://d1kvbv3fi1tks"]
+
+[ext_resource type="Script" uid="uid://rb7xixr3fvoc" path="res://Scenes/ui/controls/RichTextLinks.gd" id="1_5ut88"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_w3del"]
 bg_color = Color(0.84, 0.84, 0.84, 0.85098)
@@ -71,34 +73,31 @@ size_flags_horizontal = 3
 size_flags_vertical = 3
 theme_override_colors/default_color = Color(0, 0, 0, 1)
 bbcode_enabled = true
-text = "This is text!
-	this is more text
+text = "[b]Design[/b]
+	Lev Lastname
+	Martin Lastname
 
-[b]Bold![/b]
+[b]Music[/b]
+	Liasin Lastname
 
+[b]Programming[/b]
+	Martin Lastname
+	Lev Lastname
 
+[b]Sound Effects[/b]
+	Liasin Lastname
 
+[b]3D Models[/b]
+	Lev Lastname
+	Martin Staab
 
+[b]Assets Used[/b]
 
+[url=https://k0rveen.itch.io/lowpoly-environment-pack]LowPoly Environment Pack[/url] by [url=https://k0rveen.itch.io/]k0rveen[/url] is licensed under [url=https://creativecommons.org/licenses/by/4.0/]CC BY 4.0[/url]
 
+[url=https://quaternius.com/packs/simplebuildings.html]Simple Buildings Pack[/url] is licensed under [url=https://creativecommons.org/publicdomain/zero/1.0/]CC 0[/url]
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-so much text"
+[url=https://www.youtube.com/watch?v=tqDBwNz8f7w]French Fries Cooking SOUND EFFECT[/url], \"free to use as you wish\""
+script = ExtResource("1_5ut88")
 
 [connection signal="pressed" from="VBoxContainer/Top/MarginContainer/HBoxContainer/Exit" to="." method="set_visible" binds= [false]]
