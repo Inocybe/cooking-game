@@ -1,11 +1,12 @@
-[gd_scene load_steps=17 format=3 uid="uid://bmw48ei0dff0i"]
+[gd_scene load_steps=18 format=3 uid="uid://bmw48ei0dff0i"]
 
 [ext_resource type="PackedScene" uid="uid://jj8yuf0syk57" path="res://Scenes/managers/game_manager.tscn" id="1_0s671"]
-[ext_resource type="Script" path="res://Scripts/Misc/SetGameState.gd" id="1_6nemj"]
-[ext_resource type="Script" path="res://Scripts/Misc/VRToggler.gd" id="1_jd6j6"]
+[ext_resource type="Script" uid="uid://bux018fpi666x" path="res://Scripts/Misc/SetGameState.gd" id="1_6nemj"]
+[ext_resource type="Script" uid="uid://c2xivkwymlvht" path="res://Scripts/Misc/VRToggler.gd" id="1_jd6j6"]
+[ext_resource type="Script" uid="uid://b5cmo0t3npt5f" path="res://Scripts/world.gd" id="1_nixdd"]
 [ext_resource type="PackedScene" uid="uid://b3ocr5doqonyu" path="res://Scenes/foodtruck/food_truck.tscn" id="2_3dmfd"]
 [ext_resource type="PackedScene" uid="uid://5s3oxlpup0wy" path="res://Scenes/player/player.tscn" id="2_rbjev"]
-[ext_resource type="Script" uid="uid://bomqxx6mxqq83" path="res://Scripts/Enviornment/EnvironmentManager.gd" id="3_b0aln"]
+[ext_resource type="Script" path="res://Scripts/Enviornment/EnvironmentManager.gd" id="3_b0aln"]
 [ext_resource type="PackedScene" uid="uid://dhgtt8fwfi87" path="res://Scenes/environment/chatter_player.tscn" id="5_xatkk"]
 [ext_resource type="Script" uid="uid://14md2o3tq1pe" path="res://Scripts/Managers/CustomerManager.gd" id="5_xk452"]
 [ext_resource type="PackedScene" uid="uid://ruvemr4few6r" path="res://Scenes/environment/clouds.tscn" id="6_12l6w"]
@@ -29,6 +30,7 @@ ssao_intensity = 6.0
 glow_enabled = true
 
 [node name="World" type="Node3D"]
+script = ExtResource("1_nixdd")
 
 [node name="SkySun" type="DirectionalLight3D" parent="."]
 transform = Transform3D(0.410614, -0.492217, 0.767541, 0.176997, 0.868793, 0.462461, -0.894465, -0.0540407, 0.44386, 0, 0, 0)

@@ -1,3 +1,6 @@
-[gd_scene load_steps=0 format=3 uid="uid://2pddfmef0e5n"]
+[gd_scene load_steps=2 format=3 uid="uid://2pddfmef0e5n"]
+
+[ext_resource type="Script" uid="uid://cybwnbb7batev" path="res://Scripts/Managers/TownManager.gd" id="1_ogs1y"]
 
 [node name="TownManager" type="Node"]
+script = ExtResource("1_ogs1y")
