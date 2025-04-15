@@ -11,4 +11,8 @@ viewport_path = NodePath("SubViewportContainer/SubViewport")
 [node name="Sprite3D" parent="VRMode/XRMenu" index="0"]
 texture = SubResource("ViewportTexture_bmsq5")
 
+[node name="SubViewportContainer" parent="." index="2"]
+offset_right = 1152.0
+offset_bottom = 648.0
+
 [node name="DesktopUI" parent="SubViewportContainer/SubViewport" index="0" instance=ExtResource("3_ie3he")]
