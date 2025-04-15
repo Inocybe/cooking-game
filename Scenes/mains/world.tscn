@@ -1,11 +1,11 @@
 [gd_scene load_steps=17 format=3 uid="uid://bmw48ei0dff0i"]
 
 [ext_resource type="PackedScene" uid="uid://jj8yuf0syk57" path="res://Scenes/managers/game_manager.tscn" id="1_0s671"]
-[ext_resource type="Script" path="res://Scripts/Misc/SetGameState.gd" id="1_6nemj"]
-[ext_resource type="Script" path="res://Scripts/Misc/VRToggler.gd" id="1_jd6j6"]
+[ext_resource type="Script" uid="uid://bux018fpi666x" path="res://Scripts/Misc/SetGameState.gd" id="1_6nemj"]
+[ext_resource type="Script" uid="uid://c2xivkwymlvht" path="res://Scripts/Misc/VRToggler.gd" id="1_jd6j6"]
 [ext_resource type="PackedScene" uid="uid://b3ocr5doqonyu" path="res://Scenes/foodtruck/food_truck.tscn" id="2_3dmfd"]
 [ext_resource type="PackedScene" uid="uid://5s3oxlpup0wy" path="res://Scenes/player/player.tscn" id="2_rbjev"]
-[ext_resource type="Script" uid="uid://bomqxx6mxqq83" path="res://Scripts/Enviornment/EnvironmentManager.gd" id="3_b0aln"]
+[ext_resource type="Script" path="res://Scripts/Enviornment/EnvironmentManager.gd" id="3_b0aln"]
 [ext_resource type="PackedScene" uid="uid://dhgtt8fwfi87" path="res://Scenes/environment/chatter_player.tscn" id="5_xatkk"]
 [ext_resource type="Script" uid="uid://14md2o3tq1pe" path="res://Scripts/Managers/CustomerManager.gd" id="5_xk452"]
 [ext_resource type="PackedScene" uid="uid://ruvemr4few6r" path="res://Scenes/environment/clouds.tscn" id="6_12l6w"]
@@ -56,6 +56,7 @@ transform = Transform3D(-0.76628, 0, -0.642507, 0, 1, 0, 0.642507, 0, -0.76628, 
 transform = Transform3D(-0.707107, 0, -0.707107, 0, 1, 0, 0.707107, 0, -0.707107, -0.0296402, -0.0441494, -0.0324593)
 
 [node name="Ground" parent="." instance=ExtResource("6_ol0a8")]
+visible = false
 
 [node name="CustomerManager" type="Node3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 14.8349, 0, 18.1658)
