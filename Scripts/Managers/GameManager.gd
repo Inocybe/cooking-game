@@ -22,6 +22,8 @@ func _ready() -> void:
 	customer_manager = current_scene.get_node_or_null("CustomerManager")
 	
 	Global.game_manager = self
+	
+	weather_manager.set_from_town(Global.town)
 
 
 func get_camera_node() -> Node3D:

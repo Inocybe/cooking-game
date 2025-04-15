@@ -5,10 +5,6 @@ var heavy_raininess_cutoff: float = 0.75
 var medium_raininess_cutoff: float = 0.25
 
 
-func _ready() -> void:
-	set_raininess(1)
-
-
 func set_raininess(raininess: float) -> void:
 	$GPUParticles3D.amount_ratio = raininess
 	
