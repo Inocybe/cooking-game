@@ -1,9 +1,10 @@
-[gd_scene load_steps=5 format=3 uid="uid://jj8yuf0syk57"]
+[gd_scene load_steps=6 format=3 uid="uid://jj8yuf0syk57"]
 
 [ext_resource type="Script" uid="uid://ds2gwe2fyrxdr" path="res://Scripts/Managers/GameManager.gd" id="1_ll06w"]
 [ext_resource type="PackedScene" uid="uid://clqpcy2uu8xtw" path="res://Scenes/managers/order_manager.tscn" id="2_mk4je"]
 [ext_resource type="PackedScene" uid="uid://dnpv3i87jyyr7" path="res://Scenes/managers/music_manager.tscn" id="3_8cbiu"]
 [ext_resource type="PackedScene" uid="uid://clqfgl77uexbn" path="res://Scenes/managers/weather_manager.tscn" id="4_br4kh"]
+[ext_resource type="PackedScene" uid="uid://2pddfmef0e5n" path="res://Scenes/managers/town_manager.tscn" id="5_21w7l"]
 
 [node name="GameManager" type="Node"]
 process_mode = 3
@@ -14,3 +15,5 @@ script = ExtResource("1_ll06w")
 [node name="MusicManager" parent="." instance=ExtResource("3_8cbiu")]
 
 [node name="WeatherManager" parent="." instance=ExtResource("4_br4kh")]
+
+[node name="TownManager" parent="." instance=ExtResource("5_21w7l")]

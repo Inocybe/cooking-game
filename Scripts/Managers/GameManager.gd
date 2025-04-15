@@ -3,6 +3,7 @@ class_name GameManager extends Node
 
 @onready var order_manager: OrderManager = $OrderManager
 @onready var weather_manager: WeatherManager = $WeatherManager
+@onready var town_manager: TownManager = $TownManager
 
 var player: Player = null
 var food_truck: FoodTruck = null

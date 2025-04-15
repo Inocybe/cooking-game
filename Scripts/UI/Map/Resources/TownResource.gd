@@ -4,7 +4,7 @@ class_name TownResource extends Resource
 const pop_min: int = 50
 const pop_max: int = 500
 
-
+@export var town_int: int = 0
 @export var temperature: float
 @export_range(pop_min, pop_max, 1) var population: int
 @export var weather: WeatherManager.WeatherType
