@@ -1,7 +1,10 @@
-[gd_scene load_steps=10 format=3 uid="uid://bkyacjbaq3p"]
+[gd_scene load_steps=13 format=3 uid="uid://0amasngwcl7t"]
 
-[ext_resource type="Script" uid="uid://dhr0hr1k83ovb" path="res://Scripts/Enviornment/Customer.gd" id="1_ds7bf"]
-[ext_resource type="Texture2D" uid="uid://b2ck5m6nl44aj" path="res://Assets/Sprites/2d_food_items.png" id="2_rejie"]
+[ext_resource type="Script" uid="uid://dhr0hr1k83ovb" path="res://Scripts/Enviornment/Customer.gd" id="1_k6ujs"]
+[ext_resource type="Texture2D" uid="uid://b2ck5m6nl44aj" path="res://Assets/Sprites/2d_food_items.png" id="2_07ia1"]
+[ext_resource type="AudioStream" uid="uid://c8uaflof8jbaw" path="res://Audio/SFX/Humanoid3.mp3" id="3_406il"]
+[ext_resource type="AudioStream" uid="uid://xkwrg7at5nq" path="res://Audio/SFX/Humanoid7.mp3" id="4_5pdqg"]
+[ext_resource type="AudioStream" uid="uid://djtcjiojg6c35" path="res://Audio/SFX/Humanoid9.mp3" id="5_hyrmo"]
 
 [sub_resource type="CylinderShape3D" id="CylinderShape3D_07yf6"]
 
@@ -193,7 +196,7 @@ axis_lock_linear_y = true
 axis_lock_angular_x = true
 axis_lock_angular_z = true
 sync_to_physics = false
-script = ExtResource("1_ds7bf")
+script = ExtResource("1_k6ujs")
 min_idle_time = 5.0
 max_idle_time = 20.0
 
@@ -218,7 +221,19 @@ libraries = {
 transform = Transform3D(0.25, 0, 0, 0, 0.25, 0, 0, 0, 0.25, 0, 1.65982, 0)
 visible = false
 billboard = 2
-texture = ExtResource("2_rejie")
+texture = ExtResource("2_07ia1")
+
+[node name="FinishedOrderingSoundPlayer" type="AudioStreamPlayer3D" parent="."]
+stream = ExtResource("3_406il")
+attenuation_model = 3
+
+[node name="CollectedOrderSoundPlayer" type="AudioStreamPlayer3D" parent="."]
+stream = ExtResource("4_5pdqg")
+attenuation_model = 3
+
+[node name="AngrySoundPlayer" type="AudioStreamPlayer3D" parent="."]
+stream = ExtResource("5_hyrmo")
+attenuation_model = 3
 
 [connection signal="timeout" from="IdleTimer" to="." method="finish_idling"]
-[connection signal="timeout" from="AngryOrderNotTakenTimer" to="." method="done_ordering"]
+[connection signal="timeout" from="AngryOrderNotTakenTimer" to="." method="angry_done_waiting"]

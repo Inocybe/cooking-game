@@ -5,59 +5,83 @@ enum WeatherType {
 	Sunny,
 	Overcast,
 	Rainy,
-	Stormy
+	Stormy,
+	Snowy
 }
 
 
 var clouds: Clouds = null
 var rain_area: RainArea = null
+var snow_area: SnowArea = null
 var enviornment: EnvironmentManager = null
 var lightning_manager: LightningManager = null
+
+var weather_type: WeatherType = WeatherType.Sunny
+var temperature: float = 0
 
 
 func _ready() -> void:
 	var current_scene = get_tree().current_scene
 	clouds = current_scene.get_node_or_null("Clouds")
 	rain_area = current_scene.get_node_or_null("RainArea")
+	snow_area = current_scene.get_node_or_null("SnowArea")
 	enviornment = current_scene.get_node_or_null("WorldEnvironment")
 	lightning_manager = current_scene.get_node_or_null("LightningManager")
 
 
 func set_from_town(town: TownResource) -> void:
-	var storminess = get_weather_storminess(town.weather)
-	var raininess = get_weather_raininess(town.weather)
-	var lightning_chance = get_weather_lightning_chance(town.weather)
+	weather_type = town.weather
+	temperature = town.temperature
+	
+	var storminess = get_storminess(weather_type)
+	var raininess = get_raininess(weather_type)
+	var snowiness = get_snowiness(weather_type)
+	var lightning_chance = get_lightning_chance(weather_type)
 	
 	clouds.set_starting_storminess(storminess)
 	rain_area.set_raininess(raininess)
+	snow_area.set_snowiness(snowiness)
 	enviornment.set_raininess(raininess)
 	lightning_manager.set_lightning_chance(lightning_chance)
 
 
-static func get_weather_storminess(weather_type: WeatherType) -> float:
+static func get_storminess(weather_type: WeatherType) -> float:
 	return {
 		WeatherType.Sunny: 0,
 		WeatherType.Overcast: 1,
 		WeatherType.Rainy: 0.8,
-		WeatherType.Stormy: 1
+		WeatherType.Stormy: 1,
+		WeatherType.Snowy: 0.2
 	}[weather_type]
 
 
-static func get_weather_raininess(weather_type: WeatherType) -> float:
+static func get_raininess(weather_type: WeatherType) -> float:
 	return {
 		WeatherType.Sunny: 0,
 		WeatherType.Overcast: 0,
 		WeatherType.Rainy: 0.5,
-		WeatherType.Stormy: 1
+		WeatherType.Stormy: 1,
+		WeatherType.Snowy: 0
 	}[weather_type]
 
 
-static func get_weather_lightning_chance(weather_type: WeatherType) -> float:
+static func get_snowiness(weather_type: WeatherType) -> float:
 	return {
 		WeatherType.Sunny: 0,
 		WeatherType.Overcast: 0,
 		WeatherType.Rainy: 0,
-		WeatherType.Stormy: 0.05
+		WeatherType.Stormy: 0,
+		WeatherType.Snowy: 1
+	}[weather_type]
+
+
+static func get_lightning_chance(weather_type: WeatherType) -> float:
+	return {
+		WeatherType.Sunny: 0,
+		WeatherType.Overcast: 0,
+		WeatherType.Rainy: 0,
+		WeatherType.Stormy: 0.05,
+		WeatherType.Snowy: 0
 	}[weather_type]
 
 
@@ -66,5 +90,66 @@ static func get_weather_name(weather_type: WeatherType) -> String:
 		WeatherType.Sunny: "sunny",
 		WeatherType.Overcast: "overcast",
 		WeatherType.Rainy: "rainy",
-		WeatherType.Stormy: "stormy"
+		WeatherType.Stormy: "stormy",
+		WeatherType.Snowy: "snowy"
+	}[weather_type]
+
+
+static func get_min_order_size(weather_type: WeatherType) -> int:
+	return {
+		WeatherType.Sunny: 1,
+		WeatherType.Overcast: 2,
+		WeatherType.Rainy: 1,
+		WeatherType.Stormy: 1,
+		WeatherType.Snowy: 1
+	}[weather_type]
+
+
+static func get_max_order_size(weather_type: WeatherType) -> int:
+	return {
+		WeatherType.Sunny: 3,
+		WeatherType.Overcast: 3,
+		WeatherType.Rainy: 2,
+		WeatherType.Stormy: 2,
+		WeatherType.Snowy: 2
+	}[weather_type]
+
+
+static func get_item_weighting(weather_type: WeatherType) -> Dictionary:
+	return {
+		WeatherType.Sunny: {
+			Menu.Item.HamBurger: 1.0,
+			Menu.Item.Fries: 1.0,
+			Menu.Item.Soda: 2.5
+		},
+		WeatherType.Overcast: {
+			Menu.Item.HamBurger: 1.5,
+			Menu.Item.Fries: 1.0,
+			Menu.Item.Soda: 0.8
+		},
+		WeatherType.Rainy: {
+			Menu.Item.HamBurger: 1.0,
+			Menu.Item.Fries: 1.0,
+			Menu.Item.Soda: 0.8
+		},
+		WeatherType.Stormy: {
+			Menu.Item.HamBurger: 1.0,
+			Menu.Item.Fries: 2.0,
+			Menu.Item.Soda: 0.5
+		},
+		WeatherType.Snowy: {
+			Menu.Item.HamBurger: 1.0,
+			Menu.Item.Fries: 1.0,
+			Menu.Item.Soda: 0.2
+		}
+	}[weather_type]
+
+
+static func get_customer_patience(weather_type: WeatherType) -> float:
+	return {
+		WeatherType.Sunny: 60,
+		WeatherType.Overcast: 90,
+		WeatherType.Rainy: 30,
+		WeatherType.Stormy: 20,
+		WeatherType.Snowy: 45
 	}[weather_type]

@@ -1,9 +1,7 @@
 extends XRController3D
 
 
-@export var remote_touch_distance: float = 5
-@export var remote_touch_distance_far: float = 40
-var is_in_menu: bool = false
+@export var remote_touch_distance: float = 10
 
 @export var grip_cutoff: float = 0.7
 @export var trigger_cutoff: float = 0.5
@@ -47,12 +45,14 @@ func interact_with_ui(obj: Node3D, pos: Vector3):
 	obj.do_interact_at(pos)
 
 
-func interact_enter(body: Node3D):
+func interact_enter(body: Node3D, pos=null):
+	if pos == null:
+		pos = global_position
 	if body.is_in_group("interactable") and not body.is_in_group("holdable"):
 		interacted_objects.append(body)
 		body.on_start_interact()
 	elif body.is_in_group("world-ui"):
-		interact_with_ui(body, global_position)
+		interact_with_ui(body, pos)
 	
 
 
@@ -90,7 +90,7 @@ func forward_vector() -> Vector3:
 
 
 func try_remote_interact() -> void:
-	var dist = remote_touch_distance_far if is_in_menu else remote_touch_distance
+	var dist = remote_touch_distance
 	
 	var from: Vector3 = global_position
 	var to: Vector3 = from + forward_vector() * dist
@@ -101,7 +101,7 @@ func try_remote_interact() -> void:
 	if raycast_result:
 		var collider = raycast_result.collider
 		if collider.is_in_group("remote-interactable"):
-			interact_enter(collider)
+			interact_enter(collider, raycast_result.position)
 
 
 func change_hand_positioning(_object: Node3D) -> void:

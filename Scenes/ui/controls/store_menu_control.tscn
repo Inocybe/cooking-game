@@ -1,7 +1,7 @@
 [gd_scene load_steps=4 format=3 uid="uid://ddg2hu51lb6u0"]
 
-[ext_resource type="Script" uid="uid://noqyfvatypi4" path="res://Scripts/UI/Map/buy_menu_control.gd" id="1_el5wk"]
-[ext_resource type="Script" uid="uid://bjm46dy7r54ne" path="res://Scripts/UI/Map/food_graph.gd" id="1_i6ieq"]
+[ext_resource type="Script" uid="uid://noqyfvatypi4" path="res://Scripts/UI/Map/BuyMenuControl.gd" id="1_el5wk"]
+[ext_resource type="Script" uid="uid://bjm46dy7r54ne" path="res://Scripts/UI/Map/FoodGraph.gd" id="1_i6ieq"]
 [ext_resource type="Texture2D" uid="uid://brswl0f07gyuu" path="res://icon.svg" id="1_w7f3d"]
 
 [node name="StoreMenuControl" type="Control"]

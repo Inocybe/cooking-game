@@ -1,9 +1,29 @@
 extends Node
 
 
+enum GameState {
+	WORLD,
+	MENU
+}
+
+
+const XR_SYSTEM = preload("res://Scenes/player/vr/xr_system.tscn")
+
 var player_input_enabled = true
 
 var game_manager: GameManager = null
+
+var xr_manager: XRManager = null
+
+var game_state: GameState = GameState.MENU
+
+var has_XR_known: bool = false
+var has_XR: bool
+
+
+signal has_XR_detected(has_XR: bool)
+
+signal game_state_set()
 
 
 func _ready():
@@ -13,10 +33,45 @@ func _ready():
 		return
 	
 	game_manager = current_scene.get_node_or_null("GameManager")
+	
+	check_XR()
+
+
+func notify_has_XR(function: Callable) -> void:
+	if has_XR_known:
+		function.call(Global.has_XR)
+	else:
+		has_XR_detected.connect(function)
+
+
+func check_XR() -> void:
+	var xr_interface = XRServer.find_interface("OpenXR")
+	if xr_interface and xr_interface.is_initialized():
+		xr_manager = XR_SYSTEM.instantiate()
+		xr_manager.xr_interface = xr_interface
+		get_tree().get_root().add_child.call_deferred(xr_manager)
+		has_XR_detected.emit.call_deferred(true)
+		has_XR = true
+	else:
+		has_XR_detected.emit.call_deferred(false)
+		has_XR = false
+	has_XR_known = true
+
+
+func is_vr_avaliable() -> bool:
+	return xr_manager != null and xr_manager.is_avaliable
+
 
 func _process(_delta: float) -> void:
-	if get_tree().current_scene:
+	if get_tree().current_scene and game_manager == null:
 		game_manager = get_tree().current_scene.get_node_or_null("GameManager")
+
+
+func set_game_state(state: GameState):
+	game_state = state
+	if state == GameState.MENU:
+		Input.mouse_mode = Input.MOUSE_MODE_VISIBLE
+	game_state_set.emit()
 
 
 func pause_game() -> void:
@@ -25,6 +80,7 @@ func pause_game() -> void:
 	
 func resume_game() -> void:
 	get_tree().paused = false
+
 
 func switch_scenes(scene_path: String) -> void:
 	get_tree().change_scene_to_file(scene_path)
@@ -59,3 +115,21 @@ func set_dependance(parent: Node3D, child: RigidBody3D, dependance: bool) -> voi
 		if parent is CollisionObject3D:
 			child.remove_collision_exception_with(parent)
 		child.reparent(get_tree().current_scene)
+
+
+func weighted_random_int(weights: Array) -> int:
+	var total_weight: float = 0
+	for weight in weights:
+		total_weight += weight
+	var value: float = randf() * total_weight
+	var range_min = 0
+	for i in range(len(weights)):
+		var range_max = range_min + weights[i]
+		if value < range_max:
+			return i
+		range_min = range_max
+	return -1 # unreachable
+
+
+func weighted_random_val(values: Dictionary) -> Variant:
+	return values.keys()[weighted_random_int(values.values())]
