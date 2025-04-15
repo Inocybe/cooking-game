@@ -35,7 +35,7 @@ func _ready():
 	game_manager = current_scene.get_node_or_null("GameManager")
 	
 	check_XR()
-
+	
 
 func notify_has_XR(function: Callable) -> void:
 	if has_XR_known:
@@ -82,8 +82,11 @@ func resume_game() -> void:
 	get_tree().paused = false
 
 
-func switch_scenes(scene_path: String) -> void:
-	get_tree().change_scene_to_file(scene_path)
+func switch_scenes(scene: PackedScene) -> void:
+	get_tree().change_scene_to_packed(scene)
+
+func switch_scenes_with_path(scene: String) -> void:
+	get_tree().change_scene_to_file(scene)
 
 
 func debug_ray(from: Vector3, diff: Vector3, color: Color = Color.CHARTREUSE, width: float = 3):

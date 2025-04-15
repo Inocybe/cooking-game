@@ -11,6 +11,7 @@ var displaying: bool = false
 func start() -> void:
 	resource.random_everything()
 	set_town_values()
+	async_load()
 
 
 func _on_pressed() -> void:
@@ -20,7 +21,7 @@ func _on_pressed() -> void:
 		animation_player.play("display_town_values")
 	else:
 		displaying = false
-		Global.switch_scenes(SCENE_ATTACHED)
+		Global.switch_scenes(ResourceLoader.load_threaded_get(SCENE_ATTACHED))
 
 
 
@@ -29,5 +30,7 @@ func set_town_values() -> void:
 	label.set_line(0, "Weather: " + weather_name)
 	label.set_line(1, "Temperature: " + str(resource.temperature) + "°C")
 	label.set_line(2, "Population: " + str(resource.population))
-	
-	
+
+
+func async_load() -> void:
+	ResourceLoader.load_threaded_request(SCENE_ATTACHED)
