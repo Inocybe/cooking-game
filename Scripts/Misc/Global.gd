@@ -20,6 +20,8 @@ var game_state: GameState = GameState.MENU
 var has_XR_known: bool = false
 var has_XR: bool
 
+var town: TownResource
+
 
 signal has_XR_detected(has_XR: bool)
 
