@@ -153,3 +153,23 @@ static func get_customer_patience(weather_type: WeatherType) -> float:
 		WeatherType.Stormy: 20,
 		WeatherType.Snowy: 45
 	}[weather_type]
+
+
+static func get_weather_min_temp(weather_type: WeatherType) -> float:
+	return {
+		WeatherType.Sunny: 10,
+		WeatherType.Overcast: 0,
+		WeatherType.Rainy: 5,
+		WeatherType.Stormy: 2,
+		WeatherType.Snowy: -10
+	}[weather_type]
+
+
+static func get_weather_max_temp(weather_type: WeatherType) -> float:
+	return {
+		WeatherType.Sunny: 30,
+		WeatherType.Overcast: 10,
+		WeatherType.Rainy: 15,
+		WeatherType.Stormy: 15,
+		WeatherType.Snowy: 0
+	}[weather_type]
