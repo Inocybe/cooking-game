@@ -3,14 +3,14 @@ class_name Customer extends AnimatableBody3D
 
 @onready var animation_player: AnimationPlayer = $AnimationPlayer
 
-@export var min_move_speed: float = 1
-@export var max_move_speed: float = 3
+@export var min_move_speed: float = 2
+@export var max_move_speed: float = 4
 @export var target_pos_margin: float = 0.1
 @export var target_speed_margin: float = 0.1
 @export var traction: float = 4
 @export var min_idle_time: float = 0
 @export var max_idle_time: float = 0
-@export var order_collect_speed_multiplier = 2
+@export var order_collect_speed_multiplier = 1.5
 
 enum CustomerState {
 	IDLING,
@@ -115,14 +115,20 @@ func _process(delta: float) -> void:
 func finish_ordering() -> void:
 	if not dish_ordered:
 		Global.game_manager.order_manager.request_order_from(self)
+		$FinishedOrderingSoundPlayer.play()
+		done_ordering()
+
+
+func angry_done_waiting() -> void:
+	if state == CustomerState.WANTS_TO_ORDER:
+		$AngrySoundPlayer.play()
 		done_ordering()
 
 
 func done_ordering() -> void:
-	if state == CustomerState.WANTS_TO_ORDER:
-		Global.game_manager.food_truck.exit_line(self)
-		egress_cart()
-		animation_player.play_backwards("awaiting_order_taken")
+	Global.game_manager.food_truck.exit_line(self)
+	egress_cart()
+	animation_player.play_backwards("awaiting_order_taken")
 
 
 func on_start_interact() -> void:
@@ -134,7 +140,10 @@ func await_order_taken() -> void:
 	if Global.game_manager.food_truck.enter_line(self):
 		state = CustomerState.WANTS_TO_ORDER
 		animation_player.play("awaiting_order_taken")
-		$AngryOrderNotTakenTimer.start()
+		
+		var weather_type = Global.game_manager.weather_manager.weather_type
+		var max_wait_time = WeatherManager.get_customer_patience(weather_type)
+		$AngryOrderNotTakenTimer.start(max_wait_time)
 	else:
 		egress_cart()
 
@@ -156,6 +165,7 @@ func collect_order() -> void:
 		
 		var order_manager = Global.game_manager.order_manager
 		
+		$CollectedOrderSoundPlayer.play()
 		animation_player.play("collect_order")
 		order_manager.register_completed_dish(dish_ordered)
 		order_manager.remove_order(dish_ordered)
@@ -164,6 +174,7 @@ func collect_order() -> void:
 			finished_collecting, ConnectFlags.CONNECT_ONE_SHOT)
 		
 	else:
+		$AngrySoundPlayer.play()
 		egress_cart()
 
 

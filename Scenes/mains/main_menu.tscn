@@ -1,27 +1,14 @@
-[gd_scene load_steps=6 format=3 uid="uid://cltfmjw0bavf4"]
+[gd_scene load_steps=4 format=3 uid="uid://cew34i8111d35"]
 
-[ext_resource type="Script" uid="uid://do3ir6xnqv230" path="res://Scripts/MainMenu/main_menu.gd" id="1_mex12"]
+[ext_resource type="PackedScene" uid="uid://bg140mjfbjdcp" path="res://Scenes/ui/3d/menu_base.tscn" id="1_88yes"]
+[ext_resource type="PackedScene" uid="uid://cbco6667n5i38" path="res://Scenes/ui/controls/main_menu_control.tscn" id="3_ie3he"]
 
-[sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_88yes"]
+[sub_resource type="ViewportTexture" id="ViewportTexture_bmsq5"]
+viewport_path = NodePath("SubViewportContainer/SubViewport")
 
-[sub_resource type="Sky" id="Sky_bmsq5"]
-sky_material = SubResource("ProceduralSkyMaterial_88yes")
+[node name="MainMenu" instance=ExtResource("1_88yes")]
 
-[sub_resource type="Environment" id="Environment_nbmfk"]
-background_mode = 1
-sky = SubResource("Sky_bmsq5")
-ambient_light_source = 2
-ambient_light_color = Color(1, 1, 1, 1)
+[node name="Sprite3D" parent="VRMode/XRMenu" index="0"]
+texture = SubResource("ViewportTexture_bmsq5")
 
-[sub_resource type="WorldBoundaryShape3D" id="WorldBoundaryShape3D_sxg5g"]
-
-[node name="MAIN MENU" type="Node3D"]
-script = ExtResource("1_mex12")
-
-[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
-environment = SubResource("Environment_nbmfk")
-
-[node name="StaticBody3D" type="StaticBody3D" parent="."]
-
-[node name="CollisionShape3D" type="CollisionShape3D" parent="StaticBody3D"]
-shape = SubResource("WorldBoundaryShape3D_sxg5g")
+[node name="DesktopUI" parent="SubViewportContainer/SubViewport" index="0" instance=ExtResource("3_ie3he")]

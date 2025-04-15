@@ -1,20 +1,18 @@
 class_name Holdable extends RigidBodyBase
 
 
-@export_group("Holdable")
+const standard_angular_damp: float = 1
+const held_angular_damp: float = 2
+const move_line_acceleration: float = 30
+const move_plane_acceleration: float = 16
+const undershoot_amount: float = 0.75
+const freeze_dist: float = 0.02
+const freeze_vel: float = 0.3
 
-@export var standard_angular_damp: float = 1
-@export var held_angular_damp: float = 2
-@export var move_line_acceleration: float = 30
-@export var move_plane_acceleration: float = 16
-@export_range(0, 1) var undershoot_amount: float = 0.75
-@export var freeze_dist: float = 0.02
-@export var freeze_vel: float = 0.3
-
-@export var rotational_acceleration: float = 10
-@export var vertical_freeze_angle: float = (PI / 180) * 1
-@export var forward_freeze_angle: float = (PI / 180) * 1
-@export var freeze_angular_speed: float = 4
+const rotational_acceleration: float = 10
+const vertical_freeze_angle: float = (PI / 180) * 1
+const forward_freeze_angle: float = (PI / 180) * 1
+const freeze_angular_speed: float = 4
 
 var held: bool = false
 var target_pos: Vector3

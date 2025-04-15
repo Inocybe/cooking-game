@@ -1,15 +1,18 @@
-[gd_scene load_steps=16 format=3 uid="uid://bmw48ei0dff0i"]
+[gd_scene load_steps=17 format=3 uid="uid://bmw48ei0dff0i"]
 
 [ext_resource type="PackedScene" uid="uid://jj8yuf0syk57" path="res://Scenes/managers/game_manager.tscn" id="1_0s671"]
-[ext_resource type="Script" uid="uid://c2xivkwymlvht" path="res://Scripts/Foodtruck/Interior/LightDisabler.gd" id="1_jd6j6"]
+[ext_resource type="Script" uid="uid://bux018fpi666x" path="res://Scripts/Misc/SetGameState.gd" id="1_6nemj"]
+[ext_resource type="Script" uid="uid://c2xivkwymlvht" path="res://Scripts/Misc/VRToggler.gd" id="1_jd6j6"]
 [ext_resource type="PackedScene" uid="uid://b3ocr5doqonyu" path="res://Scenes/foodtruck/food_truck.tscn" id="2_3dmfd"]
 [ext_resource type="PackedScene" uid="uid://5s3oxlpup0wy" path="res://Scenes/player/player.tscn" id="2_rbjev"]
 [ext_resource type="Script" uid="uid://bomqxx6mxqq83" path="res://Scripts/Enviornment/EnvironmentManager.gd" id="3_b0aln"]
 [ext_resource type="PackedScene" uid="uid://dhgtt8fwfi87" path="res://Scenes/environment/chatter_player.tscn" id="5_xatkk"]
 [ext_resource type="Script" uid="uid://14md2o3tq1pe" path="res://Scripts/Managers/CustomerManager.gd" id="5_xk452"]
 [ext_resource type="PackedScene" uid="uid://ruvemr4few6r" path="res://Scenes/environment/clouds.tscn" id="6_12l6w"]
+[ext_resource type="PackedScene" uid="uid://c52i2exeeb6uq" path="res://Scenes/environment/ground.tscn" id="6_ol0a8"]
 [ext_resource type="PackedScene" uid="uid://cy0f52g70vccr" path="res://Scenes/environment/rain_area.tscn" id="7_5erac"]
 [ext_resource type="PackedScene" uid="uid://ckcd8iqf1lith" path="res://Scenes/environment/lightning_manager.tscn" id="10_l18rm"]
+[ext_resource type="PackedScene" uid="uid://hej1j74v6ddo" path="res://Scenes/environment/snow_area.tscn" id="10_pvt8g"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_r88qt"]
 
@@ -24,11 +27,6 @@ tonemap_exposure = 0.6
 tonemap_white = 0.7
 ssao_intensity = 6.0
 glow_enabled = true
-
-[sub_resource type="WorldBoundaryShape3D" id="WorldBoundaryShape3D_wlqu1"]
-
-[sub_resource type="PlaneMesh" id="PlaneMesh_o37bp"]
-size = Vector2(100, 100)
 
 [node name="World" type="Node3D"]
 
@@ -57,15 +55,7 @@ transform = Transform3D(-0.76628, 0, -0.642507, 0, 1, 0, 0.642507, 0, -0.76628, 
 [node name="FoodTruck" parent="." instance=ExtResource("2_3dmfd")]
 transform = Transform3D(-0.707107, 0, -0.707107, 0, 1, 0, 0.707107, 0, -0.707107, -0.0296402, -0.0441494, -0.0324593)
 
-[node name="Ground" type="StaticBody3D" parent="."]
-collision_layer = 7
-collision_mask = 7
-
-[node name="CollisionShape3D" type="CollisionShape3D" parent="Ground"]
-shape = SubResource("WorldBoundaryShape3D_wlqu1")
-
-[node name="MeshInstance3D" type="MeshInstance3D" parent="Ground"]
-mesh = SubResource("PlaneMesh_o37bp")
+[node name="Ground" parent="." instance=ExtResource("6_ol0a8")]
 
 [node name="CustomerManager" type="Node3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 14.8349, 0, 18.1658)
@@ -78,8 +68,14 @@ transform = Transform3D(-0.707107, -6.18172e-08, 0.707107, 8.74228e-08, -1, 0, 0
 sun_light = NodePath("../LightSun")
 
 [node name="RainArea" parent="." instance=ExtResource("7_5erac")]
-transform = Transform3D(0.707107, 0, 0.707107, 0, 1, 0, -0.707107, 0, 0.707107, 6.4, 0.5, 6.4)
+transform = Transform3D(0.707107, 0, 0.707107, 0, 1, 0, -0.707107, 0, 0.707107, 6.4, 0.2, 6.4)
+
+[node name="SnowArea" parent="." instance=ExtResource("10_pvt8g")]
+transform = Transform3D(0.707107, 0, 0.707107, 0, 1, 0, -0.707107, 0, 0.707107, 6.4, 0.2, 6.4)
 
 [node name="LightningManager" parent="." instance=ExtResource("10_l18rm")]
 transform = Transform3D(-0.707107, 0, -0.707107, 0, 1, 0, 0.707107, 0, -0.707107, 78.1132, 20, 69.9238)
 spawn_range = Rect2(-20, -20, 40, 40)
+
+[node name="WorldGameState" type="Node" parent="."]
+script = ExtResource("1_6nemj")

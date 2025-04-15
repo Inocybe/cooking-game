@@ -1,0 +1,57 @@
+[gd_scene load_steps=10 format=3 uid="uid://bg140mjfbjdcp"]
+
+[ext_resource type="Script" uid="uid://c2xivkwymlvht" path="res://Scripts/Misc/VRToggler.gd" id="1_urmen"]
+[ext_resource type="Script" uid="uid://cl8g4o5eqqnp5" path="res://Scripts/UI/Bases/UIControllerBase.gd" id="2_1yvy4"]
+[ext_resource type="Script" uid="uid://co7l711gsn0tj" path="res://Scenes/ui/controls/VRSubViewportMover.gd" id="3_1yvy4"]
+[ext_resource type="Script" uid="uid://bux018fpi666x" path="res://Scripts/Misc/SetGameState.gd" id="3_akg3o"]
+
+[sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_107eu"]
+
+[sub_resource type="Sky" id="Sky_bmsq5"]
+sky_material = SubResource("ProceduralSkyMaterial_107eu")
+
+[sub_resource type="Environment" id="Environment_uii6b"]
+background_mode = 1
+sky = SubResource("Sky_bmsq5")
+ambient_light_source = 2
+ambient_light_color = Color(1, 1, 1, 1)
+
+[sub_resource type="ViewportTexture" id="ViewportTexture_agj50"]
+viewport_path = NodePath("SubViewportContainer/SubViewport")
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_jj5yb"]
+size = Vector3(11.5, 6.5, 1)
+
+[node name="MenuBase" type="Node3D"]
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = SubResource("Environment_uii6b")
+
+[node name="VRMode" type="Node" parent="."]
+script = ExtResource("1_urmen")
+mode = 0
+
+[node name="XRMenu" type="StaticBody3D" parent="VRMode" node_paths=PackedStringArray("subviewport") groups=["remote-interactable", "world-ui"]]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -6.234)
+script = ExtResource("2_1yvy4")
+subviewport = NodePath("../../SubViewportContainer/SubViewport")
+
+[node name="Sprite3D" type="Sprite3D" parent="VRMode/XRMenu"]
+texture = SubResource("ViewportTexture_agj50")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="VRMode/XRMenu"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -0.5)
+shape = SubResource("BoxShape3D_jj5yb")
+
+[node name="SubViewportContainer" type="SubViewportContainer" parent="."]
+
+[node name="SubViewport" type="SubViewport" parent="SubViewportContainer"]
+unique_name_in_owner = true
+handle_input_locally = false
+size = Vector2i(1152, 648)
+render_target_update_mode = 4
+script = ExtResource("3_1yvy4")
+
+[node name="MenuGameState" type="Node" parent="."]
+script = ExtResource("3_akg3o")
+game_state = 1
