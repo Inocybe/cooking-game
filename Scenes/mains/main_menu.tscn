@@ -15,4 +15,4 @@ texture = SubResource("ViewportTexture_bmsq5")
 offset_right = 1152.0
 offset_bottom = 648.0
 
-[node name="DesktopUI" parent="SubViewportContainer/SubViewport" index="0" instance=ExtResource("3_ie3he")]
+[node name="MainMenuControl" parent="SubViewportContainer/SubViewport" index="0" instance=ExtResource("3_ie3he")]

@@ -20,12 +20,16 @@ var game_state: GameState = GameState.MENU
 var has_XR_known: bool = false
 var has_XR: bool
 
+var font_size_fraction: float = 0.03
+
 var town: TownResource
 
 
 signal has_XR_detected(has_XR: bool)
 
 signal game_state_set()
+
+signal font_size_changed()
 
 
 func _ready():
@@ -36,8 +40,19 @@ func _ready():
 	
 	game_manager = current_scene.get_node_or_null("GameManager")
 	
-	check_XR()
+	get_tree().get_root().size_changed.connect(on_window_resize)
+	on_window_resize()
 	
+	check_XR()
+
+
+func on_window_resize() -> void:
+	ThemeDB.get_project_theme().default_font_size = round(
+		get_viewport().size.y * font_size_fraction
+	)
+	
+	font_size_changed.emit()
+
 
 func notify_has_XR(function: Callable) -> void:
 	if has_XR_known:
