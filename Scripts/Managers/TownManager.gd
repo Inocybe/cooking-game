@@ -5,6 +5,7 @@ var towns: Dictionary[int, String] = {
 	0: "res://Scenes/towns/town_1.tscn"
 }
 
+
 func _ready() -> void:
 	for i in towns.size():
 		ResourceLoader.load_threaded_request(towns[i])

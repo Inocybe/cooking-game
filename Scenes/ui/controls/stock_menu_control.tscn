@@ -1,4 +1,4 @@
-[gd_scene load_steps=4 format=3 uid="uid://ddg2hu51lb6u0"]
+[gd_scene load_steps=4 format=3 uid="uid://d2f0n6ix2228b"]
 
 [ext_resource type="Script" uid="uid://noqyfvatypi4" path="res://Scripts/UI/Map/BuyMenuControl.gd" id="1_el5wk"]
 [ext_resource type="Script" uid="uid://bjm46dy7r54ne" path="res://Scripts/UI/Map/FoodGraph.gd" id="1_i6ieq"]
