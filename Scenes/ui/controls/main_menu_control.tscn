@@ -1,10 +1,11 @@
 [gd_scene load_steps=6 format=3 uid="uid://cbco6667n5i38"]
 
 [ext_resource type="Script" uid="uid://cacqbhe4x15a6" path="res://Scripts/MainMenu/MainMenuControl.gd" id="1_dji0b"]
-[ext_resource type="Texture2D" uid="uid://b8og5tfgi6crn" path="res://icon.svg" id="1_ms3ow"]
+[ext_resource type="Texture2D" uid="uid://c3xn338gig4ha" path="res://Assets/Branding/iconfull.png" id="2_u0us8"]
 [ext_resource type="PackedScene" uid="uid://b63qhctnjuprt" path="res://Scenes/ui/controls/settings_control.tscn" id="3_anusf"]
-[ext_resource type="Script" uid="uid://dvdxwlvx6sdxv" path="res://Scenes/ui/controls/FontScaler.gd" id="3_l262m"]
 [ext_resource type="PackedScene" uid="uid://d1kvbv3fi1tks" path="res://Scenes/ui/controls/credits_control.tscn" id="4_u0us8"]
+
+[sub_resource type="PlaceholderTexture2D" id="PlaceholderTexture2D_l262m"]
 
 [node name="MainMenuControl" type="Control"]
 layout_mode = 3
@@ -16,16 +17,18 @@ grow_vertical = 2
 mouse_filter = 2
 script = ExtResource("1_dji0b")
 
-[node name="MAIN" type="TextureRect" parent="."]
+[node name="Background" type="TextureRect" parent="."]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-texture = ExtResource("1_ms3ow")
+texture = SubResource("PlaceholderTexture2D_l262m")
+expand_mode = 1
+stretch_mode = 6
 
-[node name="MarginContainer" type="MarginContainer" parent="MAIN"]
+[node name="MarginContainer" type="MarginContainer" parent="Background"]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -33,63 +36,50 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="VBoxContainer" type="VBoxContainer" parent="MAIN/MarginContainer"]
+[node name="VBoxContainer" type="VBoxContainer" parent="Background/MarginContainer"]
 layout_mode = 2
 
-[node name="TITLE CARD" type="TextureRect" parent="MAIN/MarginContainer/VBoxContainer"]
+[node name="Logo" type="TextureRect" parent="Background/MarginContainer/VBoxContainer"]
 layout_mode = 2
 size_flags_vertical = 3
-texture = ExtResource("1_ms3ow")
+texture = ExtResource("2_u0us8")
+expand_mode = 1
+stretch_mode = 5
 
-[node name="Label" type="Label" parent="MAIN/MarginContainer/VBoxContainer/TITLE CARD"]
-layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
-text = "Burger Box"
-horizontal_alignment = 1
-vertical_alignment = 1
-
-[node name="FontScaler" type="Node" parent="MAIN/MarginContainer/VBoxContainer/TITLE CARD/Label"]
-script = ExtResource("3_l262m")
-font_scale = 6.0
-
-[node name="HBoxContainer" type="HBoxContainer" parent="MAIN/MarginContainer/VBoxContainer"]
+[node name="HBoxContainer" type="HBoxContainer" parent="Background/MarginContainer/VBoxContainer"]
 layout_mode = 2
 
-[node name="Spacer1" type="Control" parent="MAIN/MarginContainer/VBoxContainer/HBoxContainer"]
+[node name="Spacer1" type="Control" parent="Background/MarginContainer/VBoxContainer/HBoxContainer"]
 layout_mode = 2
 size_flags_horizontal = 3
 
-[node name="ButtonsContainer" type="VBoxContainer" parent="MAIN/MarginContainer/VBoxContainer/HBoxContainer"]
+[node name="ButtonsContainer" type="VBoxContainer" parent="Background/MarginContainer/VBoxContainer/HBoxContainer"]
 unique_name_in_owner = true
 layout_mode = 2
 size_flags_horizontal = 3
 theme_override_constants/separation = 8
 alignment = 1
 
-[node name="Start" type="Button" parent="MAIN/MarginContainer/VBoxContainer/HBoxContainer/ButtonsContainer"]
+[node name="Start" type="Button" parent="Background/MarginContainer/VBoxContainer/HBoxContainer/ButtonsContainer"]
 layout_mode = 2
 text = " Play "
 
-[node name="Settings" type="Button" parent="MAIN/MarginContainer/VBoxContainer/HBoxContainer/ButtonsContainer"]
+[node name="Settings" type="Button" parent="Background/MarginContainer/VBoxContainer/HBoxContainer/ButtonsContainer"]
 layout_mode = 2
 text = " Settings "
 
-[node name="Credits" type="Button" parent="MAIN/MarginContainer/VBoxContainer/HBoxContainer/ButtonsContainer"]
+[node name="Credits" type="Button" parent="Background/MarginContainer/VBoxContainer/HBoxContainer/ButtonsContainer"]
 layout_mode = 2
 text = " Credits "
 
-[node name="Quit" type="Button" parent="MAIN/MarginContainer/VBoxContainer/HBoxContainer/ButtonsContainer"]
+[node name="Quit" type="Button" parent="Background/MarginContainer/VBoxContainer/HBoxContainer/ButtonsContainer"]
 layout_mode = 2
 text = " Quit "
 
-[node name="Spacer" type="Control" parent="MAIN/MarginContainer/VBoxContainer/HBoxContainer/ButtonsContainer"]
+[node name="Spacer" type="Control" parent="Background/MarginContainer/VBoxContainer/HBoxContainer/ButtonsContainer"]
 layout_mode = 2
 
-[node name="Spacer2" type="Control" parent="MAIN/MarginContainer/VBoxContainer/HBoxContainer"]
+[node name="Spacer2" type="Control" parent="Background/MarginContainer/VBoxContainer/HBoxContainer"]
 layout_mode = 2
 size_flags_horizontal = 3
 
@@ -101,7 +91,7 @@ layout_mode = 1
 visible = false
 layout_mode = 1
 
-[connection signal="pressed" from="MAIN/MarginContainer/VBoxContainer/HBoxContainer/ButtonsContainer/Start" to="." method="start_pressed"]
-[connection signal="pressed" from="MAIN/MarginContainer/VBoxContainer/HBoxContainer/ButtonsContainer/Settings" to="SettingsControl" method="set_visible" binds= [true]]
-[connection signal="pressed" from="MAIN/MarginContainer/VBoxContainer/HBoxContainer/ButtonsContainer/Credits" to="CreditsControl" method="set_visible" binds= [true]]
-[connection signal="pressed" from="MAIN/MarginContainer/VBoxContainer/HBoxContainer/ButtonsContainer/Quit" to="." method="quit_pressed"]
+[connection signal="pressed" from="Background/MarginContainer/VBoxContainer/HBoxContainer/ButtonsContainer/Start" to="." method="start_pressed"]
+[connection signal="pressed" from="Background/MarginContainer/VBoxContainer/HBoxContainer/ButtonsContainer/Settings" to="SettingsControl" method="set_visible" binds= [true]]
+[connection signal="pressed" from="Background/MarginContainer/VBoxContainer/HBoxContainer/ButtonsContainer/Credits" to="CreditsControl" method="set_visible" binds= [true]]
+[connection signal="pressed" from="Background/MarginContainer/VBoxContainer/HBoxContainer/ButtonsContainer/Quit" to="." method="quit_pressed"]

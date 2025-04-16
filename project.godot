@@ -13,6 +13,7 @@ config_version=5
 config/name="CookingGame"
 run/main_scene="uid://cltfmjw0bavf4"
 config/features=PackedStringArray("4.4", "Forward Plus")
+boot_splash/image="uid://c3xn338gig4ha"
 config/icon="uid://b8og5tfgi6crn"
 
 [autoload]
