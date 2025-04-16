@@ -24,7 +24,8 @@ func _ready() -> void:
 	
 	Global.game_manager = self
 	
-	weather_manager.set_from_town(Global.town)
+	if Global.town != null:
+		weather_manager.set_from_town(Global.town)
 
 
 func get_camera_node() -> Node3D:
