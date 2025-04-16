@@ -45,77 +45,77 @@ func set_from_town(town: TownResource) -> void:
 	lightning_manager.set_lightning_chance(lightning_chance)
 
 
-static func get_storminess(weather_type: WeatherType) -> float:
+static func get_storminess(type_: WeatherType) -> float:
 	return {
 		WeatherType.Sunny: 0,
 		WeatherType.Overcast: 1,
 		WeatherType.Rainy: 0.8,
 		WeatherType.Stormy: 1,
 		WeatherType.Snowy: 0.2
-	}[weather_type]
+	}[type_]
 
 
-static func get_raininess(weather_type: WeatherType) -> float:
+static func get_raininess(type_: WeatherType) -> float:
 	return {
 		WeatherType.Sunny: 0,
 		WeatherType.Overcast: 0,
 		WeatherType.Rainy: 0.5,
 		WeatherType.Stormy: 1,
 		WeatherType.Snowy: 0
-	}[weather_type]
+	}[type_]
 
 
-static func get_snowiness(weather_type: WeatherType) -> float:
+static func get_snowiness(type_: WeatherType) -> float:
 	return {
 		WeatherType.Sunny: 0,
 		WeatherType.Overcast: 0,
 		WeatherType.Rainy: 0,
 		WeatherType.Stormy: 0,
 		WeatherType.Snowy: 1
-	}[weather_type]
+	}[type_]
 
 
-static func get_lightning_chance(weather_type: WeatherType) -> float:
+static func get_lightning_chance(type_: WeatherType) -> float:
 	return {
 		WeatherType.Sunny: 0,
 		WeatherType.Overcast: 0,
 		WeatherType.Rainy: 0,
 		WeatherType.Stormy: 0.05,
 		WeatherType.Snowy: 0
-	}[weather_type]
+	}[type_]
 
 
-static func get_weather_name(weather_type: WeatherType) -> String:
+static func get_weather_name(type_: WeatherType) -> String:
 	return {
 		WeatherType.Sunny: "sunny",
 		WeatherType.Overcast: "overcast",
 		WeatherType.Rainy: "rainy",
 		WeatherType.Stormy: "stormy",
 		WeatherType.Snowy: "snowy"
-	}[weather_type]
+	}[type_]
 
 
-static func get_min_order_size(weather_type: WeatherType) -> int:
+static func get_min_order_size(type_: WeatherType) -> int:
 	return {
 		WeatherType.Sunny: 1,
 		WeatherType.Overcast: 2,
 		WeatherType.Rainy: 1,
 		WeatherType.Stormy: 1,
 		WeatherType.Snowy: 1
-	}[weather_type]
+	}[type_]
 
 
-static func get_max_order_size(weather_type: WeatherType) -> int:
+static func get_max_order_size(type_: WeatherType) -> int:
 	return {
 		WeatherType.Sunny: 3,
 		WeatherType.Overcast: 3,
 		WeatherType.Rainy: 2,
 		WeatherType.Stormy: 2,
 		WeatherType.Snowy: 2
-	}[weather_type]
+	}[type_]
 
 
-static func get_item_weighting(weather_type: WeatherType) -> Dictionary:
+static func get_item_weighting(type_: WeatherType) -> Dictionary:
 	return {
 		WeatherType.Sunny: {
 			Menu.Item.HamBurger: 1.0,
@@ -142,34 +142,34 @@ static func get_item_weighting(weather_type: WeatherType) -> Dictionary:
 			Menu.Item.Fries: 1.0,
 			Menu.Item.Soda: 0.2
 		}
-	}[weather_type]
+	}[type_]
 
 
-static func get_customer_patience(weather_type: WeatherType) -> float:
+static func get_customer_patience(type_: WeatherType) -> float:
 	return {
 		WeatherType.Sunny: 60,
 		WeatherType.Overcast: 90,
 		WeatherType.Rainy: 30,
 		WeatherType.Stormy: 20,
 		WeatherType.Snowy: 45
-	}[weather_type]
+	}[type_]
 
 
-static func get_weather_min_temp(weather_type: WeatherType) -> float:
+static func get_weather_min_temp(type_: WeatherType) -> float:
 	return {
 		WeatherType.Sunny: 10,
 		WeatherType.Overcast: 0,
 		WeatherType.Rainy: 5,
 		WeatherType.Stormy: 2,
 		WeatherType.Snowy: -10
-	}[weather_type]
+	}[type_]
 
 
-static func get_weather_max_temp(weather_type: WeatherType) -> float:
+static func get_weather_max_temp(type_: WeatherType) -> float:
 	return {
 		WeatherType.Sunny: 30,
 		WeatherType.Overcast: 10,
 		WeatherType.Rainy: 15,
 		WeatherType.Stormy: 15,
 		WeatherType.Snowy: 0
-	}[weather_type]
+	}[type_]
