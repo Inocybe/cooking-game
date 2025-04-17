@@ -39,7 +39,7 @@ offset_right = 520.0
 offset_bottom = 648.0
 columns = 3
 
-[node name="Money Label" type="Label" parent="TVMenu/Left/GridContainer"]
+[node name="MoneyLabel" type="Label" parent="TVMenu/Left/GridContainer"]
 layout_mode = 2
 text = "Money:"
 horizontal_alignment = 2
@@ -64,18 +64,31 @@ unique_name_in_owner = true
 layout_mode = 2
 text = "10 coins"
 
-[node name="Orders Complete Label" type="Label" parent="TVMenu/Left/GridContainer"]
+[node name="OrdersCompleteLabel" type="Label" parent="TVMenu/Left/GridContainer"]
 layout_mode = 2
 text = "Orders Complete:"
 horizontal_alignment = 2
 
-[node name="Spacer" type="Control" parent="TVMenu/Left/GridContainer"]
+[node name="Spacer1" type="Control" parent="TVMenu/Left/GridContainer"]
 layout_mode = 2
 
 [node name="OrdersCompleteDisplay" type="Label" parent="TVMenu/Left/GridContainer"]
 unique_name_in_owner = true
 layout_mode = 2
 text = "10 orders"
+
+[node name="TimeRemainingLabel" type="Label" parent="TVMenu/Left/GridContainer"]
+layout_mode = 2
+text = "Time Remaining:"
+horizontal_alignment = 2
+
+[node name="Spacer2" type="Control" parent="TVMenu/Left/GridContainer"]
+layout_mode = 2
+
+[node name="TimeRemaining" type="Label" parent="TVMenu/Left/GridContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+text = "10"
 
 [node name="Right" type="ColorRect" parent="TVMenu"]
 custom_minimum_size = Vector2(250, 0)

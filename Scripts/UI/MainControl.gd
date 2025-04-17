@@ -3,6 +3,7 @@ class_name MainControl extends Control
 
 @onready var money: Label = %MoneyDisplay
 @onready var orders_complete: Label = %OrdersCompleteDisplay
+@onready var time_remaining: Label = %TimeRemaining
 
 @export var font_size: float = 16
 
