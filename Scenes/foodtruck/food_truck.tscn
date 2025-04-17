@@ -1,4 +1,4 @@
-[gd_scene load_steps=28 format=3 uid="uid://b3ocr5doqonyu"]
+[gd_scene load_steps=29 format=3 uid="uid://b3ocr5doqonyu"]
 
 [ext_resource type="Script" uid="uid://vgybkb0n3meq" path="res://Scripts/Foodtruck/FoodTruck.gd" id="1_rvaml"]
 [ext_resource type="PackedScene" uid="uid://cv485pktorksn" path="res://Scenes/foodtruck/cookwear/cooktop.tscn" id="2_vnxue"]
@@ -33,6 +33,9 @@ size = Vector3(6.93994, 3.53406, 0.20752)
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_megdg"]
 size = Vector3(0.753998, 3.52615, 2.72693)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_hry4e"]
+size = Vector3(0.401928, 2.00425, 1.00075)
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_66uti"]
 size = Vector3(0.297031, 3.55664, 2.99329)
@@ -191,6 +194,11 @@ shape = SubResource("BoxShape3D_qimnc")
 [node name="FrontWall" type="CollisionShape3D" parent="TruckCollider"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.03537, 2.03337, 0.0234994)
 shape = SubResource("BoxShape3D_megdg")
+debug_color = Color(0, 0.595, 0.7, 1)
+
+[node name="SeatWall" type="CollisionShape3D" parent="TruckCollider"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.56282, 0.969612, 0.692847)
+shape = SubResource("BoxShape3D_hry4e")
 debug_color = Color(0, 0.595, 0.7, 1)
 
 [node name="BackWall" type="CollisionShape3D" parent="TruckCollider"]

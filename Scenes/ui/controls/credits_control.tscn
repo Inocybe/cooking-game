@@ -1,6 +1,6 @@
 [gd_scene load_steps=4 format=3 uid="uid://d1kvbv3fi1tks"]
 
-[ext_resource type="Script" path="res://Scenes/ui/controls/RichTextLinks.gd" id="1_5ut88"]
+[ext_resource type="Script" uid="uid://rb7xixr3fvoc" path="res://Scenes/ui/controls/RichTextLinks.gd" id="1_5ut88"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_w3del"]
 bg_color = Color(0.84, 0.84, 0.84, 0.85098)

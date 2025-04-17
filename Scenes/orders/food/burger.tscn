@@ -5,7 +5,7 @@
 [ext_resource type="PackedScene" uid="uid://bl7462b3hiqlv" path="res://Assets/food/burger/burger.blend" id="2_t8afi"]
 [ext_resource type="PackedScene" uid="uid://c25yxb0vt53vc" path="res://addons/godot-xr-tools/objects/grab_points/grab_point_hand_left.tscn" id="4_48vdx"]
 [ext_resource type="Shader" uid="uid://dfp66sck4kv3s" path="res://Scripts/Shaders/BurgerShader.gdshader" id="4_uw865"]
-[ext_resource type="AudioStream" uid="uid://s0vw7paosrxj" path="res://Audio/SFX/Frying.mp3" id="5_2sovv"]
+[ext_resource type="AudioStream" uid="uid://c05h7wty0krgs" path="res://Audio/SFX/Frying.mp3" id="5_2sovv"]
 [ext_resource type="PackedScene" uid="uid://b5m6iqwc8owc3" path="res://Scenes/misc/fading_audio_stream_player_3d.tscn" id="5_i26ua"]
 [ext_resource type="PackedScene" uid="uid://bcaj1x735ohkd" path="res://Scenes/misc/bump_sound_player.tscn" id="7_e0eit"]
 [ext_resource type="AudioStream" uid="uid://bkkbsi7vfdoq3" path="res://Audio/SFX/BumpP.mp3" id="8_e0eit"]
@@ -117,7 +117,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.192615, 0, 0)
 
 [node name="CookingAudio" parent="." instance=ExtResource("5_i26ua")]
 stream = ExtResource("5_2sovv")
-volume_db = -25.0
+volume_db = -5.0
 fade_in_time = 0.4
 fade_out_time = 1.0
 
