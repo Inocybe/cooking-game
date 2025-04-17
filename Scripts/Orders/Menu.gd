@@ -82,7 +82,7 @@ static func compatible_components(component: FoodComponent) -> Array[FoodCompone
 
 static func item_price(item: Item) -> float:
 	return {
-		Item.HamBurger: 8,
-		Item.Fries: 4,
-		Item.Soda: 2
+		Item.HamBurger: 16,
+		Item.Fries: 8,
+		Item.Soda: 6
 	} [item]

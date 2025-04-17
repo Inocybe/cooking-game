@@ -82,15 +82,14 @@ func make_customer_order() -> void:
 	if customer.can_order():
 		customer.go_to_order()
 
-##########################
 
-#TODO implement this shit to do right thing
 func register_completed_dish(dish: Node3D) -> void:
 	var base_worth: float = calculate_worth(dish)
 	var worth: float = base_worth * dish.get_order_quality()
 	
 	Global.game_manager.money += worth
 	Global.game_manager.orders_complete += 1
+
 
 func calculate_worth(dish: Node3D) -> float:
 	var worth: float = 0

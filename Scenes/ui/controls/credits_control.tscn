@@ -101,7 +101,9 @@ text = "[b]Design[/b]
 
 [url=https://www.youtube.com/watch?v=RakpnCKlABg]Free sound effect. Bacon sizzles cooking frying[/url]
 
-[url=https://github.com/GodotVR/godot-xr-tools]Godot XR Tools[/url], MIT License"
+[url=https://github.com/GodotVR/godot-xr-tools]Godot XR Tools[/url], MIT License
+
+[url=https://fonts.withgoogle.com/tilt#neon]Tilt Neon[/url], under the [url=https://openfontlicense.org/open-font-license-official-text/]SIL Open Font License, Version 1.1[/url]"
 script = ExtResource("1_5ut88")
 
 [connection signal="pressed" from="VBoxContainer/Top/MarginContainer/HBoxContainer/Exit" to="." method="set_visible" binds= [false]]
