@@ -17,7 +17,7 @@ func _ready() -> void:
 	reposition()
 	
 	$Button.pressed.connect(on_button_pressed)
-	$Button.text = town.name
+	$Button.text = " "+town.name+" "
 	
 	town.random_weather()
 	show_town_values()
