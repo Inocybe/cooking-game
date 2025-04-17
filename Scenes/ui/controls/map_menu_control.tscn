@@ -84,6 +84,7 @@ town = SubResource("Resource_p5u53")
 position_fraction = Vector2(0.7, 0.4)
 
 [node name="Town3" parent="." instance=ExtResource("3_cpcl8")]
+layout_mode = 0
 offset_left = 545.0
 offset_top = 478.0
 offset_right = 615.0

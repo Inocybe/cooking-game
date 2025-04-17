@@ -1,16 +1,41 @@
-[gd_scene load_steps=14 format=3 uid="uid://b63qhctnjuprt"]
+[gd_scene load_steps=17 format=3 uid="uid://b63qhctnjuprt"]
 
-[ext_resource type="Script" uid="uid://dqnwas2qwdak3" path="res://Scripts/UI/SettingsControl.gd" id="1_2w27d"]
-[ext_resource type="Script" uid="uid://cy78ks14ged5q" path="res://Scripts/UI/SettingControl.gd" id="1_iyjrv"]
+[ext_resource type="Script" path="res://Scripts/UI/SettingsControl.gd" id="1_2w27d"]
+[ext_resource type="Script" path="res://Scripts/UI/SettingControl.gd" id="1_iyjrv"]
 [ext_resource type="ButtonGroup" uid="uid://7kxiih08be1x" path="res://Assets/Misc/SettingsVRModeButtonGroup.tres" id="3_638ql"]
-[ext_resource type="Script" uid="uid://c2xivkwymlvht" path="res://Scripts/Misc/VRToggler.gd" id="3_xqjff"]
-[ext_resource type="Script" uid="uid://c2rrnshh68u56" path="res://Scripts/UI/ButtonGroupSetting.gd" id="5_nxibr"]
+[ext_resource type="Script" uid="uid://mg053f7nlefe" path="res://Scripts/UI/SliderScaler.gd" id="3_fc6kx"]
+[ext_resource type="Script" path="res://Scripts/Misc/VRToggler.gd" id="3_xqjff"]
+[ext_resource type="Script" path="res://Scripts/UI/ButtonGroupSetting.gd" id="5_nxibr"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_f0a0s"]
 bg_color = Color(0.84, 0.84, 0.84, 0.85098)
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_iyjrv"]
 bg_color = Color(1, 1, 1, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_65kou"]
+content_margin_left = 4.0
+content_margin_top = 4.0
+content_margin_right = 4.0
+content_margin_bottom = 4.0
+bg_color = Color(0.1, 0.1, 0.1, 0.6)
+corner_radius_top_left = 4
+corner_radius_top_right = 4
+corner_radius_bottom_right = 4
+corner_radius_bottom_left = 4
+corner_detail = 6
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_nvavk"]
+content_margin_left = 4.0
+content_margin_top = 0.0
+content_margin_right = 4.0
+content_margin_bottom = 0.0
+bg_color = Color(0.1, 0.1, 0.1, 0.6)
+corner_radius_top_left = 4
+corner_radius_top_right = 4
+corner_radius_bottom_right = 4
+corner_radius_bottom_left = 4
+corner_detail = 6
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_fc6kx"]
 content_margin_left = 4.0
@@ -154,11 +179,16 @@ size_flags_horizontal = 3
 custom_minimum_size = Vector2(700, 0)
 layout_mode = 2
 size_flags_vertical = 4
+theme_override_styles/slider = SubResource("StyleBoxFlat_65kou")
 max_value = 1.0
 step = 0.01
 script = ExtResource("1_iyjrv")
 prop_name = "value"
 setting_name = "overall_volume"
+
+[node name="SliderScaler" type="Node" parent="VBoxContainer/Bottom/MarginContainer/ScrollContainer/VBoxContainer/VolumeRow/HSlider"]
+script = ExtResource("3_fc6kx")
+stylebox = SubResource("StyleBoxFlat_nvavk")
 
 [node name="MusicVolumeRow" type="HBoxContainer" parent="VBoxContainer/Bottom/MarginContainer/ScrollContainer/VBoxContainer"]
 clip_contents = true
@@ -183,6 +213,10 @@ step = 0.01
 script = ExtResource("1_iyjrv")
 prop_name = "value"
 setting_name = "music_volume"
+
+[node name="SliderScaler" type="Node" parent="VBoxContainer/Bottom/MarginContainer/ScrollContainer/VBoxContainer/MusicVolumeRow/HSlider"]
+script = ExtResource("3_fc6kx")
+stylebox = SubResource("StyleBoxFlat_nvavk")
 
 [node name="VRModeRow" type="HBoxContainer" parent="VBoxContainer/Bottom/MarginContainer/ScrollContainer/VBoxContainer"]
 custom_minimum_size = Vector2(0, 35)
