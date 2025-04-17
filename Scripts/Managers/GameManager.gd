@@ -1,6 +1,8 @@
 class_name GameManager extends Node
 
 
+const DAY_LENGTH = 300
+
 @onready var order_manager: OrderManager = $OrderManager
 @onready var weather_manager: WeatherManager = $WeatherManager
 @onready var town_manager: TownManager = $TownManager
@@ -12,8 +14,12 @@ var customer_manager: CustomerManager = null
 var money: float = 0
 var orders_complete: int = 0
 
+var time_remaining: float = 0
+
 
 func _ready() -> void:
+	Global.game_manager = self
+	
 	Input.mouse_mode = Input.MOUSE_MODE_CAPTURED
 	set_process_input(true)
 	
@@ -22,10 +28,13 @@ func _ready() -> void:
 	food_truck = current_scene.get_node_or_null("FoodTruck")
 	customer_manager = current_scene.get_node_or_null("CustomerManager")
 	
-	Global.game_manager = self
-	
 	if Global.town != null:
 		town_manager.load_town(Global.town)
+
+
+func _process(delta: float) -> void:
+	if not get_tree().paused:
+		time_remaining -= delta
 
 
 func get_camera_node() -> Node3D:
