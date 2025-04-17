@@ -1,12 +1,10 @@
 class_name TownResource extends Resource
 
 
-const pop_min: int = 50
-const pop_max: int = 500
-
 @export var name: String
-@export var town_int: int = 0
-@export_range(pop_min, pop_max, 1) var population: int
+@export var town_int: int
+@export var population: int
+@export var opening_hours: float
 var temperature: float
 var weather: WeatherManager.WeatherType
 

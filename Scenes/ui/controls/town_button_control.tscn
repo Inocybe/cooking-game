@@ -86,8 +86,8 @@ layout_mode = 2
 [node name="PanelContainer" type="PanelContainer" parent="TextHolder"]
 modulate = Color(1, 1, 1, 0)
 layout_mode = 0
-offset_right = 132.0
-offset_bottom = 94.0
+offset_right = 134.0
+offset_bottom = 109.0
 
 [node name="Margin" type="MarginContainer" parent="TextHolder/PanelContainer"]
 layout_mode = 2
@@ -102,7 +102,8 @@ layout_mode = 2
 mouse_filter = 2
 text = "Weather:
 Tempurature:
-Population:"
+Population:
+Opening hours:"
 fit_content = true
 autowrap_mode = 0
 shortcut_keys_enabled = false
