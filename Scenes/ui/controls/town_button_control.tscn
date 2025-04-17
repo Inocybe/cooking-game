@@ -86,15 +86,15 @@ layout_mode = 2
 [node name="PanelContainer" type="PanelContainer" parent="TextHolder"]
 modulate = Color(1, 1, 1, 0)
 layout_mode = 0
-offset_right = 117.0
-offset_bottom = 79.0
+offset_right = 132.0
+offset_bottom = 94.0
 
 [node name="Margin" type="MarginContainer" parent="TextHolder/PanelContainer"]
 layout_mode = 2
-theme_override_constants/margin_left = 5
-theme_override_constants/margin_top = 5
-theme_override_constants/margin_right = 5
-theme_override_constants/margin_bottom = 5
+theme_override_constants/margin_left = 15
+theme_override_constants/margin_top = 10
+theme_override_constants/margin_right = 10
+theme_override_constants/margin_bottom = 15
 
 [node name="Text" type="RichTextLabel" parent="TextHolder/PanelContainer/Margin"]
 unique_name_in_owner = true

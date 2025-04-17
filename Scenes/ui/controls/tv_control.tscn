@@ -1,9 +1,10 @@
-[gd_scene load_steps=5 format=3 uid="uid://dts51sc5121xa"]
+[gd_scene load_steps=6 format=3 uid="uid://dts51sc5121xa"]
 
 [ext_resource type="Script" uid="uid://2pes0nvg65su" path="res://Scripts/UI/MainControl.gd" id="1_dxuk2"]
 [ext_resource type="Script" uid="uid://cf043oqdpedvq" path="res://Scripts/UI/Maximizer.gd" id="2_3snea"]
 [ext_resource type="Script" uid="uid://ow5sv4ia1ah3" path="res://Scripts/UI/PauseButton.gd" id="3_oxpqp"]
 [ext_resource type="PackedScene" uid="uid://b63qhctnjuprt" path="res://Scenes/ui/controls/settings_control.tscn" id="4_6sim7"]
+[ext_resource type="PackedScene" uid="uid://kak2nmvvxfq3" path="res://Scenes/ui/controls/info_control.tscn" id="5_52x1k"]
 
 [node name="TVControl" type="Control"]
 process_mode = 3
@@ -123,8 +124,18 @@ layout_mode = 2
 size_flags_vertical = 3
 text = "Settings"
 
+[node name="InfoButton" type="Button" parent="TVMenu/Right/MarginContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+text = "Info"
+
 [node name="SettingsControl" parent="." instance=ExtResource("4_6sim7")]
 visible = false
 layout_mode = 1
 
+[node name="InfoControl" parent="." instance=ExtResource("5_52x1k")]
+visible = false
+layout_mode = 1
+
 [connection signal="pressed" from="TVMenu/Right/MarginContainer/VBoxContainer/SettingsButton" to="SettingsControl" method="set_visible" binds= [true]]
+[connection signal="pressed" from="TVMenu/Right/MarginContainer/VBoxContainer/InfoButton" to="InfoControl" method="set_visible" binds= [true]]
