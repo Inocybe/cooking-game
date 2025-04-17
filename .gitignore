@@ -11,4 +11,9 @@ export_presets.cfg
 **/.DS_Store
 .bin
 
-CookingGame.apk
+/CookingGame.apk
+/CookingGame.dmg
+/CookingGame.pck
+/CookingGame.x86_64
+/libgodotopenxrvendors.so
+

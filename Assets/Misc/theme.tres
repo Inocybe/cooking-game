@@ -1,6 +1,9 @@
-[gd_resource type="Theme" load_steps=2 format=3 uid="uid://ce3tr1y7njsna"]
+[gd_resource type="Theme" load_steps=3 format=3 uid="uid://ce3tr1y7njsna"]
+
+[ext_resource type="FontFile" uid="uid://c4pjaw6cwa1wq" path="res://Assets/Misc/TiltNeon-Regular-VariableFont_XROT,YROT.ttf" id="1_34iae"]
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_4w5kh"]
 
 [resource]
+default_font = ExtResource("1_34iae")
 Button/styles/focus = SubResource("StyleBoxEmpty_4w5kh")
