@@ -1,4 +1,4 @@
-[gd_scene load_steps=36 format=3 uid="uid://bktj7ujs6epjv"]
+[gd_scene load_steps=36 format=3 uid="uid://i027iahdt7c1"]
 
 [ext_resource type="PackedScene" uid="uid://dwhxqp50b6ejg" path="res://Assets/LowPoly_Environnment/Environment_1.fbx" id="1_j43i4"]
 [ext_resource type="PackedScene" uid="uid://g2qn7ueg3ev2" path="res://Assets/LowPoly_Environnment/Mounting_1.fbx" id="2_lmx4k"]
