@@ -42,9 +42,10 @@ func on_button_pressed() -> void:
 func show_town_values() -> void:
 	var weather_name = WeatherManager.get_weather_name(town.weather)
 	label.text = """Weather: %s
-Temperature: %s°C
-Population: %s""" % [
-		weather_name, str(town.temperature), str(town.population)
+Temperature: %.2f°C
+Population: %d
+Opening hours: %.f hours""" % [
+		weather_name, town.temperature, town.population, town.opening_hours
 	]
 
 
