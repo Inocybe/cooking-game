@@ -5,7 +5,7 @@ class_name MainControl extends Control
 @onready var orders_complete: Label = %OrdersCompleteDisplay
 @onready var time_remaining: Label = %TimeRemaining
 
-@export var font_size: float = 16
+@export var font_size: int = 16
 
 
 func _ready() -> void:

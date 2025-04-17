@@ -1,26 +1,27 @@
 extends Control
 
 
-const SCENE_ATTACHED: String = "res://Scenes/mains/world.tscn"
+const WORLD_SCENE: String = "res://Scenes/mains/world.tscn"
 
-@onready var town: TownResource = TownResource.new()
 @onready var animation_player: AnimationPlayer = $AnimationPlayer
-@onready var label: RichTextLabel = $TextHolder/TextPanel/TextMargin/Text
+@onready var label: RichTextLabel = %Text
 
+@export var town: TownResource
 @export var position_fraction: Vector2
 
 var town_values_shown: bool = false
 
 
 func _ready() -> void:
-	$Button.pressed.connect(on_button_pressed)
-	
 	get_parent().resized.connect(reposition)
 	reposition()
 	
-	town.random_everything()
-	set_town_values()
-	async_load()
+	$Button.pressed.connect(on_button_pressed)
+	$Button.text = town.name
+	
+	town.random_weather()
+	show_town_values()
+	async_load_world()
 
 
 func reposition() -> void:
@@ -31,13 +32,14 @@ func on_button_pressed() -> void:
 	if town_values_shown:
 		town_values_shown = false
 		Global.town = town
-		Global.switch_scenes(ResourceLoader.load_threaded_get(SCENE_ATTACHED))
+		var world_scene = ResourceLoader.load_threaded_get(WORLD_SCENE)
+		Global.switch_scenes(world_scene)
 	else:
 		town_values_shown = true
 		animation_player.play("display_town_values")
 
 
-func set_town_values() -> void:
+func show_town_values() -> void:
 	var weather_name = WeatherManager.get_weather_name(town.weather)
 	label.text = """Weather: %s
 Temperature: %s°C
@@ -46,5 +48,5 @@ Population: %s""" % [
 	]
 
 
-func async_load() -> void:
-	ResourceLoader.load_threaded_request(SCENE_ATTACHED)
+func async_load_world() -> void:
+	ResourceLoader.load_threaded_request(WORLD_SCENE)
