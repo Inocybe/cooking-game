@@ -2,7 +2,8 @@ class_name TownManager extends Node
 
 
 var town_scene_paths: Dictionary[int, String] = {
-	0: "res://Scenes/towns/town_1.tscn"
+	0: "res://Scenes/towns/town_1.tscn",
+	1: "res://Scenes/towns/town_2.tscn"
 }
 
 
