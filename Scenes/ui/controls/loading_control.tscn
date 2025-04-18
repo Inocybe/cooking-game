@@ -1,6 +1,6 @@
 [gd_scene load_steps=5 format=3 uid="uid://c0etxlxqpnvgb"]
 
-[ext_resource type="Script" uid="uid://dvdxwlvx6sdxv" path="res://Scenes/ui/controls/FontScaler.gd" id="1_j86gl"]
+[ext_resource type="Script" uid="uid://dvdxwlvx6sdxv" path="res://Scripts/UI/Utils/FontScaler.gd" id="1_j86gl"]
 
 [sub_resource type="Animation" id="Animation_j86gl"]
 resource_name = "fade_in_out"

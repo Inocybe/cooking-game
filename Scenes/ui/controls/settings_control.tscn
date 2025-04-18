@@ -1,11 +1,11 @@
 [gd_scene load_steps=17 format=3 uid="uid://b63qhctnjuprt"]
 
 [ext_resource type="Script" path="res://Scripts/UI/SettingsControl.gd" id="1_2w27d"]
-[ext_resource type="Script" path="res://Scripts/UI/SettingControl.gd" id="1_iyjrv"]
+[ext_resource type="Script" uid="uid://cy78ks14ged5q" path="res://Scripts/UI/Utils/SettingControl.gd" id="1_iyjrv"]
 [ext_resource type="ButtonGroup" uid="uid://7kxiih08be1x" path="res://Assets/Misc/SettingsVRModeButtonGroup.tres" id="3_638ql"]
-[ext_resource type="Script" uid="uid://mg053f7nlefe" path="res://Scripts/UI/SliderScaler.gd" id="3_fc6kx"]
+[ext_resource type="Script" uid="uid://mg053f7nlefe" path="res://Scripts/UI/Utils/SliderScaler.gd" id="3_fc6kx"]
 [ext_resource type="Script" path="res://Scripts/Misc/VRToggler.gd" id="3_xqjff"]
-[ext_resource type="Script" path="res://Scripts/UI/ButtonGroupSetting.gd" id="5_nxibr"]
+[ext_resource type="Script" uid="uid://c2rrnshh68u56" path="res://Scripts/UI/Utils/ButtonGroupSetting.gd" id="5_nxibr"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_f0a0s"]
 bg_color = Color(0.84, 0.84, 0.84, 0.85098)
