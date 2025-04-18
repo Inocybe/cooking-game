@@ -140,6 +140,8 @@ func _process(delta: float) -> void:
 	if is_trigger and not was_trigger:
 		for object: Node3D in boundaried_objects:
 			held_enter(object)
+		if Global.is_vr_avaliable():
+			try_remote_interact()
 	elif not is_trigger and was_trigger:
 		if held_object != null:
 			held_exit(held_object)

@@ -40,10 +40,18 @@ func _ready():
 	
 	game_manager = current_scene.get_node_or_null("GameManager")
 	
+	check_XR()
+
+
+func create_XR_manager(xr_interface: XRInterface) -> void:
+	xr_manager = XR_SYSTEM.instantiate()
+	xr_manager.xr_interface = xr_interface
+	get_tree().get_root().add_child.call_deferred(xr_manager)
+
+
+func check_window_resizes() -> void:
 	get_tree().get_root().size_changed.connect(on_window_resize)
 	on_window_resize()
-	
-	check_XR()
 
 
 func on_window_resize() -> void:
@@ -63,15 +71,14 @@ func notify_has_XR(function: Callable) -> void:
 
 func check_XR() -> void:
 	var xr_interface = XRServer.find_interface("OpenXR")
-	if xr_interface and xr_interface.is_initialized():
-		xr_manager = XR_SYSTEM.instantiate()
-		xr_manager.xr_interface = xr_interface
-		get_tree().get_root().add_child.call_deferred(xr_manager)
-		has_XR_detected.emit.call_deferred(true)
-		has_XR = true
+	has_XR = xr_interface and xr_interface.is_initialized()
+	
+	if has_XR:
+		create_XR_manager(xr_interface)
 	else:
-		has_XR_detected.emit.call_deferred(false)
-		has_XR = false
+		check_window_resizes()
+	
+	has_XR_detected.emit.call_deferred(has_XR)
 	has_XR_known = true
 
 

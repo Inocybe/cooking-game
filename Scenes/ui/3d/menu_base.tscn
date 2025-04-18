@@ -32,7 +32,7 @@ script = ExtResource("1_urmen")
 mode = 0
 
 [node name="XRMenu" type="StaticBody3D" parent="VRMode" node_paths=PackedStringArray("subviewport") groups=["remote-interactable", "world-ui"]]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -6.234)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.88047, -6.234)
 script = ExtResource("2_1yvy4")
 subviewport = NodePath("../../SubViewportContainer/SubViewport")
 
