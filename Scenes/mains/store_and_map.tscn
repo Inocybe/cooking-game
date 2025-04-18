@@ -1,11 +1,11 @@
 [gd_scene load_steps=15 format=3 uid="uid://bw36k3ukcwx6v"]
 
-[ext_resource type="Script" uid="uid://cwjeyrycu42wp" path="res://Scripts/UI/Map/StoreAndMap.gd" id="1_sm8pa"]
+[ext_resource type="Script" path="res://Scripts/UI/Map/StoreAndMap.gd" id="1_sm8pa"]
 [ext_resource type="PackedScene" uid="uid://jj8yuf0syk57" path="res://Scenes/managers/game_manager.tscn" id="2_h0qom"]
 [ext_resource type="PackedScene" uid="uid://5s3oxlpup0wy" path="res://Scenes/player/player.tscn" id="3_maho0"]
 [ext_resource type="PackedScene" uid="uid://cd7anw3qhpovq" path="res://Scenes/ui/controls/map_menu_control.tscn" id="4_0qhvs"]
-[ext_resource type="PackedScene" uid="uid://ddg2hu51lb6u0" path="res://Scenes/ui/controls/stock_menu_control.tscn" id="5_joso6"]
-[ext_resource type="Script" uid="uid://cl8g4o5eqqnp5" path="res://Scripts/UI/Bases/UIControllerBase.gd" id="6_joso6"]
+[ext_resource type="PackedScene" uid="uid://ddg2hu51lb6u0" path="res://Scenes/ui/controls/store_menu_control.tscn" id="5_joso6"]
+[ext_resource type="Script" uid="uid://cl8g4o5eqqnp5" path="res://Scripts/UI/Utils/UIControllerBase.gd" id="6_joso6"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_sm8pa"]
 

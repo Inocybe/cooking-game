@@ -1,8 +1,8 @@
 [gd_scene load_steps=10 format=3 uid="uid://bg140mjfbjdcp"]
 
 [ext_resource type="Script" path="res://Scripts/Misc/VRToggler.gd" id="1_urmen"]
-[ext_resource type="Script" uid="uid://cl8g4o5eqqnp5" path="res://Scripts/UI/Bases/UIControllerBase.gd" id="2_1yvy4"]
-[ext_resource type="Script" uid="uid://co7l711gsn0tj" path="res://Scripts/UI/VRSubViewportMover.gd" id="3_1yvy4"]
+[ext_resource type="Script" uid="uid://cl8g4o5eqqnp5" path="res://Scripts/UI/Utils/UIControllerBase.gd" id="2_1yvy4"]
+[ext_resource type="Script" uid="uid://co7l711gsn0tj" path="res://Scripts/UI/Utils/VRSubViewportMover.gd" id="3_1yvy4"]
 [ext_resource type="Script" path="res://Scripts/Misc/SetGameState.gd" id="3_akg3o"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_107eu"]

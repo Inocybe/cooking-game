@@ -1,0 +1,14 @@
+[gd_scene load_steps=4 format=3 uid="uid://c0fha8u4qdysr"]
+
+[ext_resource type="PackedScene" uid="uid://bg140mjfbjdcp" path="res://Scenes/ui/menu_base.tscn" id="1_piw6m"]
+[ext_resource type="PackedScene" uid="uid://dm5580jkhjqib" path="res://Scenes/ui/controls/day_over_control.tscn" id="2_2i5xg"]
+
+[sub_resource type="ViewportTexture" id="ViewportTexture_8c5nb"]
+viewport_path = NodePath("SubViewportContainer/SubViewport")
+
+[node name="MenuBase" instance=ExtResource("1_piw6m")]
+
+[node name="Sprite3D" parent="VRMode/XRMenu" index="0"]
+texture = SubResource("ViewportTexture_8c5nb")
+
+[node name="DayOverControl" parent="SubViewportContainer/SubViewport" index="0" instance=ExtResource("2_2i5xg")]
