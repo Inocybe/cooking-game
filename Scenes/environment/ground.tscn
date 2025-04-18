@@ -1,6 +1,6 @@
 [gd_scene load_steps=11 format=3 uid="uid://c52i2exeeb6uq"]
 
-[ext_resource type="Shader" uid="uid://dgsm0n0q72c8u" path="res://Scripts/Shaders/SandShader.gdshader" id="1_x6tu0"]
+[ext_resource type="Shader" path="res://Scripts/Shaders/SandShader.gdshader" id="1_x6tu0"]
 
 [sub_resource type="WorldBoundaryShape3D" id="WorldBoundaryShape3D_wlqu1"]
 
@@ -49,9 +49,5 @@ collision_mask = 7
 shape = SubResource("WorldBoundaryShape3D_wlqu1")
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="."]
-mesh = SubResource("PlaneMesh_o37bp")
-surface_material_override/0 = SubResource("ShaderMaterial_43k67")
-
-[node name="MeshInstance3D2" type="MeshInstance3D" parent="."]
 mesh = SubResource("PlaneMesh_o37bp")
 surface_material_override/0 = SubResource("ShaderMaterial_43k67")

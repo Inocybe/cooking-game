@@ -1,10 +1,12 @@
-[gd_scene load_steps=6 format=3 uid="uid://dts51sc5121xa"]
+[gd_scene load_steps=8 format=3 uid="uid://dts51sc5121xa"]
 
 [ext_resource type="Script" uid="uid://2pes0nvg65su" path="res://Scripts/UI/MainControl.gd" id="1_dxuk2"]
 [ext_resource type="Script" uid="uid://cf043oqdpedvq" path="res://Scripts/UI/Utils/Maximizer.gd" id="2_3snea"]
 [ext_resource type="Script" uid="uid://ow5sv4ia1ah3" path="res://Scripts/UI/PauseButton.gd" id="3_oxpqp"]
 [ext_resource type="PackedScene" uid="uid://b63qhctnjuprt" path="res://Scenes/ui/controls/settings_control.tscn" id="4_6sim7"]
+[ext_resource type="Script" uid="uid://wojbfe5vhxlf" path="res://Scripts/UI/Utils/SwitchSceneButton.gd" id="4_a8dsq"]
 [ext_resource type="PackedScene" uid="uid://kak2nmvvxfq3" path="res://Scenes/ui/controls/info_control.tscn" id="5_52x1k"]
+[ext_resource type="PackedScene" uid="uid://cltfmjw0bavf4" path="res://Scenes/mains/main_menu.tscn" id="5_feli1"]
 
 [node name="TVControl" type="Control"]
 process_mode = 3
@@ -123,6 +125,13 @@ script = ExtResource("3_oxpqp")
 layout_mode = 2
 size_flags_vertical = 3
 text = "Settings"
+
+[node name="ExitToMenuButton" type="Button" parent="TVMenu/Right/MarginContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+text = "Exit to Menu"
+script = ExtResource("4_a8dsq")
+new_scene = ExtResource("5_feli1")
 
 [node name="InfoButton" type="Button" parent="TVMenu/Right/MarginContainer/VBoxContainer"]
 layout_mode = 2

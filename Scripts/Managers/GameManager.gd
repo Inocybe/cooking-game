@@ -15,7 +15,7 @@ var customer_manager: CustomerManager = null
 var money: float = 0
 var orders_complete: int = 0
 
-var time_remaining: float = 0
+var time_remaining: float = INF
 
 
 func _ready() -> void:
