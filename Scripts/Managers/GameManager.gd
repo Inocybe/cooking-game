@@ -2,7 +2,7 @@ class_name GameManager extends Node
 
 
 const DAY_LENGTH = 300
-const day_over_path
+# const day_over_path
 
 @onready var order_manager: OrderManager = $OrderManager
 @onready var weather_manager: WeatherManager = $WeatherManager
@@ -41,7 +41,7 @@ func _process(delta: float) -> void:
 
 
 func day_time_expired() -> void:
-	Global.switch_scenes_with_path()
+	pass # Global.switch_scenes_with_path()
 
 
 func get_camera_node() -> Node3D:

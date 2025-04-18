@@ -2,7 +2,7 @@
 
 [ext_resource type="Script" uid="uid://iaxxksuvxj6m" path="res://Scripts/Rigidbodies/Holdable.gd" id="1_l2tuy"]
 [ext_resource type="PackedScene" uid="uid://bcaj1x735ohkd" path="res://Scenes/misc/bump_sound_player.tscn" id="2_1yahp"]
-[ext_resource type="Script" uid="uid://bxmtc4j4eepb1" path="res://Scenes/player/tools/MopBrush.gd" id="2_4gj1t"]
+[ext_resource type="Script" uid="uid://bxmtc4j4eepb1" path="res://Scripts/Foodtruck/Interior/Tools/MopBrush.gd" id="2_4gj1t"]
 [ext_resource type="AudioStream" uid="uid://cmpw5q0s5qkmp" path="res://Audio/SFX/Metal8.mp3" id="3_cnmyu"]
 [ext_resource type="AudioStream" uid="uid://bgkro42wo70pb" path="res://Audio/SFX/Swish1-1.mp3" id="3_rqjo2"]
 [ext_resource type="AudioStream" uid="uid://bfsc06m3cb211" path="res://Audio/SFX/Swish1-2.mp3" id="4_fhleh"]

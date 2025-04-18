@@ -1,6 +1,6 @@
 [gd_scene load_steps=11 format=3 uid="uid://cc6na2w6f2gjp"]
 
-[ext_resource type="Script" uid="uid://076ecec87dmf" path="res://Scripts/Foodtruck/Interior/TrashCan.gd" id="1_qsd77"]
+[ext_resource type="Script" uid="uid://076ecec87dmf" path="res://Scripts/Foodtruck/Interior/Tools/TrashCan.gd" id="1_qsd77"]
 [ext_resource type="ArrayMesh" uid="uid://x6fq25ipncwe" path="res://Assets/interior/can/can.obj" id="2_jjh1e"]
 [ext_resource type="AudioStream" uid="uid://c3j7qhjytdyfo" path="res://Audio/SFX/Trash1.mp3" id="3_jjh1e"]
 
