@@ -1,7 +1,7 @@
 [gd_scene load_steps=10 format=3 uid="uid://b2x5v5mwhvvmy"]
 
-[ext_resource type="Script" uid="uid://dt28wqqx1o362" path="res://Scripts/Foodtruck/Interior/FinishedOrderBell.gd" id="1_mnf1m"]
-[ext_resource type="AudioStream" uid="uid://c1w5tlhuxghqq" path="res://Audio/SFX/Bell.mp3" id="2_0cltc"]
+[ext_resource type="Script" uid="uid://dt28wqqx1o362" path="res://Scripts/Foodtruck/Interior/Tools/FinishedOrderBell.gd" id="1_mnf1m"]
+[ext_resource type="AudioStream" uid="uid://dtbq768pk2f27" path="res://Audio/SFX/Bell.mp3" id="2_0cltc"]
 [ext_resource type="ArrayMesh" uid="uid://cao304kps4u42" path="res://Assets/interior/bell/Bell.obj" id="2_ly7lf"]
 
 [sub_resource type="ConvexPolygonShape3D" id="ConvexPolygonShape3D_ly7lf"]
