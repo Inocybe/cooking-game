@@ -86,8 +86,8 @@ layout_mode = 2
 [node name="PanelContainer" type="PanelContainer" parent="TextHolder"]
 modulate = Color(1, 1, 1, 0)
 layout_mode = 0
-offset_right = 134.0
-offset_bottom = 109.0
+offset_right = 144.0
+offset_bottom = 117.0
 
 [node name="Margin" type="MarginContainer" parent="TextHolder/PanelContainer"]
 layout_mode = 2
