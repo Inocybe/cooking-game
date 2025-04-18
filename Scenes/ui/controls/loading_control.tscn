@@ -1,0 +1,84 @@
+[gd_scene load_steps=5 format=3 uid="uid://c0etxlxqpnvgb"]
+
+[ext_resource type="Script" uid="uid://dvdxwlvx6sdxv" path="res://Scenes/ui/controls/FontScaler.gd" id="1_j86gl"]
+
+[sub_resource type="Animation" id="Animation_j86gl"]
+resource_name = "fade_in_out"
+length = 2.0
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Label:modulate")
+tracks/0/interp = 2
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1, 2),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 1), Color(1, 1, 1, 0.321569), Color(1, 1, 1, 1)]
+}
+
+[sub_resource type="Animation" id="Animation_7uca2"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Label:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 1)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_nhcy5"]
+_data = {
+&"RESET": SubResource("Animation_7uca2"),
+&"fade_in_out": SubResource("Animation_j86gl")
+}
+
+[node name="LoadingControl" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="ColorRect" type="ColorRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0, 0, 1)
+
+[node name="Label" type="Label" parent="ColorRect"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -35.0
+offset_top = -10.5
+offset_right = 35.0
+offset_bottom = 10.5
+grow_horizontal = 2
+grow_vertical = 2
+text = "Loading..."
+
+[node name="FontScaler" type="Node" parent="ColorRect/Label"]
+script = ExtResource("1_j86gl")
+font_scale = 3.0
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="ColorRect"]
+libraries = {
+&"": SubResource("AnimationLibrary_nhcy5")
+}
+autoplay = "fade_in_out"
+speed_scale = 1.5

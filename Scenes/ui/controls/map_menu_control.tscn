@@ -1,8 +1,9 @@
-[gd_scene load_steps=8 format=3 uid="uid://cd7anw3qhpovq"]
+[gd_scene load_steps=9 format=3 uid="uid://cd7anw3qhpovq"]
 
 [ext_resource type="Script" uid="uid://c3h5ekk41jdvq" path="res://Scripts/UI/Map/MapControl.gd" id="1_cpcl8"]
 [ext_resource type="PackedScene" uid="uid://dfdlj4k1uqvm2" path="res://Scenes/ui/controls/town_button_control.tscn" id="3_cpcl8"]
 [ext_resource type="Script" uid="uid://dhe534odp4ri1" path="res://Scripts/UI/Map/Resources/TownResource.gd" id="4_p5u53"]
+[ext_resource type="PackedScene" uid="uid://c0etxlxqpnvgb" path="res://Scenes/ui/controls/loading_control.tscn" id="4_r10et"]
 
 [sub_resource type="PlaceholderTexture2D" id="PlaceholderTexture2D_cpcl8"]
 
@@ -78,7 +79,7 @@ theme_override_constants/margin_bottom = 5
 layout_mode = 2
 text = "Choose where to drive your food truck"
 
-[node name="Town1" parent="TextureRect" instance=ExtResource("3_cpcl8")]
+[node name="Town1" parent="TextureRect" node_paths=PackedStringArray("map_control") instance=ExtResource("3_cpcl8")]
 layout_mode = 0
 offset_left = 158.0
 offset_top = 130.0
@@ -86,8 +87,9 @@ offset_right = 228.0
 offset_bottom = 170.0
 town = SubResource("Resource_r10et")
 position_fraction = Vector2(0.3, 0.2)
+map_control = NodePath("../..")
 
-[node name="Town2" parent="TextureRect" instance=ExtResource("3_cpcl8")]
+[node name="Town2" parent="TextureRect" node_paths=PackedStringArray("map_control") instance=ExtResource("3_cpcl8")]
 layout_mode = 0
 offset_left = 598.0
 offset_top = 126.0
@@ -95,8 +97,9 @@ offset_right = 668.0
 offset_bottom = 166.0
 town = SubResource("Resource_p5u53")
 position_fraction = Vector2(0.7, 0.4)
+map_control = NodePath("../..")
 
-[node name="Town3" parent="TextureRect" instance=ExtResource("3_cpcl8")]
+[node name="Town3" parent="TextureRect" node_paths=PackedStringArray("map_control") instance=ExtResource("3_cpcl8")]
 layout_mode = 0
 offset_left = 545.0
 offset_top = 478.0
@@ -104,3 +107,8 @@ offset_right = 615.0
 offset_bottom = 518.0
 town = SubResource("Resource_xrc3u")
 position_fraction = Vector2(0.1, 0.7)
+map_control = NodePath("../..")
+
+[node name="LoadingControl" parent="." instance=ExtResource("4_r10et")]
+visible = false
+layout_mode = 1
