@@ -1,6 +1,6 @@
 [gd_scene load_steps=8 format=3 uid="uid://dts51sc5121xa"]
 
-[ext_resource type="Script" uid="uid://2pes0nvg65su" path="res://Scripts/UI/MainControl.gd" id="1_dxuk2"]
+[ext_resource type="Script" uid="uid://2pes0nvg65su" path="res://Scripts/UI/TVControl.gd" id="1_dxuk2"]
 [ext_resource type="Script" uid="uid://cf043oqdpedvq" path="res://Scripts/UI/Utils/Maximizer.gd" id="2_3snea"]
 [ext_resource type="Script" uid="uid://ow5sv4ia1ah3" path="res://Scripts/UI/PauseButton.gd" id="3_oxpqp"]
 [ext_resource type="PackedScene" uid="uid://b63qhctnjuprt" path="res://Scenes/ui/controls/settings_control.tscn" id="4_6sim7"]

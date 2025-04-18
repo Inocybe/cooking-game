@@ -1,7 +1,7 @@
 extends Control
 
 
-const MAP_MENU: String = ("res://Scenes/mains/map_menu.tscn")
+const MAP_MENU: String = "res://Scenes/mains/map_menu.tscn"
 
 
 func start_pressed() -> void:
