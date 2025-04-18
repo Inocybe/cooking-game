@@ -1,6 +1,7 @@
-[gd_scene load_steps=11 format=3 uid="uid://cd7anw3qhpovq"]
+[gd_scene load_steps=12 format=3 uid="uid://cd7anw3qhpovq"]
 
 [ext_resource type="Script" uid="uid://c3h5ekk41jdvq" path="res://Scripts/UI/Map/MapControl.gd" id="1_cpcl8"]
+[ext_resource type="Script" uid="uid://bd6g13bpjx76" path="res://Scripts/UI/DisplayDayCount.gd" id="2_bt6lr"]
 [ext_resource type="Script" uid="uid://wojbfe5vhxlf" path="res://Scripts/UI/Utils/SwitchSceneButton.gd" id="2_xrc3u"]
 [ext_resource type="PackedScene" uid="uid://cltfmjw0bavf4" path="res://Scenes/mains/main_menu.tscn" id="3_bt6lr"]
 [ext_resource type="PackedScene" uid="uid://dfdlj4k1uqvm2" path="res://Scenes/ui/controls/town_button_control.tscn" id="3_cpcl8"]
@@ -55,6 +56,25 @@ grow_vertical = 2
 texture = SubResource("PlaceholderTexture2D_cpcl8")
 expand_mode = 1
 stretch_mode = 6
+
+[node name="DayLabels" type="HBoxContainer" parent="TextureRect"]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -24.5
+offset_right = 24.5
+offset_bottom = 23.0
+grow_horizontal = 2
+theme_override_constants/separation = 0
+
+[node name="DayTextLabel" type="Label" parent="TextureRect/DayLabels"]
+layout_mode = 2
+text = "Day: "
+
+[node name="DayCountLabel" type="Label" parent="TextureRect/DayLabels"]
+layout_mode = 2
+script = ExtResource("2_bt6lr")
 
 [node name="ExitToMenuButton" type="Button" parent="TextureRect"]
 layout_mode = 1
