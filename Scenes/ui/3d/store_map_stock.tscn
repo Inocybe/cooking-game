@@ -1,8 +1,8 @@
-[gd_scene load_steps=5 format=3 uid="uid://hdyn8pdf5rno"]
+[gd_scene load_steps=5 format=3 uid="uid://b27bvg4ta8a6y"]
 
 [ext_resource type="PackedScene" uid="uid://bg140mjfbjdcp" path="res://Scenes/ui/3d/menu_base.tscn" id="1_41ygu"]
 [ext_resource type="PackedScene" uid="uid://cd7anw3qhpovq" path="res://Scenes/ui/controls/map_menu_control.tscn" id="2_qsr8r"]
-[ext_resource type="PackedScene" uid="uid://ddg2hu51lb6u0" path="res://Scenes/ui/controls/stock_menu_control.tscn" id="2_ygld1"]
+[ext_resource type="PackedScene" uid="uid://ddg2hu51lb6u0" path="res://Scenes/ui/controls/store_menu_control.tscn" id="2_ygld1"]
 
 [sub_resource type="ViewportTexture" id="ViewportTexture_ygld1"]
 viewport_path = NodePath("SubViewportContainer/SubViewport")
