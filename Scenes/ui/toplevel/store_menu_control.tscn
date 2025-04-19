@@ -33,9 +33,6 @@ layout_mode = 2
 text = " Back to Map "
 new_scene = "res://Scenes/mains/map_menu.tscn"
 
-[node name="ExitToMenuButton" parent="ColorRect/VBoxContainer/StatsBox/VBoxContainer" index="8"]
-new_scene = ""
-
 [node name="Body" type="Control" parent="ColorRect/VBoxContainer"]
 layout_mode = 2
 size_flags_vertical = 3
