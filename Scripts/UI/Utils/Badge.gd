@@ -1,4 +1,4 @@
-extends Control
+class_name Badge extends Control
 
 
 const BORDER_RADIUS = 1000
