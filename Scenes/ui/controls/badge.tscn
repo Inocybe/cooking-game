@@ -1,0 +1,31 @@
+[gd_scene load_steps=3 format=3 uid="uid://b7k75vt3n7uch"]
+
+[ext_resource type="Script" uid="uid://cmd116q6a8078" path="res://Scripts/UI/Utils/Badge.gd" id="1_6nbng"]
+[ext_resource type="Script" uid="uid://dvdxwlvx6sdxv" path="res://Scripts/UI/Utils/FontScaler.gd" id="2_2biyt"]
+
+[node name="Badge" type="Control"]
+layout_mode = 3
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+grow_horizontal = 0
+script = ExtResource("1_6nbng")
+
+[node name="Button" type="Button" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -4.0
+offset_top = -4.0
+offset_right = 4.0
+offset_bottom = 4.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "!"
+
+[node name="FontScaler" type="Node" parent="Button"]
+script = ExtResource("2_2biyt")
+font_scale = 0.75

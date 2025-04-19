@@ -1,4 +1,4 @@
-extends Node
+class_name FontScaler extends Node
 
 
 @export var font_scale: float = 2
