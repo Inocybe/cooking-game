@@ -1,11 +1,7 @@
-[gd_scene load_steps=10 format=3 uid="uid://b38ntd24kv4sw"]
+[gd_scene load_steps=6 format=3 uid="uid://b38ntd24kv4sw"]
 
 [ext_resource type="ArrayMesh" uid="uid://d3vbiu4pqys0m" path="res://Assets/interior/cabinet/Cabinet.obj" id="1_t3kqy"]
 [ext_resource type="PackedScene" uid="uid://bvhk5tuyd686e" path="res://Scenes/orders/food/food_spawner.tscn" id="2_tjlfj"]
-[ext_resource type="PackedScene" uid="uid://bk567htcs0xj" path="res://Scenes/orders/food/burger.tscn" id="3_5mlj5"]
-[ext_resource type="PackedScene" uid="uid://ca6thqwccusde" path="res://Scenes/orders/food/cup/cup.tscn" id="4_ikxja"]
-[ext_resource type="PackedScene" uid="uid://cdm4qy124ys6o" path="res://Scenes/orders/food/fries.tscn" id="5_6nmoq"]
-[ext_resource type="PackedScene" uid="uid://b3024k6shxqvg" path="res://Scenes/orders/food/bun.tscn" id="6_qc358"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_ljp5x"]
 albedo_color = Color(0.554954, 0.554954, 0.554954, 1)
@@ -36,22 +32,21 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.00358105, 0.616666, 0.5424
 [node name="Burger Spawner" parent="Spawners" node_paths=PackedStringArray("respawn_bound") instance=ExtResource("2_tjlfj")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.45, 0, 0)
 respawn_bound = NodePath("../../Interior Area")
-food_resource = ExtResource("3_5mlj5")
+food_component = 1
 
 [node name="Cup Spawner" parent="Spawners" node_paths=PackedStringArray("respawn_bound") instance=ExtResource("2_tjlfj")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.15, 0, 0)
 respawn_bound = NodePath("../../Interior Area")
-food_resource = ExtResource("4_ikxja")
+food_component = 3
 
 [node name="Fry Spawner" parent="Spawners" node_paths=PackedStringArray("respawn_bound") instance=ExtResource("2_tjlfj")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.15, 0, 0)
 respawn_bound = NodePath("../../Interior Area")
-food_resource = ExtResource("5_6nmoq")
+food_component = 2
 
 [node name="Bun Spawner" parent="Spawners" node_paths=PackedStringArray("respawn_bound") instance=ExtResource("2_tjlfj")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.45, 0, 0)
 respawn_bound = NodePath("../../Interior Area")
-food_resource = ExtResource("6_qc358")
 
 [node name="Interior Area" type="Area3D" parent="."]
 

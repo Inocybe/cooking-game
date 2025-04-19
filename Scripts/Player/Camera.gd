@@ -3,6 +3,7 @@ class_name Camera extends Camera3D
 
 @export var arm_length: float = 5
 @export var min_hold_dist: float = 0.5
+@export var max_hold_dist: float = 2.5
 @export var hold_dist_sensitivity: float = 0.4
 
 var should_raycast: bool = false
@@ -27,7 +28,7 @@ func _unhandled_input(event: InputEvent) -> void:
 	
 	var scroll: float = Input.get_axis("scroll_down", "scroll_up")
 	held_distance += hold_dist_sensitivity * scroll
-	held_distance = clamp(held_distance, min_hold_dist, arm_length)
+	held_distance = clamp(held_distance, min_hold_dist, max_hold_dist)
 
 
 func _process(_delta: float) -> void:
