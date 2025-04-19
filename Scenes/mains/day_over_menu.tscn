@@ -1,7 +1,7 @@
 [gd_scene load_steps=4 format=3 uid="uid://c0fha8u4qdysr"]
 
 [ext_resource type="PackedScene" uid="uid://bg140mjfbjdcp" path="res://Scenes/ui/menu_base.tscn" id="1_piw6m"]
-[ext_resource type="PackedScene" uid="uid://dm5580jkhjqib" path="res://Scenes/ui/controls/day_over_control.tscn" id="2_2i5xg"]
+[ext_resource type="PackedScene" uid="uid://dm5580jkhjqib" path="res://Scenes/ui/toplevel/day_over_control.tscn" id="2_2i5xg"]
 
 [sub_resource type="ViewportTexture" id="ViewportTexture_8c5nb"]
 viewport_path = NodePath("SubViewportContainer/SubViewport")

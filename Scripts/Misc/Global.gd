@@ -109,6 +109,7 @@ func resume_game() -> void:
 func switch_scenes(scene: PackedScene) -> void:
 	get_tree().change_scene_to_packed(scene)
 
+
 func switch_scenes_with_path(scene: String) -> void:
 	get_tree().change_scene_to_file(scene)
 

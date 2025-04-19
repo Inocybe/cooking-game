@@ -2,7 +2,7 @@
 
 [ext_resource type="ArrayMesh" uid="uid://b3asv7cymggaa" path="res://Assets/interior/TV/TV.obj" id="1_o13vh"]
 [ext_resource type="Script" uid="uid://cpkbk1jbggka1" path="res://Scripts/UI/TV.gd" id="1_rid03"]
-[ext_resource type="PackedScene" uid="uid://dts51sc5121xa" path="res://Scenes/ui/controls/tv_control.tscn" id="3_kvmi4"]
+[ext_resource type="PackedScene" uid="uid://dts51sc5121xa" path="res://Scenes/ui/toplevel/tv_control.tscn" id="3_kvmi4"]
 
 [sub_resource type="ViewportTexture" id="ViewportTexture_5ju41"]
 viewport_path = NodePath("SubViewport")
