@@ -21,27 +21,30 @@ class StoredFoodComponent:
 
 const PROGRESS_PATH = "user://progress.json"
 
-const DEFAULT_FOOD_AMOUNTS: Dictionary[Menu.FoodComponent, int] = {
+const STARTING_FOOD_AMOUNTS: Dictionary[Menu.FoodComponent, int] = {
 	Menu.FoodComponent.Bun: 5,
 	Menu.FoodComponent.Burger: 5,
 	Menu.FoodComponent.Fries: 5,
 	Menu.FoodComponent.Cup: 5
 }
 
-var stock: Array[StoredFoodComponent] = []
-var day: int = 1
-var orders_complete: int = 0
-var money: float = 0
+const STARTING_MONEY: float = 100
+
+var stock: Array[StoredFoodComponent]
+var day: int
+var orders_complete: int
+var money: float
+var rand_seed: int
 
 
 func _ready() -> void:
 	if not load_progress():
-		load_default_process()
+		load_default_progress()
 
 
 func save_progress() -> void:
 	var file = FileAccess.open(PROGRESS_PATH, FileAccess.WRITE)
-	file.store_string(JSON.stringify(get_settings_json()))
+	file.store_string(JSON.stringify(get_progress_json()))
 
 
 func load_progress() -> bool:
@@ -51,7 +54,7 @@ func load_progress() -> bool:
 	var json: Dictionary = JSON.parse_string(file.get_as_text())
 	if json == null:
 		return false
-	read_settings_json(json)
+	read_progress_json(json)
 	return true
 
 
@@ -74,15 +77,16 @@ func removed_used_food(used: Dictionary[Menu.FoodComponent, int]) -> void:
 			i += 1
 
 
-func load_default_process() -> void:
+func load_default_progress() -> void:
 	stock = []
-	for food in DEFAULT_FOOD_AMOUNTS.keys():
-		for _i in range(DEFAULT_FOOD_AMOUNTS[food]):
+	for food in STARTING_FOOD_AMOUNTS.keys():
+		for _i in range(STARTING_FOOD_AMOUNTS[food]):
 			stock.append(StoredFoodComponent.new(food))
 	
 	day = 1
 	orders_complete = 0
-	money = 0
+	money = STARTING_MONEY
+	rand_seed = Time.get_unix_time_from_system()
 
 
 func get_food_avaiable_count(component: Menu.FoodComponent) -> int:
@@ -93,7 +97,7 @@ func get_food_avaiable_count(component: Menu.FoodComponent) -> int:
 	return count
 
 
-func get_settings_json() -> Dictionary:
+func get_progress_json() -> Dictionary:
 	var stock_json: Array[Dictionary] = []
 	for item: StoredFoodComponent in stock:
 		stock_json.append(item.to_json())
@@ -101,14 +105,16 @@ func get_settings_json() -> Dictionary:
 		"stock": stock_json,
 		"day": day,
 		"orders_complete": orders_complete,
-		"money": money
+		"money": money,
+		"rand_seed": rand_seed
 	}
 
 
-func read_settings_json(json: Dictionary) -> void:
+func read_progress_json(json: Dictionary) -> void:
 	stock = []
 	for item_json: Dictionary in json["stock"]:
 		stock.append(StoredFoodComponent.from_json(item_json))
 	day = json["day"]
 	orders_complete = json["orders_complete"]
 	money = json["money"]
+	rand_seed = json["rand_seed"]

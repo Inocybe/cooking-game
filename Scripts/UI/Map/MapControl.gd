@@ -5,9 +5,20 @@ const WORLD_SCENE: String = "res://Scenes/mains/world.tscn"
 
 var is_loading_world: bool = false
 
+@export var map_buttons: Array[MapButton]
+
 
 func _ready() -> void:
 	ResourceLoader.load_threaded_request(WORLD_SCENE)
+	
+	init_map_buttons()
+
+
+func init_map_buttons() -> void:
+	seed(hash(ProgressManager.rand_seed + ProgressManager.day))
+	for map_button: MapButton in map_buttons:
+		map_button.world_load_requested.connect(load_world)
+		map_button.init_town()
 
 
 func load_world() -> void:
