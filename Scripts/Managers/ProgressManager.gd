@@ -35,7 +35,7 @@ var money: float = 0
 
 
 func _ready() -> void:
-	if true or not load_progress():
+	if not load_progress():
 		load_default_process()
 
 

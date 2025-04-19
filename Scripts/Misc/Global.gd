@@ -113,7 +113,8 @@ func switch_scenes_with_path(scene: String) -> void:
 	get_tree().change_scene_to_file(scene)
 
 
-func debug_ray(from: Vector3, diff: Vector3, color: Color = Color.CHARTREUSE, width: float = 3):
+func debug_ray(from: Vector3, diff: Vector3, color: Color = Color.CHARTREUSE,
+		width: float = 3):
 	var camera: Camera = game_manager.player.camera
 	game_manager.player.debug_display.add_ray(
 		camera.unproject_position(from), 
@@ -160,3 +161,11 @@ func weighted_random_int(weights: Array) -> int:
 
 func weighted_random_val(values: Dictionary) -> Variant:
 	return values.keys()[weighted_random_int(values.values())]
+
+
+func format_money(money: float) -> String:
+	return "$%.2f" % money
+
+
+func format_time(time: float) -> String:
+	return "%d:%02d" % [time / 60, fmod(time, 60)]
