@@ -56,7 +56,7 @@ static var food_component_scene_paths: Dictionary = {
 	FoodComponent.Bun: "res://Scenes/orders/food/bun.tscn",
 	FoodComponent.Burger: "res://Scenes/orders/food/burger.tscn",
 	FoodComponent.Fries: "res://Scenes/orders/food/fries.tscn",
-	FoodComponent.Cup: "res://Scenes/orders/food/cup/cup.tscn"
+	FoodComponent.Cup: "res://Scenes/orders/food/cup.tscn"
 }
 
 

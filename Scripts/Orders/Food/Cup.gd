@@ -1,7 +1,7 @@
 extends BasicFood
 
 
-const SPILL_SCENE = preload("res://Scenes/orders/food/cup/spill.tscn")
+const SPILL_SCENE = preload("res://Scenes/foodtruck/interior/spill.tscn")
 
 @export var spill_angle: float = PI / 3
 

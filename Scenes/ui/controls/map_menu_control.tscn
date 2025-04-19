@@ -1,7 +1,8 @@
-[gd_scene load_steps=12 format=3 uid="uid://cd7anw3qhpovq"]
+[gd_scene load_steps=14 format=3 uid="uid://cd7anw3qhpovq"]
 
 [ext_resource type="Script" uid="uid://c3h5ekk41jdvq" path="res://Scripts/UI/Map/MapControl.gd" id="1_cpcl8"]
 [ext_resource type="Script" uid="uid://bd6g13bpjx76" path="res://Scripts/UI/DisplayDayCount.gd" id="2_bt6lr"]
+[ext_resource type="Script" uid="uid://cljbcgdycr6ws" path="res://Scripts/UI/DisplayStats.gd" id="2_r0s2c"]
 [ext_resource type="Script" uid="uid://wojbfe5vhxlf" path="res://Scripts/UI/Utils/SwitchSceneButton.gd" id="2_xrc3u"]
 [ext_resource type="PackedScene" uid="uid://cltfmjw0bavf4" path="res://Scenes/mains/main_menu.tscn" id="3_bt6lr"]
 [ext_resource type="PackedScene" uid="uid://dfdlj4k1uqvm2" path="res://Scenes/ui/controls/town_button_control.tscn" id="3_cpcl8"]
@@ -9,6 +10,18 @@
 [ext_resource type="PackedScene" uid="uid://c0etxlxqpnvgb" path="res://Scenes/ui/controls/loading_control.tscn" id="4_r10et"]
 
 [sub_resource type="PlaceholderTexture2D" id="PlaceholderTexture2D_cpcl8"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_bt6lr"]
+content_margin_left = 10.0
+content_margin_top = 5.0
+content_margin_right = 10.0
+content_margin_bottom = 5.0
+bg_color = Color(1, 1, 1, 0.858824)
+corner_radius_top_left = 3
+corner_radius_top_right = 3
+corner_radius_bottom_right = 3
+corner_radius_bottom_left = 3
+corner_detail = 5
 
 [sub_resource type="Resource" id="Resource_r10et"]
 script = ExtResource("4_p5u53")
@@ -57,38 +70,78 @@ texture = SubResource("PlaceholderTexture2D_cpcl8")
 expand_mode = 1
 stretch_mode = 6
 
-[node name="DayLabels" type="HBoxContainer" parent="TextureRect"]
+[node name="StatsBox" type="PanelContainer" parent="TextureRect"]
 layout_mode = 1
-anchors_preset = 5
-anchor_left = 0.5
-anchor_right = 0.5
-offset_left = -24.5
-offset_right = 24.5
-offset_bottom = 23.0
+anchors_preset = 10
+anchor_right = 1.0
+offset_bottom = 31.0
 grow_horizontal = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_bt6lr")
+
+[node name="VBoxContainer" type="HBoxContainer" parent="TextureRect/StatsBox"]
+layout_mode = 2
+script = ExtResource("2_r0s2c")
+
+[node name="DayLabels" type="HBoxContainer" parent="TextureRect/StatsBox/VBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
 theme_override_constants/separation = 0
 
-[node name="DayTextLabel" type="Label" parent="TextureRect/DayLabels"]
+[node name="DayLabel" type="Label" parent="TextureRect/StatsBox/VBoxContainer/DayLabels"]
 layout_mode = 2
-text = "Day: "
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+text = "Day "
 
-[node name="DayCountLabel" type="Label" parent="TextureRect/DayLabels"]
+[node name="DayDisplay" type="Label" parent="TextureRect/StatsBox/VBoxContainer/DayLabels"]
 layout_mode = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
 script = ExtResource("2_bt6lr")
 
-[node name="ExitToMenuButton" type="Button" parent="TextureRect"]
-layout_mode = 1
-anchors_preset = 1
-anchor_left = 1.0
-anchor_right = 1.0
-offset_left = -110.0
-offset_bottom = 29.0
-grow_horizontal = 0
+[node name="Spacer1" type="Control" parent="TextureRect/StatsBox/VBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="MoneyLabels" type="HBoxContainer" parent="TextureRect/StatsBox/VBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+
+[node name="MoneyLabel" type="Label" parent="TextureRect/StatsBox/VBoxContainer/MoneyLabels"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+text = "Money: "
+
+[node name="MoneyDisplay" type="Label" parent="TextureRect/StatsBox/VBoxContainer/MoneyLabels"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+
+[node name="Spacer2" type="Control" parent="TextureRect/StatsBox/VBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="OrderLabels" type="HBoxContainer" parent="TextureRect/StatsBox/VBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+
+[node name="OrdersLabel" type="Label" parent="TextureRect/StatsBox/VBoxContainer/OrderLabels"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+text = "Orders completed: "
+
+[node name="OrdersDisplay" type="Label" parent="TextureRect/StatsBox/VBoxContainer/OrderLabels"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+
+[node name="Spacer3" type="Control" parent="TextureRect/StatsBox/VBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="ExitToMenuButton" type="Button" parent="TextureRect/StatsBox/VBoxContainer"]
+layout_mode = 2
 text = " Exit to Menu "
 script = ExtResource("2_xrc3u")
 new_scene = ExtResource("3_bt6lr")
 
-[node name="PanelContainer" type="PanelContainer" parent="TextureRect"]
+[node name="CenterInfo" type="PanelContainer" parent="TextureRect"]
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
@@ -102,14 +155,14 @@ offset_bottom = 15.5
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="MarginContainer" type="MarginContainer" parent="TextureRect/PanelContainer"]
+[node name="MarginContainer" type="MarginContainer" parent="TextureRect/CenterInfo"]
 layout_mode = 2
 theme_override_constants/margin_left = 10
 theme_override_constants/margin_top = 5
 theme_override_constants/margin_right = 10
 theme_override_constants/margin_bottom = 5
 
-[node name="Label" type="Label" parent="TextureRect/PanelContainer/MarginContainer"]
+[node name="Label" type="Label" parent="TextureRect/CenterInfo/MarginContainer"]
 layout_mode = 2
 text = "Choose where to drive your food truck"
 
