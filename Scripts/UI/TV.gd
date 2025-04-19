@@ -1,19 +1,19 @@
 extends UIControllerBase
 
 
-@onready var main_control: MainControl = %MainControl
+@onready var tv_control: TVControl = %TVControl
 
 
 func _process(_delta: float) -> void:
-	main_control.orders_complete.set_text(
-		str(Global.game_manager.orders_complete)
+	tv_control.served_today.set_text(
+		"%d orders" % Global.game_manager.served_today
 	)
 	
-	main_control.money.set_text(
-		format_money(Global.game_manager.money)
+	tv_control.revenue.set_text(
+		format_money(Global.game_manager.revenue)
 	)
 	
-	main_control.time_remaining.set_text(
+	tv_control.time_remaining.set_text(
 		format_time(Global.game_manager.time_remaining)
 	)
 

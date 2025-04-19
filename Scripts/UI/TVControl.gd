@@ -1,8 +1,8 @@
-class_name MainControl extends Control
+class_name TVControl extends Control
 
 
-@onready var money: Label = %MoneyDisplay
-@onready var orders_complete: Label = %OrdersCompleteDisplay
+@onready var revenue: Label = %RevenueDisplay
+@onready var served_today: Label = %ServedTodayDisplay
 @onready var time_remaining: Label = %TimeRemaining
 
 @export var font_size: int = 16

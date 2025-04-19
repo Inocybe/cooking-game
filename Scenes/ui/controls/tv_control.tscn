@@ -38,9 +38,11 @@ color = Color(1, 1, 1, 0.509804)
 
 [node name="GridContainer" type="GridContainer" parent="TVMenu/Left"]
 layout_mode = 2
-offset_left = 378.0
-offset_right = 520.0
+offset_left = 340.0
+offset_right = 544.0
 offset_bottom = 648.0
+grow_horizontal = 2
+grow_vertical = 2
 columns = 3
 
 [node name="DayCountLabel" type="Label" parent="TVMenu/Left/GridContainer"]
@@ -80,28 +82,28 @@ unique_name_in_owner = true
 layout_mode = 2
 text = "10"
 
-[node name="MoneyLabel" type="Label" parent="TVMenu/Left/GridContainer"]
+[node name="RevenueLabel" type="Label" parent="TVMenu/Left/GridContainer"]
 layout_mode = 2
-text = "Money:"
+text = "Revenue:"
 horizontal_alignment = 2
 
 [node name="Spacer2" type="Control" parent="TVMenu/Left/GridContainer"]
 layout_mode = 2
 
-[node name="MoneyDisplay" type="Label" parent="TVMenu/Left/GridContainer"]
+[node name="RevenueDisplay" type="Label" parent="TVMenu/Left/GridContainer"]
 unique_name_in_owner = true
 layout_mode = 2
-text = "10 coins"
+text = "$0.00"
 
-[node name="OrdersCompleteLabel" type="Label" parent="TVMenu/Left/GridContainer"]
+[node name="ServedTodayLabel" type="Label" parent="TVMenu/Left/GridContainer"]
 layout_mode = 2
-text = "Orders Complete:"
+text = "Served Today:"
 horizontal_alignment = 2
 
 [node name="Spacer3" type="Control" parent="TVMenu/Left/GridContainer"]
 layout_mode = 2
 
-[node name="OrdersCompleteDisplay" type="Label" parent="TVMenu/Left/GridContainer"]
+[node name="ServedTodayDisplay" type="Label" parent="TVMenu/Left/GridContainer"]
 unique_name_in_owner = true
 layout_mode = 2
 text = "10 orders"
