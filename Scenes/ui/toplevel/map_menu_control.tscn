@@ -64,9 +64,6 @@ offset_bottom = 39.0
 text = " Visit Store "
 new_scene = "res://Scenes/mains/store_menu.tscn"
 
-[node name="ExitToMenuButton" parent="TextureRect/StatsBox/VBoxContainer" index="8"]
-new_scene = ""
-
 [node name="CenterInfo" type="PanelContainer" parent="TextureRect"]
 layout_mode = 1
 anchors_preset = 8
