@@ -1,0 +1,14 @@
+[gd_scene load_steps=4 format=3 uid="uid://dkrugwfwbx88g"]
+
+[ext_resource type="PackedScene" uid="uid://bg140mjfbjdcp" path="res://Scenes/ui/menu_base.tscn" id="1_xhpqo"]
+[ext_resource type="PackedScene" uid="uid://bee1iceu06ncp" path="res://Scenes/ui/toplevel/store_menu_control.tscn" id="2_862b6"]
+
+[sub_resource type="ViewportTexture" id="ViewportTexture_3nhtr"]
+viewport_path = NodePath("SubViewportContainer/SubViewport")
+
+[node name="StoreMenu" instance=ExtResource("1_xhpqo")]
+
+[node name="Sprite3D" parent="VRMode/XRMenu" index="0"]
+texture = SubResource("ViewportTexture_3nhtr")
+
+[node name="StoreControl" parent="SubViewportContainer/SubViewport" index="0" instance=ExtResource("2_862b6")]

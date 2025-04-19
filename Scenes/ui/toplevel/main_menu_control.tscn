@@ -2,8 +2,8 @@
 
 [ext_resource type="Script" uid="uid://cacqbhe4x15a6" path="res://Scripts/UI/MainMenuControl.gd" id="1_dji0b"]
 [ext_resource type="Texture2D" uid="uid://c3xn338gig4ha" path="res://Assets/Branding/iconfull.png" id="2_u0us8"]
-[ext_resource type="PackedScene" uid="uid://b63qhctnjuprt" path="res://Scenes/ui/controls/settings_control.tscn" id="3_anusf"]
-[ext_resource type="PackedScene" uid="uid://d1kvbv3fi1tks" path="res://Scenes/ui/controls/credits_control.tscn" id="4_u0us8"]
+[ext_resource type="PackedScene" uid="uid://b63qhctnjuprt" path="res://Scenes/ui/toplevel/settings_control.tscn" id="3_anusf"]
+[ext_resource type="PackedScene" uid="uid://d1kvbv3fi1tks" path="res://Scenes/ui/toplevel/credits_control.tscn" id="4_u0us8"]
 
 [sub_resource type="PlaceholderTexture2D" id="PlaceholderTexture2D_l262m"]
 

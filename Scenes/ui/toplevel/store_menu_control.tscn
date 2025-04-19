@@ -1,0 +1,59 @@
+[gd_scene load_steps=2 format=3 uid="uid://bee1iceu06ncp"]
+
+[ext_resource type="PackedScene" uid="uid://xum2e4iaos6e" path="res://Scenes/ui/controls/stats_box.tscn" id="1_r8ri3"]
+
+[node name="StoreControl" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="ColorRect" type="ColorRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="ColorRect"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="StatsBox" parent="ColorRect/VBoxContainer" instance=ExtResource("1_r8ri3")]
+layout_mode = 2
+
+[node name="SwitchSceneButton" parent="ColorRect/VBoxContainer/StatsBox/VBoxContainer" index="6"]
+text = " Back to Map "
+new_scene = "res://Scenes/mains/map_menu.tscn"
+
+[node name="ExitToMenuButton" parent="ColorRect/VBoxContainer/StatsBox/VBoxContainer" index="8"]
+new_scene = ""
+
+[node name="Body" type="Control" parent="ColorRect/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="Label" type="Label" parent="ColorRect/VBoxContainer/Body"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -57.0
+offset_top = -10.5
+offset_right = 57.0
+offset_bottom = 10.5
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+text = "This is the store!"
+
+[editable path="ColorRect/VBoxContainer/StatsBox"]

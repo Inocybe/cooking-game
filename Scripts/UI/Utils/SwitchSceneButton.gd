@@ -1,7 +1,7 @@
 extends Button
 
 
-@export var new_scene: PackedScene
+@export var new_scene: String
 
 
 func _ready() -> void:
@@ -9,4 +9,4 @@ func _ready() -> void:
 
 
 func on_pressed() -> void:
-	Global.switch_scenes(new_scene)
+	Global.switch_scenes_with_path(new_scene)

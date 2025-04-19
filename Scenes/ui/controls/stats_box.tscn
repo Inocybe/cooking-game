@@ -1,0 +1,96 @@
+[gd_scene load_steps=5 format=3 uid="uid://xum2e4iaos6e"]
+
+[ext_resource type="Script" uid="uid://cljbcgdycr6ws" path="res://Scripts/UI/DisplayStats.gd" id="1_ftgdh"]
+[ext_resource type="Script" uid="uid://bd6g13bpjx76" path="res://Scripts/UI/DisplayDayCount.gd" id="2_ccpvi"]
+[ext_resource type="Script" uid="uid://wojbfe5vhxlf" path="res://Scripts/UI/Utils/SwitchSceneButton.gd" id="3_bxl2w"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_bt6lr"]
+content_margin_left = 10.0
+content_margin_top = 5.0
+content_margin_right = 10.0
+content_margin_bottom = 5.0
+bg_color = Color(1, 1, 1, 0.858824)
+corner_radius_top_left = 3
+corner_radius_top_right = 3
+corner_radius_bottom_right = 3
+corner_radius_bottom_left = 3
+corner_detail = 5
+
+[node name="StatsBox" type="PanelContainer"]
+anchors_preset = 10
+anchor_right = 1.0
+offset_bottom = 31.0
+grow_horizontal = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_bt6lr")
+
+[node name="VBoxContainer" type="HBoxContainer" parent="."]
+layout_mode = 2
+script = ExtResource("1_ftgdh")
+
+[node name="DayLabels" type="HBoxContainer" parent="VBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+theme_override_constants/separation = 0
+
+[node name="DayLabel" type="Label" parent="VBoxContainer/DayLabels"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+text = "Day "
+
+[node name="DayDisplay" type="Label" parent="VBoxContainer/DayLabels"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+script = ExtResource("2_ccpvi")
+
+[node name="Spacer1" type="Control" parent="VBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="MoneyLabels" type="HBoxContainer" parent="VBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+
+[node name="MoneyLabel" type="Label" parent="VBoxContainer/MoneyLabels"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+text = "Money: "
+
+[node name="MoneyDisplay" type="Label" parent="VBoxContainer/MoneyLabels"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+
+[node name="Spacer2" type="Control" parent="VBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="OrderLabels" type="HBoxContainer" parent="VBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+
+[node name="OrdersLabel" type="Label" parent="VBoxContainer/OrderLabels"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+text = "Orders completed: "
+
+[node name="OrdersDisplay" type="Label" parent="VBoxContainer/OrderLabels"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+
+[node name="Spacer3" type="Control" parent="VBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="SwitchSceneButton" type="Button" parent="VBoxContainer"]
+layout_mode = 2
+text = " PLACEHOLDER "
+script = ExtResource("3_bxl2w")
+
+[node name="Spacer4" type="Control" parent="VBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="ExitToMenuButton" type="Button" parent="VBoxContainer"]
+layout_mode = 2
+text = " Exit to Menu "
+script = ExtResource("3_bxl2w")
+new_scene = "res://Scenes/mains/main_menu.tscn"
