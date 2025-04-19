@@ -82,15 +82,18 @@ libraries = {
 
 [node name="TextHolder" type="Control" parent="."]
 layout_mode = 2
+mouse_filter = 2
 
 [node name="PanelContainer" type="PanelContainer" parent="TextHolder"]
 modulate = Color(1, 1, 1, 0)
 layout_mode = 0
 offset_right = 144.0
 offset_bottom = 117.0
+mouse_filter = 2
 
 [node name="Margin" type="MarginContainer" parent="TextHolder/PanelContainer"]
 layout_mode = 2
+mouse_filter = 2
 theme_override_constants/margin_left = 15
 theme_override_constants/margin_top = 10
 theme_override_constants/margin_right = 10

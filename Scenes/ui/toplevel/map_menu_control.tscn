@@ -1,8 +1,9 @@
-[gd_scene load_steps=10 format=3 uid="uid://cd7anw3qhpovq"]
+[gd_scene load_steps=11 format=3 uid="uid://cd7anw3qhpovq"]
 
 [ext_resource type="Script" uid="uid://c3h5ekk41jdvq" path="res://Scripts/UI/Map/MapControl.gd" id="1_cpcl8"]
 [ext_resource type="PackedScene" uid="uid://xum2e4iaos6e" path="res://Scenes/ui/controls/stats_box.tscn" id="2_r10et"]
 [ext_resource type="PackedScene" uid="uid://dfdlj4k1uqvm2" path="res://Scenes/ui/controls/town_button_control.tscn" id="3_cpcl8"]
+[ext_resource type="PackedScene" uid="uid://b7k75vt3n7uch" path="res://Scenes/ui/controls/badge.tscn" id="3_yp12h"]
 [ext_resource type="Script" uid="uid://dhe534odp4ri1" path="res://Scripts/Misc/TownResource.gd" id="4_p5u53"]
 [ext_resource type="PackedScene" uid="uid://c0etxlxqpnvgb" path="res://Scenes/ui/toplevel/loading_control.tscn" id="4_r10et"]
 
@@ -63,6 +64,14 @@ offset_bottom = 39.0
 [node name="SwitchSceneButton" parent="TextureRect/StatsBox/VBoxContainer" index="6"]
 text = " Visit Store "
 new_scene = "res://Scenes/mains/store_menu.tscn"
+
+[node name="Badge" parent="TextureRect/StatsBox/VBoxContainer/SwitchSceneButton" index="0" instance=ExtResource("3_yp12h")]
+layout_mode = 1
+anchors_preset = 3
+anchor_top = 1.0
+anchor_bottom = 1.0
+grow_vertical = 0
+text = "!"
 
 [node name="CenterInfo" type="PanelContainer" parent="TextureRect"]
 layout_mode = 1
