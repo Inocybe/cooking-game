@@ -1,4 +1,7 @@
-extends Control
+class_name MapButton extends Control
+
+
+signal world_load_requested()
 
 
 @onready var animation_player: AnimationPlayer = $AnimationPlayer
@@ -6,7 +9,6 @@ extends Control
 
 @export var town: TownResource
 @export var position_fraction: Vector2
-@export var map_control: MapControl
 
 var town_values_shown: bool = false
 
@@ -17,7 +19,9 @@ func _ready() -> void:
 	
 	$Button.pressed.connect(on_button_pressed)
 	$Button.text = " "+town.name+" "
-	
+
+
+func init_town() -> void:
 	town.random_weather()
 	show_town_values()
 
@@ -31,7 +35,7 @@ func on_button_pressed() -> void:
 		town_values_shown = false
 		Global.town = town
 		
-		map_control.load_world()
+		world_load_requested.emit()
 	else:
 		town_values_shown = true
 		animation_player.play("display_town_values")

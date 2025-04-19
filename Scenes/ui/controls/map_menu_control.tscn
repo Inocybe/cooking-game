@@ -47,7 +47,7 @@ population = 457
 opening_hours = 6.0
 metadata/_custom_type_script = "uid://dhe534odp4ri1"
 
-[node name="MapControl" type="Control"]
+[node name="MapControl" type="Control" node_paths=PackedStringArray("map_buttons")]
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
@@ -57,6 +57,7 @@ grow_vertical = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
 script = ExtResource("1_cpcl8")
+map_buttons = [NodePath("TextureRect/Town1"), NodePath("TextureRect/Town2"), NodePath("TextureRect/Town3")]
 metadata/_edit_use_anchors_ = true
 
 [node name="TextureRect" type="TextureRect" parent="."]
@@ -166,7 +167,7 @@ theme_override_constants/margin_bottom = 5
 layout_mode = 2
 text = "Choose where to drive your food truck"
 
-[node name="Town1" parent="TextureRect" node_paths=PackedStringArray("map_control") instance=ExtResource("3_cpcl8")]
+[node name="Town1" parent="TextureRect" instance=ExtResource("3_cpcl8")]
 layout_mode = 0
 offset_left = 158.0
 offset_top = 130.0
@@ -174,9 +175,8 @@ offset_right = 228.0
 offset_bottom = 170.0
 town = SubResource("Resource_r10et")
 position_fraction = Vector2(0.3, 0.2)
-map_control = NodePath("../..")
 
-[node name="Town2" parent="TextureRect" node_paths=PackedStringArray("map_control") instance=ExtResource("3_cpcl8")]
+[node name="Town2" parent="TextureRect" instance=ExtResource("3_cpcl8")]
 layout_mode = 0
 offset_left = 598.0
 offset_top = 126.0
@@ -184,9 +184,8 @@ offset_right = 668.0
 offset_bottom = 166.0
 town = SubResource("Resource_p5u53")
 position_fraction = Vector2(0.7, 0.4)
-map_control = NodePath("../..")
 
-[node name="Town3" parent="TextureRect" node_paths=PackedStringArray("map_control") instance=ExtResource("3_cpcl8")]
+[node name="Town3" parent="TextureRect" instance=ExtResource("3_cpcl8")]
 layout_mode = 0
 offset_left = 545.0
 offset_top = 478.0
@@ -194,7 +193,6 @@ offset_right = 615.0
 offset_bottom = 518.0
 town = SubResource("Resource_xrc3u")
 position_fraction = Vector2(0.1, 0.7)
-map_control = NodePath("../..")
 
 [node name="LoadingControl" parent="." instance=ExtResource("4_r10et")]
 visible = false
