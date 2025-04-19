@@ -12,8 +12,8 @@ var player: Player = null
 var food_truck: FoodTruck = null
 var customer_manager: CustomerManager = null
 
-var money: float = 0
-var orders_complete: int = 0
+var revenue: float = 0
+var served_today: int = 0
 
 var food_components_used: Dictionary[Menu.FoodComponent, int] = {}
 

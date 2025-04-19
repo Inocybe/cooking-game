@@ -87,8 +87,8 @@ func register_completed_dish(dish: Node3D) -> void:
 	var base_worth: float = calculate_worth(dish)
 	var worth: float = base_worth * dish.get_order_quality()
 	
-	Global.game_manager.money += worth
-	Global.game_manager.orders_complete += 1
+	Global.game_manager.revenue += worth
+	Global.game_manager.served_today += 1
 
 
 func calculate_worth(dish: Node3D) -> float:
