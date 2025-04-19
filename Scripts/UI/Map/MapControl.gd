@@ -12,6 +12,8 @@ func _ready() -> void:
 	ResourceLoader.load_threaded_request(WORLD_SCENE)
 	
 	init_map_buttons()
+	
+	%StoreAlertBadge.visible = not StoreControl.has_recommended_food_amounts()
 
 
 func init_map_buttons() -> void:
