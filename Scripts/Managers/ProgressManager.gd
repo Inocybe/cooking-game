@@ -3,20 +3,30 @@ extends Node
 
 class StoredFoodComponent:
 	var food: Menu.FoodComponent
+	var age: int
 	
-	func _init(food_: Menu.FoodComponent) -> void:
+	func _init(food_: Menu.FoodComponent, age: int = 0) -> void:
 		self.food = food_
+		self.age = age
 	
 	func to_json() -> Dictionary:
 		return {
-			"food": food
+			"food": food,
+			"age": age
 		}
 	
 	static func from_json(json: Dictionary) -> StoredFoodComponent:
-		return StoredFoodComponent.new(json["food"])
+		return StoredFoodComponent.new(json["food"], json["age"])
 
 
 const PROGRESS_PATH = "user://progress.json"
+
+const DEFAULT_FOOD_AMOUNTS: Dictionary[Menu.FoodComponent, int] = {
+	Menu.FoodComponent.Bun: 5,
+	Menu.FoodComponent.Burger: 5,
+	Menu.FoodComponent.Fries: 5,
+	Menu.FoodComponent.Cup: 5
+}
 
 var stock: Array[StoredFoodComponent] = []
 var day: int = 1
@@ -25,7 +35,8 @@ var money: float = 0
 
 
 func _ready() -> void:
-	load_progress()
+	if true or not load_progress():
+		load_default_process()
 
 
 func save_progress() -> void:
@@ -33,14 +44,53 @@ func save_progress() -> void:
 	file.store_string(JSON.stringify(get_settings_json()))
 
 
-func load_progress() -> void:
+func load_progress() -> bool:
 	if not FileAccess.file_exists(PROGRESS_PATH):
-		return
+		return false
 	var file = FileAccess.open(PROGRESS_PATH, FileAccess.READ)
 	var json: Dictionary = JSON.parse_string(file.get_as_text())
 	if json == null:
-		return
+		return false
 	read_settings_json(json)
+	return true
+
+
+func increment_day() -> void:
+	day += 1
+	for item: StoredFoodComponent in stock:
+		item.age += 1
+
+
+func removed_used_food(used: Dictionary[Menu.FoodComponent, int]) -> void:
+	used = used.duplicate()
+	var i: int = 0
+	while i < len(stock):
+		var item_food = stock[i].food
+		var item_food_used_count = used.get(item_food, 0)
+		if item_food_used_count > 0:
+			stock.pop_at(i)
+			used[item_food] = item_food_used_count - 1
+		else:
+			i += 1
+
+
+func load_default_process() -> void:
+	stock = []
+	for food in DEFAULT_FOOD_AMOUNTS.keys():
+		for _i in range(DEFAULT_FOOD_AMOUNTS[food]):
+			stock.append(StoredFoodComponent.new(food))
+	
+	day = 1
+	orders_complete = 0
+	money = 0
+
+
+func get_food_avaiable_count(component: Menu.FoodComponent) -> int:
+	var count: int = 0
+	for item: StoredFoodComponent in stock:
+		if item.food == component:
+			count += 1
+	return count
 
 
 func get_settings_json() -> Dictionary:

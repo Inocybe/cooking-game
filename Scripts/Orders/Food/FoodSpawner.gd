@@ -4,11 +4,15 @@ extends Node3D
 @onready var min_respawn_timer = $MinRespawnTimer
 
 @export var respawn_bound: Area3D
-
-@export var food_resource: Resource
+@export var food_component: Menu.FoodComponent
 @export var appear_angle: float = PI / 2
 
+var food_resource: Resource
 var last_food: Node3D = null
+
+
+func _ready() -> void:
+	food_resource = load(Menu.food_component_scene_paths[food_component])
 
 
 func _process(_delta: float) -> void:
@@ -29,8 +33,12 @@ func _process(_delta: float) -> void:
 
 
 func spawn_food() -> void:
-	var food: Node3D = food_resource.instantiate()
-	get_tree().get_root().add_child(food)
-	food.global_position = global_position
-	last_food = food
-	min_respawn_timer.start()
+	if Global.game_manager.try_use_food(food_component):
+		var food: Node3D = food_resource.instantiate()
+		get_tree().current_scene.add_child(food)
+		food.global_position = global_position
+		last_food = food
+		min_respawn_timer.start()
+	else:
+		# we're out of this type of food
+		queue_free()

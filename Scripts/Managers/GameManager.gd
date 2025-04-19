@@ -15,6 +15,8 @@ var customer_manager: CustomerManager = null
 var money: float = 0
 var orders_complete: int = 0
 
+var food_components_used: Dictionary[Menu.FoodComponent, int] = {}
+
 var time_remaining: float = INF
 
 
@@ -41,7 +43,17 @@ func _process(delta: float) -> void:
 
 
 func day_time_expired() -> void:
+	ProgressManager.removed_used_food(food_components_used)
+	ProgressManager.increment_day()
 	Global.switch_scenes_with_path(DAY_OVER_SCENE_PATH)
+
+
+func try_use_food(food: Menu.FoodComponent) -> bool:
+	var used_so_far: int = food_components_used.get(food, 0)
+	if used_so_far >= ProgressManager.get_food_avaiable_count(food):
+		return false
+	food_components_used[food] = used_so_far + 1
+	return true
 
 
 func get_camera_node() -> Node3D:
