@@ -1,12 +1,42 @@
 class_name StoreControl extends Control
 
 
+enum StatusType {
+	OK,
+	ERR
+}
+
+@onready var status_badge: Badge = %StatusBadge
+
+@export var food_options: Array[StoreFoodOption]
+
+
 const RECOMMENDED_FOOD_AMOUNTS: Dictionary[Menu.FoodComponent, int] = {
 	Menu.FoodComponent.Bun: 5,
 	Menu.FoodComponent.Burger: 5,
 	Menu.FoodComponent.Fries: 5,
 	Menu.FoodComponent.Cup: 5
 }
+
+
+func _ready() -> void:
+	for food_option: StoreFoodOption in food_options:
+		food_option.status_message.connect(display_status_message)
+
+
+func display_status_message(msg: String, status: StatusType):
+	status_badge.text = msg
+	status_badge.bg_color = get_status_color(status)
+	status_badge.update_badge()
+	status_badge.visible = true
+	$StatusVanishTimer.start()
+
+
+static func get_status_color(status: StatusType) -> Color:
+	return {
+		StatusType.OK: Color.DARK_GREEN,
+		StatusType.ERR: Color.DARK_RED
+	}[status]
 
 
 static func has_recommended_food_amounts() -> bool:

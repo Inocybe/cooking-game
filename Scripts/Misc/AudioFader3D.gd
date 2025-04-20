@@ -7,6 +7,7 @@ class_name AudioFader3D extends AudioStreamPlayer3D
 var initiated: bool = false
 var is_audible: bool = false
 var full_volume: float
+var tween: Tween = null
 
 
 func _ready() -> void:
@@ -14,26 +15,33 @@ func _ready() -> void:
 		init()
 
 
-func fade_in() -> void:
+func do_fade_checks() -> bool:
 	if not initiated:
 		init()
+	if not get_tree():
+		return false
+	if tween != null:
+		tween.kill()
+		tween = null
+	return true
+
+
+func fade_in() -> void:
 	if is_audible:
 		return
-	if not get_tree():
+	if not do_fade_checks():
 		return
-	var tween = get_tree().create_tween()
+	tween = get_tree().create_tween()
 	tween.tween_property(self, "volume_linear", full_volume, fade_in_time)
 	is_audible = true
 
 
 func fade_out() -> void:
-	if not initiated:
-		init()
 	if not is_audible:
 		return
-	if not get_tree():
+	if not do_fade_checks():
 		return
-	var tween = get_tree().create_tween()
+	tween = get_tree().create_tween()
 	tween.tween_property(self, "volume_linear", 0, fade_out_time)
 	is_audible = false
 

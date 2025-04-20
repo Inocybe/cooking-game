@@ -1,9 +1,15 @@
-[gd_scene load_steps=3 format=3 uid="uid://bee1iceu06ncp"]
+[gd_scene load_steps=9 format=3 uid="uid://bee1iceu06ncp"]
 
 [ext_resource type="Script" uid="uid://36uaxnhr0kjs" path="res://Scripts/UI/StoreControl.gd" id="1_e4mby"]
 [ext_resource type="PackedScene" uid="uid://xum2e4iaos6e" path="res://Scenes/ui/controls/stats_box.tscn" id="1_r8ri3"]
+[ext_resource type="PackedScene" uid="uid://ds5sx1wsesh6e" path="res://Scenes/ui/controls/store_food_option.tscn" id="3_2bk7j"]
+[ext_resource type="Texture2D" uid="uid://b2ja8mamjywox" path="res://Assets/FoodImages/bun.png" id="4_nhf7a"]
+[ext_resource type="Texture2D" uid="uid://dy6scjtvi41q0" path="res://Assets/FoodImages/burger.png" id="5_brm3v"]
+[ext_resource type="PackedScene" uid="uid://b7k75vt3n7uch" path="res://Scenes/ui/controls/badge.tscn" id="5_punb5"]
+[ext_resource type="Texture2D" uid="uid://cbp2uv8xivwha" path="res://Assets/FoodImages/fries.png" id="6_pcjbe"]
+[ext_resource type="Texture2D" uid="uid://cs66ed4dywv1" path="res://Assets/FoodImages/cup.png" id="7_r1qgv"]
 
-[node name="StoreControl" type="Control"]
+[node name="StoreControl" type="Control" node_paths=PackedStringArray("food_options")]
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
@@ -11,6 +17,7 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_e4mby")
+food_options = [NodePath("ColorRect/VBoxContainer/Body/BunOption"), NodePath("ColorRect/VBoxContainer/Body/BurgerOption"), NodePath("ColorRect/VBoxContainer/Body/FriesOption"), NodePath("ColorRect/VBoxContainer/Body/CupOption")]
 
 [node name="ColorRect" type="ColorRect" parent="."]
 layout_mode = 1
@@ -35,24 +42,62 @@ layout_mode = 2
 text = " Back to Map "
 new_scene = "res://Scenes/mains/map_menu.tscn"
 
-[node name="Body" type="Control" parent="ColorRect/VBoxContainer"]
+[node name="Body" type="GridContainer" parent="ColorRect/VBoxContainer"]
 layout_mode = 2
-size_flags_vertical = 3
+theme_override_constants/h_separation = 10
+theme_override_constants/v_separation = 10
+columns = 4
 
-[node name="Label" type="Label" parent="ColorRect/VBoxContainer/Body"]
+[node name="BunOption" parent="ColorRect/VBoxContainer/Body" instance=ExtResource("3_2bk7j")]
+layout_mode = 2
+texture = ExtResource("4_nhf7a")
+
+[node name="BurgerOption" parent="ColorRect/VBoxContainer/Body" instance=ExtResource("3_2bk7j")]
+layout_mode = 2
+component = 1
+texture = ExtResource("5_brm3v")
+
+[node name="FriesOption" parent="ColorRect/VBoxContainer/Body" instance=ExtResource("3_2bk7j")]
+layout_mode = 2
+component = 2
+texture = ExtResource("6_pcjbe")
+
+[node name="CupOption" parent="ColorRect/VBoxContainer/Body" instance=ExtResource("3_2bk7j")]
+layout_mode = 2
+component = 3
+texture = ExtResource("7_r1qgv")
+
+[node name="StatusPositioner" type="VBoxContainer" parent="ColorRect"]
 layout_mode = 1
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = -57.0
-offset_top = -10.5
-offset_right = 57.0
-offset_bottom = 10.5
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-theme_override_colors/font_color = Color(0, 0, 0, 1)
-text = "This is the store!"
+mouse_filter = 2
+
+[node name="Spacer1" type="Control" parent="ColorRect/StatusPositioner"]
+layout_mode = 2
+size_flags_vertical = 3
+size_flags_stretch_ratio = 3.0
+mouse_filter = 2
+
+[node name="StatusBadge" parent="ColorRect/StatusPositioner" instance=ExtResource("5_punb5")]
+unique_name_in_owner = true
+visible = false
+layout_mode = 2
+padding = 10.0
+font_scale = 1.0
+
+[node name="Spacer2" type="Control" parent="ColorRect/StatusPositioner"]
+layout_mode = 2
+size_flags_vertical = 3
+mouse_filter = 2
+
+[node name="StatusVanishTimer" type="Timer" parent="."]
+wait_time = 3.0
+one_shot = true
+
+[connection signal="timeout" from="StatusVanishTimer" to="ColorRect/StatusPositioner/StatusBadge" method="set_visible" binds= [false]]
 
 [editable path="ColorRect/VBoxContainer/StatsBox"]

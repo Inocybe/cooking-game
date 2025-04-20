@@ -42,30 +42,33 @@ class ItemComposition:
 		return true
 
 
-static var item_compositions: Dictionary = {
-	Item.HamBurger: ItemComposition.new(
-		FoodComponent.Bun, 
-		[ItemComposition.new(FoodComponent.Burger)]
-	),
-	Item.Fries: ItemComposition.new(FoodComponent.Fries),
-	Item.Soda: ItemComposition.new(FoodComponent.Cup),
-}
-
-
-static var food_component_scene_paths: Dictionary = {
-	FoodComponent.Bun: "res://Scenes/orders/food/bun.tscn",
-	FoodComponent.Burger: "res://Scenes/orders/food/burger.tscn",
-	FoodComponent.Fries: "res://Scenes/orders/food/fries.tscn",
-	FoodComponent.Cup: "res://Scenes/orders/food/cup.tscn"
-}
-
-
 static func get_item_composition(item: Item) -> ItemComposition:
-	return item_compositions[item]
+	return {
+		Item.HamBurger: ItemComposition.new(
+			FoodComponent.Bun, 
+			[ItemComposition.new(FoodComponent.Burger)]
+		),
+		Item.Fries: ItemComposition.new(FoodComponent.Fries),
+		Item.Soda: ItemComposition.new(FoodComponent.Cup),
+	}[item]
 
 
 static func get_food_component_scene_path(component: FoodComponent) -> String:
-	return food_component_scene_paths[component]
+	return {
+		FoodComponent.Bun: "res://Scenes/orders/food/bun.tscn",
+		FoodComponent.Burger: "res://Scenes/orders/food/burger.tscn",
+		FoodComponent.Fries: "res://Scenes/orders/food/fries.tscn",
+		FoodComponent.Cup: "res://Scenes/orders/food/cup.tscn"
+	}[component]
+
+
+static func get_food_component_name(component: FoodComponent) -> String:
+	return {
+		FoodComponent.Bun: "Bun",
+		FoodComponent.Burger: "Burger",
+		FoodComponent.Fries: "Fries",
+		FoodComponent.Cup: "Cup"
+	}[component]
 
 
 static func make_food_component_scene(component: FoodComponent) -> Node3D:
@@ -81,7 +84,16 @@ static func compatible_components(component: FoodComponent) -> Array[FoodCompone
 	return []
 
 
-static func item_price(item: Item) -> float:
+static func get_item_wholesale_price(item: FoodComponent) -> float:
+	return {
+		FoodComponent.Bun: 2,
+		FoodComponent.Burger: 6,
+		FoodComponent.Fries: 4,
+		FoodComponent.Cup: 3
+	} [item]
+
+
+static func get_item_retail_price(item: Item) -> float:
 	return {
 		Item.HamBurger: 16,
 		Item.Fries: 8,

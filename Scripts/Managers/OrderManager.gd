@@ -94,5 +94,5 @@ func register_completed_dish(dish: Node3D) -> void:
 func calculate_worth(dish: Node3D) -> float:
 	var worth: float = 0
 	for item: Menu.Item in dish.order:
-		worth += Menu.item_price(item)
+		worth += Menu.get_item_retail_price(item)
 	return worth

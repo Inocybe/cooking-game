@@ -1,0 +1,46 @@
+[gd_scene load_steps=6 format=3 uid="uid://b7ouvlbkn0ak6"]
+
+[ext_resource type="PackedScene" uid="uid://bk567htcs0xj" path="res://Scenes/orders/food/burger.tscn" id="2_gfriw"]
+[ext_resource type="PackedScene" uid="uid://b3024k6shxqvg" path="res://Scenes/orders/food/bun.tscn" id="2_tbwdl"]
+[ext_resource type="PackedScene" uid="uid://cdm4qy124ys6o" path="res://Scenes/orders/food/fries.tscn" id="3_tbwdl"]
+[ext_resource type="PackedScene" uid="uid://ca6thqwccusde" path="res://Scenes/orders/food/cup.tscn" id="5_tckbj"]
+
+[sub_resource type="Environment" id="Environment_tckbj"]
+background_mode = 1
+background_color = Color(0, 1, 0, 1)
+ambient_light_source = 2
+ambient_light_color = Color(1, 1, 1, 1)
+ambient_light_energy = 0.5
+
+[node name="FoodShowroom" type="Node3D"]
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = SubResource("Environment_tckbj")
+
+[node name="Camera3D" type="Camera3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 0.969445, 0.245307, 0, -0.245307, 0.969445, 0, 0.247, 0.682)
+projection = 1
+size = 0.721
+
+[node name="Food" type="Node3D" parent="."]
+
+[node name="Bun" parent="Food" instance=ExtResource("2_tbwdl")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.417867, 0, 0)
+freeze = true
+
+[node name="Burger" parent="Food" instance=ExtResource("2_gfriw")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0685966, 0, 0)
+freeze = true
+
+[node name="Fries" parent="Food" instance=ExtResource("3_tbwdl")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.245005, 0, 0)
+freeze = true
+
+[node name="Cup" parent="Food" instance=ExtResource("5_tckbj")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.526693, 0, 0)
+freeze = true
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 0.738067, 0.674728, 0, -0.674728, 0.738067, 0, 0, 0)
+light_energy = 0.688
+sky_mode = 1
