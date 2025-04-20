@@ -9,7 +9,7 @@ enum GameState {
 
 const XR_SYSTEM = preload("res://Scenes/player/vr/xr_system.tscn")
 
-var player_input_enabled = true
+var set_window_title: bool = false
 
 var game_manager: GameManager = null
 
@@ -87,6 +87,11 @@ func is_vr_avaliable() -> bool:
 
 
 func _process(_delta: float) -> void:
+	if not set_window_title:
+		DisplayServer.window_set_title(
+			"Burger Box", get_window().get_window_id())
+		set_window_title = true
+	
 	if get_tree().current_scene and game_manager == null:
 		game_manager = get_tree().current_scene.get_node_or_null("GameManager")
 
