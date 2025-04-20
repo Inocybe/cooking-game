@@ -1,8 +1,7 @@
-[gd_scene load_steps=5 format=3 uid="uid://dm5580jkhjqib"]
+[gd_scene load_steps=4 format=3 uid="uid://dm5580jkhjqib"]
 
 [ext_resource type="Script" uid="uid://dvdxwlvx6sdxv" path="res://Scripts/UI/Utils/FontScaler.gd" id="1_c0qa7"]
 [ext_resource type="Script" uid="uid://wojbfe5vhxlf" path="res://Scripts/UI/Utils/SwitchSceneButton.gd" id="2_y8w3e"]
-[ext_resource type="PackedScene" uid="uid://b3ecw72uv4n7o" path="res://Scenes/mains/map_menu.tscn" id="3_5pws8"]
 
 [sub_resource type="PlaceholderTexture2D" id="PlaceholderTexture2D_c0qa7"]
 
@@ -54,7 +53,7 @@ size_flags_horizontal = 4
 size_flags_vertical = 4
 text = " Continue... "
 script = ExtResource("2_y8w3e")
-new_scene = ExtResource("3_5pws8")
+new_scene = "res://Scenes/mains/map_menu.tscn"
 
 [node name="Spacer2" type="Control" parent="TextureRect/VBoxContainer"]
 layout_mode = 2

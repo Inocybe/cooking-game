@@ -14,5 +14,5 @@ func _ready():
 
 func update_font_size() -> void:
 	target.add_theme_font_size_override(
-		"font_size", target.get_theme_default_font_size() * font_scale
+		"font_size", int(target.get_theme_default_font_size() * font_scale)
 	)

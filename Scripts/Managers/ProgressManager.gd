@@ -5,9 +5,9 @@ class StoredFoodComponent:
 	var food: Menu.FoodComponent
 	var age: int
 	
-	func _init(food_: Menu.FoodComponent, age: int = 0) -> void:
+	func _init(food_: Menu.FoodComponent, age_: int = 0) -> void:
 		self.food = food_
-		self.age = age
+		self.age = age_
 	
 	func to_json() -> Dictionary:
 		return {
@@ -37,6 +37,9 @@ var money: float
 var rand_seed: int
 
 
+signal progress_saved()
+
+
 func _ready() -> void:
 	if not load_progress():
 		load_default_progress()
@@ -45,6 +48,7 @@ func _ready() -> void:
 func save_progress() -> void:
 	var file = FileAccess.open(PROGRESS_PATH, FileAccess.WRITE)
 	file.store_string(JSON.stringify(get_progress_json()))
+	progress_saved.emit()
 
 
 func load_progress() -> bool:
@@ -86,7 +90,7 @@ func load_default_progress() -> void:
 	day = 1
 	orders_complete = 0
 	money = STARTING_MONEY
-	rand_seed = Time.get_unix_time_from_system()
+	rand_seed = hash(Time.get_unix_time_from_system())
 
 
 func get_food_avaiable_count(component: Menu.FoodComponent) -> int:

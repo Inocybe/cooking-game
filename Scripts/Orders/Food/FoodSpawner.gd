@@ -12,7 +12,7 @@ var last_food: Node3D = null
 
 
 func _ready() -> void:
-	food_resource = load(Menu.food_component_scene_paths[food_component])
+	food_resource = load(Menu.get_food_component_scene_path(food_component))
 
 
 func _process(_delta: float) -> void:

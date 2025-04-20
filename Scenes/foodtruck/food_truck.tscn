@@ -103,10 +103,10 @@ unique_name_in_owner = true
 transform = Transform3D(-4.37114e-09, 0, -0.1, 0, 0.1, 0, 0.1, 0, -4.37114e-09, 3.14928, 2.21848, -0.288062)
 
 [node name="Shelf" parent="Interior" instance=ExtResource("14_jugau")]
-transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -1.61646, 2.03243, -1.11942)
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -1.8078, 2.03243, -1.11942)
 
 [node name="MeatThermometer" parent="Interior" instance=ExtResource("13_fvj1u")]
-transform = Transform3D(-0.422618, 0.906308, 8.74227e-08, 0.906307, 0.422618, 0, -3.69464e-08, 7.92319e-08, -0.999999, -1.30569, 2.11233, -1.09728)
+transform = Transform3D(-0.422618, 0.906308, 8.74227e-08, 0.906307, 0.422618, 0, -3.69464e-08, 7.92319e-08, -0.999999, -1.49703, 2.11233, -1.09728)
 
 [node name="Mop" parent="Interior" instance=ExtResource("16_1bg51")]
 transform = Transform3D(-0.766044, -0.642788, 8.74228e-08, -0.642788, 0.766044, 0, -6.69697e-08, -5.61943e-08, -1, -1.4322, 1.22687, -1.11286)

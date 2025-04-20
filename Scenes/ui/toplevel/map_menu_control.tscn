@@ -19,7 +19,7 @@ metadata/_custom_type_script = "uid://dhe534odp4ri1"
 
 [sub_resource type="Resource" id="Resource_p5u53"]
 script = ExtResource("4_p5u53")
-name = "Portplace"
+name = "Madras"
 town_int = 1
 population = 254
 opening_hours = 3.0
@@ -27,7 +27,7 @@ metadata/_custom_type_script = "uid://dhe534odp4ri1"
 
 [sub_resource type="Resource" id="Resource_xrc3u"]
 script = ExtResource("4_p5u53")
-name = "Portport"
+name = "Manzanita"
 town_int = 2
 population = 457
 opening_hours = 6.0

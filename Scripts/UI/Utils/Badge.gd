@@ -11,6 +11,7 @@ const BORDER_RADIUS = 1000
 @export var hover_bg_color: Color = Color.DARK_ORANGE
 @export var pressed_bg_color: Color = Color.DARK_GOLDENROD
 @export var text_color: Color = Color.WHITE
+@export var padding: float = 0
 @export var font_scale: float = 0.75
 @export var clickable: bool = false
 
@@ -33,10 +34,8 @@ func button_resize() -> void:
 func update_badge() -> void:
 	var normal_box: StyleBoxFlat = StyleBoxFlat.new()
 	normal_box.bg_color = bg_color
-	normal_box.corner_radius_top_left = BORDER_RADIUS
-	normal_box.corner_radius_top_right = BORDER_RADIUS
-	normal_box.corner_radius_bottom_left = BORDER_RADIUS
-	normal_box.corner_radius_bottom_right = BORDER_RADIUS
+	normal_box.set_corner_radius_all(BORDER_RADIUS)
+	normal_box.set_expand_margin_all(padding)
 	btn.add_theme_stylebox_override("normal", normal_box)
 	
 	var hover_box: StyleBoxFlat = normal_box.duplicate()
