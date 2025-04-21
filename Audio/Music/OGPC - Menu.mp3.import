@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://cbpwkfkx8c3ai"
+path="res://.godot/imported/OGPC - Menu.mp3-990342b3e563561e9970796be6ee9b88.mp3str"
+
+[deps]
+
+source_file="res://Audio/Music/OGPC - Menu.mp3"
+dest_files=["res://.godot/imported/OGPC - Menu.mp3-990342b3e563561e9970796be6ee9b88.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4
