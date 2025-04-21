@@ -9,20 +9,23 @@ enum GameState {
 
 const XR_SYSTEM = preload("res://Scenes/player/vr/xr_system.tscn")
 
-var set_window_title: bool = false
 
 var game_manager: GameManager = null
-
 var xr_manager: XRManager = null
 
+var music_pitch_shift: AudioEffectPitchShift = AudioEffectPitchShift.new()
+
 var game_state: GameState = GameState.MENU
+
+var town: TownResource
 
 var has_XR_known: bool = false
 var has_XR: bool
 
 var font_size_fraction: float = 0.03
 
-var town: TownResource
+
+var set_window_title: bool = false
 
 
 signal has_XR_detected(has_XR: bool)
@@ -34,6 +37,11 @@ signal font_size_changed()
 
 func _ready():
 	var current_scene = get_tree().current_scene
+	
+	AudioServer.add_bus_effect(
+		AudioServer.get_bus_index("Music"),
+		music_pitch_shift
+	)
 	
 	if not current_scene:
 		return
