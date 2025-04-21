@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://vpfmtg653kc5"
+path="res://.godot/imported/OGPC - Truck.mp3-c9dc447553254089bebd8aa2d2ef175d.mp3str"
+
+[deps]
+
+source_file="res://Audio/Music/OGPC - Truck.mp3"
+dest_files=["res://.godot/imported/OGPC - Truck.mp3-c9dc447553254089bebd8aa2d2ef175d.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4
