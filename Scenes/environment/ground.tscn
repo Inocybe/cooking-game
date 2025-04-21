@@ -1,6 +1,6 @@
 [gd_scene load_steps=11 format=3 uid="uid://c52i2exeeb6uq"]
 
-[ext_resource type="Shader" path="res://Scripts/Shaders/SandShader.gdshader" id="1_x6tu0"]
+[ext_resource type="Shader" uid="uid://dgsm0n0q72c8u" path="res://Scripts/Shaders/SandShader.gdshader" id="1_x6tu0"]
 
 [sub_resource type="WorldBoundaryShape3D" id="WorldBoundaryShape3D_wlqu1"]
 
