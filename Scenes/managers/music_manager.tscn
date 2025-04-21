@@ -1,26 +1,48 @@
-[gd_scene load_steps=8 format=3 uid="uid://dnpv3i87jyyr7"]
+[gd_scene load_steps=7 format=3 uid="uid://dnpv3i87jyyr7"]
 
+[ext_resource type="Script" uid="uid://bap8glvju8jes" path="res://Scripts/Managers/MusicManager.gd" id="1_x1qc6"]
 [ext_resource type="AudioStream" uid="uid://cg88tdt3v0i7u" path="res://Audio/Music/OGPC - Cook.mp3" id="2_manp2"]
 [ext_resource type="AudioStream" uid="uid://bycru5cbsfjvp" path="res://Audio/Music/OGPC - Fry.mp3" id="3_g0kbl"]
 [ext_resource type="AudioStream" uid="uid://cbpwkfkx8c3ai" path="res://Audio/Music/OGPC - Menu.mp3" id="3_x1qc6"]
 [ext_resource type="AudioStream" uid="uid://crfc0k26a1b4k" path="res://Audio/Music/OGPC - Open.mp3" id="4_x1qc6"]
 [ext_resource type="AudioStream" uid="uid://vpfmtg653kc5" path="res://Audio/Music/OGPC - Truck.mp3" id="5_lq3fv"]
-[ext_resource type="AudioStream" uid="uid://dqt0elsvoq782" path="res://Audio/SFX/Break60.mp3" id="5_manp2"]
 
-[sub_resource type="AudioStreamPlaylist" id="AudioStreamPlaylist_4kamx"]
-shuffle = true
-stream_count = 6
-stream_0 = ExtResource("2_manp2")
-stream_1 = ExtResource("3_g0kbl")
-stream_2 = ExtResource("3_x1qc6")
-stream_3 = ExtResource("4_x1qc6")
-stream_4 = ExtResource("5_lq3fv")
-stream_5 = ExtResource("5_manp2")
+[node name="MusicManager" type="Node" node_paths=PackedStringArray("song_players")]
+script = ExtResource("1_x1qc6")
+song_players = [NodePath("CookMusicPlayer"), NodePath("FryMusicPlayer"), NodePath("MenuMusicPlayer"), NodePath("OpenMusicPlayer"), NodePath("TruckMusicPlayer")]
 
-[node name="MusicManager" type="Node"]
-
-[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
-stream = SubResource("AudioStreamPlaylist_4kamx")
+[node name="CookMusicPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("2_manp2")
 volume_db = -6.0
-autoplay = true
 bus = &"Music"
+
+[node name="FryMusicPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("3_g0kbl")
+volume_db = -6.0
+bus = &"Music"
+
+[node name="MenuMusicPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("3_x1qc6")
+volume_db = -6.0
+bus = &"Music"
+
+[node name="OpenMusicPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("4_x1qc6")
+volume_db = -6.0
+bus = &"Music"
+
+[node name="TruckMusicPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("5_lq3fv")
+volume_db = -6.0
+bus = &"Music"
+
+[node name="NoMusicTimer" type="Timer" parent="."]
+wait_time = 60.0
+one_shot = true
+
+[connection signal="finished" from="CookMusicPlayer" to="." method="song_ended"]
+[connection signal="finished" from="FryMusicPlayer" to="." method="song_ended"]
+[connection signal="finished" from="MenuMusicPlayer" to="." method="song_ended"]
+[connection signal="finished" from="OpenMusicPlayer" to="." method="song_ended"]
+[connection signal="finished" from="TruckMusicPlayer" to="." method="song_ended"]
+[connection signal="timeout" from="NoMusicTimer" to="." method="song_ended"]
