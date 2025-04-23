@@ -4,6 +4,7 @@ class_name MapButton extends Control
 
 signal world_load_requested()
 
+const ICON = preload("res://Scenes/ui/icon.tscn")
 
 @onready var animation_player: AnimationPlayer = $AnimationPlayer
 @onready var label: RichTextLabel = %Text
@@ -12,11 +13,12 @@ signal world_load_requested()
 @export var position_fraction: Vector2
 
 var town_values_shown: bool = false
-
+var icons: Array[Control]
 
 func _ready() -> void:
 	get_parent().resized.connect(reposition)
 	reposition()
+	
 	
 	$Button.pressed.connect(on_button_pressed)
 	$Button.text = " "+town.name+" "
@@ -40,6 +42,7 @@ func on_button_pressed() -> void:
 	else:
 		town_values_shown = true
 		animation_player.play("display_town_values")
+
 
 
 func show_town_values() -> void:

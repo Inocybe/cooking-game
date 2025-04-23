@@ -1,20 +1,20 @@
 [gd_scene load_steps=2 format=3 uid="uid://d1fbsrbtw043r"]
 
-[ext_resource type="Script" uid="uid://brkoindrbi14" path="res://Scripts/ui/icon.gd" id="1_q5bu3"]
+[ext_resource type="Script" uid="uid://brkoindrbi14" path="res://Scripts/UI/icon.gd" id="1_q5bu3"]
 
-[node name="Icon" type="Control"]
-layout_mode = 3
-anchors_preset = 0
-script = ExtResource("1_q5bu3")
-
-[node name="TextureRect" type="TextureRect" parent="."]
-layout_mode = 1
+[node name="Icon" type="TextureRect"]
 anchors_preset = 8
 anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
+offset_left = -400.0
+offset_top = -400.0
+offset_right = 400.0
+offset_bottom = 400.0
 grow_horizontal = 2
 grow_vertical = 2
-expand_mode = 5
-stretch_mode = 5
+size_flags_horizontal = 4
+size_flags_vertical = 4
+script = ExtResource("1_q5bu3")
+metadata/_edit_use_anchors_ = true
