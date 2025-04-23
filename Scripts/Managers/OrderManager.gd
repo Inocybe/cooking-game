@@ -18,7 +18,7 @@ func create_random_order() -> Array[Menu.Item]:
 
 	var items: Array[Menu.Item] = []
 	while items.size() < order_size:
-		var item: Menu.Item = Global.weighted_random_val(
+		var item: Menu.Item = Utils.weighted_random_val(
 			WeatherManager.get_item_weighting(weather_type)
 		)
 		

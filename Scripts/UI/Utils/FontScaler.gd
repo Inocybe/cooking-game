@@ -1,3 +1,4 @@
+@tool
 class_name FontScaler extends Node
 
 
@@ -9,7 +10,8 @@ var target: Control
 func _ready():
 	target = get_parent()
 	update_font_size()
-	Global.font_size_changed.connect(update_font_size)
+	if not Engine.is_editor_hint():
+		Global.font_size_changed.connect(update_font_size)
 
 
 func update_font_size() -> void:

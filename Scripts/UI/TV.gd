@@ -10,9 +10,9 @@ func _process(_delta: float) -> void:
 	)
 	
 	tv_control.revenue.set_text(
-		Global.format_money(Global.game_manager.revenue)
+		Utils.format_money(Global.game_manager.revenue)
 	)
 	
 	tv_control.time_remaining.set_text(
-		Global.format_time(Global.game_manager.time_remaining)
+		Utils.format_time(Global.game_manager.time_remaining)
 	)

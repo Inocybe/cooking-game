@@ -11,5 +11,5 @@ func _ready() -> void:
 
 
 func display() -> void:
-	money_display.text = Global.format_money(ProgressManager.money)
+	money_display.text = Utils.format_money(ProgressManager.money)
 	orders_complete_display.text = str(ProgressManager.orders_complete)
