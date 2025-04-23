@@ -6,7 +6,6 @@ class_name Player extends CharacterBody3D
 @export var acceleration = 20.0
 @export_range(0, 1) var AIR_CONTROL = 0.4
 @export var JUMP_VELOCITY = 3.5
-@export var sensitivity = 0.005
 
 @onready var head: Node3D = %Head
 @onready var camera: Camera3D = %Camera3D
@@ -42,8 +41,9 @@ func _unhandled_input(event: InputEvent) -> void:
 	if event is InputEventMouseMotion:
 		var mouse_delta: Vector2 = event.relative
 		
-		rotate_y(-mouse_delta.x * sensitivity * 0.01)
-		head.rotate_x(-mouse_delta.y * sensitivity * 0.01)
+		var sensitivity: float = SettingsManager.mouse_sensitivity * 0.0002
+		rotate_y(-mouse_delta.x * sensitivity)
+		head.rotate_x(-mouse_delta.y * sensitivity)
 		head.rotation.x = clamp(head.rotation.x, deg_to_rad(-80), deg_to_rad(80))
 
 

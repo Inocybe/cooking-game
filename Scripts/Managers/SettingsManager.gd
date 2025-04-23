@@ -5,7 +5,7 @@ const SETTINGS_PATH = "user://settings.json"
 
 var overall_volume: float = 1
 var music_volume: float = 1
-var mouse_sensitivity: float = 0.005
+var mouse_sensitivity: float = 4
 
 enum VRMoveMode {
 	CHAIR, WALK
@@ -19,7 +19,7 @@ signal settings_updated()
 
 func _ready() -> void:
 	settings_updated.connect(do_volume_updates)
-	if false: load_settings()
+	load_settings()
 	settings_updated.emit()
 
 
