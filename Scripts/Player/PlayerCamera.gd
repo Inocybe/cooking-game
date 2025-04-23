@@ -1,4 +1,4 @@
-class_name Camera extends Camera3D
+class_name PlayerCamera extends Camera3D
 
 
 @export var arm_length: float = 5
@@ -62,9 +62,11 @@ func interact_with(obj: Node) -> void:
 func interact_with_ui(obj: Node3D, pos: Vector3):
 	obj.do_interact_at(pos)
 
+
 func interact_with_menu_ui(_obj: Node3D, _pos: Vector3) -> void:
 	pass
-	
+
+
 func drop_selected() -> void:
 	if selected_object.has_method("on_stop_interact"):
 		selected_object.on_stop_interact()
