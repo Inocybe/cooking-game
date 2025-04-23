@@ -1,3 +1,4 @@
+@tool
 class_name StoreFoodOption extends Control
 
 
@@ -13,20 +14,22 @@ signal status_message(msg: String, status: StoreControl.StatusType)
 func _ready() -> void:
 	%ItemName.text = Menu.get_food_component_name(component)
 	price = Menu.get_item_wholesale_price(component)
-	%ItemPrice.text = Global.format_money(price)
+	%ItemPrice.text = Utils.format_money(price)
 	$TextureRect.texture = texture
 	display_number_in_inventory()
 
 
 func display_number_in_inventory() -> void:
-	var count = ProgressManager.get_food_avaiable_count(component)
+	var count: int = 0
+	if not Engine.is_editor_hint():
+		count = ProgressManager.get_food_avaiable_count(component)
 	%InventoryCount.text = "%d in inventory" % count
 
 
 func buy_item() -> void:
 	if ProgressManager.money < price:
 		status_message.emit(
-			"🗙 Not enough money",
+			"✖ Not enough money",
 			StoreControl.StatusType.ERR
 		)
 		return

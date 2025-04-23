@@ -1,7 +1,28 @@
-[gd_scene load_steps=3 format=3 uid="uid://b7k75vt3n7uch"]
+[gd_scene load_steps=6 format=3 uid="uid://b7k75vt3n7uch"]
 
 [ext_resource type="Script" uid="uid://cmd116q6a8078" path="res://Scripts/UI/Utils/Badge.gd" id="1_6nbng"]
 [ext_resource type="Script" uid="uid://dvdxwlvx6sdxv" path="res://Scripts/UI/Utils/FontScaler.gd" id="2_2biyt"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_2biyt"]
+bg_color = Color(0.721569, 0.52549, 0.0431373, 1)
+corner_radius_top_left = 1000
+corner_radius_top_right = 1000
+corner_radius_bottom_right = 1000
+corner_radius_bottom_left = 1000
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_81o1b"]
+bg_color = Color(1, 0.54902, 0, 1)
+corner_radius_top_left = 1000
+corner_radius_top_right = 1000
+corner_radius_bottom_right = 1000
+corner_radius_bottom_left = 1000
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_iruej"]
+bg_color = Color(1, 0.647059, 0, 1)
+corner_radius_top_left = 1000
+corner_radius_top_right = 1000
+corner_radius_bottom_right = 1000
+corner_radius_bottom_left = 1000
 
 [node name="Badge" type="Control"]
 layout_mode = 3
@@ -9,9 +30,11 @@ anchors_preset = 1
 anchor_left = 1.0
 anchor_right = 1.0
 grow_horizontal = 0
+mouse_filter = 2
 script = ExtResource("1_6nbng")
 
 [node name="Button" type="Button" parent="."]
+custom_minimum_size = Vector2(8, 0)
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
@@ -24,7 +47,13 @@ offset_right = 4.0
 offset_bottom = 4.0
 grow_horizontal = 2
 grow_vertical = 2
-text = "!"
+mouse_filter = 2
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_font_sizes/font_size = 12
+theme_override_styles/hover_pressed = SubResource("StyleBoxFlat_2biyt")
+theme_override_styles/hover = SubResource("StyleBoxFlat_81o1b")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_2biyt")
+theme_override_styles/normal = SubResource("StyleBoxFlat_iruej")
 
 [node name="FontScaler" type="Node" parent="Button"]
 script = ExtResource("2_2biyt")
