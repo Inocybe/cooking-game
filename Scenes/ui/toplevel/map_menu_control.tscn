@@ -14,7 +14,7 @@ script = ExtResource("4_p5u53")
 name = "Portland"
 town_int = 0
 population = 378
-opening_hours = 0.1
+opening_hours = 5.0
 metadata/_custom_type_script = "uid://dhe534odp4ri1"
 
 [sub_resource type="Resource" id="Resource_p5u53"]
