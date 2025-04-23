@@ -2,7 +2,7 @@
 
 [ext_resource type="Shader" uid="uid://ekih04etq4cy" path="res://Scripts/Shaders/LightningShader.gdshader" id="1_jfjsu"]
 [ext_resource type="Script" uid="uid://b1qom4u11sbbc" path="res://Scripts/Enviornment/LightningBolt.gd" id="2_tlka2"]
-[ext_resource type="AudioStream" uid="uid://dc3n1c8hn64jg" path="res://Audio/SFX/Thunder.mp3" id="3_6s6vs"]
+[ext_resource type="AudioStream" uid="uid://dsc52vc5c6en0" path="res://Audio/SFX/Lightning.mp3" id="3_6s6vs"]
 
 [sub_resource type="QuadMesh" id="QuadMesh_yc5rf"]
 size = Vector2(1, 40)
