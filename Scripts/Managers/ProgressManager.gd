@@ -22,10 +22,10 @@ class StoredFoodComponent:
 const PROGRESS_PATH = "user://progress.json"
 
 const STARTING_FOOD_AMOUNTS: Dictionary[Menu.FoodComponent, int] = {
-	Menu.FoodComponent.Bun: 10,
-	Menu.FoodComponent.Burger: 10,
-	Menu.FoodComponent.Fries: 10,
-	Menu.FoodComponent.Cup: 15
+	Menu.FoodComponent.Bun: 5,
+	Menu.FoodComponent.Burger: 5,
+	Menu.FoodComponent.Fries: 5,
+	Menu.FoodComponent.Cup: 10
 }
 
 const STARTING_MONEY: float = 100
@@ -66,6 +66,11 @@ func increment_day() -> void:
 	day += 1
 	for item: StoredFoodComponent in stock:
 		item.age += 1
+	stock = stock.filter(has_food_item_not_expired)
+
+
+func has_food_item_not_expired(item: StoredFoodComponent) -> bool:
+	return item.age < Menu.get_food_expire_age(item.food)
 
 
 func removed_used_food(used: Dictionary[Menu.FoodComponent, int]) -> void:
@@ -97,6 +102,15 @@ func get_food_avaiable_count(component: Menu.FoodComponent) -> int:
 	var count: int = 0
 	for item: StoredFoodComponent in stock:
 		if item.food == component:
+			count += 1
+	return count
+
+
+func get_food_expiring_today_count(component: Menu.FoodComponent) -> int:
+	var count: int = 0
+	for item: StoredFoodComponent in stock:
+		if (item.food == component 
+			and item.age == Menu.get_food_expire_age(component) - 1):
 			count += 1
 	return count
 

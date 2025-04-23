@@ -12,10 +12,10 @@ enum StatusType {
 
 
 const RECOMMENDED_FOOD_AMOUNTS: Dictionary[Menu.FoodComponent, int] = {
-	Menu.FoodComponent.Bun: 5,
-	Menu.FoodComponent.Burger: 5,
-	Menu.FoodComponent.Fries: 5,
-	Menu.FoodComponent.Cup: 5
+	Menu.FoodComponent.Bun: 4,
+	Menu.FoodComponent.Burger: 4,
+	Menu.FoodComponent.Fries: 4,
+	Menu.FoodComponent.Cup: 4
 }
 
 
