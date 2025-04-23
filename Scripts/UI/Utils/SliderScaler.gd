@@ -1,3 +1,4 @@
+@tool
 extends Node
 
 
@@ -13,7 +14,8 @@ func _ready() -> void:
 	slider = get_parent()
 	relative_to = slider.get_parent()
 	do_resize()
-	relative_to.resized.connect(do_resize)
+	if not Engine.is_editor_hint():
+		relative_to.resized.connect(do_resize)
 
 
 func do_resize() -> void:

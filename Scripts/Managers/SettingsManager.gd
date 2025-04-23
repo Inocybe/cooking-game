@@ -5,6 +5,7 @@ const SETTINGS_PATH = "user://settings.json"
 
 var overall_volume: float = 1
 var music_volume: float = 1
+var mouse_sensitivity: float = 0.005
 
 enum VRMoveMode {
 	CHAIR, WALK
@@ -18,7 +19,7 @@ signal settings_updated()
 
 func _ready() -> void:
 	settings_updated.connect(do_volume_updates)
-	load_settings()
+	if false: load_settings()
 	settings_updated.emit()
 
 
@@ -58,6 +59,7 @@ func get_settings_json() -> Dictionary:
 	return {
 		"overall_volume": overall_volume,
 		"music_volume": music_volume,
+		"mouse_sensitivity": mouse_sensitivity,
 		"vr_move_mode": vr_move_mode
 	}
 
@@ -65,4 +67,5 @@ func get_settings_json() -> Dictionary:
 func read_settings_json(json: Dictionary) -> void:
 	overall_volume = json["overall_volume"]
 	music_volume = json["music_volume"]
+	mouse_sensitivity = json["mouse_sensitivity"]
 	vr_move_mode = json["vr_move_mode"]

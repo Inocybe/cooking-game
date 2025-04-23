@@ -129,7 +129,7 @@ func switch_scenes_with_path(scene: String) -> void:
 
 func debug_ray(from: Vector3, diff: Vector3, color: Color = Color.CHARTREUSE,
 		width: float = 3):
-	var camera: Camera = game_manager.player.camera
+	var camera: PlayerCamera = game_manager.player.camera
 	game_manager.player.debug_display.add_ray(
 		camera.unproject_position(from), 
 		camera.unproject_position(from + diff),
