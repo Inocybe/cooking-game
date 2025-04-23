@@ -42,11 +42,8 @@ layout_mode = 2
 text = " Back to Map "
 new_scene = "res://Scenes/mains/map_menu.tscn"
 
-[node name="Body" type="GridContainer" parent="ColorRect/VBoxContainer"]
+[node name="Body" type="HBoxContainer" parent="ColorRect/VBoxContainer"]
 layout_mode = 2
-theme_override_constants/h_separation = 10
-theme_override_constants/v_separation = 10
-columns = 4
 
 [node name="BunOption" parent="ColorRect/VBoxContainer/Body" instance=ExtResource("3_2bk7j")]
 layout_mode = 2

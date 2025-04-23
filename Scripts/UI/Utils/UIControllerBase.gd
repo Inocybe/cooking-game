@@ -11,10 +11,6 @@ class_name UIControllerBase extends Node3D
 
 func world_to_local_space(pos: Vector3) -> Vector2:
 	var local_3d_pos = sprite_3d.get_global_transform().affine_inverse() * pos
-		
-	#if !is_zero_approx(local_3d_pos.z):
-		#print("event not on ui plane")
-		#return Vector2.ZERO
 	
 	# Assuming uniform scaling
 	var texture_position: Vector2 = Vector2(

@@ -1,7 +1,6 @@
-[gd_scene load_steps=4 format=3 uid="uid://ds5sx1wsesh6e"]
+[gd_scene load_steps=3 format=3 uid="uid://ds5sx1wsesh6e"]
 
 [ext_resource type="Script" uid="uid://ba36ugps4rr32" path="res://Scripts/UI/StoreFoodOption.gd" id="1_5uf0k"]
-[ext_resource type="Texture2D" uid="uid://c3xn338gig4ha" path="res://Assets/Branding/iconfull.png" id="1_ycata"]
 [ext_resource type="PackedScene" uid="uid://b7k75vt3n7uch" path="res://Scenes/ui/controls/badge.tscn" id="2_5uf0k"]
 
 [node name="StoreFoodOption" type="MarginContainer"]
@@ -15,22 +14,23 @@ theme_override_constants/margin_bottom = 5
 script = ExtResource("1_5uf0k")
 
 [node name="TextureRect" type="TextureRect" parent="."]
+unique_name_in_owner = true
 layout_mode = 2
-texture = ExtResource("1_ycata")
 expand_mode = 5
 stretch_mode = 5
 
 [node name="InnerMargin" type="MarginContainer" parent="TextureRect"]
+unique_name_in_owner = true
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-theme_override_constants/margin_left = 10
-theme_override_constants/margin_top = 10
-theme_override_constants/margin_right = 10
-theme_override_constants/margin_bottom = 10
+theme_override_constants/margin_left = 3
+theme_override_constants/margin_top = 3
+theme_override_constants/margin_right = 3
+theme_override_constants/margin_bottom = 3
 
 [node name="ItemName" type="Label" parent="TextureRect/InnerMargin"]
 unique_name_in_owner = true
@@ -40,10 +40,19 @@ size_flags_vertical = 0
 theme_override_colors/font_color = Color(0, 0, 0, 1)
 text = "Bun"
 
+[node name="ExpiringToday" parent="TextureRect/InnerMargin" instance=ExtResource("2_5uf0k")]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 0
+text = " 0 expiring today "
+padding = 3.0
+
 [node name="BuyBadge" parent="TextureRect/InnerMargin" instance=ExtResource("2_5uf0k")]
 layout_mode = 2
 size_flags_horizontal = 8
 size_flags_vertical = 0
+mouse_filter = 0
 text = "+"
 bg_color = Color(0.213116, 0.80425, 0.994272, 1)
 hover_bg_color = Color(0.0375289, 0.720628, 0.907976, 1)
@@ -57,7 +66,7 @@ layout_mode = 2
 size_flags_horizontal = 0
 size_flags_vertical = 8
 theme_override_colors/font_color = Color(0, 0, 0, 1)
-text = "$0"
+text = "$2.00"
 
 [node name="InventoryCount" type="Label" parent="TextureRect/InnerMargin"]
 unique_name_in_owner = true
@@ -65,6 +74,6 @@ layout_mode = 2
 size_flags_horizontal = 8
 size_flags_vertical = 8
 theme_override_colors/font_color = Color(0, 0, 0, 1)
-text = "0  in inventory"
+text = "0 in inventory"
 
 [connection signal="pressed" from="TextureRect/InnerMargin/BuyBadge" to="." method="buy_item"]

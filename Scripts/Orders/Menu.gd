@@ -1,4 +1,4 @@
-class_name Menu
+class_name Menu extends RefCounted
 
 
 enum Item {
@@ -82,6 +82,15 @@ static func compatible_components(component: FoodComponent) -> Array[FoodCompone
 		FoodComponent.Bun:
 			return [FoodComponent.Burger]
 	return []
+
+
+static func get_food_expire_age(component: FoodComponent) -> int:
+	return {
+		Menu.FoodComponent.Bun: 5,
+		Menu.FoodComponent.Burger: 2,
+		Menu.FoodComponent.Fries: 4,
+		Menu.FoodComponent.Cup: 365
+	}[component]
 
 
 static func get_item_wholesale_price(item: FoodComponent) -> float:
