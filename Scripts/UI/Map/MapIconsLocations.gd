@@ -4,14 +4,14 @@ class_name MapIcons
 static func WeatherToIcon(type: WeatherManager.WeatherType) -> String:
 	match type:
 		WeatherManager.WeatherType.Sunny:
-			return "res://Assets/Map/weather-icons-main/animated/clear-day.svg"
+			return "res://Assets/Icons/clear-day.svg"
 		WeatherManager.WeatherType.Overcast:
-			return "res://Assets/Map/weather-icons-main/animated/cloudy.svg"
+			return "res://Assets/Icons/cloudy.svg"
 		WeatherManager.WeatherType.Rainy:
-			return "res://Assets/Map/weather-icons-main/animated/rainy-3.svg"
+			return "res://Assets/Icons/rainy-3.svg"
 		WeatherManager.WeatherType.Stormy:
-			return "res://Assets/Map/weather-icons-main/animated/thunderstorms.svg"
+			return "res://Assets/Icons/thunderstorms.svg"
 		WeatherManager.WeatherType.Snowy:
-			return "res://Assets/Map/weather-icons-main/animated/snowy-3.svg"
+			return "res://Assets/Icons/snowy-3.svg"
 		_:
 			return ""
