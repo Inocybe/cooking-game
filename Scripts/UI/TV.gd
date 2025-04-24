@@ -1,4 +1,4 @@
-extends UIControllerBase
+class_name TV extends UIControllerBase
 
 
 @onready var tv_control: TVControl = %TVControl

@@ -297,6 +297,7 @@ NodePath("../RoomscaleMode"): 1
 setting_name = "vr_move_mode"
 
 [node name="ResetProgressRow" type="HBoxContainer" parent="VBoxContainer/Bottom/MarginContainer/ScrollContainer/VBoxContainer"]
+unique_name_in_owner = true
 custom_minimum_size = Vector2(0, 30)
 layout_mode = 2
 alignment = 2
