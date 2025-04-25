@@ -1,7 +1,7 @@
 [gd_scene load_steps=30 format=3 uid="uid://mddvjei5ynrc"]
 
 [ext_resource type="PackedScene" uid="uid://b1siu7y0wgssc" path="res://Assets/LowPoly_Environnment/Terrain_1.fbx" id="1_ftkrs"]
-[ext_resource type="Shader" uid="uid://dgsm0n0q72c8u" path="res://Scripts/Shaders/SandShader.gdshader" id="2_frq0i"]
+[ext_resource type="Shader" path="res://Scripts/Shaders/SandShader.gdshader" id="2_frq0i"]
 [ext_resource type="PackedScene" uid="uid://di82cc60lt66p" path="res://Assets/LowPoly_Environnment/Mounting_3.fbx" id="3_5x3gp"]
 [ext_resource type="ArrayMesh" uid="uid://ustfhde5pav3" path="res://Assets/Buildings pack - Aug 2017/OBJ/House.obj" id="4_61x8g"]
 [ext_resource type="Texture2D" uid="uid://cghp3427veyyj" path="res://Assets/Buildings pack - Aug 2017/Textures/Hotel.png" id="4_lyolv"]
@@ -48,10 +48,10 @@ shader = ExtResource("2_frq0i")
 shader_parameter/min_base_color = Color(0.596516, 0.553204, 0.401238, 1)
 shader_parameter/max_base_color = Color(0.996078, 0.945098, 0.8, 1)
 shader_parameter/grain_noise_high = SubResource("NoiseTexture2D_mkuei")
-shader_parameter/high_noise_scale = 1.5
+shader_parameter/high_noise_scale = 6.0
 shader_parameter/high_noise_weight = 3.0
 shader_parameter/grain_noise_low = SubResource("NoiseTexture2D_8ppr1")
-shader_parameter/low_noise_scale = 0.25
+shader_parameter/low_noise_scale = 1.0
 shader_parameter/low_noise_weight = 1.0
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_61x8g"]
@@ -60,10 +60,10 @@ shader = ExtResource("2_frq0i")
 shader_parameter/min_base_color = Color(0.596516, 0.553204, 0.401238, 1)
 shader_parameter/max_base_color = Color(0.996078, 0.945098, 0.607843, 1)
 shader_parameter/grain_noise_high = SubResource("NoiseTexture2D_mkuei")
-shader_parameter/high_noise_scale = 1.5
+shader_parameter/high_noise_scale = 6.0
 shader_parameter/high_noise_weight = 3.0
 shader_parameter/grain_noise_low = SubResource("NoiseTexture2D_8ppr1")
-shader_parameter/low_noise_scale = 0.25
+shader_parameter/low_noise_scale = 1.0
 shader_parameter/low_noise_weight = 1.0
 
 [sub_resource type="Shader" id="Shader_ftkrs"]
