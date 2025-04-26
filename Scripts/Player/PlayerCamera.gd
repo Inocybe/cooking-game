@@ -19,10 +19,10 @@ func forward_vector() -> Vector3:
 
 
 func _unhandled_input(event: InputEvent) -> void:
-	if event.is_action_pressed("click"):
+	if event.is_action_pressed("interact"):
 		do_interact()
 	
-	if (event.is_action_released("click") and selected_object != null
+	if (event.is_action_released("interact") and selected_object != null
 		and timer.is_stopped()):
 		drop_if_selected()
 	
