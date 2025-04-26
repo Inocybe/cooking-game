@@ -4,7 +4,7 @@
 [ext_resource type="Script" uid="uid://cy78ks14ged5q" path="res://Scripts/UI/Utils/SettingControl.gd" id="1_iyjrv"]
 [ext_resource type="ButtonGroup" uid="uid://7kxiih08be1x" path="res://Assets/Misc/SettingsVRModeButtonGroup.tres" id="3_638ql"]
 [ext_resource type="Script" uid="uid://mg053f7nlefe" path="res://Scripts/UI/Utils/SliderScaler.gd" id="3_fc6kx"]
-[ext_resource type="Script" path="res://Scripts/Misc/VRToggler.gd" id="3_xqjff"]
+[ext_resource type="Script" uid="uid://c2xivkwymlvht" path="res://Scripts/Misc/VRToggler.gd" id="3_xqjff"]
 [ext_resource type="Script" uid="uid://c2rrnshh68u56" path="res://Scripts/UI/Utils/ButtonGroupSetting.gd" id="5_nxibr"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_f0a0s"]
@@ -296,13 +296,18 @@ NodePath("../RoomscaleMode"): 1
 }
 setting_name = "vr_move_mode"
 
-[node name="ResetProgressRow" type="HBoxContainer" parent="VBoxContainer/Bottom/MarginContainer/ScrollContainer/VBoxContainer"]
+[node name="ManageProgressRow" type="HBoxContainer" parent="VBoxContainer/Bottom/MarginContainer/ScrollContainer/VBoxContainer"]
 unique_name_in_owner = true
 custom_minimum_size = Vector2(0, 30)
 layout_mode = 2
 alignment = 2
 
-[node name="ResetProgressButton" type="Button" parent="VBoxContainer/Bottom/MarginContainer/ScrollContainer/VBoxContainer/ResetProgressRow"]
+[node name="OpenProgressButton" type="Button" parent="VBoxContainer/Bottom/MarginContainer/ScrollContainer/VBoxContainer/ManageProgressRow"]
+layout_mode = 2
+text = " Open Progress Folder "
+script = ExtResource("3_xqjff")
+
+[node name="ResetProgressButton2" type="Button" parent="VBoxContainer/Bottom/MarginContainer/ScrollContainer/VBoxContainer/ManageProgressRow"]
 layout_mode = 2
 text = " Reset Progress "
 
@@ -310,4 +315,5 @@ text = " Reset Progress "
 [connection signal="value_changed" from="VBoxContainer/Bottom/MarginContainer/ScrollContainer/VBoxContainer/VolumeRow/HSlider" to="VBoxContainer/Bottom/MarginContainer/ScrollContainer/VBoxContainer/VolumeRow/HSlider" method="change_setting"]
 [connection signal="value_changed" from="VBoxContainer/Bottom/MarginContainer/ScrollContainer/VBoxContainer/MusicVolumeRow/HSlider" to="VBoxContainer/Bottom/MarginContainer/ScrollContainer/VBoxContainer/MusicVolumeRow/HSlider" method="change_setting"]
 [connection signal="value_changed" from="VBoxContainer/Bottom/MarginContainer/ScrollContainer/VBoxContainer/SensitivityControl/HSlider" to="VBoxContainer/Bottom/MarginContainer/ScrollContainer/VBoxContainer/SensitivityControl/HSlider" method="change_setting"]
-[connection signal="pressed" from="VBoxContainer/Bottom/MarginContainer/ScrollContainer/VBoxContainer/ResetProgressRow/ResetProgressButton" to="." method="reset_progress"]
+[connection signal="pressed" from="VBoxContainer/Bottom/MarginContainer/ScrollContainer/VBoxContainer/ManageProgressRow/OpenProgressButton" to="." method="open_progress_location"]
+[connection signal="pressed" from="VBoxContainer/Bottom/MarginContainer/ScrollContainer/VBoxContainer/ManageProgressRow/ResetProgressButton2" to="." method="reset_progress"]
