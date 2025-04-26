@@ -63,7 +63,7 @@ script = ExtResource("3_q220s")
 dot_vw_radius = 0.075
 metadata/_edit_use_anchors_ = true
 
-[node name="Debug Display" type="Control" parent="UserInterface"]
+[node name="DebugDisplay" type="Control" parent="UserInterface"]
 unique_name_in_owner = true
 anchors_preset = 0
 script = ExtResource("4_1ejs7")

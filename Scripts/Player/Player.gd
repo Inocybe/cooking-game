@@ -9,7 +9,7 @@ class_name Player extends CharacterBody3D
 
 @onready var head: Node3D = %Head
 @onready var camera: Camera3D = %Camera3D
-@onready var debug_display: DebugDisplay = %"Debug Display"
+@onready var debug_display: DebugDisplay = %DebugDisplay
 @onready var feet: Node3D = %Feet
 
 var is_right_mouse_down := false
