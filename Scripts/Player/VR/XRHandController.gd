@@ -58,6 +58,8 @@ func interact_enter(body: Node3D, pos=null):
 
 func held_enter(body: Node3D):
 	if held_object == null and body.is_in_group("holdable") and not body.freeze:
+		Global.xr_manager.grabbed_thing.emit()
+		
 		held_object = body
 		Global.set_dependance(self, body, true)
 		
@@ -149,6 +151,7 @@ func _process(delta: float) -> void:
 	
 	var is_grip: bool = is_grip_down() and not is_trigger
 	if is_grip and not was_grip:
+		Global.xr_manager.pointed.emit()
 		for object: Node3D in boundaried_objects:
 			interact_enter(object)
 		try_remote_interact()

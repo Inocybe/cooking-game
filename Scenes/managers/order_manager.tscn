@@ -3,6 +3,7 @@
 [ext_resource type="Script" uid="uid://e3nwlhqll6l8" path="res://Scripts/Managers/OrderManager.gd" id="1_51p7i"]
 
 [node name="OrderManager" type="Node"]
+process_mode = 1
 script = ExtResource("1_51p7i")
 
 [node name="MaybeInvokeOrderingTimer" type="Timer" parent="."]
