@@ -14,6 +14,11 @@ var held_distance: float
 @onready var timer: Timer = %HoldModeTimer
 
 
+signal picked_up_thing()
+
+signal scroll_moved_thing()
+
+
 func forward_vector() -> Vector3:
 	return -global_transform.basis.z
 
@@ -27,6 +32,8 @@ func _unhandled_input(event: InputEvent) -> void:
 		drop_if_selected()
 	
 	var scroll: float = Input.get_axis("scroll_down", "scroll_up")
+	if selected_object and not is_zero_approx(scroll):
+		scroll_moved_thing.emit()
 	held_distance += hold_dist_sensitivity * scroll
 	held_distance = clamp(held_distance, min_hold_dist, max_hold_dist)
 
@@ -48,6 +55,7 @@ func shoot_ray() -> Dictionary:
 
 
 func pick_up(obj: Node) -> void:
+	picked_up_thing.emit()
 	selected_object = obj
 	obj.on_start_interact()
 	timer.start()

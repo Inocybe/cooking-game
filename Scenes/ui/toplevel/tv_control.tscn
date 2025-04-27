@@ -6,7 +6,7 @@
 [ext_resource type="Script" uid="uid://ow5sv4ia1ah3" path="res://Scripts/UI/PauseButton.gd" id="3_oxpqp"]
 [ext_resource type="PackedScene" uid="uid://b63qhctnjuprt" path="res://Scenes/ui/toplevel/settings_control.tscn" id="4_6sim7"]
 [ext_resource type="Script" uid="uid://wojbfe5vhxlf" path="res://Scripts/UI/Utils/SwitchSceneButton.gd" id="4_a8dsq"]
-[ext_resource type="PackedScene" uid="uid://kak2nmvvxfq3" path="res://Scenes/ui/toplevel/info_control.tscn" id="5_52x1k"]
+[ext_resource type="PackedScene" uid="uid://d3np75rswc0ee" path="res://Scenes/ui/toplevel/tutorial_control.tscn" id="7_l06ig"]
 
 [node name="TVControl" type="Control"]
 process_mode = 3
@@ -57,6 +57,7 @@ size_flags_horizontal = 4
 [node name="ColorRect" type="ColorRect" parent="TVMenu/Left/GridContainer/Control" node_paths=PackedStringArray("relative_to")]
 layout_mode = 2
 offset_right = 5.0
+offset_bottom = 648.0
 grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("2_3snea")
@@ -146,18 +147,12 @@ text = "Exit to Menu"
 script = ExtResource("4_a8dsq")
 new_scene = "res://Scenes/mains/main_menu.tscn"
 
-[node name="InfoButton" type="Button" parent="TVMenu/Right/MarginContainer/VBoxContainer"]
-layout_mode = 2
-size_flags_vertical = 3
-text = "Info"
-
 [node name="SettingsControl" parent="." instance=ExtResource("4_6sim7")]
 visible = false
 layout_mode = 1
 
-[node name="InfoControl" parent="." instance=ExtResource("5_52x1k")]
+[node name="TutorialControl" parent="." instance=ExtResource("7_l06ig")]
 visible = false
 layout_mode = 1
 
 [connection signal="pressed" from="TVMenu/Right/MarginContainer/VBoxContainer/SettingsButton" to="SettingsControl" method="set_visible" binds= [true]]
-[connection signal="pressed" from="TVMenu/Right/MarginContainer/VBoxContainer/InfoButton" to="InfoControl" method="set_visible" binds= [true]]

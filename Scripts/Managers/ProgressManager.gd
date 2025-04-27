@@ -22,10 +22,10 @@ class StoredFoodComponent:
 const PROGRESS_PATH = "user://progress.json"
 
 const STARTING_FOOD_AMOUNTS: Dictionary[Menu.FoodComponent, int] = {
-	Menu.FoodComponent.Bun: 5,
-	Menu.FoodComponent.Burger: 5,
-	Menu.FoodComponent.Fries: 5,
-	Menu.FoodComponent.Cup: 10
+	Menu.FoodComponent.Bun: 8,
+	Menu.FoodComponent.Burger: 8,
+	Menu.FoodComponent.Fries: 8,
+	Menu.FoodComponent.Cup: 15
 }
 
 const STARTING_MONEY: float = 100
