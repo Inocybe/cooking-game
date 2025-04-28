@@ -112,6 +112,9 @@ transform = Transform3D(-0.422618, 0.906308, 8.74227e-08, 0.906307, 0.422618, 0,
 [node name="Mop" parent="Interior" instance=ExtResource("16_1bg51")]
 transform = Transform3D(-0.766044, -0.642788, 8.74228e-08, -0.642788, 0.766044, 0, -6.69697e-08, -5.61943e-08, -1, -1.4322, 1.22687, -1.11286)
 
+[node name="FoodSafetySign" parent="Interior" instance=ExtResource("16_6nta6")]
+transform = Transform3D(0.1, 0, 0, 0, 0.1, 0, 0, 0, 0.1, -1.12119, 2.59028, -1.24193)
+
 [node name="Food Tray Positions" type="Node3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.965504, 1.68007, -1.69716)
 
@@ -235,9 +238,6 @@ size = Vector3(6.68274, 0.699684, 0.242462)
 [node name="Ceiling" type="GPUParticlesCollisionBox3D" parent="GPUParticleColliders"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 4.06883, 0)
 size = Vector3(6.68274, 0.866755, 2.87323)
-
-[node name="FoodSafetySign" parent="." instance=ExtResource("16_6nta6")]
-transform = Transform3D(0.1, 0, 0, 0, 0.1, 0, 0, 0, 0.1, -1.12119, 2.59028, -1.24193)
 
 [connection signal="timeout" from="New Order Timer" to="." method="maybe_invoke_ordering"]
 [connection signal="body_exited" from="Death Barrier" to="Death Barrier" method="body_exit"]
