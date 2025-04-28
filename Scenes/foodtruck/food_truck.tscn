@@ -1,4 +1,4 @@
-[gd_scene load_steps=29 format=3 uid="uid://b3ocr5doqonyu"]
+[gd_scene load_steps=30 format=3 uid="uid://b3ocr5doqonyu"]
 
 [ext_resource type="Script" uid="uid://vgybkb0n3meq" path="res://Scripts/Foodtruck/FoodTruck.gd" id="1_rvaml"]
 [ext_resource type="PackedScene" uid="uid://cv485pktorksn" path="res://Scenes/foodtruck/cookwear/cooktop.tscn" id="2_vnxue"]
@@ -14,6 +14,7 @@
 [ext_resource type="PackedScene" uid="uid://cqfghqikinccl" path="res://Assets/food_truck/food_truck_v3.glb" id="15_4upiy"]
 [ext_resource type="PackedScene" uid="uid://ddyyiqy7ve87x" path="res://Scenes/player/tools/mop.tscn" id="16_1bg51"]
 [ext_resource type="PackedScene" uid="uid://bqqwcdfwo3i5m" path="res://Scenes/foodtruck/interior/tv.tscn" id="16_5lsjn"]
+[ext_resource type="PackedScene" uid="uid://dc5uapidqq6pc" path="res://Scenes/environment/food_safety_sign.tscn" id="16_6nta6"]
 [ext_resource type="PackedScene" uid="uid://cc6na2w6f2gjp" path="res://Scenes/foodtruck/interior/trash_can.tscn" id="16_i5ql0"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_t5xi5"]
@@ -234,6 +235,9 @@ size = Vector3(6.68274, 0.699684, 0.242462)
 [node name="Ceiling" type="GPUParticlesCollisionBox3D" parent="GPUParticleColliders"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 4.06883, 0)
 size = Vector3(6.68274, 0.866755, 2.87323)
+
+[node name="FoodSafetySign" parent="." instance=ExtResource("16_6nta6")]
+transform = Transform3D(0.1, 0, 0, 0, 0.1, 0, 0, 0, 0.1, -1.12119, 2.59028, -1.24193)
 
 [connection signal="timeout" from="New Order Timer" to="." method="maybe_invoke_ordering"]
 [connection signal="body_exited" from="Death Barrier" to="Death Barrier" method="body_exit"]
