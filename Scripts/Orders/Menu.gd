@@ -96,9 +96,9 @@ static func get_food_expire_age(component: FoodComponent) -> int:
 static func get_item_wholesale_price(item: FoodComponent) -> float:
 	return {
 		FoodComponent.Bun: 2,
-		FoodComponent.Burger: 6,
-		FoodComponent.Fries: 4,
-		FoodComponent.Cup: 3
+		FoodComponent.Burger: 5,
+		FoodComponent.Fries: 3,
+		FoodComponent.Cup: 2
 	} [item]
 
 

@@ -58,6 +58,7 @@ expand_mode = 1
 stretch_mode = 6
 
 [node name="StatsBox" parent="TextureRect" instance=ExtResource("2_r10et")]
+unique_name_in_owner = true
 layout_mode = 1
 offset_bottom = 39.0
 

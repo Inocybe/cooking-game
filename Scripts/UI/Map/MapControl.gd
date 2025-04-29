@@ -14,6 +14,10 @@ func _ready() -> void:
 	init_map_buttons()
 	
 	%StoreAlertBadge.visible = not StoreControl.has_recommended_food_amounts()
+	
+	# don't show the store button on day 1
+	if ProgressManager.day == 1:
+		%StatsBox.remove_switch_scene()
 
 
 func init_map_buttons() -> void:

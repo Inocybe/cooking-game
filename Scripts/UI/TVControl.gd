@@ -5,7 +5,7 @@ class_name TVControl extends Control
 @onready var served_today: Label = %ServedTodayDisplay
 @onready var time_remaining: Label = %TimeRemaining
 
-@export var font_size: int = 16
+@export var font_size: int = 18
 
 
 func _ready() -> void:

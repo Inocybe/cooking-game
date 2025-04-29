@@ -5,7 +5,14 @@ const DISH = preload("res://Scenes/orders/dish.tscn")
 
 var active_orders: Array[Dish] = []
 
-#############
+
+signal order_requested()
+
+signal called_customers_back()
+
+
+func _ready() -> void:
+	get_tree().process_frame.connect(make_customer_order, CONNECT_ONE_SHOT)
 
 
 func create_random_order() -> Array[Menu.Item]:
@@ -47,11 +54,11 @@ func remove_order(dish: Dish) -> void:
 	dish.queue_free()
 	active_orders.erase(dish)
 
-############
 
 func maybe_invoke_ordering() -> void:
 	if randf() < 0.5 ** active_orders.size():
 		make_customer_order()
+
 
 func add_order(customer: Customer) -> void:
 	var pos: Node3D = Global.game_manager.food_truck.choose_best_dish_spawnpoint()
@@ -65,11 +72,13 @@ func add_order(customer: Customer) -> void:
 
 
 func request_order_from(customer: Customer):
+	order_requested.emit()
 	add_order(customer)
 	#customer.finished_ordering()
 
 
 func call_customers_back() -> void:
+	called_customers_back.emit()
 	for order in active_orders:
 		# Checking if order complete, then goes to food truck and calls the check dish in 
 		if order.is_order_complete():
