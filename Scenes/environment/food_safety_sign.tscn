@@ -1,0 +1,17 @@
+[gd_scene load_steps=4 format=3 uid="uid://dc5uapidqq6pc"]
+
+[ext_resource type="Texture2D" uid="uid://cp2k73y3u55yt" path="res://Assets/textures/foodsafety.png" id="1_qh6w0"]
+
+[sub_resource type="BoxMesh" id="BoxMesh_dcf5s"]
+size = Vector3(7.1, 4.21, 0.2)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_8lshi"]
+
+[node name="FoodSafetySign" type="Sprite3D"]
+transform = Transform3D(0.1, 0, 0, 0, 0.1, 0, 0, 0, 0.1, 0, 0, 0)
+texture = ExtResource("1_qh6w0")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -0.11)
+mesh = SubResource("BoxMesh_dcf5s")
+surface_material_override/0 = SubResource("StandardMaterial3D_8lshi")

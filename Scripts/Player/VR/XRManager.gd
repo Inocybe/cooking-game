@@ -15,6 +15,11 @@ enum Hand_States {
 }
 
 
+signal pointed()
+
+signal grabbed_thing()
+
+
 func _ready():
 	# Turn off v-sync!
 	DisplayServer.window_set_vsync_mode(DisplayServer.VSYNC_DISABLED)
