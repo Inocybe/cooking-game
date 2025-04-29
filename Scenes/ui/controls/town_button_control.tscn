@@ -86,53 +86,33 @@ mouse_filter = 2
 
 [node name="PanelContainer" type="PanelContainer" parent="TextHolder"]
 modulate = Color(1, 1, 1, 0)
-layout_mode = 0
+layout_mode = 2
 offset_right = 139.0
-offset_bottom = 104.0
+offset_bottom = 133.0
 mouse_filter = 2
 
-[node name="DaySelectionButtons" type="Control" parent="TextHolder/PanelContainer"]
+[node name="VBoxContainer" type="VBoxContainer" parent="TextHolder/PanelContainer"]
+layout_mode = 2
+
+[node name="DaySelectionButtons" type="HBoxContainer" parent="TextHolder/PanelContainer/VBoxContainer"]
+custom_minimum_size = Vector2(0, 25)
 layout_mode = 2
 size_flags_vertical = 0
+alignment = 1
 
-[node name="Button" type="Button" parent="TextHolder/PanelContainer/DaySelectionButtons"]
-layout_mode = 1
-anchors_preset = 4
-anchor_top = 0.5
-anchor_bottom = 0.5
-offset_top = -4.0
-offset_right = 8.0
-offset_bottom = 4.0
-grow_vertical = 2
+[node name="Button" type="Button" parent="TextHolder/PanelContainer/VBoxContainer/DaySelectionButtons"]
+layout_mode = 2
+size_flags_horizontal = 3
 
-[node name="Button2" type="Button" parent="TextHolder/PanelContainer/DaySelectionButtons"]
-layout_mode = 1
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = -4.0
-offset_top = -4.0
-offset_right = 4.0
-offset_bottom = 4.0
-grow_horizontal = 2
-grow_vertical = 2
+[node name="Button2" type="Button" parent="TextHolder/PanelContainer/VBoxContainer/DaySelectionButtons"]
+layout_mode = 2
+size_flags_horizontal = 3
 
-[node name="Button3" type="Button" parent="TextHolder/PanelContainer/DaySelectionButtons"]
-layout_mode = 1
-anchors_preset = 6
-anchor_left = 1.0
-anchor_top = 0.5
-anchor_right = 1.0
-anchor_bottom = 0.5
-offset_left = -8.0
-offset_top = -4.0
-offset_bottom = 4.0
-grow_horizontal = 0
-grow_vertical = 2
+[node name="Button3" type="Button" parent="TextHolder/PanelContainer/VBoxContainer/DaySelectionButtons"]
+layout_mode = 2
+size_flags_horizontal = 3
 
-[node name="Margin" type="MarginContainer" parent="TextHolder/PanelContainer"]
+[node name="Margin" type="MarginContainer" parent="TextHolder/PanelContainer/VBoxContainer"]
 layout_mode = 2
 mouse_filter = 2
 theme_override_constants/margin_left = 15
@@ -140,7 +120,7 @@ theme_override_constants/margin_top = 10
 theme_override_constants/margin_right = 15
 theme_override_constants/margin_bottom = 10
 
-[node name="Text" type="RichTextLabel" parent="TextHolder/PanelContainer/Margin"]
+[node name="Text" type="RichTextLabel" parent="TextHolder/PanelContainer/VBoxContainer/Margin"]
 unique_name_in_owner = true
 layout_mode = 2
 size_flags_horizontal = 4

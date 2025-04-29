@@ -30,8 +30,8 @@ func _ready() -> void:
 
 
 func set_from_town(town: TownResource) -> void:
-	weather_type = town.weather
-	temperature = town.temperature
+	weather_type = town.weather_forcast[0]
+	temperature = town.temp_forcast[0]
 	
 	var storminess = get_storminess(weather_type)
 	var raininess = get_raininess(weather_type)

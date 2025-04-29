@@ -17,7 +17,6 @@ func _ready() -> void:
 
 
 func init_map_buttons() -> void:
-	seed(hash(ProgressManager.rand_seed + ProgressManager.day))
 	for map_button: MapButton in map_buttons:
 		map_button.world_load_requested.connect(load_world)
 		map_button.init_town()
