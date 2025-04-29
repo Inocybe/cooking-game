@@ -1,8 +1,8 @@
 [gd_scene load_steps=17 format=3 uid="uid://bmw48ei0dff0i"]
 
 [ext_resource type="PackedScene" uid="uid://jj8yuf0syk57" path="res://Scenes/managers/game_manager.tscn" id="1_0s671"]
-[ext_resource type="Script" uid="uid://bux018fpi666x" path="res://Scripts/Misc/SetGameState.gd" id="1_6nemj"]
-[ext_resource type="Script" uid="uid://c2xivkwymlvht" path="res://Scripts/Misc/VRToggler.gd" id="1_jd6j6"]
+[ext_resource type="Script" path="res://Scripts/Misc/SetGameState.gd" id="1_6nemj"]
+[ext_resource type="Script" path="res://Scripts/Misc/VRToggler.gd" id="1_jd6j6"]
 [ext_resource type="PackedScene" uid="uid://b3ocr5doqonyu" path="res://Scenes/foodtruck/food_truck.tscn" id="2_3dmfd"]
 [ext_resource type="PackedScene" uid="uid://5s3oxlpup0wy" path="res://Scenes/player/player.tscn" id="2_rbjev"]
 [ext_resource type="Script" uid="uid://bomqxx6mxqq83" path="res://Scripts/Enviornment/EnvironmentManager.gd" id="3_b0aln"]
