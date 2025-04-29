@@ -9,6 +9,12 @@ const ICON = preload("res://Scenes/ui/icon.tscn")
 @onready var animation_player: AnimationPlayer = $AnimationPlayer
 @onready var label: RichTextLabel = %Text
 
+# FORCAST BUTTONS
+@onready var button_1: Button = $TextHolder/PanelContainer/VBoxContainer/DaySelectionButtons/Button
+@onready var button_2: Button = $TextHolder/PanelContainer/VBoxContainer/DaySelectionButtons/Button2
+@onready var button_3: Button = $TextHolder/PanelContainer/VBoxContainer/DaySelectionButtons/Button3
+
+
 @export var town: TownResource
 @export var position_fraction: Vector2
 
@@ -19,14 +25,17 @@ func _ready() -> void:
 	get_parent().resized.connect(reposition)
 	reposition()
 	
+	button_1.connect("button_down", show_town_values.bind(0))
+	button_2.connect("button_down", show_town_values.bind(1))
+	button_3.connect("button_down", show_town_values.bind(2))
 	
 	$Button.pressed.connect(on_button_pressed)
 	$Button.text = " "+town.name+" "
 
 
 func init_town() -> void:
-	town.random_weather()
-	show_town_values()
+	town.random_forcast(ProgressManager.day)
+	show_town_values(0)
 
 
 func reposition() -> void:
@@ -45,11 +54,11 @@ func on_button_pressed() -> void:
 
 
 
-func show_town_values() -> void:
-	var weather_name = WeatherManager.get_weather_name(town.weather)
+func show_town_values(day: int) -> void:
+	var weather_name = WeatherManager.get_weather_name(town.weather_forcast[day])
 	label.text = """Weather: %s
 Temperature: %.2f°C
 Population: %d
 Opening hours: %.f hours""" % [
-		weather_name, town.temperature, town.population, town.opening_hours
+		weather_name, town.temp_forcast[day], town.population, town.opening_hours
 	]
