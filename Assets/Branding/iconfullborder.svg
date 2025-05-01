@@ -7,11 +7,11 @@
    viewBox="0 0 33.866667 33.866667"
    version="1.1"
    id="svg5"
-   inkscape:export-filename="iconfull.png"
+   inkscape:export-filename="iconfullborder.png"
    inkscape:export-xdpi="768"
    inkscape:export-ydpi="768"
    inkscape:version="1.4 (e7c3feb1, 2024-10-09)"
-   sodipodi:docname="iconfullborger.svg"
+   sodipodi:docname="iconfullborder.svg"
    xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
    xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
    xmlns="http://www.w3.org/2000/svg"
@@ -147,9 +147,9 @@
        style="font-size:60px;font-family:sans-serif;-inkscape-font-specification:sans-serif;white-space:pre;shape-inside:url(#rect25195-3);display:inline;fill:#c87137;fill-opacity:1;stroke:none;stroke-width:60;stroke-linejoin:round"><tspan
          x="307.59766"
          y="54.739819"
-         id="tspan3"><tspan
+         id="tspan6"><tspan
            style="font-family:'Tilt Neon';-inkscape-font-specification:'Tilt Neon'"
-           id="tspan1">Burger</tspan></tspan></text>
+           id="tspan2">Burger</tspan></tspan></text>
     <text
        xml:space="preserve"
        transform="matrix(0.07157006,0,0,0.07157005,-9.4021856,9.5851882)"
@@ -157,8 +157,8 @@
        style="font-size:73.3333px;font-family:sans-serif;-inkscape-font-specification:sans-serif;white-space:pre;shape-inside:url(#rect25201-2);display:inline;fill:#c87137;fill-opacity:1;stroke:none;stroke-width:60;stroke-linejoin:round"><tspan
          x="307.59766"
          y="251.70888"
-         id="tspan5"><tspan
+         id="tspan8"><tspan
            style="font-family:'Tilt Neon';-inkscape-font-specification:'Tilt Neon'"
-           id="tspan4">Box</tspan></tspan></text>
+           id="tspan7">Box</tspan></tspan></text>
   </g>
 </svg>

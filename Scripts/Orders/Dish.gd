@@ -92,18 +92,27 @@ func is_order_complete() -> bool:
 	return order.size() == food_slots.size()
 
 
+func get_base_quality() -> float:
+	return min(0.5 ** (active_time/30-1), 1)
+
+
+func get_item_quality(item: Node3D) -> float:
+	if item.has_method("get_quality"):
+		return item.get_quality()
+	var cookable: Cookable = item.get_node_or_null("Cookable")
+	if cookable != null:
+		return cookable.get_quality()
+	return 1
+
+
 func get_order_quality() -> float:
 	if not is_order_complete():
 		return 0
-	var quality: float = min(0.5**(active_time/30-1), 1)
-	var queue: Array[CombinableBase] = [self]
-	while queue.size() > 0:
-		for item in queue.pop_back().children:
-			if item.has_method("get_quality"):
-				quality *= item.get_quality()
-			var cookable: Cookable = item.get_node_or_null("Cookable")
-			if cookable != null:
-				quality *= cookable.get_quality()
+	var quality: float = get_base_quality()
+	var stack: Array[CombinableBase] = [self]
+	while stack.size() > 0:
+		for item in stack.pop_back().children:
+			quality *= get_item_quality(item)
 			if item is CombinableBase:
-				queue.append(item)
+				stack.append(item)
 	return quality
