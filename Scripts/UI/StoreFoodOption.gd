@@ -36,7 +36,7 @@ func handle_resize() -> void:
 func display_inventory_counts() -> void:
 	var count: int = 0
 	if not Engine.is_editor_hint():
-		count = ProgressManager.get_food_avaiable_count(component)
+		count = ProgressManager.get_food_available_count(component)
 	%InventoryCount.text = "%d in inventory" % count
 	
 	var expiring_today: int = 0
