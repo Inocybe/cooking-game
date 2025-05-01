@@ -103,6 +103,8 @@ text = "[b]Design[/b]
 
 [url=https://github.com/GodotVR/godot-xr-tools]Godot XR Tools[/url], MIT License
 
+[url=https://github.com/bitwes/Gut]Godot Unit Test[/url], MIT License
+
 [url=https://fonts.withgoogle.com/tilt#neon]Tilt Neon[/url], under the [url=https://openfontlicense.org/open-font-license-official-text/]SIL Open Font License, Version 1.1[/url]"
 script = ExtResource("1_5ut88")
 
