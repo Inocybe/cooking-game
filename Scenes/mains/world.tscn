@@ -1,4 +1,4 @@
-[gd_scene load_steps=17 format=3 uid="uid://bmw48ei0dff0i"]
+[gd_scene load_steps=18 format=3 uid="uid://bmw48ei0dff0i"]
 
 [ext_resource type="PackedScene" uid="uid://jj8yuf0syk57" path="res://Scenes/managers/game_manager.tscn" id="1_0s671"]
 [ext_resource type="Script" path="res://Scripts/Misc/SetGameState.gd" id="1_6nemj"]
@@ -13,6 +13,7 @@
 [ext_resource type="PackedScene" uid="uid://cy0f52g70vccr" path="res://Scenes/environment/rain_area.tscn" id="7_5erac"]
 [ext_resource type="PackedScene" uid="uid://ckcd8iqf1lith" path="res://Scenes/environment/lightning_manager.tscn" id="10_l18rm"]
 [ext_resource type="PackedScene" uid="uid://hej1j74v6ddo" path="res://Scenes/environment/snow_area.tscn" id="10_pvt8g"]
+[ext_resource type="PackedScene" uid="uid://dlwpv3htf2pan" path="res://Scenes/environment/crow_manager.tscn" id="14_nixdd"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_r88qt"]
 
@@ -80,3 +81,5 @@ spawn_range = Rect2(-20, -20, 40, 40)
 
 [node name="WorldGameState" type="Node" parent="."]
 script = ExtResource("1_6nemj")
+
+[node name="CrowManager" parent="." instance=ExtResource("14_nixdd")]

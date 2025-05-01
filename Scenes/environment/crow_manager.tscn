@@ -1,0 +1,12 @@
+[gd_scene load_steps=2 format=3 uid="uid://dlwpv3htf2pan"]
+
+[sub_resource type="Curve3D" id="Curve3D_mhkf7"]
+bake_interval = 20.0
+_data = {
+"points": PackedVector3Array(0, 0, 0, 0, 0, 0, -19.7213, 12.7581, 11.5957, 0, 0, 0, 0, 0, 0, 3.35748, 17.2446, 30.5518, 0, 0, 0, 0, 0, 0, 22.6449, 15.0939, 4.53335, 0, 0, 0, 0, 0, 0, 24.0165, 15.5899, -12.2222),
+"tilts": PackedFloat32Array(0, 0, 0, 0)
+}
+point_count = 4
+
+[node name="CrowManager" type="Path3D"]
+curve = SubResource("Curve3D_mhkf7")
