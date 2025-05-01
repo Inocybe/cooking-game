@@ -26,3 +26,16 @@ func test_consumption() -> void:
 		for i in range(ProgressManager.STARTING_FOOD_AMOUNTS[component]):
 			assert_true(game_manager.try_use_food(component))
 		assert_false(game_manager.try_use_food(component))
+
+
+func test_item_expiration() -> void:
+	for component in Menu.FoodComponent.values():
+		ProgressManager.load_default_progress()
+		var initial_food_amount = ProgressManager.get_food_available_count(component)
+		for i in range(Menu.get_food_expire_age(component)-1):
+			ProgressManager.increment_day()
+			assert_eq(ProgressManager.get_food_available_count(component), initial_food_amount)
+		var item = ProgressManager.StoredFoodComponent.new(component)
+		ProgressManager.stock.append(item)
+		ProgressManager.increment_day()
+		assert_eq(ProgressManager.get_food_available_count(component), 1)
