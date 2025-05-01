@@ -30,7 +30,7 @@ movie_writer/movie_file="//wsl.localhost/Ubuntu/home/martin/cooking-game/Assets/
 
 [editor_plugins]
 
-enabled=PackedStringArray("res://addons/godot-xr-tools/plugin.cfg")
+enabled=PackedStringArray("res://addons/godot-xr-tools/plugin.cfg", "res://addons/gut/plugin.cfg")
 
 [filesystem]
 
