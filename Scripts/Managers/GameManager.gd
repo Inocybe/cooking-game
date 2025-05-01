@@ -53,7 +53,7 @@ func day_time_expired() -> void:
 
 func try_use_food(food: Menu.FoodComponent) -> bool:
 	var used_so_far: int = food_components_used.get(food, 0)
-	if used_so_far >= ProgressManager.get_food_avaiable_count(food):
+	if used_so_far >= ProgressManager.get_food_available_count(food):
 		return false
 	food_components_used[food] = used_so_far + 1
 	return true

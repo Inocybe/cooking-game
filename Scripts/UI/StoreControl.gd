@@ -41,7 +41,7 @@ static func get_status_color(status: StatusType) -> Color:
 
 static func has_recommended_food_amounts() -> bool:
 	for food in RECOMMENDED_FOOD_AMOUNTS.keys():
-		var amount_now = ProgressManager.get_food_avaiable_count(food)
+		var amount_now = ProgressManager.get_food_available_count(food)
 		var amount_recommended = RECOMMENDED_FOOD_AMOUNTS[food]
 		if amount_now < amount_recommended:
 			return false

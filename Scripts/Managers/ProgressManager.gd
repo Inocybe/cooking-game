@@ -98,7 +98,7 @@ func load_default_progress() -> void:
 	rand_seed = hash(Time.get_unix_time_from_system())
 
 
-func get_food_avaiable_count(component: Menu.FoodComponent) -> int:
+func get_food_available_count(component: Menu.FoodComponent) -> int:
 	var count: int = 0
 	for item: StoredFoodComponent in stock:
 		if item.food == component:
