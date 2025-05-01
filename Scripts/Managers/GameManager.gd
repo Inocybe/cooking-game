@@ -42,12 +42,16 @@ func _process(delta: float) -> void:
 			day_time_expired()
 
 
-func day_time_expired() -> void:
+func update_progress_from_day() -> void:
 	ProgressManager.money += revenue
 	ProgressManager.orders_complete += served_today
 	ProgressManager.removed_used_food(food_components_used)
 	ProgressManager.increment_day()
 	ProgressManager.save_progress()
+
+
+func day_time_expired() -> void:
+	update_progress_from_day()
 	Global.switch_scenes_with_path(DAY_OVER_SCENE_PATH)
 
 
