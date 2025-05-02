@@ -1,7 +1,7 @@
 [gd_scene load_steps=6 format=3 uid="uid://dfdlj4k1uqvm2"]
 
 [ext_resource type="Script" uid="uid://0lvqxgurg3oj" path="res://Scripts/UI/Map/MapButton.gd" id="1_v70sr"]
-[ext_resource type="Script" uid="uid://dubtvleqifgvs" path="res://Scripts/UI/forcast_button_text.gd" id="2_v70sr"]
+[ext_resource type="Script" uid="uid://dubtvleqifgvs" path="res://Scripts/UI/ForcastButtonText.gd" id="2_v70sr"]
 
 [sub_resource type="Animation" id="Animation_r10et"]
 length = 0.001
@@ -139,3 +139,7 @@ Opening hours:"
 fit_content = true
 autowrap_mode = 0
 shortcut_keys_enabled = false
+
+[connection signal="pressed" from="TextHolder/PanelContainer/VBoxContainer/DaySelectionButtons/Button" to="." method="show_town_values" binds= [0]]
+[connection signal="pressed" from="TextHolder/PanelContainer/VBoxContainer/DaySelectionButtons/Button2" to="." method="show_town_values" binds= [1]]
+[connection signal="pressed" from="TextHolder/PanelContainer/VBoxContainer/DaySelectionButtons/Button3" to="." method="show_town_values" binds= [2]]
