@@ -48,6 +48,7 @@ lifetime = 0.25
 
 [node name="ThunderPlayer" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("3_6s6vs")
+bus = &"Environment"
 
 [node name="SoundDelayTimer" type="Timer" parent="."]
 one_shot = true
