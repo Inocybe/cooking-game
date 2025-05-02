@@ -1,6 +1,8 @@
 class_name Player extends CharacterBody3D
 
 
+const CAN_JUMP = false
+
 @export var max_speed = 5.0
 @export var vr_max_speed = 3.0
 @export var acceleration = 20.0
@@ -58,7 +60,7 @@ func _physics_process(delta: float) -> void:
 	velocity += get_gravity() * delta
 	
 	var is_on_floor_now: bool = is_on_floor()
-	if Input.is_action_pressed("jump") and is_on_floor_now:
+	if CAN_JUMP and Input.is_action_pressed("jump") and is_on_floor_now:
 		velocity.y = JUMP_VELOCITY
 	
 	var local_dir2d: Vector2 = Global.game_manager.get_xy_input()
