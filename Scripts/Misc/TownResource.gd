@@ -21,7 +21,7 @@ func random_forcast(day: int) -> void:
 
 
 func set_weather_seed(day: int):
-	seed(hash(ProgressManager.rand_seed + day))
+	seed(hash(ProgressManager.rand_seed + day + hash(town_int)))
 
 
 func get_random_weather() -> WeatherManager.WeatherType:

@@ -1,4 +1,4 @@
-[gd_scene load_steps=18 format=3 uid="uid://bmw48ei0dff0i"]
+[gd_scene load_steps=20 format=3 uid="uid://bmw48ei0dff0i"]
 
 [ext_resource type="PackedScene" uid="uid://jj8yuf0syk57" path="res://Scenes/managers/game_manager.tscn" id="1_0s671"]
 [ext_resource type="Script" path="res://Scripts/Misc/SetGameState.gd" id="1_6nemj"]
@@ -28,6 +28,22 @@ tonemap_exposure = 0.6
 tonemap_white = 0.7
 ssao_intensity = 6.0
 glow_enabled = true
+
+[sub_resource type="Curve3D" id="Curve3D_nixdd"]
+bake_interval = 40.0
+_data = {
+"points": PackedVector3Array(0, 0, 0, 0, 0, 0, -19.7213, 12.7581, 11.5957, 0, 0, 0, 0, 0, 0, 3.35748, 17.2446, 30.5518, 0, 0, 0, 0, 0, 0, 20.4513, 15.5468, 21.7152, 0, 0, 0, 0, 0, 0, 22.6449, 15.0939, 4.53335, 0, 0, 0, 0, 0, 0, 17.7915, 15.5899, -18.4989),
+"tilts": PackedFloat32Array(-0.335819, -0.585013, -0.586619, -0.2724, -0.613861)
+}
+point_count = 5
+
+[sub_resource type="Curve3D" id="Curve3D_3r3je"]
+bake_interval = 40.0
+_data = {
+"points": PackedVector3Array(0, 0, 0, 0, 0, 0, -22.954, 12.2285, 14.0944, 0, 0, 0, 0, 0, 0, -5.03054, 18.2047, 31.9511, 0, 0, 0, 0, 0, 0, 18.3376, 13.6575, 20.7194, 0, 0, 0, 0, 0, 0, 17.911, 7.35428, 4.4457, 0, 0, 0, 0, 0, 0, 17.7915, 15.5899, -18.4989),
+"tilts": PackedFloat32Array(-0.0899107, -0.585013, -0.320296, -0.384024, -0.613861)
+}
+point_count = 5
 
 [node name="World" type="Node3D"]
 
@@ -82,4 +98,12 @@ spawn_range = Rect2(-20, -20, 40, 40)
 [node name="WorldGameState" type="Node" parent="."]
 script = ExtResource("1_6nemj")
 
-[node name="CrowManager" parent="." instance=ExtResource("14_nixdd")]
+[node name="CrowManager" parent="." node_paths=PackedStringArray("paths") instance=ExtResource("14_nixdd")]
+paths = [NodePath("Path3D-1")]
+
+[node name="Path3D-1" type="Path3D" parent="CrowManager"]
+curve = SubResource("Curve3D_nixdd")
+
+[node name="Path3D-2" type="Path3D" parent="CrowManager"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0271873, 0, 0.0282917)
+curve = SubResource("Curve3D_3r3je")

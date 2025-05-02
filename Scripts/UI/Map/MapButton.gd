@@ -9,25 +9,16 @@ const ICON = preload("res://Scenes/ui/icon.tscn")
 @onready var animation_player: AnimationPlayer = $AnimationPlayer
 @onready var label: RichTextLabel = %Text
 
-# FORCAST BUTTONS
-@onready var button_1: Button = $TextHolder/PanelContainer/VBoxContainer/DaySelectionButtons/Button
-@onready var button_2: Button = $TextHolder/PanelContainer/VBoxContainer/DaySelectionButtons/Button2
-@onready var button_3: Button = $TextHolder/PanelContainer/VBoxContainer/DaySelectionButtons/Button3
-
-
 @export var town: TownResource
 @export var position_fraction: Vector2
 
 var town_values_shown: bool = false
 var icons: Array[Control]
 
+
 func _ready() -> void:
 	get_parent().resized.connect(reposition)
 	reposition()
-	
-	button_1.connect("button_down", show_town_values.bind(0))
-	button_2.connect("button_down", show_town_values.bind(1))
-	button_3.connect("button_down", show_town_values.bind(2))
 	
 	$Button.pressed.connect(on_button_pressed)
 	$Button.text = " "+town.name+" "
