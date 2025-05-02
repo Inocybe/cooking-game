@@ -6,4 +6,4 @@ extends Button
 
 func _ready() -> void:
 	var day = forcast_length + ProgressManager.day
-	text = "Day: " + str(day)
+	text = "Day " + str(day)
