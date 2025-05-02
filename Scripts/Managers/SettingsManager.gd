@@ -5,6 +5,7 @@ const SETTINGS_PATH = "user://settings.json"
 
 var overall_volume: float = 1
 var music_volume: float = 1
+var environment_volume: float = 1
 var mouse_sensitivity: float = 4
 
 enum VRMoveMode {
@@ -37,6 +38,11 @@ func do_volume_updates() -> void:
 	AudioServer.set_bus_volume_linear(
 		AudioServer.get_bus_index("Music"),
 		music_volume
+	)
+	
+	AudioServer.set_bus_volume_linear(
+		AudioServer.get_bus_index("Environment"),
+		environment_volume
 	)
 
 

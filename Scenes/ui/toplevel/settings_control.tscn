@@ -1,10 +1,10 @@
-[gd_scene load_steps=17 format=3 uid="uid://b63qhctnjuprt"]
+[gd_scene load_steps=18 format=3 uid="uid://b63qhctnjuprt"]
 
 [ext_resource type="Script" uid="uid://dqnwas2qwdak3" path="res://Scripts/UI/SettingsControl.gd" id="1_2w27d"]
 [ext_resource type="Script" uid="uid://cy78ks14ged5q" path="res://Scripts/UI/Utils/SettingControl.gd" id="1_iyjrv"]
 [ext_resource type="ButtonGroup" uid="uid://7kxiih08be1x" path="res://Assets/Misc/SettingsVRModeButtonGroup.tres" id="3_638ql"]
 [ext_resource type="Script" uid="uid://mg053f7nlefe" path="res://Scripts/UI/Utils/SliderScaler.gd" id="3_fc6kx"]
-[ext_resource type="Script" uid="uid://c2xivkwymlvht" path="res://Scripts/Misc/VRToggler.gd" id="3_xqjff"]
+[ext_resource type="Script" path="res://Scripts/Misc/VRToggler.gd" id="3_xqjff"]
 [ext_resource type="Script" uid="uid://c2rrnshh68u56" path="res://Scripts/UI/Utils/ButtonGroupSetting.gd" id="5_nxibr"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_f0a0s"]
@@ -14,6 +14,18 @@ bg_color = Color(0.84, 0.84, 0.84, 0.85098)
 bg_color = Color(1, 1, 1, 1)
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_nvavk"]
+content_margin_left = 4.0
+content_margin_top = 7.5
+content_margin_right = 4.0
+content_margin_bottom = 0.0
+bg_color = Color(0.1, 0.1, 0.1, 0.6)
+corner_radius_top_left = 4
+corner_radius_top_right = 4
+corner_radius_bottom_right = 4
+corner_radius_bottom_left = 4
+corner_detail = 6
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_vbufl"]
 content_margin_left = 4.0
 content_margin_top = 7.5
 content_margin_right = 4.0
@@ -219,6 +231,34 @@ setting_name = "music_volume"
 script = ExtResource("3_fc6kx")
 stylebox = SubResource("StyleBoxFlat_nvavk")
 
+[node name="EnvironmentVolumeRow" type="HBoxContainer" parent="VBoxContainer/Bottom/MarginContainer/ScrollContainer/VBoxContainer"]
+custom_minimum_size = Vector2(0, 30)
+layout_mode = 2
+
+[node name="Label" type="Label" parent="VBoxContainer/Bottom/MarginContainer/ScrollContainer/VBoxContainer/EnvironmentVolumeRow"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+text = "Environmental Volume"
+
+[node name="Spacer" type="Control" parent="VBoxContainer/Bottom/MarginContainer/ScrollContainer/VBoxContainer/EnvironmentVolumeRow"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="HSlider" type="HSlider" parent="VBoxContainer/Bottom/MarginContainer/ScrollContainer/VBoxContainer/EnvironmentVolumeRow"]
+custom_minimum_size = Vector2(600, 0)
+layout_mode = 2
+size_flags_vertical = 4
+theme_override_styles/slider = SubResource("StyleBoxFlat_nvavk")
+max_value = 1.0
+step = 0.01
+script = ExtResource("1_iyjrv")
+prop_name = "value"
+setting_name = "environment_volume"
+
+[node name="SliderScaler" type="Node" parent="VBoxContainer/Bottom/MarginContainer/ScrollContainer/VBoxContainer/EnvironmentVolumeRow/HSlider"]
+script = ExtResource("3_fc6kx")
+stylebox = SubResource("StyleBoxFlat_vbufl")
+
 [node name="SensitivityControl" type="HBoxContainer" parent="VBoxContainer/Bottom/MarginContainer/ScrollContainer/VBoxContainer"]
 custom_minimum_size = Vector2(0, 30)
 layout_mode = 2
@@ -314,6 +354,7 @@ text = " Reset Progress "
 [connection signal="pressed" from="VBoxContainer/Top/MarginContainer/HBoxContainer/Exit" to="." method="exit_settings"]
 [connection signal="value_changed" from="VBoxContainer/Bottom/MarginContainer/ScrollContainer/VBoxContainer/VolumeRow/HSlider" to="VBoxContainer/Bottom/MarginContainer/ScrollContainer/VBoxContainer/VolumeRow/HSlider" method="change_setting"]
 [connection signal="value_changed" from="VBoxContainer/Bottom/MarginContainer/ScrollContainer/VBoxContainer/MusicVolumeRow/HSlider" to="VBoxContainer/Bottom/MarginContainer/ScrollContainer/VBoxContainer/MusicVolumeRow/HSlider" method="change_setting"]
+[connection signal="value_changed" from="VBoxContainer/Bottom/MarginContainer/ScrollContainer/VBoxContainer/EnvironmentVolumeRow/HSlider" to="VBoxContainer/Bottom/MarginContainer/ScrollContainer/VBoxContainer/EnvironmentVolumeRow/HSlider" method="change_setting"]
 [connection signal="value_changed" from="VBoxContainer/Bottom/MarginContainer/ScrollContainer/VBoxContainer/SensitivityControl/HSlider" to="VBoxContainer/Bottom/MarginContainer/ScrollContainer/VBoxContainer/SensitivityControl/HSlider" method="change_setting"]
 [connection signal="pressed" from="VBoxContainer/Bottom/MarginContainer/ScrollContainer/VBoxContainer/ManageProgressRow/OpenProgressButton" to="." method="open_progress_location"]
 [connection signal="pressed" from="VBoxContainer/Bottom/MarginContainer/ScrollContainer/VBoxContainer/ManageProgressRow/ResetProgressButton2" to="." method="reset_progress"]
