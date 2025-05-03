@@ -39,12 +39,11 @@ import/fbx2gltf/enabled.web=true
 
 [global_group]
 
-interactable=""
-holdable=""
+interactable="something that can be clicked on or touched"
+holdable="something that can be picked up"
 food="a food item"
-remote-interactable=""
-world-ui=""
-menu-ui="stupid system"
+remote-interactable="something that can be clicked on or remotely signalled"
+world-ui="an in-world UI"
 
 [gui]
 

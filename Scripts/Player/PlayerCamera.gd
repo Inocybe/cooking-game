@@ -6,7 +6,8 @@ class_name PlayerCamera extends Camera3D
 @export var max_hold_dist: float = 2.5
 @export var hold_dist_sensitivity: float = 0.4
 
-var should_raycast: bool = false
+var hovered_object: Node3D = null
+var object_hover_point: Vector3
 
 var selected_object: Node3D = null
 var held_distance: float
@@ -39,6 +40,21 @@ func _unhandled_input(event: InputEvent) -> void:
 
 
 func _process(_delta: float) -> void:
+	var raycast_result: Dictionary = shoot_ray()
+	
+	if raycast_result:
+		hovered_object = raycast_result.collider
+		object_hover_point = raycast_result.position
+	else:
+		hovered_object = null
+	
+	%Reticle.set_is_interactable(
+		hovered_object != null and (
+		hovered_object.is_in_group("holdable")
+		or hovered_object.is_in_group("interactable")
+		or hovered_object.is_in_group("world-ui"))
+	)
+	
 	if selected_object and selected_object.is_in_group("holdable"):
 		selected_object.set_held_position(
 			global_position + forward_vector() * held_distance,
@@ -71,10 +87,6 @@ func interact_with_ui(obj: Node3D, pos: Vector3):
 	obj.do_interact_at(pos)
 
 
-func interact_with_menu_ui(_obj: Node3D, _pos: Vector3) -> void:
-	pass
-
-
 func drop_selected() -> void:
 	if selected_object.has_method("on_stop_interact"):
 		selected_object.on_stop_interact()
@@ -96,15 +108,10 @@ func do_interact() -> void:
 		drop_selected()
 		return
 	
-	var raycast_result: Dictionary = shoot_ray()
-	
-	if raycast_result:
-		var collider = raycast_result.collider
-		if collider.is_in_group("holdable"):
-			pick_up(collider)
-		elif collider.is_in_group("interactable"):
-			interact_with(collider)
-		elif collider.is_in_group("world-ui"):
-			interact_with_ui(collider, raycast_result.position)
-		elif collider.is_in_group("menu-ui"):
-			interact_with_menu_ui(collider, raycast_result.position)
+	if hovered_object:
+		if hovered_object.is_in_group("holdable"):
+			pick_up(hovered_object)
+		elif hovered_object.is_in_group("interactable"):
+			interact_with(hovered_object)
+		elif hovered_object.is_in_group("world-ui"):
+			interact_with_ui(hovered_object, object_hover_point)
