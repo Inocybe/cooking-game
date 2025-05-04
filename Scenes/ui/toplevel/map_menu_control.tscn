@@ -1,13 +1,12 @@
 [gd_scene load_steps=11 format=3 uid="uid://cd7anw3qhpovq"]
 
 [ext_resource type="Script" uid="uid://c3h5ekk41jdvq" path="res://Scripts/UI/Map/MapControl.gd" id="1_cpcl8"]
+[ext_resource type="Texture2D" uid="uid://djl2ip3mf6pnd" path="res://Assets/Misc/oregon.jpg" id="2_ocftn"]
 [ext_resource type="PackedScene" uid="uid://xum2e4iaos6e" path="res://Scenes/ui/controls/stats_box.tscn" id="2_r10et"]
 [ext_resource type="PackedScene" uid="uid://dfdlj4k1uqvm2" path="res://Scenes/ui/controls/town_button_control.tscn" id="3_cpcl8"]
 [ext_resource type="PackedScene" uid="uid://b7k75vt3n7uch" path="res://Scenes/ui/controls/badge.tscn" id="3_yp12h"]
 [ext_resource type="Script" uid="uid://dhe534odp4ri1" path="res://Scripts/Misc/TownResource.gd" id="4_p5u53"]
 [ext_resource type="PackedScene" uid="uid://c0etxlxqpnvgb" path="res://Scenes/ui/toplevel/loading_control.tscn" id="4_r10et"]
-
-[sub_resource type="PlaceholderTexture2D" id="PlaceholderTexture2D_cpcl8"]
 
 [sub_resource type="Resource" id="Resource_r10et"]
 script = ExtResource("4_p5u53")
@@ -53,7 +52,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-texture = SubResource("PlaceholderTexture2D_cpcl8")
+texture = ExtResource("2_ocftn")
 expand_mode = 1
 stretch_mode = 6
 
