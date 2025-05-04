@@ -12,6 +12,8 @@ const ICON = preload("res://Scenes/ui/icon.tscn")
 @export var town: TownResource
 @export var position_fraction: Vector2
 
+var town_info_shown: bool = false
+
 var icons: Array[Control]
 
 
@@ -32,7 +34,9 @@ func reposition() -> void:
 
 
 func on_show_pressed() -> void:
-	animation_player.play("display_town_values")
+	if not town_info_shown:
+		animation_player.play("display_town_values")
+		town_info_shown = true
 
 
 func on_go_pressed() -> void:

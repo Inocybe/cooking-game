@@ -114,8 +114,7 @@ layout_mode = 2
 [node name="PanelContainer" type="PanelContainer" parent="TextHolder"]
 modulate = Color(1, 1, 1, 0)
 layout_mode = 2
-offset_left = -100.0
-offset_right = 39.0
+offset_right = 139.0
 offset_bottom = 170.0
 
 [node name="VBoxContainer" type="VBoxContainer" parent="TextHolder/PanelContainer"]
@@ -172,3 +171,4 @@ text = " Go "
 [connection signal="pressed" from="TextHolder/PanelContainer/VBoxContainer/DaySelectionButtons/Button" to="." method="show_town_values" binds= [0]]
 [connection signal="pressed" from="TextHolder/PanelContainer/VBoxContainer/DaySelectionButtons/Button2" to="." method="show_town_values" binds= [1]]
 [connection signal="pressed" from="TextHolder/PanelContainer/VBoxContainer/DaySelectionButtons/Button3" to="." method="show_town_values" binds= [2]]
+[connection signal="pressed" from="TextHolder/PanelContainer/VBoxContainer/GoButton" to="." method="on_go_pressed"]
