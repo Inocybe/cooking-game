@@ -71,7 +71,7 @@ size_flags_vertical = 3
 [node name="Notice" type="Label" parent="ColorRect/VBoxContainer"]
 layout_mode = 2
 theme_override_colors/font_color = Color(0, 0, 0, 1)
-text = "Restock your food truck! Don't buy to much, because food will expire."
+text = "Remember to restock your food truck. Don't buy too much, because food will expire if not used."
 horizontal_alignment = 1
 
 [node name="StatusPositioner" type="VBoxContainer" parent="ColorRect"]
