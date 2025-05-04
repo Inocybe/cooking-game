@@ -103,29 +103,29 @@ text = "Choose where to drive your food truck"
 [node name="Town1" parent="TextureRect" instance=ExtResource("3_cpcl8")]
 layout_mode = 0
 offset_left = 345.6
-offset_top = 129.6
-offset_right = 415.6
-offset_bottom = 169.6
+offset_top = 97.2
+offset_right = 425.6
+offset_bottom = 126.2
 town = SubResource("Resource_r10et")
-position_fraction = Vector2(0.3, 0.2)
+position_fraction = Vector2(0.3, 0.15)
 
 [node name="Town2" parent="TextureRect" instance=ExtResource("3_cpcl8")]
 layout_mode = 0
 offset_left = 806.4
 offset_top = 259.2
-offset_right = 876.4
-offset_bottom = 299.2
+offset_right = 869.4
+offset_bottom = 288.2
 town = SubResource("Resource_p5u53")
 position_fraction = Vector2(0.7, 0.4)
 
 [node name="Town3" parent="TextureRect" instance=ExtResource("3_cpcl8")]
 layout_mode = 0
 offset_left = 115.2
-offset_top = 453.6
-offset_right = 185.2
-offset_bottom = 493.6
+offset_top = 421.2
+offset_right = 210.2
+offset_bottom = 450.2
 town = SubResource("Resource_xrc3u")
-position_fraction = Vector2(0.1, 0.7)
+position_fraction = Vector2(0.1, 0.65)
 
 [node name="LoadingControl" parent="." instance=ExtResource("4_r10et")]
 visible = false
