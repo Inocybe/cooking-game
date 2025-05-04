@@ -18,7 +18,8 @@ var icons: Array[Control]
 
 
 func _ready() -> void:
-	get_parent().resized.connect(reposition)
+	if not Engine.is_editor_hint():
+		get_parent().resized.connect(reposition)
 	reposition()
 	
 	$ShowButton.text = " "+town.name+" "
@@ -26,6 +27,8 @@ func _ready() -> void:
 
 func init_town() -> void:
 	town.random_forcast(ProgressManager.day)
+	town.weather_forcast = [WeatherManager.WeatherType.Sunny]
+	town.town_int = 0
 	show_town_values(0)
 
 

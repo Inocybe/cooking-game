@@ -1,4 +1,4 @@
-[gd_scene load_steps=27 format=3 uid="uid://bmw48ei0dff0i"]
+[gd_scene load_steps=28 format=3 uid="uid://bmw48ei0dff0i"]
 
 [ext_resource type="PackedScene" uid="uid://jj8yuf0syk57" path="res://Scenes/managers/game_manager.tscn" id="1_0s671"]
 [ext_resource type="Script" uid="uid://bux018fpi666x" path="res://Scripts/Misc/SetGameState.gd" id="1_6nemj"]
@@ -16,7 +16,9 @@
 [ext_resource type="PackedScene" uid="uid://dlwpv3htf2pan" path="res://Scenes/environment/crow_manager.tscn" id="14_nixdd"]
 [ext_resource type="PackedScene" uid="uid://bk567htcs0xj" path="res://Scenes/orders/food/burger.tscn" id="15_3r3je"]
 [ext_resource type="Script" uid="uid://c83rau1rjept8" path="res://Scripts/Misc/TrailerSystem.gd" id="15_knsra"]
+[ext_resource type="Texture2D" uid="uid://c3xn338gig4ha" path="res://Assets/Branding/iconfull.png" id="16_8ngp5"]
 [ext_resource type="PackedScene" uid="uid://cdm4qy124ys6o" path="res://Scenes/orders/food/fries.tscn" id="16_cnmj8"]
+[ext_resource type="PackedScene" uid="uid://ca6thqwccusde" path="res://Scenes/orders/food/cup.tscn" id="19_3xec4"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_r88qt"]
 
@@ -123,29 +125,88 @@ tracks/6/keys = {
 "points": PackedFloat32Array(0, -0.25, 0, 0.25, 0),
 "times": PackedFloat32Array(0)
 }
-
-[sub_resource type="Animation" id="Animation_6nemj"]
-resource_name = "intro"
-length = 10.0
-loop_mode = 1
-tracks/0/type = "rotation_3d"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("Camera3D")
-tracks/0/interp = 2
-tracks/0/loop_wrap = false
-tracks/0/keys = PackedFloat32Array(0, 1, -0.707107, 0, 0, 0.707107, 2, 1, 0, 0, 0, 1, 2.5, 1, 0, 0, 0, 1, 2.75, 1, 0, 0.707107, 0, 0.707107, 3, 1, 0, 1, 0, -4.37114e-08, 3.25, 1, 0, -0.707107, 0, 0.707107, 4, 1, 0, -0.707107, 0, 0.707107)
-tracks/1/type = "position_3d"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath("Camera3D")
-tracks/1/interp = 2
-tracks/1/loop_wrap = false
-tracks/1/keys = PackedFloat32Array(0, 1, 0, 0.361459, 1.87458e-08, 2, 1, 0, 1.125, 0, 4, 1, 0, 1.125, 0)
+tracks/7/type = "bezier"
+tracks/7/imported = false
+tracks/7/enabled = true
+tracks/7/path = NodePath("Sprite3D:position:x")
+tracks/7/interp = 1
+tracks/7/loop_wrap = true
+tracks/7/keys = {
+"handle_modes": PackedInt32Array(0),
+"points": PackedFloat32Array(0, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0)
+}
+tracks/8/type = "bezier"
+tracks/8/imported = false
+tracks/8/enabled = true
+tracks/8/path = NodePath("Sprite3D:position:y")
+tracks/8/interp = 1
+tracks/8/loop_wrap = true
+tracks/8/keys = {
+"handle_modes": PackedInt32Array(0),
+"points": PackedFloat32Array(1.125, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0)
+}
+tracks/9/type = "bezier"
+tracks/9/imported = false
+tracks/9/enabled = true
+tracks/9/path = NodePath("Sprite3D:position:z")
+tracks/9/interp = 1
+tracks/9/loop_wrap = true
+tracks/9/keys = {
+"handle_modes": PackedInt32Array(0),
+"points": PackedFloat32Array(-2.302, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0)
+}
+tracks/10/type = "bezier"
+tracks/10/imported = false
+tracks/10/enabled = true
+tracks/10/path = NodePath("Sprite3D:scale:x")
+tracks/10/interp = 1
+tracks/10/loop_wrap = true
+tracks/10/keys = {
+"handle_modes": PackedInt32Array(0),
+"points": PackedFloat32Array(0, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0)
+}
+tracks/11/type = "bezier"
+tracks/11/imported = false
+tracks/11/enabled = true
+tracks/11/path = NodePath("Sprite3D:scale:y")
+tracks/11/interp = 1
+tracks/11/loop_wrap = true
+tracks/11/keys = {
+"handle_modes": PackedInt32Array(0),
+"points": PackedFloat32Array(0, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0)
+}
+tracks/12/type = "bezier"
+tracks/12/imported = false
+tracks/12/enabled = true
+tracks/12/path = NodePath("Sprite3D:scale:z")
+tracks/12/interp = 1
+tracks/12/loop_wrap = true
+tracks/12/keys = {
+"handle_modes": PackedInt32Array(0),
+"points": PackedFloat32Array(0, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0)
+}
+tracks/13/type = "value"
+tracks/13/imported = false
+tracks/13/enabled = true
+tracks/13/path = NodePath("Sprite3D:no_depth_test")
+tracks/13/interp = 1
+tracks/13/loop_wrap = true
+tracks/13/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
 
 [sub_resource type="Animation" id="Animation_cnmj8"]
 resource_name = "intro2"
-length = 10.0
+length = 17.0
 tracks/0/type = "bezier"
 tracks/0/imported = false
 tracks/0/enabled = true
@@ -153,9 +214,9 @@ tracks/0/path = NodePath("Camera3D:position:x")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
-"handle_modes": PackedInt32Array(0, 0),
-"points": PackedFloat32Array(0, -0.25, 0, 0.25, 0, 0, -0.25, 0, 0.25, 0),
-"times": PackedFloat32Array(0, 2)
+"handle_modes": PackedInt32Array(0, 0, 0),
+"points": PackedFloat32Array(0, -0.25, 0, 0.25, 0, 0, -0.25, 0, 0.25, 0, 0, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0, 2, 4)
 }
 tracks/1/type = "bezier"
 tracks/1/imported = false
@@ -164,9 +225,9 @@ tracks/1/path = NodePath("Camera3D:position:y")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/keys = {
-"handle_modes": PackedInt32Array(0, 0),
-"points": PackedFloat32Array(0.361459, -0.25, 0, 0.25, 0, 1.125, -0.25, 0, 0.25, 0),
-"times": PackedFloat32Array(0, 2)
+"handle_modes": PackedInt32Array(0, 0, 0),
+"points": PackedFloat32Array(0.361459, -0.25, 0, 0.25, 0, 1.125, -0.25, 0, 0.25, 0, 1.125, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0, 2, 4)
 }
 tracks/2/type = "bezier"
 tracks/2/imported = false
@@ -175,9 +236,9 @@ tracks/2/path = NodePath("Camera3D:position:z")
 tracks/2/interp = 1
 tracks/2/loop_wrap = true
 tracks/2/keys = {
-"handle_modes": PackedInt32Array(0, 0),
-"points": PackedFloat32Array(1.87458e-08, -0.25, 0, 0.25, 0, 0, -0.25, 0, 0.25, 0),
-"times": PackedFloat32Array(0, 2)
+"handle_modes": PackedInt32Array(0, 0, 0),
+"points": PackedFloat32Array(1.87458e-08, -0.25, 0, 0.25, 0, 0, -0.25, 0, 0.25, 0, 0, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0, 2, 4)
 }
 tracks/3/type = "bezier"
 tracks/3/imported = false
@@ -186,9 +247,9 @@ tracks/3/path = NodePath("Camera3D:rotation:x")
 tracks/3/interp = 1
 tracks/3/loop_wrap = true
 tracks/3/keys = {
-"handle_modes": PackedInt32Array(0, 0, 0),
-"points": PackedFloat32Array(-1.5708, -0.25, 0, 0.25, 0, 0, -0.25, 0, 0.25, 0, 0, -0.25, 0, 0.25, 0),
-"times": PackedFloat32Array(0, 2, 10)
+"handle_modes": PackedInt32Array(0, 0, 2, 0),
+"points": PackedFloat32Array(-1.5708, -0.25, 0, 0.25, 0, 0, -0.25, 0, 0.25, 0, 0, -0.25, 0, 0.25, 0, 0, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0, 2, 4, 14)
 }
 tracks/4/type = "bezier"
 tracks/4/imported = false
@@ -197,9 +258,9 @@ tracks/4/path = NodePath("Camera3D:rotation:y")
 tracks/4/interp = 1
 tracks/4/loop_wrap = true
 tracks/4/keys = {
-"handle_modes": PackedInt32Array(0, 0, 0),
-"points": PackedFloat32Array(0, -0.25, 0, 0.25, 0, 0, -0.25, 0, 0.25, 0, 6.283, -0.25, 0, 0.25, 0),
-"times": PackedFloat32Array(0, 2, 10)
+"handle_modes": PackedInt32Array(0, 0, 0, 0),
+"points": PackedFloat32Array(0, -0.25, 0, 0.25, 0, 0, -0.25, 0, 0.25, 0, 0, -0.25, 0, 3, 0, 6.283, -3, 0, 0.25, 0),
+"times": PackedFloat32Array(0, 2, 4, 14)
 }
 tracks/5/type = "bezier"
 tracks/5/imported = false
@@ -208,9 +269,9 @@ tracks/5/path = NodePath("Camera3D:rotation:z")
 tracks/5/interp = 1
 tracks/5/loop_wrap = true
 tracks/5/keys = {
-"handle_modes": PackedInt32Array(0, 0, 0),
-"points": PackedFloat32Array(0, -0.25, 0, 0.25, 0, 0, -0.25, 0, 0.25, 0, 0, -0.25, 0, 0.25, 0),
-"times": PackedFloat32Array(0, 2, 10)
+"handle_modes": PackedInt32Array(0, 0, 0, 0),
+"points": PackedFloat32Array(0, -0.25, 0, 0.25, 0, 0, -0.25, 0, 0.25, 0, 0, -0.25, 0, 0.25, 0, 0, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0, 2, 4, 14)
 }
 tracks/6/type = "method"
 tracks/6/imported = false
@@ -219,19 +280,110 @@ tracks/6/path = NodePath("../FoodTruck/Interior/SodaMachine")
 tracks/6/interp = 1
 tracks/6/loop_wrap = true
 tracks/6/keys = {
-"times": PackedFloat32Array(3.4),
+"times": PackedFloat32Array(5.83333),
 "transitions": PackedFloat32Array(1),
 "values": [{
 "args": [2],
 "method": &"button_pressed"
 }]
 }
+tracks/7/type = "bezier"
+tracks/7/imported = false
+tracks/7/enabled = true
+tracks/7/path = NodePath("Sprite3D:position:x")
+tracks/7/interp = 1
+tracks/7/loop_wrap = true
+tracks/7/keys = {
+"handle_modes": PackedInt32Array(0, 0, 0, 0),
+"points": PackedFloat32Array(0, -0.25, 0, 0.25, 0, 0, -0.25, 0, 0.25, 0, 0, -0.25, 0, 0.25, 0, 0, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(1.75, 3, 14.25, 15)
+}
+tracks/8/type = "bezier"
+tracks/8/imported = false
+tracks/8/enabled = true
+tracks/8/path = NodePath("Sprite3D:position:y")
+tracks/8/interp = 1
+tracks/8/loop_wrap = true
+tracks/8/keys = {
+"handle_modes": PackedInt32Array(0, 0, 0, 0),
+"points": PackedFloat32Array(1.125, -0.25, 0, 0.25, 0, 1.125, -0.25, 0, 0.25, 0, 1.125, -0.25, 0, 0.25, 0, -1.5, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(1.75, 3, 14.25, 15)
+}
+tracks/9/type = "bezier"
+tracks/9/imported = false
+tracks/9/enabled = true
+tracks/9/path = NodePath("Sprite3D:position:z")
+tracks/9/interp = 1
+tracks/9/loop_wrap = true
+tracks/9/keys = {
+"handle_modes": PackedInt32Array(0, 0, 0, 0),
+"points": PackedFloat32Array(-6.7052, -0.25, 0, 0.25, 0, -2.5, -0.25, 0, 0.25, 0, -2.5, -0.25, 0, 0.25, 0, -2.5, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(1.75, 3, 14.25, 15)
+}
+tracks/10/type = "bezier"
+tracks/10/imported = false
+tracks/10/enabled = true
+tracks/10/path = NodePath("Sprite3D:scale:x")
+tracks/10/interp = 1
+tracks/10/loop_wrap = true
+tracks/10/keys = {
+"handle_modes": PackedInt32Array(0, 0),
+"points": PackedFloat32Array(0, -0.25, 0, 0.25, 0, 1, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(1.75, 3)
+}
+tracks/11/type = "bezier"
+tracks/11/imported = false
+tracks/11/enabled = true
+tracks/11/path = NodePath("Sprite3D:scale:y")
+tracks/11/interp = 1
+tracks/11/loop_wrap = true
+tracks/11/keys = {
+"handle_modes": PackedInt32Array(0, 0),
+"points": PackedFloat32Array(0, -0.25, 0, 0.25, 0, 1, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(1.75, 3)
+}
+tracks/12/type = "bezier"
+tracks/12/imported = false
+tracks/12/enabled = true
+tracks/12/path = NodePath("Sprite3D:scale:z")
+tracks/12/interp = 1
+tracks/12/loop_wrap = true
+tracks/12/keys = {
+"handle_modes": PackedInt32Array(0, 0),
+"points": PackedFloat32Array(0, -0.25, 0, 0.25, 0, 1, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(1.75, 3)
+}
+tracks/13/type = "method"
+tracks/13/imported = false
+tracks/13/enabled = true
+tracks/13/path = NodePath(".")
+tracks/13/interp = 1
+tracks/13/loop_wrap = true
+tracks/13/keys = {
+"times": PackedFloat32Array(13),
+"transitions": PackedFloat32Array(1),
+"values": [{
+"args": [],
+"method": &"get_customer_orders"
+}]
+}
+tracks/14/type = "value"
+tracks/14/imported = false
+tracks/14/enabled = true
+tracks/14/path = NodePath("Sprite3D:no_depth_test")
+tracks/14/interp = 1
+tracks/14/loop_wrap = true
+tracks/14/keys = {
+"times": PackedFloat32Array(0, 14.25),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [true, false]
+}
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_3r3je"]
 _data = {
 &"RESET": SubResource("Animation_nixdd"),
-&"intro1": SubResource("Animation_6nemj"),
-&"intro2": SubResource("Animation_cnmj8")
+&"intro": SubResource("Animation_cnmj8")
 }
 
 [node name="World" type="Node3D"]
@@ -309,13 +461,22 @@ current = true
 libraries = {
 &"": SubResource("AnimationLibrary_3r3je")
 }
-autoplay = "intro2"
+autoplay = "intro"
 movie_quit_on_finish = true
+
+[node name="Sprite3D" type="Sprite3D" parent="TrailerSystem"]
+transform = Transform3D(0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1.125, -2.302)
+pixel_size = 0.002
+no_depth_test = true
+texture = ExtResource("16_8ngp5")
 
 [node name="Burger" parent="." instance=ExtResource("15_3r3je")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.00387771, 1.91511, -1.01119)
 
 [node name="Fries" parent="." instance=ExtResource("16_cnmj8")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.95823, 1.38328, 0.835127)
+
+[node name="Cup" parent="." instance=ExtResource("19_3xec4")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.30519, 1.83612, -0.815118)
 
 [editable path="FoodTruck"]

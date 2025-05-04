@@ -57,7 +57,6 @@ size_flags_horizontal = 4
 [node name="ColorRect" type="ColorRect" parent="TVMenu/Left/GridContainer/Control" node_paths=PackedStringArray("relative_to")]
 layout_mode = 2
 offset_right = 5.0
-offset_bottom = 648.0
 grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("2_3snea")

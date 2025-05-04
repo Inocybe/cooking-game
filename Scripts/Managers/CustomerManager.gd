@@ -7,7 +7,7 @@ const CUSTOMER = preload("res://Scenes/misc/customer.tscn")
 
 @export var customer_spawn_radius: float = 20
 
-var customers: Array[Node3D] = []
+var customers: Array[Customer] = []
 
 
 func _ready() -> void:
