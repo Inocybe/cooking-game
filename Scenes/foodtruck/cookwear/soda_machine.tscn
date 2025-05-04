@@ -1,4 +1,4 @@
-[gd_scene load_steps=26 format=3 uid="uid://bnnh4k2t41n0l"]
+[gd_scene load_steps=27 format=3 uid="uid://bnnh4k2t41n0l"]
 
 [ext_resource type="Script" uid="uid://dwjacryhdmq1p" path="res://Scripts/Foodtruck/Interior/Cookwear/SodaMachine/SodaMachine.gd" id="1_480ux"]
 [ext_resource type="Shader" uid="uid://cfrpfmombooca" path="res://Scripts/Shaders/BubbleShader.gdshader" id="2_8k15g"]
@@ -6,6 +6,7 @@
 [ext_resource type="ArrayMesh" uid="uid://b3hirogdjwhcs" path="res://Assets/cookwear/soda_machine/Soda Machine.obj" id="4_dxvpm"]
 [ext_resource type="Script" uid="uid://dikdydygre5n" path="res://Scripts/Foodtruck/Interior/Cookwear/SodaMachine/SodaMachineParticles.gd" id="4_vcjki"]
 [ext_resource type="AudioStream" uid="uid://lq0vj0oqydt" path="res://Audio/SFX/Pour.mp3" id="6_16lnt"]
+[ext_resource type="Script" uid="uid://b4664votngiop" path="res://Scripts/Misc/AudioFader3D.gd" id="7_xldnc"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_h0ur8"]
 transparency = 1
@@ -202,3 +203,5 @@ initial_velocity_max = 0.25
 [node name="PourAudioPlayer" type="AudioStreamPlayer3D" parent="."]
 stream = ExtResource("6_16lnt")
 volume_db = -5.0
+script = ExtResource("7_xldnc")
+fade_out_time = 0.2

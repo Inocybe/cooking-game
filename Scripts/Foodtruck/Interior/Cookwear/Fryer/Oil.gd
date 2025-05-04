@@ -14,6 +14,7 @@ func set_oil_active(active: bool) -> void:
 func on_food_exit_enter(cookwear: CookwearBase) -> void:
 	var is_cooking = cookwear.food_cooking.size() > 0
 	set_oil_active(is_cooking)
+	return
 	var frying_audio = $FryingAudioPlayer
 	if is_cooking:
 		frying_audio.fade_in()

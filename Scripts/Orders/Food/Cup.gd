@@ -23,9 +23,13 @@ func do_fill(material: Material) -> void:
 	$Fill.stop(false)
 	$Fill.play("Fill")
 	
+	$FillSoundPlayer.fade_in()
 	$FillSoundPlayer.play()
 	
 	filled_with = material
+	
+	await get_tree().create_timer(1).timeout
+	$FillSoundPlayer.fade_out()
 
 
 func _ready() -> void:

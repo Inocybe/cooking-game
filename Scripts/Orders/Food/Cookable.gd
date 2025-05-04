@@ -104,6 +104,7 @@ func set_cooking_paticles(enabled: bool) -> void:
 
 
 func set_cooking_audio(enabled: bool) -> void:
+	return
 	if cook_audio:
 		if enabled:
 			cook_audio.fade_in()

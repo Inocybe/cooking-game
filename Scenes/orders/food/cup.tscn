@@ -1,9 +1,10 @@
-[gd_scene load_steps=11 format=3 uid="uid://ca6thqwccusde"]
+[gd_scene load_steps=12 format=3 uid="uid://ca6thqwccusde"]
 
 [ext_resource type="PackedScene" uid="uid://7q370aiw7csi" path="res://Assets/food/cup/cup.blend" id="1_d6bin"]
 [ext_resource type="Script" uid="uid://dawxx47p16l67" path="res://Scripts/Orders/Food/Cup.gd" id="1_j075t"]
 [ext_resource type="AudioStream" uid="uid://nmx73sg0i3ku" path="res://Audio/SFX/Spill.mp3" id="3_b5slg"]
 [ext_resource type="AudioStream" uid="uid://c6rkofs4ioqqv" path="res://Audio/SFX/Fill2.5.mp3" id="4_47b53"]
+[ext_resource type="Script" uid="uid://b4664votngiop" path="res://Scripts/Misc/AudioFader3D.gd" id="5_3ifcg"]
 [ext_resource type="PackedScene" uid="uid://bcaj1x735ohkd" path="res://Scenes/misc/bump_sound_player.tscn" id="5_47b53"]
 [ext_resource type="AudioStream" uid="uid://2ues1ntb552r" path="res://Audio/SFX/BumpC.mp3" id="6_pfwyw"]
 
@@ -78,6 +79,8 @@ stream = ExtResource("4_47b53")
 volume_db = 15.0
 max_db = 6.0
 panning_strength = 0.0
+script = ExtResource("5_3ifcg")
+fade_out_time = 0.2
 
 [node name="BumpSoundPlayer" parent="." instance=ExtResource("5_47b53")]
 stream = ExtResource("6_pfwyw")

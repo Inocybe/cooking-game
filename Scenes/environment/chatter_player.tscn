@@ -27,5 +27,4 @@ stream_8 = ExtResource("9_pfpjd")
 stream = SubResource("AudioStreamPlaylist_tgt1a")
 volume_db = -12.5
 pitch_scale = 10.0
-autoplay = true
 bus = &"Environment"

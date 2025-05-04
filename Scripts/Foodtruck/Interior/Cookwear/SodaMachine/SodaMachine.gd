@@ -32,7 +32,11 @@ func button_pressed(liquid: Liquid):
 			obj.do_fill(liquid_material)
 	
 	$Particles.spray_particles(liquid_material)
+	$PourAudioPlayer.fade_in()
 	$PourAudioPlayer.play()
+	
+	await get_tree().create_timer(1).timeout
+	$PourAudioPlayer.fade_out()
 
 
 func on_body_entered(object: Node3D):
