@@ -105,7 +105,9 @@ text = "[b]Design[/b]
 
 [url=https://github.com/bitwes/Gut]Godot Unit Test[/url], MIT License
 
-[url=https://fonts.withgoogle.com/tilt#neon]Tilt Neon[/url], under the [url=https://openfontlicense.org/open-font-license-official-text/]SIL Open Font License, Version 1.1[/url]"
+[url=https://fonts.withgoogle.com/tilt#neon]Tilt Neon[/url], under the [url=https://openfontlicense.org/open-font-license-official-text/]SIL Open Font License, Version 1.1[/url]
+
+[url=https://wvs.earthdata.nasa.gov/api/v1/snapshot?REQUEST=GetSnapshot&TIME=2025-05-04T00:00:00Z&BBOX=40.8494,-125.8678,46.8663,-115.4458&CRS=EPSG:4326&LAYERS=BlueMarble_NextGeneration&WRAP=x&FORMAT=image/jpeg&WIDTH=3840&HEIGHT=2194&colormaps=&ts=1746332617003]NASA Worldview Map of Oregon[/url], public domain"
 script = ExtResource("1_5ut88")
 
 [connection signal="pressed" from="VBoxContainer/Top/MarginContainer/HBoxContainer/Exit" to="." method="set_visible" binds= [false]]
