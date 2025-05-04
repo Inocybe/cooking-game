@@ -24,6 +24,8 @@ func init_map_buttons() -> void:
 	for map_button: MapButton in map_buttons:
 		map_button.world_load_requested.connect(load_world)
 		map_button.init_town()
+		map_button.on_go_pressed()
+		break
 
 
 func load_world() -> void:

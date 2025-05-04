@@ -24,6 +24,10 @@ ProgressManager="*res://Scripts/Managers/ProgressManager.gd"
 XRToolsUserSettings="*res://addons/godot-xr-tools/user_settings/user_settings.gd"
 XRToolsRumbleManager="*res://addons/godot-xr-tools/rumble/rumble_manager.gd"
 
+[display]
+
+window/size/mode=4
+
 [editor]
 
 movie_writer/movie_file="//wsl.localhost/Ubuntu/home/martin/cooking-game/Assets/Videos/recording.avi"

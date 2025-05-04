@@ -30,7 +30,7 @@ func on_has_XR_detected(has_XR: bool) -> void:
 	else:
 		load_non_XR_tutorial()
 	
-	if ProgressManager.day == 1:
+	if false and ProgressManager.day == 1:
 		start_tutorial()
 
 
