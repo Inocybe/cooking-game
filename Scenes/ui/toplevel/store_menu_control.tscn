@@ -64,6 +64,16 @@ layout_mode = 2
 component = 3
 texture = ExtResource("7_r1qgv")
 
+[node name="Spacer" type="Control" parent="ColorRect/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="Notice" type="Label" parent="ColorRect/VBoxContainer"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+text = "Restock your food truck! Don't buy to much, because food will expire."
+horizontal_alignment = 1
+
 [node name="StatusPositioner" type="VBoxContainer" parent="ColorRect"]
 layout_mode = 1
 anchors_preset = 15
