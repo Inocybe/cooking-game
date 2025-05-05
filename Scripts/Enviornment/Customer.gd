@@ -5,8 +5,9 @@ class_name Customer extends AnimatableBody3D
 
 @export var min_move_speed: float = 2
 @export var max_move_speed: float = 4
-@export var target_pos_margin: float = 0.1
-@export var target_speed_margin: float = 0.1
+@export var look_forward_speed: float = 0.2
+@export var target_pos_margin: float = 0.15
+@export var target_speed_margin: float = 0.15
 @export var traction: float = 4
 @export var min_idle_time: float = 0
 @export var max_idle_time: float = 0
@@ -110,6 +111,9 @@ func _process(delta: float) -> void:
 	
 	velocity = velocity.move_toward(target_vel, traction * delta)
 	position += velocity * delta
+
+	if velocity.length_squared() > look_forward_speed ** 2:
+		look_at(global_position + velocity)
 
 
 func finish_ordering() -> void:
