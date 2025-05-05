@@ -1,0 +1,7 @@
+[gd_scene load_steps=2 format=3 uid="uid://cit4uvdnwepyi"]
+
+[ext_resource type="AudioStream" uid="uid://dc3n1c8hn64jg" path="res://Audio/SFX/Thunder.mp3" id="1_q2w4l"]
+
+[node name="PressSoundPlayer" type="AudioStreamPlayer"]
+process_mode = 3
+stream = ExtResource("1_q2w4l")

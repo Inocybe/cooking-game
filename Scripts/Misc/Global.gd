@@ -9,9 +9,12 @@ enum GameState {
 
 const XR_SYSTEM = preload("res://Scenes/player/vr/xr_system.tscn")
 
+const PRESS_SOUND_PLAYER = preload("res://Scenes/misc/press_sound_player.tscn")
+
 
 var game_manager: GameManager = null
 var xr_manager: XRManager = null
+var press_sound_player: AudioStreamPlayer
 
 var music_pitch_shift: AudioEffectPitchShift = AudioEffectPitchShift.new()
 
@@ -49,6 +52,8 @@ func _ready():
 	game_manager = current_scene.get_node_or_null("GameManager")
 	
 	check_XR()
+	
+	enable_button_sounds()
 
 
 func create_XR_manager(xr_interface: XRInterface) -> void:
@@ -102,6 +107,23 @@ func _process(_delta: float) -> void:
 	
 	if get_tree().current_scene and game_manager == null:
 		game_manager = get_tree().current_scene.get_node_or_null("GameManager")
+
+
+func enable_button_sounds() -> void:
+	press_sound_player = PRESS_SOUND_PLAYER.instantiate()
+	get_tree().root.add_child.call_deferred(press_sound_player)
+	
+	for child in get_tree().root.find_children("*", "Button", true, false):
+		add_button_press_sound(child)
+	
+	get_tree().node_added.connect(func(node):
+		if node is Button:
+			add_button_press_sound(node)
+	)
+
+
+func add_button_press_sound(btn: Button):
+	btn.pressed.connect(press_sound_player.play)
 
 
 func set_game_state(state: GameState):
