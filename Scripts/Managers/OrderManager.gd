@@ -107,7 +107,7 @@ func register_completed_dish(dish: Dish) -> void:
 
 func get_review_summary(quality: float) -> String:
 	var options: Array[String]
-	if quality < 0.2:
+	if quality < 0.3:
 		options = ["Food was bad", "Would not recommend", "DO NOT EAT HERE"]
 	elif quality < 0.5:
 		options = ["Food was OK", "It's alright", "So-so food"]
