@@ -14,3 +14,13 @@ func _ready() -> void:
 	our_theme.default_font_size = font_size
 	
 	theme = our_theme
+
+
+func set_latest_review(score: float, review: String) -> void:
+	%ReviewAnimator.play("fade_out")
+	await %ReviewAnimator.animation_finished
+	%ReviewScore.text = "%.f/10 -" % (score * 10)
+	if not review.contains("\n"):
+		review = review + "\n"
+	%ReviewText.text = review
+	%ReviewAnimator.play("fade_in")

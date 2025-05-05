@@ -96,6 +96,15 @@ func get_base_quality() -> float:
 	return min(0.5 ** (active_time/30-1), 1)
 
 
+func get_quality_explanation() -> String:
+	if active_time < 45:
+		return "Service was prompt"
+	elif active_time < 120:
+		return "Service was OK"
+	else:
+		return "Food was very slow"
+
+
 func get_item_quality(item: Node3D) -> float:
 	if item.has_method("get_quality"):
 		return item.get_quality()
@@ -116,3 +125,29 @@ func get_order_quality() -> float:
 			if item is CombinableBase:
 				stack.append(item)
 	return quality
+
+
+func get_item_quality_explanation(item: Node3D):
+	if item.has_method("get_quality_explanation"):
+		return item.get_quality_explanation()
+	var cookable: Cookable = item.get_node_or_null("Cookable")
+	if cookable != null:
+		return cookable.get_quality_explanation()
+	return null
+
+
+func get_quality_explanations() -> Array[String]:
+	var explanations: Array[String] = []
+	var stack: Array[Node3D] = [self]
+	
+	while stack.size() > 0:
+		var item: Node3D = stack.pop_back()
+		
+		var explanation = get_item_quality_explanation(item)
+		if explanation != null:
+			explanations.append(explanation)
+		
+		if item is CombinableBase:
+			stack.append_array(item.children)
+	
+	return explanations

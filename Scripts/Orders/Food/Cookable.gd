@@ -109,3 +109,30 @@ func set_cooking_audio(enabled: bool) -> void:
 			cook_audio.fade_in()
 		else:
 			cook_audio.fade_out()
+
+
+func get_quality_explanation() -> String:
+	var food_component: Menu.FoodComponent = get_parent().get_food_component_type()
+	var food_name: String = Menu.FoodComponent.find_key(food_component)
+	
+	var food_status: String
+	if cooked_amount < 0.2:
+		food_status = "raw"
+	elif cooked_amount < 0.7:
+		food_status = "undercooked"
+	elif cooked_amount <= 0.9:
+		food_status = "slightly undercooked"
+	elif cooked_amount <= 1.1:
+		food_status = "perfect"
+	elif cooked_amount <= 1.3:
+		food_status = "slightly overcooked"
+	elif cooked_amount <= burn_time_multiple - 0.2:
+		food_status = "overcooked"
+	else:
+		food_status = [
+			"burned", "essentialy charcoal"
+		].pick_random()
+	
+	var joiner: String = " were " if food_name.ends_with("s") else " was "
+	
+	return food_name + joiner + food_status

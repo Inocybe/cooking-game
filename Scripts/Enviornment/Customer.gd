@@ -28,7 +28,7 @@ var move_speed: float
 var target: Vector3
 var velocity: Vector3 = Vector3.ZERO
 var state: CustomerState
-var dish_ordered: Node3D = null
+var dish_ordered: Dish = null
 
 
 func _ready() -> void:

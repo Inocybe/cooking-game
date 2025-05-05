@@ -68,5 +68,12 @@ func generate_spill(base_position: Vector3) -> void:
 
 func get_quality() -> float:
 	if filled_with == null:
-		return 0.5
+		return 0.2
 	return 1
+
+
+func get_quality_explanation() -> String:
+	if filled_with == null:
+		return "My soda was literally empty?!?!"
+	else:
+		return "Soda was good"

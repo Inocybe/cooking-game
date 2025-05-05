@@ -1,4 +1,4 @@
-[gd_scene load_steps=8 format=3 uid="uid://dts51sc5121xa"]
+[gd_scene load_steps=12 format=3 uid="uid://dts51sc5121xa"]
 
 [ext_resource type="Script" uid="uid://2pes0nvg65su" path="res://Scripts/UI/TVControl.gd" id="1_dxuk2"]
 [ext_resource type="Script" uid="uid://cf043oqdpedvq" path="res://Scripts/UI/Utils/Maximizer.gd" id="2_3snea"]
@@ -7,6 +7,84 @@
 [ext_resource type="PackedScene" uid="uid://b63qhctnjuprt" path="res://Scenes/ui/toplevel/settings_control.tscn" id="4_6sim7"]
 [ext_resource type="Script" uid="uid://wojbfe5vhxlf" path="res://Scripts/UI/Utils/SwitchSceneButton.gd" id="4_a8dsq"]
 [ext_resource type="PackedScene" uid="uid://d3np75rswc0ee" path="res://Scenes/ui/toplevel/tutorial_control.tscn" id="7_l06ig"]
+
+[sub_resource type="Animation" id="Animation_l06ig"]
+resource_name = "slide_out_right"
+length = 0.2
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("ReviewText:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.2),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 1), Color(1, 1, 1, 0)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("ReviewScore:modulate")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.2),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 1), Color(1, 1, 1, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_pdnye"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("ReviewText:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 1)]
+}
+
+[sub_resource type="Animation" id="Animation_4aigi"]
+resource_name = "fade_in"
+length = 0.2
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("ReviewText:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.2),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("ReviewScore:modulate")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.2),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_prsau"]
+_data = {
+&"RESET": SubResource("Animation_pdnye"),
+&"fade_in": SubResource("Animation_4aigi"),
+&"fade_out": SubResource("Animation_l06ig")
+}
 
 [node name="TVControl" type="Control"]
 process_mode = 3
@@ -35,76 +113,123 @@ layout_mode = 2
 size_flags_horizontal = 3
 color = Color(1, 1, 1, 0.509804)
 
-[node name="GridContainer" type="GridContainer" parent="TVMenu/Left"]
-layout_mode = 2
-offset_left = 340.0
-offset_right = 544.0
-offset_bottom = 648.0
+[node name="VBoxContainer" type="VBoxContainer" parent="TVMenu/Left"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+theme_override_constants/separation = 0
+
+[node name="GridContainer" type="GridContainer" parent="TVMenu/Left/VBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 3
 columns = 3
 
-[node name="DayCountLabel" type="Label" parent="TVMenu/Left/GridContainer"]
+[node name="DayCountLabel" type="Label" parent="TVMenu/Left/VBoxContainer/GridContainer"]
 layout_mode = 2
 text = "Day:"
 horizontal_alignment = 2
 
-[node name="Control" type="Control" parent="TVMenu/Left/GridContainer"]
+[node name="Control" type="Control" parent="TVMenu/Left/VBoxContainer/GridContainer"]
 custom_minimum_size = Vector2(5, 0)
 layout_mode = 2
 size_flags_horizontal = 4
 
-[node name="ColorRect" type="ColorRect" parent="TVMenu/Left/GridContainer/Control" node_paths=PackedStringArray("relative_to")]
+[node name="ColorRect" type="ColorRect" parent="TVMenu/Left/VBoxContainer/GridContainer/Control" node_paths=PackedStringArray("relative_to")]
 layout_mode = 2
 offset_right = 5.0
+offset_bottom = 594.0
 grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("2_3snea")
-relative_to = NodePath("../../..")
+relative_to = NodePath("../..")
 apply_to_y = true
 
-[node name="DayCount" type="Label" parent="TVMenu/Left/GridContainer"]
+[node name="DayCount" type="Label" parent="TVMenu/Left/VBoxContainer/GridContainer"]
 layout_mode = 2
 script = ExtResource("3_feli1")
 
-[node name="TimeRemainingLabel" type="Label" parent="TVMenu/Left/GridContainer"]
+[node name="TimeRemainingLabel" type="Label" parent="TVMenu/Left/VBoxContainer/GridContainer"]
 layout_mode = 2
 text = "Time Remaining:"
 horizontal_alignment = 2
 
-[node name="Spacer1" type="Control" parent="TVMenu/Left/GridContainer"]
+[node name="Spacer1" type="Control" parent="TVMenu/Left/VBoxContainer/GridContainer"]
 layout_mode = 2
 
-[node name="TimeRemaining" type="Label" parent="TVMenu/Left/GridContainer"]
+[node name="TimeRemaining" type="Label" parent="TVMenu/Left/VBoxContainer/GridContainer"]
 unique_name_in_owner = true
 layout_mode = 2
 text = "10"
 
-[node name="RevenueLabel" type="Label" parent="TVMenu/Left/GridContainer"]
+[node name="RevenueLabel" type="Label" parent="TVMenu/Left/VBoxContainer/GridContainer"]
 layout_mode = 2
 text = "Revenue:"
 horizontal_alignment = 2
 
-[node name="Spacer2" type="Control" parent="TVMenu/Left/GridContainer"]
+[node name="Spacer2" type="Control" parent="TVMenu/Left/VBoxContainer/GridContainer"]
 layout_mode = 2
 
-[node name="RevenueDisplay" type="Label" parent="TVMenu/Left/GridContainer"]
+[node name="RevenueDisplay" type="Label" parent="TVMenu/Left/VBoxContainer/GridContainer"]
 unique_name_in_owner = true
 layout_mode = 2
 text = "$0.00"
 
-[node name="ServedTodayLabel" type="Label" parent="TVMenu/Left/GridContainer"]
+[node name="ServedTodayLabel" type="Label" parent="TVMenu/Left/VBoxContainer/GridContainer"]
 layout_mode = 2
 text = "Served Today:"
 horizontal_alignment = 2
 
-[node name="Spacer3" type="Control" parent="TVMenu/Left/GridContainer"]
+[node name="Spacer3" type="Control" parent="TVMenu/Left/VBoxContainer/GridContainer"]
 layout_mode = 2
 
-[node name="ServedTodayDisplay" type="Label" parent="TVMenu/Left/GridContainer"]
+[node name="ServedTodayDisplay" type="Label" parent="TVMenu/Left/VBoxContainer/GridContainer"]
 unique_name_in_owner = true
 layout_mode = 2
 text = "10 orders"
+
+[node name="ColorRect" type="ColorRect" parent="TVMenu/Left/VBoxContainer"]
+custom_minimum_size = Vector2(0, 5)
+layout_mode = 2
+
+[node name="MarginContainer" type="MarginContainer" parent="TVMenu/Left/VBoxContainer"]
+layout_mode = 2
+theme_override_constants/margin_left = 5
+theme_override_constants/margin_top = 2
+theme_override_constants/margin_right = 5
+theme_override_constants/margin_bottom = 2
+
+[node name="VBoxContainer" type="HBoxContainer" parent="TVMenu/Left/VBoxContainer/MarginContainer"]
+layout_mode = 2
+
+[node name="ReviewHeader" type="Label" parent="TVMenu/Left/VBoxContainer/MarginContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 0
+text = "Recent Reviews"
+
+[node name="Spacer" type="Control" parent="TVMenu/Left/VBoxContainer/MarginContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="ReviewScore" type="Label" parent="TVMenu/Left/VBoxContainer/MarginContainer/VBoxContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_vertical = 0
+
+[node name="ReviewText" type="Label" parent="TVMenu/Left/VBoxContainer/MarginContainer/VBoxContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+text = "
+No recent reviews"
+
+[node name="ReviewAnimator" type="AnimationPlayer" parent="TVMenu/Left/VBoxContainer/MarginContainer/VBoxContainer"]
+unique_name_in_owner = true
+libraries = {
+&"": SubResource("AnimationLibrary_prsau")
+}
 
 [node name="Right" type="ColorRect" parent="TVMenu"]
 custom_minimum_size = Vector2(250, 0)
