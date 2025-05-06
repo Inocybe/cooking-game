@@ -1,7 +1,7 @@
 [gd_scene load_steps=11 format=3 uid="uid://cd7anw3qhpovq"]
 
 [ext_resource type="Script" uid="uid://c3h5ekk41jdvq" path="res://Scripts/UI/Map/MapControl.gd" id="1_cpcl8"]
-[ext_resource type="Texture2D" uid="uid://djl2ip3mf6pnd" path="res://Assets/Misc/oregon.jpg" id="2_ocftn"]
+[ext_resource type="Texture2D" uid="uid://djl2ip3mf6pnd" path="res://Assets/BackgroundArt/oregon.jpg" id="2_ocftn"]
 [ext_resource type="PackedScene" uid="uid://xum2e4iaos6e" path="res://Scenes/ui/controls/stats_box.tscn" id="2_r10et"]
 [ext_resource type="PackedScene" uid="uid://dfdlj4k1uqvm2" path="res://Scenes/ui/controls/town_button_control.tscn" id="3_cpcl8"]
 [ext_resource type="PackedScene" uid="uid://b7k75vt3n7uch" path="res://Scenes/ui/controls/badge.tscn" id="3_yp12h"]

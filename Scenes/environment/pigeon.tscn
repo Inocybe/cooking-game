@@ -13,7 +13,7 @@ script = ExtResource("1_kbjun")
 transform = Transform3D(1.19249e-09, 0, -0.1, 0, 0.1, 0, 0.1, 0, 1.19249e-09, 0, 0, 0)
 
 [node name="ActionTimer" type="Timer" parent="."]
-wait_time = 6.12795
+wait_time = 6.02014
 
 [node name="NoticeArea" type="Area3D" parent="."]
 

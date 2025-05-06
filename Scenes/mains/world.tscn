@@ -17,12 +17,12 @@
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_r88qt"]
 
-[sub_resource type="Sky" id="Sky_wvisd"]
+[sub_resource type="Sky" id="Sky_nixdd"]
 sky_material = SubResource("ProceduralSkyMaterial_r88qt")
 
 [sub_resource type="Environment" id="Environment_ge0im"]
 background_mode = 2
-sky = SubResource("Sky_wvisd")
+sky = SubResource("Sky_nixdd")
 tonemap_mode = 2
 tonemap_exposure = 0.6
 tonemap_white = 0.7

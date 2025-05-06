@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://diaj8m5bg4cqi"
-path="res://.godot/imported/SplashScreen.png-bf03281cb79e79f46c078b0622ef670f.ctex"
+uid="uid://bvms6s6y6op6j"
+path="res://.godot/imported/dayover.png-b068f8d3156dfc6d1130f5e4679353b5.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/Misc/SplashScreen.png"
-dest_files=["res://.godot/imported/SplashScreen.png-bf03281cb79e79f46c078b0622ef670f.ctex"]
+source_file="res://Assets/BackgroundArt/dayover.png"
+dest_files=["res://.godot/imported/dayover.png-b068f8d3156dfc6d1130f5e4679353b5.ctex"]
 
 [params]
 

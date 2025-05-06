@@ -3,15 +3,15 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://djl2ip3mf6pnd"
-path="res://.godot/imported/oregon.jpg-bf082f0daab0b98f7d955dc8d7caef26.ctex"
+path="res://.godot/imported/oregon.jpg-efd574d0793478dce367616f0b328447.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/Misc/oregon.jpg"
-dest_files=["res://.godot/imported/oregon.jpg-bf082f0daab0b98f7d955dc8d7caef26.ctex"]
+source_file="res://Assets/BackgroundArt/oregon.jpg"
+dest_files=["res://.godot/imported/oregon.jpg-efd574d0793478dce367616f0b328447.ctex"]
 
 [params]
 
