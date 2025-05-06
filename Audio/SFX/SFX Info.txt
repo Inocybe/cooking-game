@@ -1,0 +1,27 @@
+Bell: Actual Bell
+BumpB: Stuffed animal hitting the wall
+BumpC: Empty bottle hitting wood
+BumpF: Paper being crumpled
+BumpF (1-2): Plastic bag being pressed
+BumpP: Wet paper towel being squished
+BumpT1: Tapping on a desk/mousepad
+BumpT2: Tapping an empty bottle on the corner of a wall
+BumpT3: Tapping an empty bottle on a metal frame for a hamper
+Chatter (1-7): Chatter from our Computer Science classroom
+Clatter: Dropping a thin 3D print onto a plastic surface (The cover of my old laptop)
+Click (1-3): Clicks from my car, when it tries to unlock the gear selector without a key and the blinker lever
+Deep Fry: Found on youtube: https://www.youtube.com/watch?v=tqDBwNz8f7w&ab_channel=Visual%26SoundFX
+Fill: Simply a cup filling with water
+Frying: Found on youtube: https://www.youtube.com/watch?v=RakpnCKlABg&ab_channel=CarmineTaverna
+Humanoid (1-17): Our sound lead making non-descript sounds into their microphone
+Metal (1-10): Miscellaneous metals hitting one another, ranging from rings to rods to blades
+Pour: Water pouring into a cup
+Rain (Heavy/Medium/Light): Genuine rain recorded from outdoors
+Slosh: Water sloshing around in a cup
+Splat: Wet sponge being dropped in a sink
+Steps: Actual footsteps
+StepsC: Dropping a ring onto a plastic surface (The cover of my old laptop)
+StepsT: Flicking the tab of an empty can
+Swish (1-2): A hand being brushed against a popcorn textured wall
+Thunder: Paper being shook against a microphone and with settings altered through DaVinci Resolve
+Trash (1-2): A small bottle being thrown in a trash can
