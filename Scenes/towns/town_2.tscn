@@ -1,4 +1,4 @@
-[gd_scene load_steps=37 format=3 uid="uid://i027iahdt7c1"]
+[gd_scene load_steps=38 format=3 uid="uid://i027iahdt7c1"]
 
 [ext_resource type="PackedScene" uid="uid://c52i2exeeb6uq" path="res://Scenes/environment/ground.tscn" id="1_d0muk"]
 [ext_resource type="PackedScene" uid="uid://dwhxqp50b6ejg" path="res://Assets/LowPoly_Environnment/Environment_1.fbx" id="1_j43i4"]
@@ -26,6 +26,7 @@
 [ext_resource type="PackedScene" uid="uid://c3jarmn8lrlen" path="res://Assets/LowPoly_Environnment/Bush_1.fbx" id="23_jq5nm"]
 [ext_resource type="PackedScene" uid="uid://c3d63hs2o46yh" path="res://Assets/LowPoly_Environnment/Tree_2.fbx" id="24_jq5nm"]
 [ext_resource type="PackedScene" uid="uid://beqd4f2q0elks" path="res://Assets/LowPoly_Environnment/Tree_1.fbx" id="25_d0muk"]
+[ext_resource type="PackedScene" uid="uid://cbu1wxpg7x48" path="res://Scenes/environment/pigeon.tscn" id="27_b2qjw"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_j43i4"]
 
@@ -305,3 +306,20 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 27.537, 0.0391171, 0.712631)
 
 [node name="Tree_4" parent="Trees" instance=ExtResource("24_jq5nm")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 41.2321, 0, 20.9382)
+
+[node name="Pigeons" type="Node3D" parent="."]
+
+[node name="Pigeon1" parent="Pigeons" instance=ExtResource("27_b2qjw")]
+transform = Transform3D(-0.0161436, 0, 0.99987, 0, 1, 0, -0.99987, 0, -0.0161436, 15.474, 0, 18.532)
+movement_time = null
+rotate_time = null
+
+[node name="Pigeon2" parent="Pigeons" instance=ExtResource("27_b2qjw")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 26.246, 10.8718, 7.58553)
+movement_time = null
+rotate_time = null
+
+[node name="Pigeon3" parent="Pigeons" instance=ExtResource("27_b2qjw")]
+transform = Transform3D(-0.794325, 0.439577, -0.419309, 0.484199, 0.874958, 0, 0.366878, -0.203029, -0.907843, 1.64843, 9.13042, 40.345)
+movement_time = null
+rotate_time = null

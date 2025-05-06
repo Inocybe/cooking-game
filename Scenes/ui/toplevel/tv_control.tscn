@@ -8,34 +8,6 @@
 [ext_resource type="Script" uid="uid://wojbfe5vhxlf" path="res://Scripts/UI/Utils/SwitchSceneButton.gd" id="4_a8dsq"]
 [ext_resource type="PackedScene" uid="uid://d3np75rswc0ee" path="res://Scenes/ui/toplevel/tutorial_control.tscn" id="7_l06ig"]
 
-[sub_resource type="Animation" id="Animation_l06ig"]
-resource_name = "slide_out_right"
-length = 0.2
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("ReviewText:modulate")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0, 0.2),
-"transitions": PackedFloat32Array(1, 1),
-"update": 0,
-"values": [Color(1, 1, 1, 1), Color(1, 1, 1, 0)]
-}
-tracks/1/type = "value"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath("ReviewScore:modulate")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/keys = {
-"times": PackedFloat32Array(0, 0.2),
-"transitions": PackedFloat32Array(1, 1),
-"update": 0,
-"values": [Color(1, 1, 1, 1), Color(1, 1, 1, 0)]
-}
-
 [sub_resource type="Animation" id="Animation_pdnye"]
 length = 0.001
 tracks/0/type = "value"
@@ -77,6 +49,34 @@ tracks/1/keys = {
 "transitions": PackedFloat32Array(1, 1),
 "update": 0,
 "values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1)]
+}
+
+[sub_resource type="Animation" id="Animation_l06ig"]
+resource_name = "slide_out_right"
+length = 0.2
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("ReviewText:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.2),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 1), Color(1, 1, 1, 0)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("ReviewScore:modulate")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.2),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 1), Color(1, 1, 1, 0)]
 }
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_prsau"]
@@ -141,7 +141,7 @@ size_flags_horizontal = 4
 [node name="ColorRect" type="ColorRect" parent="TVMenu/Left/VBoxContainer/GridContainer/Control" node_paths=PackedStringArray("relative_to")]
 layout_mode = 2
 offset_right = 5.0
-offset_bottom = 594.0
+offset_bottom = 96.0
 grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("2_3snea")
