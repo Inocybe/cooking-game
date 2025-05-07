@@ -27,8 +27,14 @@ func _ready() -> void:
 
 func init_town() -> void:
 	town.random_forcast(ProgressManager.day)
+	
 	town.weather_forcast = [WeatherManager.WeatherType.Sunny]
 	town.town_int = 0
+	#town.weather_forcast = [WeatherManager.WeatherType.Stormy]
+	#town.town_int = 1
+	#town.weather_forcast = [WeatherManager.WeatherType.Overcast]
+	#town.town_int = 2
+	
 	show_town_values(0)
 
 

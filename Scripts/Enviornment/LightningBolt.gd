@@ -29,6 +29,8 @@ func _process(delta: float) -> void:
 
 
 func start_audio() -> void:
+	return
+	
 	$ThunderPlayer.play()
 
 

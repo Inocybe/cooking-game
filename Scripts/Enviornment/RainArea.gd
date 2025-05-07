@@ -11,6 +11,8 @@ func set_raininess(raininess: float) -> void:
 	var is_rain_heavy = raininess > heavy_raininess_cutoff
 	var is_rain_medium = raininess > medium_raininess_cutoff and not is_rain_heavy
 	
+	return
+	
 	if is_rain_heavy:
 		$HeavyRainSoundFader.fade_in()
 	else:
