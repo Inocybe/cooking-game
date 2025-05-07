@@ -23,7 +23,7 @@ func start_action_timer() -> void:
 
 func do_action() -> void:
 	if not moving:
-		animator.play("PeckAction")
+		animator.play("PeckAnimation")
 	start_action_timer()
 
 
@@ -40,7 +40,7 @@ func walk_to(point: Vector3) -> void:
 	tween.tween_property(self, "global_position", point, movement_time)
 	tween.finished.connect(func(): moving = false)
 	
-	animator.play("WalkAction")
+	animator.play("WalkAnimation")
 
 
 func obj_enter_notice_area(obj: Node3D) -> void:
