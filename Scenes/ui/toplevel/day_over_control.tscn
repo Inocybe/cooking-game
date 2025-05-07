@@ -1,9 +1,8 @@
 [gd_scene load_steps=4 format=3 uid="uid://dm5580jkhjqib"]
 
+[ext_resource type="Texture2D" uid="uid://bvms6s6y6op6j" path="res://Assets/BackgroundArt/dayover.png" id="1_5p7qc"]
 [ext_resource type="Script" uid="uid://dvdxwlvx6sdxv" path="res://Scripts/UI/Utils/FontScaler.gd" id="1_c0qa7"]
 [ext_resource type="Script" uid="uid://wojbfe5vhxlf" path="res://Scripts/UI/Utils/SwitchSceneButton.gd" id="2_y8w3e"]
-
-[sub_resource type="PlaceholderTexture2D" id="PlaceholderTexture2D_c0qa7"]
 
 [node name="DayOverControl" type="Control"]
 layout_mode = 3
@@ -20,7 +19,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-texture = SubResource("PlaceholderTexture2D_c0qa7")
+texture = ExtResource("1_5p7qc")
 expand_mode = 1
 stretch_mode = 6
 
@@ -40,6 +39,8 @@ size_flags_vertical = 3
 
 [node name="DayOverText" type="Label" parent="TextureRect/VBoxContainer"]
 layout_mode = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 48
 text = "Day Over!"
 horizontal_alignment = 1
 
