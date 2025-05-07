@@ -37,6 +37,9 @@ func on_show_pressed() -> void:
 	if not town_info_shown:
 		animation_player.play("display_town_values")
 		town_info_shown = true
+	elif town_info_shown:
+		animation_player.play_backwards("display_town_values")
+		town_info_shown = false
 
 
 func on_go_pressed() -> void:
