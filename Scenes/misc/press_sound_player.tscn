@@ -1,7 +1,9 @@
 [gd_scene load_steps=2 format=3 uid="uid://cit4uvdnwepyi"]
 
-[ext_resource type="AudioStream" uid="uid://dc3n1c8hn64jg" path="res://Audio/SFX/Thunder.mp3" id="1_q2w4l"]
+[ext_resource type="AudioStream" uid="uid://ix7dll1euvav" path="res://Audio/SFX/Click3.mp3" id="1_q2w4l"]
 
 [node name="PressSoundPlayer" type="AudioStreamPlayer"]
 process_mode = 3
 stream = ExtResource("1_q2w4l")
+volume_db = 20.0
+pitch_scale = 1.5

@@ -1,7 +1,7 @@
 [gd_scene load_steps=6 format=3 uid="uid://cbco6667n5i38"]
 
 [ext_resource type="Script" uid="uid://cacqbhe4x15a6" path="res://Scripts/UI/MainMenuControl.gd" id="1_dji0b"]
-[ext_resource type="Texture2D" uid="uid://diaj8m5bg4cqi" path="res://Assets/Misc/SplashScreen.png" id="2_mr6e5"]
+[ext_resource type="Texture2D" uid="uid://diaj8m5bg4cqi" path="res://Assets/BackgroundArt/SplashScreen.png" id="2_mr6e5"]
 [ext_resource type="Texture2D" uid="uid://c3xn338gig4ha" path="res://Assets/Branding/iconfull.png" id="2_u0us8"]
 [ext_resource type="PackedScene" uid="uid://b63qhctnjuprt" path="res://Scenes/ui/toplevel/settings_control.tscn" id="3_anusf"]
 [ext_resource type="PackedScene" uid="uid://d1kvbv3fi1tks" path="res://Scenes/ui/toplevel/credits_control.tscn" id="4_u0us8"]

@@ -1,0 +1,23 @@
+[gd_scene load_steps=4 format=3 uid="uid://cbu1wxpg7x48"]
+
+[ext_resource type="PackedScene" uid="uid://sxkl6461dvbn" path="res://Assets/Misc/pigeon.glb" id="1_6f8c7"]
+[ext_resource type="Script" uid="uid://duu3ar6rgsfm2" path="res://Scripts/Enviornment/Pigeon.gd" id="1_kbjun"]
+
+[sub_resource type="SphereShape3D" id="SphereShape3D_kbjun"]
+radius = 2.0
+
+[node name="Pigeon" type="Node3D"]
+script = ExtResource("1_kbjun")
+
+[node name="Model" parent="." instance=ExtResource("1_6f8c7")]
+transform = Transform3D(1.19249e-09, 0, -0.1, 0, 0.1, 0, 0.1, 0, 1.19249e-09, 0, 0, 0)
+
+[node name="ActionTimer" type="Timer" parent="."]
+
+[node name="NoticeArea" type="Area3D" parent="."]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="NoticeArea"]
+shape = SubResource("SphereShape3D_kbjun")
+
+[connection signal="timeout" from="ActionTimer" to="." method="do_action"]
+[connection signal="body_entered" from="NoticeArea" to="." method="obj_enter_notice_area"]

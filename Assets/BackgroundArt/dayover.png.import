@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://djl2ip3mf6pnd"
-path="res://.godot/imported/oregon.jpg-bf082f0daab0b98f7d955dc8d7caef26.ctex"
+uid="uid://bvms6s6y6op6j"
+path="res://.godot/imported/dayover.png-b068f8d3156dfc6d1130f5e4679353b5.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/Misc/oregon.jpg"
-dest_files=["res://.godot/imported/oregon.jpg-bf082f0daab0b98f7d955dc8d7caef26.ctex"]
+source_file="res://Assets/BackgroundArt/dayover.png"
+dest_files=["res://.godot/imported/dayover.png-b068f8d3156dfc6d1130f5e4679353b5.ctex"]
 
 [params]
 
