@@ -39,6 +39,8 @@ func walk_to(point: Vector3) -> void:
 	tween.tween_property(self, "global_rotation", target_rot, rotate_time)
 	tween.tween_property(self, "global_position", point, movement_time)
 	tween.finished.connect(func(): moving = false)
+	
+	animator.play("WalkAction")
 
 
 func obj_enter_notice_area(obj: Node3D) -> void:
