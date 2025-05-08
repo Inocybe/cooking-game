@@ -12,7 +12,7 @@
 script = ExtResource("4_p5u53")
 name = "Portland"
 town_int = 0
-population = 378
+population = 478
 opening_hours = 5.0
 metadata/_custom_type_script = "uid://dhe534odp4ri1"
 
@@ -28,7 +28,7 @@ metadata/_custom_type_script = "uid://dhe534odp4ri1"
 script = ExtResource("4_p5u53")
 name = "Manzanita"
 town_int = 2
-population = 457
+population = 169
 opening_hours = 6.0
 metadata/_custom_type_script = "uid://dhe534odp4ri1"
 
