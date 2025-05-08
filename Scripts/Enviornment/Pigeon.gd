@@ -23,7 +23,7 @@ func start_action_timer() -> void:
 
 func do_action() -> void:
 	if not moving:
-		animator.play("PeckAnimation")
+		animator.play("PeckAnimaiton")
 	start_action_timer()
 
 

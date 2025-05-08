@@ -1,0 +1,21 @@
+[gd_scene load_steps=3 format=3 uid="uid://dsldag4fpi88n"]
+
+[ext_resource type="Script" uid="uid://en7aed0nq4uv" path="res://Scripts/Enviornment/SunManager.gd" id="1_2r3u2"]
+[ext_resource type="Script" uid="uid://c2xivkwymlvht" path="res://Scripts/Misc/VRToggler.gd" id="2_i48sf"]
+
+[node name="SunManager" type="Node3D"]
+transform = Transform3D(0.5, 0, 0.866025, 0, 1, 0, -0.866025, 0, 0.5, 0, 0, 0)
+script = ExtResource("1_2r3u2")
+
+[node name="SkySun" type="DirectionalLight3D" parent="."]
+directional_shadow_mode = 1
+directional_shadow_max_distance = 500.0
+sky_mode = 2
+
+[node name="LightSun" type="DirectionalLight3D" parent="."]
+shadow_enabled = true
+shadow_normal_bias = 4.0
+directional_shadow_mode = 1
+directional_shadow_max_distance = 500.0
+sky_mode = 1
+script = ExtResource("2_i48sf")
