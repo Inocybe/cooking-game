@@ -289,6 +289,44 @@ setting_name = "mouse_sensitivity"
 script = ExtResource("3_fc6kx")
 stylebox = SubResource("StyleBoxFlat_cco4f")
 
+[node name="DifficultyControl" type="HBoxContainer" parent="VBoxContainer/Bottom/MarginContainer/ScrollContainer/VBoxContainer"]
+custom_minimum_size = Vector2(0, 30)
+layout_mode = 2
+
+[node name="Label" type="Label" parent="VBoxContainer/Bottom/MarginContainer/ScrollContainer/VBoxContainer/DifficultyControl"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+text = "Difficulty"
+
+[node name="Spacer" type="Control" parent="VBoxContainer/Bottom/MarginContainer/ScrollContainer/VBoxContainer/DifficultyControl"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="EasyLabel" type="Label" parent="VBoxContainer/Bottom/MarginContainer/ScrollContainer/VBoxContainer/DifficultyControl"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+text = "Easy "
+
+[node name="HSlider" type="HSlider" parent="VBoxContainer/Bottom/MarginContainer/ScrollContainer/VBoxContainer/DifficultyControl"]
+custom_minimum_size = Vector2(600, 0)
+layout_mode = 2
+size_flags_vertical = 4
+theme_override_styles/slider = SubResource("StyleBoxFlat_cco4f")
+max_value = 2.0
+value = 1.0
+script = ExtResource("1_iyjrv")
+prop_name = "value"
+setting_name = "difficulty"
+
+[node name="SliderScaler" type="Node" parent="VBoxContainer/Bottom/MarginContainer/ScrollContainer/VBoxContainer/DifficultyControl/HSlider"]
+script = ExtResource("3_fc6kx")
+stylebox = SubResource("StyleBoxFlat_cco4f")
+
+[node name="HardLabel" type="Label" parent="VBoxContainer/Bottom/MarginContainer/ScrollContainer/VBoxContainer/DifficultyControl"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+text = " Hard"
+
 [node name="VRModeRow" type="HBoxContainer" parent="VBoxContainer/Bottom/MarginContainer/ScrollContainer/VBoxContainer"]
 custom_minimum_size = Vector2(0, 30)
 layout_mode = 2
@@ -356,5 +394,6 @@ text = " Reset Progress "
 [connection signal="value_changed" from="VBoxContainer/Bottom/MarginContainer/ScrollContainer/VBoxContainer/MusicVolumeRow/HSlider" to="VBoxContainer/Bottom/MarginContainer/ScrollContainer/VBoxContainer/MusicVolumeRow/HSlider" method="change_setting"]
 [connection signal="value_changed" from="VBoxContainer/Bottom/MarginContainer/ScrollContainer/VBoxContainer/EnvironmentVolumeRow/HSlider" to="VBoxContainer/Bottom/MarginContainer/ScrollContainer/VBoxContainer/EnvironmentVolumeRow/HSlider" method="change_setting"]
 [connection signal="value_changed" from="VBoxContainer/Bottom/MarginContainer/ScrollContainer/VBoxContainer/SensitivityControl/HSlider" to="VBoxContainer/Bottom/MarginContainer/ScrollContainer/VBoxContainer/SensitivityControl/HSlider" method="change_setting"]
+[connection signal="value_changed" from="VBoxContainer/Bottom/MarginContainer/ScrollContainer/VBoxContainer/DifficultyControl/HSlider" to="VBoxContainer/Bottom/MarginContainer/ScrollContainer/VBoxContainer/DifficultyControl/HSlider" method="change_setting"]
 [connection signal="pressed" from="VBoxContainer/Bottom/MarginContainer/ScrollContainer/VBoxContainer/ManageProgressRow/OpenProgressButton" to="." method="open_progress_location"]
 [connection signal="pressed" from="VBoxContainer/Bottom/MarginContainer/ScrollContainer/VBoxContainer/ManageProgressRow/ResetProgressButton2" to="." method="reset_progress"]

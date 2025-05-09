@@ -1,7 +1,7 @@
 [gd_scene load_steps=7 format=3 uid="uid://dnpv3i87jyyr7"]
 
 [ext_resource type="Script" uid="uid://bap8glvju8jes" path="res://Scripts/Managers/MusicManager.gd" id="1_x1qc6"]
-[ext_resource type="AudioStream" uid="uid://cg88tdt3v0i7u" path="res://Audio/Music/OGPC - Cook.mp3" id="2_manp2"]
+[ext_resource type="AudioStream" uid="uid://dcjpvku2jou5m" path="res://Audio/Music/OGPC - Cook.mp3" id="2_manp2"]
 [ext_resource type="AudioStream" uid="uid://bycru5cbsfjvp" path="res://Audio/Music/OGPC - Fry.mp3" id="3_g0kbl"]
 [ext_resource type="AudioStream" uid="uid://cbpwkfkx8c3ai" path="res://Audio/Music/OGPC - Menu.mp3" id="3_x1qc6"]
 [ext_resource type="AudioStream" uid="uid://crfc0k26a1b4k" path="res://Audio/Music/OGPC - Open.mp3" id="4_x1qc6"]

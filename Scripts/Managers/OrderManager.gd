@@ -97,7 +97,8 @@ func make_customer_order() -> void:
 func register_completed_dish(dish: Dish) -> void:
 	var base_worth: float = calculate_worth(dish)
 	var order_quality: float = dish.get_order_quality()
-	var worth: float = base_worth * order_quality
+	var difficulty_multiplier: float = get_difficulty_multiplier()
+	var worth: float = base_worth * order_quality * difficulty_multiplier
 	
 	Global.game_manager.revenue += worth
 	Global.game_manager.served_today += 1
@@ -129,3 +130,11 @@ func calculate_worth(dish: Dish) -> float:
 	for item: Menu.Item in dish.order:
 		worth += Menu.get_item_retail_price(item)
 	return worth
+
+
+func get_difficulty_multiplier() -> float:
+	return {
+		0: 1.5,
+		1: 1,
+		2: 0.8
+	}[SettingsManager.difficulty]
