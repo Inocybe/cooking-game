@@ -1,9 +1,9 @@
-[gd_scene load_steps=11 format=3 uid="uid://cdm4qy124ys6o"]
+[gd_scene load_steps=12 format=3 uid="uid://cdm4qy124ys6o"]
 
 [ext_resource type="Script" uid="uid://h6n0dxh4d6ri" path="res://Scripts/Orders/Food/Cookable.gd" id="1_4snbo"]
-[ext_resource type="Script" uid="uid://bhjsmhin0ksi2" path="res://Scripts/Orders/Food/BasicFood.gd" id="1_i826k"]
+[ext_resource type="Script" path="res://Scripts/Orders/Food/BasicFood.gd" id="1_i826k"]
 [ext_resource type="PackedScene" uid="uid://dsrcak3dl0ihe" path="res://Assets/food/fries/fries.blend" id="1_m3d73"]
-[ext_resource type="Shader" uid="uid://bpi5gkpy7uglf" path="res://Scripts/Shaders/FriesShader.gdshader" id="4_0vm8e"]
+[ext_resource type="Shader" path="res://Scripts/Shaders/FriesShader.gdshader" id="4_0vm8e"]
 [ext_resource type="PackedScene" uid="uid://bcaj1x735ohkd" path="res://Scenes/misc/bump_sound_player.tscn" id="4_dsnb1"]
 [ext_resource type="AudioStream" uid="uid://djtb2mtkymaap" path="res://Audio/SFX/BumpF1.mp3" id="6_0vm8e"]
 [ext_resource type="AudioStream" uid="uid://crgshq48e4wnd" path="res://Audio/SFX/BumpF2.mp3" id="7_mytyk"]
@@ -23,6 +23,10 @@ random_volume_offset_db = 3.0
 streams_count = 2
 stream_0/stream = ExtResource("6_0vm8e")
 stream_1/stream = ExtResource("7_mytyk")
+
+[sub_resource type="SphereMesh" id="SphereMesh_mytyk"]
+radius = 0.1
+height = 0.2
 
 [node name="Fries" type="RigidBody3D" groups=["food", "holdable", "interactable"]]
 script = ExtResource("1_i826k")
@@ -52,5 +56,7 @@ material_template = SubResource("ShaderMaterial_0vm8e")
 stream = SubResource("AudioStreamRandomizer_mytyk")
 
 [node name="CookingParticles" type="GPUParticles3D" parent="."]
+lifetime = 20.0
+draw_pass_1 = SubResource("SphereMesh_mytyk")
 
 [editable path="Model"]
