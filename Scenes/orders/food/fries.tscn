@@ -1,4 +1,4 @@
-[gd_scene load_steps=12 format=3 uid="uid://cdm4qy124ys6o"]
+[gd_scene load_steps=11 format=3 uid="uid://cdm4qy124ys6o"]
 
 [ext_resource type="Script" uid="uid://h6n0dxh4d6ri" path="res://Scripts/Orders/Food/Cookable.gd" id="1_4snbo"]
 [ext_resource type="Script" path="res://Scripts/Orders/Food/BasicFood.gd" id="1_i826k"]
@@ -24,10 +24,6 @@ streams_count = 2
 stream_0/stream = ExtResource("6_0vm8e")
 stream_1/stream = ExtResource("7_mytyk")
 
-[sub_resource type="SphereMesh" id="SphereMesh_mytyk"]
-radius = 0.1
-height = 0.2
-
 [node name="Fries" type="RigidBody3D" groups=["food", "holdable", "interactable"]]
 script = ExtResource("1_i826k")
 from_item = 1
@@ -49,14 +45,10 @@ uncooked_color = Color(0.83, 0.731368, 0.6391, 1)
 cooked_color = Color(1, 0.597, 0.07, 1)
 burnt_color = Color(0.201861, 0.102017, 1.20327e-08, 1)
 mesh_glob = "Fry*"
-cook_particles = NodePath("../CookingParticles")
+cook_particles = NodePath("")
 material_template = SubResource("ShaderMaterial_0vm8e")
 
 [node name="BumpSoundPlayer" parent="." instance=ExtResource("4_dsnb1")]
 stream = SubResource("AudioStreamRandomizer_mytyk")
-
-[node name="CookingParticles" type="GPUParticles3D" parent="."]
-lifetime = 20.0
-draw_pass_1 = SubResource("SphereMesh_mytyk")
 
 [editable path="Model"]
