@@ -9,6 +9,7 @@ class_name Customer extends AnimatableBody3D
 @export var target_pos_margin: float = 0.15
 @export var target_speed_margin: float = 0.15
 @export var traction: float = 4
+@export var rot_speed: float = 2
 @export var min_idle_time: float = 0
 @export var max_idle_time: float = 0
 @export var order_collect_speed_multiplier = 1.5
@@ -111,9 +112,18 @@ func _process(delta: float) -> void:
 	
 	velocity = velocity.move_toward(target_vel, traction * delta)
 	position += velocity * delta
-
+	
 	if velocity.length_squared() > look_forward_speed ** 2:
-		look_at(global_position + velocity)
+		var target_rot: float = atan2(velocity.x, velocity.z)
+		var current_rot: float = rotation.y
+		var counterclockwise_diff = fposmod(target_rot - current_rot, 2 * PI)
+		var abs_diff = counterclockwise_diff
+		if abs_diff > PI:
+			abs_diff = abs(abs_diff - 2 * PI)
+		var change = delta * rot_speed
+		if abs_diff < change:
+			rotation.y = target_rot
+		rotation.y = current_rot + change * sign(PI - counterclockwise_diff)
 
 
 func finish_ordering() -> void:

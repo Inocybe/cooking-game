@@ -1,10 +1,11 @@
-[gd_scene load_steps=13 format=3 uid="uid://0amasngwcl7t"]
+[gd_scene load_steps=14 format=3 uid="uid://0amasngwcl7t"]
 
 [ext_resource type="Script" uid="uid://dhr0hr1k83ovb" path="res://Scripts/Enviornment/Customer.gd" id="1_k6ujs"]
 [ext_resource type="Texture2D" uid="uid://b2ck5m6nl44aj" path="res://Assets/Sprites/2d_food_items.png" id="2_07ia1"]
 [ext_resource type="AudioStream" uid="uid://c8uaflof8jbaw" path="res://Audio/SFX/Humanoid3.mp3" id="3_406il"]
 [ext_resource type="AudioStream" uid="uid://xkwrg7at5nq" path="res://Audio/SFX/Humanoid7.mp3" id="4_5pdqg"]
 [ext_resource type="AudioStream" uid="uid://djtcjiojg6c35" path="res://Audio/SFX/Humanoid9.mp3" id="5_hyrmo"]
+[ext_resource type="Texture2D" uid="uid://c70c3v5p6yx2d" path="res://Assets/textures/happy.png" id="6_c841p"]
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_abxru"]
 
@@ -234,6 +235,12 @@ attenuation_model = 3
 [node name="AngrySoundPlayer" type="AudioStreamPlayer3D" parent="."]
 stream = ExtResource("5_hyrmo")
 attenuation_model = 3
+
+[node name="Sprite3D" type="Sprite3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.45, 0.505)
+pixel_size = 0.001
+double_sided = false
+texture = ExtResource("6_c841p")
 
 [connection signal="timeout" from="IdleTimer" to="." method="finish_idling"]
 [connection signal="timeout" from="AngryOrderNotTakenTimer" to="." method="angry_done_waiting"]
