@@ -126,7 +126,6 @@ transform = Transform3D(0.489946, 0, -0.871753, 0, 1, 0, 0.871753, 0, 0.489946, 
 
 [node name="Fan" parent="Interior" instance=ExtResource("18_etb5g")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.638339, 3.69387, -0.398408)
-fan_speed = 16.5
 
 [node name="Food Tray Positions" type="Node3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.965504, 1.68007, -1.69716)
