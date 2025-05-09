@@ -56,6 +56,8 @@ func get_burn_amount() -> float:
 
 
 func _process(delta: float) -> void:
+	delta /= Global.game_manager.weather_manager.get_cook_speed_multiplier()
+	
 	if cooking and not is_burnt:
 		cooked_amount += delta / cook_time
 	
