@@ -1,4 +1,4 @@
-[gd_scene load_steps=30 format=3 uid="uid://b3ocr5doqonyu"]
+[gd_scene load_steps=31 format=3 uid="uid://b3ocr5doqonyu"]
 
 [ext_resource type="Script" uid="uid://vgybkb0n3meq" path="res://Scripts/Foodtruck/FoodTruck.gd" id="1_rvaml"]
 [ext_resource type="PackedScene" uid="uid://cv485pktorksn" path="res://Scenes/foodtruck/cookwear/cooktop.tscn" id="2_vnxue"]
@@ -16,6 +16,7 @@
 [ext_resource type="PackedScene" uid="uid://bqqwcdfwo3i5m" path="res://Scenes/foodtruck/interior/tv.tscn" id="16_5lsjn"]
 [ext_resource type="PackedScene" uid="uid://dc5uapidqq6pc" path="res://Scenes/environment/food_safety_sign.tscn" id="16_6nta6"]
 [ext_resource type="PackedScene" uid="uid://cc6na2w6f2gjp" path="res://Scenes/foodtruck/interior/trash_can.tscn" id="16_i5ql0"]
+[ext_resource type="PackedScene" uid="uid://ba50clxb6cqko" path="res://Scenes/foodtruck/interior/grill.tscn" id="17_k0nvi"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_t5xi5"]
 size = Vector3(3.8725, 0.643555, 0.525513)
@@ -238,6 +239,9 @@ size = Vector3(6.68274, 0.699684, 0.242462)
 [node name="Ceiling" type="GPUParticlesCollisionBox3D" parent="GPUParticleColliders"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 4.06883, 0)
 size = Vector3(6.68274, 0.866755, 2.87323)
+
+[node name="Grill" parent="." instance=ExtResource("17_k0nvi")]
+transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 2.2757, 2.82329, 1.31376)
 
 [connection signal="timeout" from="New Order Timer" to="." method="maybe_invoke_ordering"]
 [connection signal="body_exited" from="Death Barrier" to="Death Barrier" method="body_exit"]

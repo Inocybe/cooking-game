@@ -1,0 +1,29 @@
+[gd_scene load_steps=5 format=3 uid="uid://ba50clxb6cqko"]
+
+[ext_resource type="ArrayMesh" uid="uid://dve6wlpc8o5ib" path="res://Assets/interior/grill/Grill.obj" id="1_3k25j"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_3k25j"]
+albedo_color = Color(0.830335, 0.830335, 0.830335, 1)
+metallic = 0.7
+roughness = 0.4
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_3k25j"]
+size = Vector3(1.2, 0.8, 0.05)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_dx7ri"]
+size = Vector3(1, 0.6, 0.07)
+
+[node name="Grill" type="StaticBody3D"]
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+transform = Transform3D(0.1, 0, 0, 0, 0.1, 0, 0, 0, 0.1, 0, 0, 0)
+mesh = ExtResource("1_3k25j")
+surface_material_override/0 = SubResource("StandardMaterial3D_3k25j")
+
+[node name="CollisionShape3D1" type="CollisionShape3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0.025)
+shape = SubResource("BoxShape3D_3k25j")
+
+[node name="CollisionShape3D2" type="CollisionShape3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0.085)
+shape = SubResource("BoxShape3D_dx7ri")
