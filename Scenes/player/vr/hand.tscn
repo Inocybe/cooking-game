@@ -1,7 +1,7 @@
 [gd_scene load_steps=5 format=3 uid="uid://b1ysbf8y1uwov"]
 
 [ext_resource type="Script" uid="uid://d3o2l5xivt5ne" path="res://Scripts/Player/VR/XRHandController.gd" id="1_ty1hw"]
-[ext_resource type="Script" uid="uid://cfk3yxt51ov7r" path="res://Scripts/Misc/GameStateToggler.gd" id="2_ho23x"]
+[ext_resource type="Script" path="res://Scripts/Misc/GameStateToggler.gd" id="2_ho23x"]
 [ext_resource type="PackedScene" uid="uid://cqhw276realc" path="res://addons/godot-xr-tools/functions/function_pointer.tscn" id="3_ybn7q"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_r8ri3"]
@@ -19,6 +19,7 @@ shape = SubResource("BoxShape3D_r8ri3")
 [node name="MenuOnly" type="Node3D" parent="."]
 script = ExtResource("2_ho23x")
 enabled_with = 1
+hide_mode = 1
 
 [node name="FunctionPointer" parent="MenuOnly" instance=ExtResource("3_ybn7q")]
 show_laser = 2
