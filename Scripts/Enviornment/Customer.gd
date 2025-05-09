@@ -123,7 +123,8 @@ func _process(delta: float) -> void:
 		var change = delta * rot_speed
 		if abs_diff < change:
 			rotation.y = target_rot
-		rotation.y = current_rot + change * sign(PI - counterclockwise_diff)
+		else:
+			rotation.y = current_rot + change * sign(PI - counterclockwise_diff)
 
 
 func finish_ordering() -> void:
