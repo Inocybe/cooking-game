@@ -1,0 +1,43 @@
+[gd_scene load_steps=2 format=3 uid="uid://cm734gkrhdi5i"]
+
+[ext_resource type="Script" uid="uid://bjm46dy7r54ne" path="res://Scripts/UI/Map/FoodGraph.gd" id="1_l3tem"]
+
+[node name="FoodStockChart" type="HBoxContainer"]
+custom_minimum_size = Vector2(0, 70)
+anchors_preset = 14
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_l3tem")
+
+[node name="FoodLable" type="TextureRect" parent="."]
+custom_minimum_size = Vector2(100, 0)
+layout_mode = 2
+
+[node name="Label" type="Label" parent="FoodLable"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "FOOD ITEM"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Chart" type="ColorRect" parent="."]
+custom_minimum_size = Vector2(250, 0)
+layout_mode = 2
+color = Color(0, 1, 0, 1)
+
+[node name="Label" type="Label" parent="Chart"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+horizontal_alignment = 1
+vertical_alignment = 1

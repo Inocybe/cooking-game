@@ -1,11 +1,12 @@
-[gd_scene load_steps=12 format=3 uid="uid://dts51sc5121xa"]
+[gd_scene load_steps=13 format=3 uid="uid://dts51sc5121xa"]
 
 [ext_resource type="Script" uid="uid://2pes0nvg65su" path="res://Scripts/UI/TVControl.gd" id="1_dxuk2"]
 [ext_resource type="Script" uid="uid://cf043oqdpedvq" path="res://Scripts/UI/Utils/Maximizer.gd" id="2_3snea"]
-[ext_resource type="Script" uid="uid://bd6g13bpjx76" path="res://Scripts/UI/DisplayDayCount.gd" id="3_feli1"]
-[ext_resource type="Script" uid="uid://ow5sv4ia1ah3" path="res://Scripts/UI/PauseButton.gd" id="3_oxpqp"]
+[ext_resource type="Script" path="res://Scripts/UI/DisplayDayCount.gd" id="3_feli1"]
+[ext_resource type="Script" path="res://Scripts/UI/PauseButton.gd" id="3_oxpqp"]
 [ext_resource type="PackedScene" uid="uid://b63qhctnjuprt" path="res://Scenes/ui/toplevel/settings_control.tscn" id="4_6sim7"]
 [ext_resource type="Script" uid="uid://wojbfe5vhxlf" path="res://Scripts/UI/Utils/SwitchSceneButton.gd" id="4_a8dsq"]
+[ext_resource type="PackedScene" uid="uid://d2f0n6ix2228b" path="res://Scenes/ui/toplevel/stock_menu_control.tscn" id="4_pdnye"]
 [ext_resource type="PackedScene" uid="uid://d3np75rswc0ee" path="res://Scenes/ui/toplevel/tutorial_control.tscn" id="7_l06ig"]
 
 [sub_resource type="Animation" id="Animation_pdnye"]
@@ -125,7 +126,6 @@ theme_override_constants/separation = 0
 [node name="GridContainer" type="GridContainer" parent="TVMenu/Left/VBoxContainer"]
 layout_mode = 2
 size_flags_horizontal = 4
-size_flags_vertical = 3
 columns = 3
 
 [node name="DayCountLabel" type="Label" parent="TVMenu/Left/VBoxContainer/GridContainer"]
@@ -190,6 +190,19 @@ layout_mode = 2
 unique_name_in_owner = true
 layout_mode = 2
 text = "10 orders"
+
+[node name="ColorRect2" type="ColorRect" parent="TVMenu/Left/VBoxContainer"]
+custom_minimum_size = Vector2(0, 5)
+layout_mode = 2
+
+[node name="StockMenuControl" parent="TVMenu/Left/VBoxContainer" node_paths=PackedStringArray("food_component_chart") instance=ExtResource("4_pdnye")]
+layout_mode = 2
+food_component_chart = {
+0: null,
+1: NodePath("VBoxContainer/FoodStockChart2"),
+2: NodePath("VBoxContainer/FoodStockChart3"),
+3: NodePath("VBoxContainer/FoodStockChart4")
+}
 
 [node name="ColorRect" type="ColorRect" parent="TVMenu/Left/VBoxContainer"]
 custom_minimum_size = Vector2(0, 5)

@@ -1,106 +1,41 @@
-[gd_scene load_steps=4 format=3 uid="uid://d2f0n6ix2228b"]
+[gd_scene load_steps=3 format=3 uid="uid://d2f0n6ix2228b"]
 
 [ext_resource type="Script" uid="uid://noqyfvatypi4" path="res://Scripts/UI/Map/BuyMenuControl.gd" id="1_el5wk"]
-[ext_resource type="Script" uid="uid://bjm46dy7r54ne" path="res://Scripts/UI/Map/FoodGraph.gd" id="1_i6ieq"]
-[ext_resource type="Texture2D" uid="uid://b8og5tfgi6crn" path="res://icon.svg" id="1_w7f3d"]
+[ext_resource type="PackedScene" uid="uid://cm734gkrhdi5i" path="res://Scenes/ui/toplevel/food_stock_chart.tscn" id="3_frrmy"]
 
-[node name="StockMenuControl" type="Control"]
+[node name="StockMenuControl" type="Control" node_paths=PackedStringArray("food_component_chart")]
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-script = ExtResource("1_el5wk")
-
-[node name="TextureRect" type="TextureRect" parent="."]
-layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
-
-[node name="MarginContainer" type="MarginContainer" parent="."]
-layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
-theme_override_constants/margin_left = 10
-theme_override_constants/margin_top = 10
-theme_override_constants/margin_right = 10
-theme_override_constants/margin_bottom = 10
-
-[node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer"]
-layout_mode = 2
-
-[node name="Charts" type="TextureRect" parent="MarginContainer/HBoxContainer"]
-custom_minimum_size = Vector2(200, 0)
-layout_mode = 2
-
-[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer/HBoxContainer/Charts"]
-layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
-
-[node name="Label" type="Label" parent="MarginContainer/HBoxContainer/Charts/VBoxContainer"]
-layout_mode = 2
-size_flags_vertical = 3
-text = "Money
-"
-
-[node name="Label2" type="Label" parent="MarginContainer/HBoxContainer/Charts/VBoxContainer"]
-layout_mode = 2
-size_flags_vertical = 3
-text = "Day"
-
-[node name="FoodStock" type="TextureRect" parent="MarginContainer/HBoxContainer"]
-layout_mode = 2
 size_flags_horizontal = 3
-texture = ExtResource("1_w7f3d")
+size_flags_vertical = 3
+script = ExtResource("1_el5wk")
+food_component_chart = {
+0: NodePath("VBoxContainer/FoodStockChart"),
+1: NodePath("VBoxContainer/FoodStockChart2"),
+2: NodePath("VBoxContainer/FoodStockChart3"),
+3: NodePath("VBoxContainer/FoodStockChart4")
+}
 
-[node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer/HBoxContainer/FoodStock"]
-custom_minimum_size = Vector2(0, 70)
-layout_mode = 1
-anchors_preset = 14
-anchor_top = 0.5
-anchor_right = 1.0
-anchor_bottom = 0.5
-grow_horizontal = 2
-grow_vertical = 2
-script = ExtResource("1_i6ieq")
-
-[node name="FoodLable" type="TextureRect" parent="MarginContainer/HBoxContainer/FoodStock/HBoxContainer"]
-custom_minimum_size = Vector2(100, 0)
-layout_mode = 2
-
-[node name="Label" type="Label" parent="MarginContainer/HBoxContainer/FoodStock/HBoxContainer/FoodLable"]
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-text = "FOOD ITEM"
-horizontal_alignment = 1
-vertical_alignment = 1
 
-[node name="Chart" type="ColorRect" parent="MarginContainer/HBoxContainer/FoodStock/HBoxContainer"]
-custom_minimum_size = Vector2(250, 0)
+[node name="FoodStockChart" parent="VBoxContainer" instance=ExtResource("3_frrmy")]
 layout_mode = 2
-color = Color(0, 1, 0, 1)
 
-[node name="Label" type="Label" parent="MarginContainer/HBoxContainer/FoodStock/HBoxContainer/Chart"]
-layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
-horizontal_alignment = 1
-vertical_alignment = 1
+[node name="FoodStockChart2" parent="VBoxContainer" instance=ExtResource("3_frrmy")]
+layout_mode = 2
+
+[node name="FoodStockChart3" parent="VBoxContainer" instance=ExtResource("3_frrmy")]
+layout_mode = 2
+
+[node name="FoodStockChart4" parent="VBoxContainer" instance=ExtResource("3_frrmy")]
+layout_mode = 2
