@@ -45,3 +45,8 @@ transform = Transform3D(0.75, 0, 0, 0, 0.75, 0, 0, 0, 0.75, 0.000320435, 0.36725
 shape = SubResource("BoxShape3D_ml6gt")
 
 [node name="MusicManager" parent="." instance=ExtResource("3_ml6gt")]
+town_default_songs = Dictionary[int, int]({
+0: 0,
+1: 1,
+2: 2
+})
