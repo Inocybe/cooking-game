@@ -25,7 +25,7 @@ func _ready() -> void:
 
 
 func handle_resize() -> void:
-	var margin_value: float = size.y * margin_fraction
+	var margin_value: int = roundi(size.y * margin_fraction)
 	var inner: MarginContainer = %InnerMargin
 	inner.add_theme_constant_override("margin_top", margin_value)
 	inner.add_theme_constant_override("margin_left", margin_value)

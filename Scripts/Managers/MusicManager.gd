@@ -1,4 +1,4 @@
-extends Node
+class_name MusicManager extends Node
 
 
 @export var song_players: Array[AudioStreamPlayer]
@@ -12,8 +12,7 @@ var playlist_order: Array[int] = []
 
 func _ready() -> void:
 	set_music_speed(1)
-	generate_playlist_order()
-	play_next_song()
+	play_next()
 
 
 func _process(_delta: float) -> void:
@@ -38,14 +37,20 @@ func generate_playlist_order() -> void:
 
 
 func song_ended() -> void:
+	play_next()
+
+
+func play_next() -> void:
 	if len(playlist_order) == 0:
 		generate_playlist_order()
-	play_next_song()
-
-
-func play_next_song() -> void:
 	var song: int = playlist_order.pop_back()
 	if song == -1:
 		$NoMusicTimer.start()
 	else:
 		song_players[song].play()
+
+
+func stop_music() -> void:
+	$NoMusicTimer.stop()
+	for player: AudioStreamPlayer in song_players:
+		player.stop()

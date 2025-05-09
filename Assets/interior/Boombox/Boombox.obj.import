@@ -1,0 +1,25 @@
+[remap]
+
+importer="wavefront_obj"
+importer_version=1
+type="Mesh"
+uid="uid://da5lc54gilxog"
+path="res://.godot/imported/Boombox.obj-5d1adadd76befcb0a8e1ca2f84ccf33e.mesh"
+
+[deps]
+
+files=["res://.godot/imported/Boombox.obj-5d1adadd76befcb0a8e1ca2f84ccf33e.mesh"]
+
+source_file="res://Assets/interior/Boombox/Boombox.obj"
+dest_files=["res://.godot/imported/Boombox.obj-5d1adadd76befcb0a8e1ca2f84ccf33e.mesh", "res://.godot/imported/Boombox.obj-5d1adadd76befcb0a8e1ca2f84ccf33e.mesh"]
+
+[params]
+
+generate_tangents=true
+generate_lods=true
+generate_shadow_mesh=true
+generate_lightmap_uv2=false
+generate_lightmap_uv2_texel_size=0.2
+scale_mesh=Vector3(1, 1, 1)
+offset_mesh=Vector3(0, 0, 0)
+force_disable_mesh_compression=false
