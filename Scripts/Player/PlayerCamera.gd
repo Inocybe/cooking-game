@@ -72,8 +72,9 @@ func shoot_ray() -> Dictionary:
 
 func pick_up(obj: Node) -> void:
 	picked_up_thing.emit()
-	selected_object = obj
-	obj.on_start_interact()
+	selected_object = obj.on_start_interact()
+	if selected_object == null:
+		selected_object = obj
 	timer.start()
 	if obj.is_in_group("holdable"):
 		held_distance = (global_position - obj.global_position).length()

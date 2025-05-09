@@ -89,14 +89,27 @@ func do_position_correction(delta: float) -> void:
 	apply_central_impulse(mass * plane_impulse)
 
 
-func on_start_interact() -> void:
+func on_start_interact() -> Node3D:
+	if freeze and get_parent().has_method("on_start_interact"):
+		var parent = get_parent()
+		var obj = parent.on_start_interact()
+		if obj == null:
+			obj = parent
+		return obj
+	
 	held = true
 	gravity_scale = 0
 	angular_damp = held_angular_damp
 	sleeping = false
+	
+	return null
 
 
 func on_stop_interact() -> void:
+	if freeze and get_parent().has_method("on_stop_interact"):
+		var parent = get_parent()
+		parent.on_stop_interact()
+	
 	held = false
 	gravity_scale = default_gravity_scale
 	angular_damp = standard_angular_damp
