@@ -45,6 +45,10 @@ func set_from_town(town: TownResource) -> void:
 	lightning_manager.set_lightning_chance(lightning_chance)
 
 
+func get_cook_speed_multiplier() -> float:
+	return 0.0003 * (temperature - 30) ** 2 + 0.73
+
+
 static func get_storminess(type_: WeatherType) -> float:
 	return {
 		WeatherType.Sunny: 0,

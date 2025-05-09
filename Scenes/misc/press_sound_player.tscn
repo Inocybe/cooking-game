@@ -1,9 +1,15 @@
-[gd_scene load_steps=2 format=3 uid="uid://cit4uvdnwepyi"]
+[gd_scene load_steps=3 format=3 uid="uid://cit4uvdnwepyi"]
 
 [ext_resource type="AudioStream" uid="uid://ix7dll1euvav" path="res://Audio/SFX/Click3.mp3" id="1_q2w4l"]
 
+[sub_resource type="AudioStreamRandomizer" id="AudioStreamRandomizer_q2w4l"]
+random_pitch = 1.1
+random_volume_offset_db = 2.0
+streams_count = 1
+stream_0/stream = ExtResource("1_q2w4l")
+
 [node name="PressSoundPlayer" type="AudioStreamPlayer"]
 process_mode = 3
-stream = ExtResource("1_q2w4l")
+stream = SubResource("AudioStreamRandomizer_q2w4l")
 volume_db = 20.0
 pitch_scale = 1.5

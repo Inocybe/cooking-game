@@ -207,6 +207,12 @@ shape = SubResource("CapsuleShape3D_abxru")
 [node name="MeshInstance3D" type="MeshInstance3D" parent="."]
 mesh = SubResource("CapsuleMesh_kkdac")
 
+[node name="Sprite3D" type="Sprite3D" parent="MeshInstance3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.45, 0.505)
+pixel_size = 0.001
+double_sided = false
+texture = ExtResource("6_c841p")
+
 [node name="IdleTimer" type="Timer" parent="."]
 
 [node name="AngryOrderNotTakenTimer" type="Timer" parent="."]
@@ -235,12 +241,6 @@ attenuation_model = 3
 [node name="AngrySoundPlayer" type="AudioStreamPlayer3D" parent="."]
 stream = ExtResource("5_hyrmo")
 attenuation_model = 3
-
-[node name="Sprite3D" type="Sprite3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.45, 0.505)
-pixel_size = 0.001
-double_sided = false
-texture = ExtResource("6_c841p")
 
 [connection signal="timeout" from="IdleTimer" to="." method="finish_idling"]
 [connection signal="timeout" from="AngryOrderNotTakenTimer" to="." method="angry_done_waiting"]
