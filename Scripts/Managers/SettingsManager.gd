@@ -7,6 +7,7 @@ var overall_volume: float = 1
 var music_volume: float = 1
 var environment_volume: float = 1
 var mouse_sensitivity: float = 4
+var difficulty: int = 1
 
 enum VRMoveMode {
 	CHAIR, WALK
@@ -66,6 +67,7 @@ func get_settings_json() -> Dictionary:
 		"overall_volume": overall_volume,
 		"music_volume": music_volume,
 		"mouse_sensitivity": mouse_sensitivity,
+		"difficulty": difficulty,
 		"vr_move_mode": vr_move_mode
 	}
 
@@ -74,4 +76,5 @@ func read_settings_json(json: Dictionary) -> void:
 	overall_volume = json["overall_volume"]
 	music_volume = json["music_volume"]
 	mouse_sensitivity = json["mouse_sensitivity"]
+	difficulty = int(json["difficulty"])
 	vr_move_mode = json["vr_move_mode"]
