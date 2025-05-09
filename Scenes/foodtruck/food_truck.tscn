@@ -1,4 +1,4 @@
-[gd_scene load_steps=32 format=3 uid="uid://b3ocr5doqonyu"]
+[gd_scene load_steps=33 format=3 uid="uid://b3ocr5doqonyu"]
 
 [ext_resource type="Script" uid="uid://vgybkb0n3meq" path="res://Scripts/Foodtruck/FoodTruck.gd" id="1_rvaml"]
 [ext_resource type="PackedScene" uid="uid://cv485pktorksn" path="res://Scenes/foodtruck/cookwear/cooktop.tscn" id="2_vnxue"]
@@ -18,6 +18,7 @@
 [ext_resource type="PackedScene" uid="uid://cc6na2w6f2gjp" path="res://Scenes/foodtruck/interior/trash_can.tscn" id="16_i5ql0"]
 [ext_resource type="PackedScene" uid="uid://ba50clxb6cqko" path="res://Scenes/foodtruck/interior/grill.tscn" id="17_k0nvi"]
 [ext_resource type="PackedScene" uid="uid://d3q6gfjo36jv1" path="res://Scenes/foodtruck/interior/boombox.tscn" id="17_ykid2"]
+[ext_resource type="PackedScene" uid="uid://chp5hh84dsykh" path="res://Scenes/foodtruck/interior/fan.tscn" id="18_etb5g"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_t5xi5"]
 size = Vector3(3.8725, 0.643555, 0.525513)
@@ -90,13 +91,13 @@ transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 0.7006
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 3.10291, -0.266257)
 
 [node name="Light 1" parent="Interior/Lights" instance=ExtResource("12_o0it0")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.510729, 0.465117, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.510729, 0.465117, -0.128)
 
 [node name="Light 2" parent="Interior/Lights" instance=ExtResource("12_o0it0")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.444499, 0.465, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.612327, 0.399415, -0.128026)
 
 [node name="Light 3" parent="Interior/Lights" instance=ExtResource("12_o0it0")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.63205, 0.465, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.63205, 0.465, -0.128)
 
 [node name="Finished Order Bell" parent="Interior" instance=ExtResource("11_na1yo")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.525573, 1.85102, -1.38077)
@@ -122,6 +123,10 @@ transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 2.2757
 
 [node name="Boombox" parent="Interior" instance=ExtResource("17_ykid2")]
 transform = Transform3D(0.489946, 0, -0.871753, 0, 1, 0, 0.871753, 0, 0.489946, 2.27706, 1.54254, -1.74237)
+
+[node name="Fan" parent="Interior" instance=ExtResource("18_etb5g")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.638339, 3.69387, -0.398408)
+fan_speed = 16.5
 
 [node name="Food Tray Positions" type="Node3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.965504, 1.68007, -1.69716)
